@@ -21,13 +21,14 @@ class Page{
             (canvas.width*0.04),
             "Sole Service"
         ));
-        this.list.push(new Titletext(
+        this.list.push(new Ntext(
             (canvas.width/2),
             (canvas.height*0.5),
             (canvas.width),
             "Helvetica",
             (canvas.width*0.015),
-            `From the details you have entered, the chosen service is will be provided by Sidra Medicine as a sole provider.`
+            `From the details you have entered, the chosen service is will be provided by Sidra Medicine as a sole provider.`,
+            "center"
         ));
         let btntext = new Buttontext(
             (canvas.width/2),

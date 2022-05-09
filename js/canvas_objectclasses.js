@@ -271,6 +271,56 @@ class SubtitleText {
 
 }
 
+class Ntext {
+    constructor(x,y,w,font,size,msg,align){
+        this.name = "Titletext";
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.font = font;
+        this.size = size;
+        this.msg = msg;
+        this.opacity = 0;
+        this.align = align;
+        this.state = 0; //0 - Instantiated ; 1 - Stable; 2 - To be deleted
+    }
+
+    draw = () => {
+        switch (this.state) {
+            case 0:
+                c.font = `${this.size}px ${this.font}`
+                c.fillStyle = `rgb(221,221,221,${Math.pow(this.opacity,2)/10000})`;
+                c.textAlign = this.align;
+                c.fillText(this.msg, this.x, this.y, this.w);
+                if (this.opacity < 100) {
+                    this.opacity += 1;
+                }
+                break;
+        
+            case 1:
+                c.font = `${this.size}px ${this.font}`
+                c.fillStyle = `rgb(221,221,221,1)`;
+                c.textAlign = this.align;
+                c.fillText(this.msg, this.x, this.y, this.w);
+                break;
+
+            case 2:
+                if (this.opacity > 0) {
+                    c.font = `${this.size}px ${this.font}`
+                    c.fillStyle = `rgb(221,221,221,${Math.pow(this.opacity,2)/10000})`;
+                    c.textAlign = this.align;
+                    c.fillText(this.msg, this.x, this.y, this.w);
+                    this.opacity -= 1;
+                }
+                break;
+        }
+    }
+    delete = () => {
+        this.state = 2;
+    }
+
+}
+
 class Rightbutton {
     constructor(x,y){
         this.name = "Rightbutton";
@@ -304,4 +354,97 @@ class Leftbutton {
         c.fill();
     }
     delete = () => {}
+}
+
+class Tickbox {
+    constructor(x, y, w, colour) {
+        this.name = "Tickbox";
+        this.x = x;
+        this.y = y+150;
+        this.w = w;
+        this.colour = colour;
+        this.opacity = 0;
+        this.vel = 10;
+        this.state = 0; //0 - Instantiated ; 1 - Stable/Unticked; 2 - Ticked; 3 - To be deleted
+        this.tickanim = {
+            frame:0,
+            length:50,
+            px:this.x+5,
+            py:(this.y-150)+(this.w-15),
+            strokenum:0
+        };
+    }
+
+    draw = () => {
+        // console.log(this.opacity + " " + this.state);
+        switch(this.state) {
+            case 0:
+                c.beginPath();
+                c.strokeStyle = `rgba(221,221,221,${Math.pow(this.opacity,2)/10000}`;
+                c.rect(this.x, this.y, this.w, this.w);
+                c.lineWidth = 2;
+                c.stroke();
+                if (this.opacity < 100) {
+                    this.opacity += 1;
+                    this.y -= this.vel;
+                    this.vel -= this.vel/15;
+                } else {
+                    this.state = 1;
+                }
+                break;
+            case 1:
+                c.beginPath();
+                c.strokeStyle = `rgba(221,221,221,1)`;
+                c.rect(this.x, this.y, this.w, this.w);
+                c.lineWidth = 2;
+                c.stroke();
+                this.vel = 0;
+                this.opacity = 100;
+                break;
+            case 2:
+                c.beginPath();
+                c.strokeStyle = `rgba(221,221,221,1`;
+                c.rect(this.x, this.y, this.w, this.w);
+                c.lineWidth = 2;
+                c.stroke();
+                c.beginPath();
+                c.moveTo(this.x+5,this.y+this.w-15);
+                if (this.tickanim.frame < this.tickanim.length){
+                    this.tickanim.frame++;
+                }
+                if (this.tickanim.strokenum == 0){ //stroke 1
+                    this.tickanim.px += (this.tickanim.frame/this.tickanim.length)*(this.x+12-this.tickanim.px);
+                    this.tickanim.py += (this.tickanim.frame/this.tickanim.length)*(this.y+this.w-7-this.tickanim.py);
+                    c.lineTo(this.tickanim.px,this.tickanim.py);
+                    if (this.tickanim.frame >= this.tickanim.length/2) {
+                        this.tickanim.strokenum = 1;
+                    }
+                }
+                if (this.tickanim.strokenum == 1){ //stroke 2
+                    c.lineTo(this.x+12,this.y+this.w-7);
+                    this.tickanim.px += ((this.x+this.w-5-this.tickanim.px)*(this.tickanim.frame/this.tickanim.length));
+                    this.tickanim.py += ((this.y+5-this.tickanim.py)*(this.tickanim.frame/this.tickanim.length));
+                    c.lineTo(this.tickanim.px,this.tickanim.py);
+                }
+                c.lineWidth = 3;
+                c.stroke();
+                break;
+        }
+    }
+
+    delete = () => {
+        this.state = 3;
+    };
+
+    tick = () =>{
+        this.state = 2;
+    };
+
+    hovering = () => {
+        if (isHovering(mpos.x, mpos.y, this.x, this.y, this.w, this.w)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
