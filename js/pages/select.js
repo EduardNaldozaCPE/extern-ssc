@@ -17,7 +17,7 @@ class Page{
                 "Emergency Services", "Clinical Assessment", "Comorbidity Assessment"
             ],
             url:[
-                "ageform.html", "index.html", "index.html", 
+                "ageform.html", getRootDir(1)+"index.html", "index.html", 
                 "index.html", "index.html", "index.html", 
                 "index.html", "index.html", "index.html"
             ]

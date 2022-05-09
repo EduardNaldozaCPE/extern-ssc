@@ -19,6 +19,19 @@ function isHovering(x1,y1,x2,y2,w2,h2) {
 //function getPath_last() {
 //    return location.pathname.split("/")[location.pathname.split("/").length-1]
 //}
+function getRootDir(subfoldernum) {
+    let dir = location.pathname.split("/");
+    let finaldir = "";
+    dir.pop();
+    for (let i=0; i<subfoldernum; i++){
+        dir.pop();
+    }
+    dir.shift();
+    dir.forEach(l => {
+        finaldir += l + '/';
+    });
+    return finaldir;
+}
 //function getPath_secondlast() {
 //    return location.pathname.split("/")[location.pathname.split("/").length-2]
 //}
