@@ -14,20 +14,28 @@ class Page{
             name:[
                 "CAMHS", "Genetics", "ENT", 
                 "Plastic Surgery", "Dermatology", "Gynecology", 
-                "Emergency Services", "Clinical Assessment", "Comorbidity Assessment"
+                "","Emergency Services"
             ],
             url:[
                 "ageform.html", getRootDir(1)+"index.html", "index.html", 
                 "index.html", "index.html", "index.html", 
-                "index.html", "index.html", "index.html"
+                "index.html", "index.html"
             ]
         };
         let count = 0;
-        for (let j=1; j<=3; j++){
+        for (let row=1; row<=3; row++){
             for (let i=1; i<=3; i++){
+                if (count == 6){
+                    count++;
+                    continue;
+                }
+                if (count == 8){
+                    break;
+                }
+
                 let btntext = new Buttontext(
                     ((i*canvas.width)/4),
-                    (canvas.height/3)+(j*canvas.height/8)+7,
+                    (canvas.height/3)+(row*canvas.height/8)+7,
                     canvas.width/4.5,
                     "Helvetica",
                     20,
@@ -37,7 +45,7 @@ class Page{
                 //BUTTON 1 FRAME (STATE 1)
                 this.list.push(new GuiButton1(
                     ((i*canvas.width)/4)-((canvas.width/4.5)/2),
-                    (canvas.height/3)+(j*canvas.height/8)-(50/2),
+                    (canvas.height/3)+(row*canvas.height/8)-(50/2),
                     canvas.width/4.5,
                     50,
                     "#fff",
@@ -45,6 +53,9 @@ class Page{
                     btntext
                 ));
                 count++;
+            }
+            if (count == 8){
+                break;
             }
         }
     

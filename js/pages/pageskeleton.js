@@ -4,6 +4,7 @@ class Page{
     }
     initpage = () => {}
     startInstanceList = () => {
+        //Add Page Objects here
         return this.list;
     }
 
