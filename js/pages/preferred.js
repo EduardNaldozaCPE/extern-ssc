@@ -48,6 +48,18 @@ class Page{
             "select.html",
             btntext
         ));
+        if (localStorage.getItem('branch') != 'CAMHS'){
+            this.list.push(new Ntext(
+                canvas.width/2,
+                5*canvas.height/8+20,
+                canvas.width,
+                'Helvetica',
+                'italic 12',
+                '* All Self Referrals are Preferred',
+                'center'
+            ));
+        }
+
         return this.list;
     }
 

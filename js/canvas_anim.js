@@ -1,5 +1,4 @@
 lineArray = newLineArray();
-canvasState = new c_page();
 // Instantiating Objects in Animation
 function animation(frame) {
     frame++;
@@ -15,7 +14,12 @@ function animation(frame) {
 
     //Animate canvas states
     if (pageState == 0) {
-        canvasState.animate()
+        if(frame_floored >= 15){
+            //Draw each instance in the list.
+            instanceList.forEach((instanceobj, i) => {
+                instanceobj.draw();
+            });
+        }
     } else {
         console.log("Loading next page");
     }
