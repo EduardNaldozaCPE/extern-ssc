@@ -1,5 +1,5 @@
 // CHANGE FADE AWAY CALCULATION (USE THE CALCULATION IN TICKBOX OBJECT)
-// - x += (frame/animationLength)*(destination-x)
+// 	x += (frame/animationLength)*(destination-x)
 // GET RID OF CANVAS STATES
 // REDO AGE FORM: TICK BOX INSTEAD OF INPUT, MAKE MODULAR FOR DIFFERENT AGE REQUIREMENTS (Use LS)
 // SIDRA LOGO

@@ -9,14 +9,15 @@ class Page{
             canvas.width/2,
             canvas.height/2,
             30,
-            "#fff"
+            "#fff",
+            'ageReq'
         ));
         return this.list;
     }
 
     action = () => {
         if (this.list[0].hovering()){
-            this.list[0].tick();
+            this.list[0].tickToggle();
         }
     }
 

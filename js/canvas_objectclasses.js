@@ -357,15 +357,16 @@ class Leftbutton {
 }
 
 class Tickbox {
-    constructor(x, y, w, colour) {
+    constructor(x, y, w, colour, key) {
         this.name = "Tickbox";
         this.x = x;
         this.y = y+150;
         this.w = w;
         this.colour = colour;
+        this.key = key;
         this.opacity = 0;
         this.vel = 10;
-        this.state = 0; //0 - Instantiated ; 1 - Stable/Unticked; 2 - Ticked; 3 - To be deleted
+        this.state = 0; //0 - Instantiated ; 1 - Unticked; 2 - Ticked; 3 - To be deleted
         this.tickanim = {
             frame:0,
             length:50,
@@ -373,6 +374,10 @@ class Tickbox {
             py:(this.y-150)+(this.w-15),
             strokenum:0
         };
+        this.disabled = false;
+
+
+        localStorage.setItem(this.key, 'false');
     }
 
     draw = () => {
@@ -403,7 +408,7 @@ class Tickbox {
                 break;
             case 2:
                 c.beginPath();
-                c.strokeStyle = `rgba(221,221,221,1`;
+                c.strokeStyle = `rgba(221,221,221,1)`;
                 c.rect(this.x, this.y, this.w, this.w);
                 c.lineWidth = 2;
                 c.stroke();
@@ -430,15 +435,44 @@ class Tickbox {
                 c.stroke();
                 break;
         }
+        if (this.disabled) {
+            c.strokeStyle = `rgba(221,221,221,0.3)`;
+        }
     }
 
     delete = () => {
         this.state = 3;
     };
 
-    tick = () =>{
-        this.state = 2;
+    tickToggle = () =>{
+        if (!this.disabled) {
+            switch (this.state) {
+                case 1:
+                    this.tickanim = {
+                    frame:0,
+                    length:50,
+                    px:this.x+5,
+                    py:(this.y)+(this.w-15),
+                    strokenum:0
+                    };
+                    localStorage.setItem(this.key, 'true');
+                    this.state = 2;
+                    break;
+            
+                case 2:
+                    localStorage.setItem(this.key, 'false');
+                    this.state = 1;
+                    break;
+            }
+        }
     };
+    
+    disable = () => {
+        this.disabled = true;
+    }
+    enable = () => {
+        this.disabled = false;
+    }
 
     hovering = () => {
         if (isHovering(mpos.x, mpos.y, this.x, this.y, this.w, this.w)) {
@@ -447,4 +481,9 @@ class Tickbox {
             return false;
         }
     }
+}
+
+class EmptyObj {
+    draw = () => {}
+    delete = () => {}
 }

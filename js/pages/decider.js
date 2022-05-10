@@ -5,7 +5,8 @@ class Page{
     initpage = () => {
         switch (localStorage.getItem('branch')) {
             case "CAMHS":
-                if(localStorage.getItem('clientAge') <= 14){
+                if(localStorage.getItem('in-out-patient') == 'true'
+                    && localStorage.getItem('ageReq') == 'true'){
                     location.href = 'sole.html';
                 } else {
                     location.href = 'preferred.html';
