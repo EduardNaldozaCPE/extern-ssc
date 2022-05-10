@@ -33,12 +33,23 @@ class Page{
                     break;
                 }
 
+                let boxheight = 50;
+                let boxwidth = canvas.width/4.5;
+                let fontsize = ((boxwidth+boxheight)/2)/10;
+                if (canvas.width <= 620){
+                    fontsize = ((boxwidth+boxheight)/2)/6;
+                } 
+                if (canvas.width <= 620){
+                    servicelist.name.splice(7,1,"Emergency");
+                    servicelist.name.splice(3,1,"Plastic Surg.");
+                }
+
                 let btntext = new Buttontext(
                     ((i*canvas.width)/4),
                     (canvas.height/3)+(row*canvas.height/8)+7,
-                    canvas.width/4.5,
+                    boxwidth,
                     "Helvetica",
-                    20,
+                    fontsize,
                     servicelist.name[count]
                 );
                 this.list.push(btntext);
@@ -46,8 +57,8 @@ class Page{
                 this.list.push(new GuiButton1(
                     ((i*canvas.width)/4)-((canvas.width/4.5)/2),
                     (canvas.height/3)+(row*canvas.height/8)-(50/2),
-                    canvas.width/4.5,
-                    50,
+                    boxwidth,
+                    boxheight,
                     "#fff",
                     servicelist.url[count],
                     btntext

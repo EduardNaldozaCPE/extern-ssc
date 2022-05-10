@@ -1,6 +1,7 @@
 class Page{
     constructor(){
         this.list = [];
+        this.fontsize = canvas.width/30;
     }
     initpage = () => {
         window.onload = () => {
@@ -12,11 +13,14 @@ class Page{
         };
     }
     startInstanceList = () => {
+        if (canvas.width > 600) {
+            this.fontsize = 15;
+        }
         var subheight = undefined;
         if (canvas.width > 780) {
-            subheight = canvas.width*0.15;
+            subheight = canvas.width*0.1;
         } else {
-            subheight = 2*canvas.height/6;
+            subheight = 1*canvas.height/6;
         }
         this.list.push(new Titletext(
             (canvas.width/2),
@@ -52,13 +56,12 @@ class Page{
             'decider.html',
             btntext
         ));
-
         this.list.push(new Ntext(
-            1.5*canvas.width/5,
+            this.textx(),
             3*canvas.height/8+20,
             canvas.width,
             'Helvetica',
-            '15',
+            this.fontsize,
             'Is this person an Inpatient?',
             'left'
         ));
@@ -70,7 +73,7 @@ class Page{
             5*canvas.height/8+20,
             canvas.width,
             'Helvetica',
-            'italic 12',
+            `italic ${this.fontsize}`,
             '* only 14 years and under allowed for CAMHS Oupatients',
             'center'
         ));
@@ -89,14 +92,13 @@ class Page{
         if (this.list[1].hovering()) {
             this.list[1].tickToggle();
             if (this.list[1].state == 2) {
-                // this.list[2].disable();
                 this.list.splice(5,2);
                 this.list.push(new Ntext(
-                    1.5*canvas.width/5,
+                    this.textx(),
                     4*canvas.height/8+20,
                     canvas.width,
                     'Helvetica',
-                    '15',
+                    this.fontsize,
                     'Is this patient over 14 years old?',
                     'left'
                 ));
@@ -116,7 +118,7 @@ class Page{
                         5*canvas.height/8+20,
                         canvas.width,
                         'Helvetica',
-                        'italic 12',
+                        `italic ${this.fontsize}`,
                         '* only 14 years and under allowed for CAMHS Oupatients',
                         'center'
                     ));   
@@ -124,6 +126,14 @@ class Page{
         }
         if (this.list[1].state == 2 && this.list[6].hovering()){
             this.list[6].tickToggle();
+        }
+    }
+    
+    textx = () => {
+        if (canvas.width >= 600){
+            return (1*canvas.width/5)+(canvas.width/12);
+        } else {
+            return (1*canvas.width/7);
         }
     }
 
