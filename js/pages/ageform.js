@@ -4,13 +4,13 @@ class Page{
         this.fontsize = canvas.width/30;
     }
     initpage = () => {
-        window.onload = () => {
-            $("#in-text.hidden").slideDown("slow");
-            $("#in-text").css('opacity', 0).slideDown('slow').animate(
-              { opacity: 1 },
-              { queue: false, duration: 'slow' }
-            );
-        };
+        // window.onload = () => {
+        //     $("#in-text.hidden").slideDown("slow");
+        //     $("#in-text").css('opacity', 0).slideDown('slow').animate(
+        //       { opacity: 1 },
+        //       { queue: false, duration: 'slow' }
+        //     );
+        // };
     }
     startInstanceList = () => {
         if (canvas.width > 600) {
@@ -27,16 +27,192 @@ class Page{
             subheight,
             (canvas.width*0.75),
             "Helvetica",
-            (canvas.width*0.04),
+            this.fontsize*3,
             "Questionaire"
         ));
-        this.list.push(new Tickbox(
-            3.5*canvas.width/5,
-            3*canvas.height/8,
-            30,
-            "#fff",
-            'in-out-patient'
-        ));
+        switch (localStorage.getItem('branch')) {
+            case 'Genetics':
+                this.list.push(new SubtitleText(
+                    (canvas.width/2),
+                    subheight+(canvas.height*0.06),
+                    (canvas.width*0.75),
+                    "Helvetica",
+                    this.fontsize*1.4,
+                    "Genetics"
+                ));
+                this.list.push(new Tickbox(
+                    3.5*canvas.width/5,
+                    3*canvas.height/8,
+                    30,
+                    "#fff",
+                    'ageReq'
+                ));
+                this.list.push(new Ntext(
+                    this.textx(),
+                    3*canvas.height/8+20,
+                    canvas.width,
+                    'Helvetica',
+                    this.fontsize,
+                    'Is this patient below 18 years of age?',
+                    'left'
+                ));
+                this.list.push(new Ntext(
+                    this.textx(),
+                    4*canvas.height/8+20,
+                    canvas.width,
+                    'Helvetica',
+                    this.fontsize,
+                    'Is the patient self-referred?',
+                    'left'
+                ));
+                this.list.push(new Tickbox(
+                    3.5*canvas.width/5,
+                    4*canvas.height/8,
+                    30,
+                    "#fff",
+                    'selfRef'
+                ));
+                break;
+
+            case 'ENT':
+                this.list.push(new SubtitleText(
+                    (canvas.width/2),
+                    subheight+(canvas.height*0.06),
+                    (canvas.width*0.75),
+                    "Helvetica",
+                    this.fontsize*1.4,
+                    "ENT"
+                ));
+                this.list.push(new Tickbox(
+                    3.5*canvas.width/5,
+                    3*canvas.height/8,
+                    30,
+                    "#fff",
+                    'ageReq'
+                ));
+                this.list.push(new Ntext(
+                    this.textx(),
+                    3*canvas.height/8+20,
+                    canvas.width,
+                    'Helvetica',
+                    this.fontsize,
+                    'Is this patient 3 years old or younger?',
+                    'left'
+                ));
+                this.list.push(new Ntext(
+                    this.textx(),
+                    4*canvas.height/8+20,
+                    canvas.width,
+                    'Helvetica',
+                    this.fontsize,
+                    'Is the patient self-referred?',
+                    'left'
+                ));
+                this.list.push(new Tickbox(
+                    3.5*canvas.width/5,
+                    4*canvas.height/8,
+                    30,
+                    "#fff",
+                    'selfRef'
+                ));
+                break;            
+
+            case 'Plastic Surgery':
+                this.list.push(new SubtitleText(
+                    (canvas.width/2),
+                    subheight+(canvas.height*0.06),
+                    (canvas.width*0.75),
+                    "Helvetica",
+                    this.fontsize*1.4,
+                    "Plastic Surgery"
+                ));
+                this.list.push(new Tickbox(
+                    3.5*canvas.width/5,
+                    3*canvas.height/8,
+                    30,
+                    "#fff",
+                    'ageReq'
+                ));
+                this.list.push(new Ntext(
+                    this.textx(),
+                    3*canvas.height/8+20,
+                    canvas.width,
+                    'Helvetica',
+                    this.fontsize,
+                    'Is this patient below 18 years of age?',
+                    'left'
+                ));
+                this.list.push(new Ntext(
+                    this.textx(),
+                    4*canvas.height/8+20,
+                    canvas.width,
+                    'Helvetica',
+                    this.fontsize,
+                    'Is the patient self-referred?',
+                    'left'
+                ));
+                this.list.push(new Tickbox(
+                    3.5*canvas.width/5,
+                    4*canvas.height/8,
+                    30,
+                    "#fff",
+                    'selfRef'
+                ));
+                let btntext = new Buttontext(
+                    (canvas.width/2),
+                    (4*(canvas.height/5))+7,
+                    200,
+                    "Helvetica",
+                    20,
+                    "Continue" 
+                );
+                break;
+            
+            case 'Dermatology':
+                this.list.push(new SubtitleText(
+                    (canvas.width/2),
+                    subheight+(canvas.height*0.06),
+                    (canvas.width*0.75),
+                    "Helvetica",
+                    this.fontsize*1.4,
+                    "Dermatology"
+                ));
+                this.list.push(new Tickbox(
+                    3.5*canvas.width/5,
+                    3*canvas.height/8,
+                    30,
+                    "#fff",
+                    'ageReq'
+                ));
+                this.list.push(new Ntext(
+                    this.textx(),
+                    3*canvas.height/8+20,
+                    canvas.width,
+                    'Helvetica',
+                    this.fontsize,
+                    'Is this patient below 3 months of age?',
+                    'left'
+                ));
+                this.list.push(new Ntext(
+                    this.textx(),
+                    4*canvas.height/8+20,
+                    canvas.width,
+                    'Helvetica',
+                    this.fontsize,
+                    'Is the patient self-referred?',
+                    'left'
+                ));
+                this.list.push(new Tickbox(
+                    3.5*canvas.width/5,
+                    4*canvas.height/8,
+                    30,
+                    "#fff",
+                    'selfRef'
+                ));
+                break;
+
+        }
+        
         let btntext = new Buttontext(
             (canvas.width/2),
             (4*(canvas.height/5))+7,
@@ -56,76 +232,34 @@ class Page{
             'decider.html',
             btntext
         ));
-        this.list.push(new Ntext(
-            this.textx(),
-            3*canvas.height/8+20,
-            canvas.width,
-            'Helvetica',
-            this.fontsize,
-            'Is this person an Inpatient?',
-            'left'
-        ));
-
-        this.list.push(new EmptyObj());
-
-        this.list.push(new Ntext(
-            canvas.width/2,
-            5*canvas.height/8+20,
-            canvas.width,
-            'Helvetica',
-            `italic ${this.fontsize}`,
-            '* only 14 years and under allowed for CAMHS Oupatients',
-            'center'
-        ));
-
 
         return this.list;
     }
     
     action = () => {
-        let button = this.list[3]
+        let button = this.list[7]
         if (button.hovering()){
             this.list.forEach(element => {
                 element.delete()
             });
         }
-        if (this.list[1].hovering()) {
-            this.list[1].tickToggle();
-            if (this.list[1].state == 2) {
-                this.list.splice(5,2);
-                this.list.push(new Ntext(
-                    this.textx(),
-                    4*canvas.height/8+20,
-                    canvas.width,
-                    'Helvetica',
-                    this.fontsize,
-                    'Is this patient over 14 years old?',
-                    'left'
-                ));
-                this.list.push(new Tickbox(
-                    3.5*canvas.width/5,
-                    4*canvas.height/8,
-                    30,
-                    "#fff",
-                    'ageReq'
-                ));
-
-            } else if (this.list[1].state == 1){
-                this.list.splice(5,2);
-                this.list.splice(5,0,new EmptyObj(), 
-                    new Ntext(
-                        canvas.width/2,
-                        5*canvas.height/8+20,
-                        canvas.width,
-                        'Helvetica',
-                        `italic ${this.fontsize}`,
-                        '* only 14 years and under allowed for CAMHS Oupatients',
-                        'center'
-                    ));   
-            }
-        }
-        if (this.list[1].state == 2 && this.list[6].hovering()){
-            this.list[6].tickToggle();
+        switch (localStorage.getItem('branch')) {
+            // case 'Genetics':
+            //     break;
+            // case 'ENT':
+            //     break;
+            // case 'Plastic Surgery':
+            //     break;
+            // case 'Dermatology':
+            //     break;
+            default:
+                if (this.list[2].hovering()) {
+                    this.list[2].tickToggle()
+                }
+                if (this.list[5].hovering()) {
+                    this.list[5].tickToggle()
+                }
+                break;
         }
     }
     

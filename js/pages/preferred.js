@@ -48,7 +48,7 @@ class Page{
             "select.html",
             btntext
         ));
-        if (localStorage.getItem('branch') != 'CAMHS'){
+        if (localStorage.getItem('branch') != 'CAMHS' && localStorage.getItem('selfRef') == 'true'){
             this.list.push(new Ntext(
                 canvas.width/2,
                 5*canvas.height/8+20,

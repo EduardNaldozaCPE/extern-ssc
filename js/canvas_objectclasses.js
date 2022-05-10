@@ -29,7 +29,7 @@ class GuiButton1 {
                     this.state = 1;
                 }
                 c.beginPath();
-                c.strokeStyle = `rgba(221,221,221,${Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)})`;
+                c.strokeStyle = `rgba(${this.colour},${Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)})`;
                 c.rect(this.x, this.y, this.w, this.h);
                 c.lineWidth = 2;
                 c.stroke();
@@ -40,7 +40,7 @@ class GuiButton1 {
             case 1:
                 this.anim.frame = 0;
                 c.beginPath();
-                c.strokeStyle = `rgba(221,221,221,1)`;
+                c.strokeStyle = `rgba(${this.colour},1)`;
                 c.rect(this.x, this.y, this.w, this.h);
                 c.lineWidth = 2;
                 c.stroke();
@@ -55,7 +55,7 @@ class GuiButton1 {
 
                 } else {
                     c.beginPath();
-                    c.strokeStyle = `rgba(221,221,221,${Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)}`;
+                    c.strokeStyle = `rgba(${this.colour},${Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)}`;
                     c.rect(this.x, this.y, this.w, this.h);
                     c.lineWidth = 2;
                     c.stroke();
@@ -87,9 +87,98 @@ class GuiButton1 {
         }
     }
 }
+class GuiButton2 {
+    constructor(x, y, w, h, colour, url, partner) {
+        this.name = "GuiButton2";
+        this.x = x;
+        this.y = y+50;
+        this.w = w;
+        this.h = h;
+        this.colour = colour;
+        this.opacity = 0;
+        this.vel = 10;
+        this.state = 0; //0 - Instantiated ; 1 - Stable; 2 - To be deleted
+        this.url = url;
+        this.partner = partner;
+        this.anim = {
+            frame: 0,
+            animlength: 70,
+            startx: this.x,
+            starty: this.y,
+            destx: x,
+            desty: y,
+        }
+    }
+
+    draw = () => {
+        // console.log(this.opacity + " " + this.state);
+        switch(this.state) {
+            case 0:
+                if (this.anim.frame > this.anim.animlength){
+                    this.state = 1;
+                }
+                c.beginPath();
+                c.fillStyle = `rgba(${this.colour},${Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)})`;
+                c.rect(this.x, this.y, this.w, this.h);
+                c.lineWidth = 2;
+                c.fill();
+                this.y = Math.pow((this.anim.frame/this.anim.animlength),0.1)*(this.anim.desty-this.anim.starty)+this.anim.starty;
+                // console.log(this.anim.frame + " " + this.y);
+                this.anim.frame++;
+                break;
+            case 1:
+                this.anim.frame = 0;
+                c.beginPath();
+                c.fillStyle = `rgba(${this.colour},1)`;
+                c.rect(this.x, this.y, this.w, this.h);
+                c.lineWidth = 2;
+                c.fill();
+                this.vel = 0;
+                this.opacity = 100;
+                break;
+            case 2:
+                if (this.anim.frame >= 50){
+                    console.log(this.url);
+                    location.href = this.url;
+                    pageState = 1;
+
+                } else {
+                    c.beginPath();
+                    c.fillStyle = `rgba(${this.colour},${Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)}`;
+                    c.rect(this.x, this.y, this.w, this.h);
+                    c.lineWidth = 2;
+                    c.fill();
+                    this.y = Math.pow((this.anim.frame/this.anim.animlength),0.4)*(this.anim.desty-this.anim.starty)+this.anim.starty;
+                    this.anim.frame++;
+                    break;
+                }
+        }
+    }
+
+    delete = () => {
+        this.anim = {
+            frame: 0,
+            animlength: 50,
+            startx: this.x,
+            starty: this.y,
+            destx: this.x,
+            desty: this.y-20,
+        }
+        this.state = 2;
+        this.partner.delete();
+    };
+
+    hovering = () => {
+        if (isHovering(mpos.x, mpos.y, this.x, this.y, this.w, this.h)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
 
 class Buttontext {
-    constructor(x,y,w,font,size,msg){
+    constructor(x,y,w,font,size,msg,colour){
         this.name = "Buttontext";
         this.x = x;
         this.y = y+50;
@@ -97,6 +186,7 @@ class Buttontext {
         this.font = font;
         this.size = size;
         this.msg = msg;
+        this.colour = colour;
         this.opacity = 0;
         this.vel = 10;
         this.state = 0; //0 - Instantiated ; 1 - Stable; 2 - To be deleted
@@ -118,7 +208,7 @@ class Buttontext {
                     this.state = 1
                 }
                 c.font = `${this.size}px ${this.font}`
-                c.fillStyle = `rgb(221,221,221,${Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)})`;
+                c.fillStyle = `rgb(${this.colour},${Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)})`;
                 c.textAlign = "center"
                 c.fillText(this.msg, this.x, this.y, this.w);
                 this.y = Math.pow((this.anim.frame/this.anim.animlength),0.1)*(this.anim.desty-this.anim.starty)+this.anim.starty;
@@ -126,13 +216,13 @@ class Buttontext {
                 break;
             case 1:
                 c.font = `${this.size}px ${this.font}`
-                c.fillStyle = `rgb(221,221,221,1)`;
+                c.fillStyle = `rgb(${this.colour},1)`;
                 c.textAlign = "center"
                 c.fillText(this.msg, this.x, this.y, this.w)
                 break;
             case 2:
                 c.font = `${this.size}px ${this.font}`
-                c.fillStyle = `rgb(221,221,221,${Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)})`;
+                c.fillStyle = `rgb(${this.colour},${Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)})`;
                 c.textAlign = "center"
                 c.fillText(this.msg, this.x, this.y, this.w);
                 this.y = Math.pow(((this.anim.frame)/this.anim.animlength),0.4)*(this.anim.desty-this.anim.starty)+this.anim.starty;
@@ -184,7 +274,7 @@ class Tickbox {
     }
 
     draw = () => {
-        console.log(this.state);
+        // console.log(this.state);
         switch(this.state) {
             case 0:
                 if (this.anim.frame > this.anim.animlength){

@@ -4,6 +4,7 @@ class Page{
     }
     initpage = () => {
         switch (localStorage.getItem('branch')) {
+
             case "CAMHS":
                 if(localStorage.getItem('in-out-patient') == 'true'
                     && localStorage.getItem('ageReq') == 'true'){
@@ -12,6 +13,51 @@ class Page{
                     location.href = 'preferred.html';
                 }
                 break;
+            case "Genetics":
+                if(localStorage.getItem('selfRef') == 'true'){
+                    location.href = 'preferred.html';
+                } else {
+                    if(localStorage.getItem('ageReq') == 'true'){
+                        location.href = 'sole.html';
+                    } else {
+                        location.href = 'preferred.html';
+                    }
+                }
+                break;
+            case 'ENT':
+                if(localStorage.getItem('selfRef') == 'true'){
+                    location.href = 'preferred.html';
+                } else {
+                    if(localStorage.getItem('ageReq') == 'true'){
+                        location.href = 'sole.html';
+                    } else {
+                        location.href = 'index.html';
+                    }
+                }
+                break;
+            case 'Plastic Surgery':
+                if(localStorage.getItem('selfRef') == 'true'){
+                    location.href = 'preferred.html';
+                } else {
+                    if(localStorage.getItem('ageReq') == 'true'){
+                        location.href = 'sole.html';
+                    } else {
+                        location.href = 'index.html';
+                    }
+                }
+                break;
+            case 'Dermatology':
+                if(localStorage.getItem('selfRef') == 'true'){
+                    location.href = 'preferred.html';
+                } else {
+                    if(localStorage.getItem('ageReq') == 'true'){
+                        location.href = 'preferred.html';
+                    } else {
+                        location.href = 'sole.html';
+                    }
+                }
+                break;
+                
             default:
                 break;
         }
