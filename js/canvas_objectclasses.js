@@ -1,5 +1,5 @@
 class GuiButton1 {
-    constructor(x, y, w, h, colour, url, partner) {
+    constructor(x, y, w, h, colour, url, partner, deleteAction) {
         this.name = "GuiButton1";
         this.x = x;
         this.y = y+50;
@@ -20,6 +20,7 @@ class GuiButton1 {
             desty: y,
         }
         this.click = false;
+        this.deleteAction = deleteAction;
     }
 
     draw = () => {
@@ -30,7 +31,8 @@ class GuiButton1 {
                     this.state = 1;
                 }
                 c.beginPath();
-                c.strokeStyle = `rgba(${this.colour},${Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)})`;
+                this.opacity = Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)
+                c.strokeStyle = `rgba(${this.colour},${this.opacity})`;
                 c.rect(this.x, this.y, this.w, this.h);
                 c.lineWidth = 2;
                 c.stroke();
@@ -46,18 +48,29 @@ class GuiButton1 {
                 c.lineWidth = 2;
                 c.stroke();
                 this.vel = 0;
-                this.opacity = 100;
+                this.opacity = 1;
                 break;
             case 2:
-                if (this.anim.frame >= 50){
+                if (this.opacity <= 0.1){
                     if (this.click){
                         console.log(this.url);
                         pageState = 1;
                         location.href = this.url;
+                    } else {
+                        this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)
+                        try {
+                            // console.log(`deleteAction complete: ${this.deleteAction}`);
+                            this.deleteAction();
+                        } catch {
+                            // console.log("no deleteAction");
+                        }
                     }
+                } else if (this.opacity <= 0.001){
+                    
                 } else {
                     c.beginPath();
-                    c.strokeStyle = `rgba(${this.colour},${Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)}`;
+                    this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)
+                    c.strokeStyle = `rgba(${this.colour},${this.opacity}`;
                     c.rect(this.x, this.y, this.w, this.h);
                     c.lineWidth = 2;
                     c.stroke();
@@ -78,7 +91,10 @@ class GuiButton1 {
             desty: this.y-20,
         }
         this.state = 2;
-        this.partner.delete();
+        try{
+            this.partner.delete();
+        } catch {}
+        
     };
 
     hovering = () => {
@@ -89,6 +105,7 @@ class GuiButton1 {
         }
     }
 }
+
 class GuiButton2 {
     constructor(x, y, w, h, colour, url, partner) {
         this.name = "GuiButton2";
@@ -97,7 +114,7 @@ class GuiButton2 {
         this.w = w;
         this.h = h;
         this.colour = colour;
-        this.opacity = 0;
+        this.opacity = 1;
         this.vel = 10;
         this.state = 0; //0 - Instantiated ; 1 - Stable; 2 - To be deleted
         this.url = url;
@@ -126,17 +143,16 @@ class GuiButton2 {
                 c.fill();
                 this.y = Math.pow((this.anim.frame/this.anim.animlength),0.1)*(this.anim.desty-this.anim.starty)+this.anim.starty;
                 // console.log(this.anim.frame + " " + this.y);
+                this.opacity = Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2);
                 this.anim.frame++;
                 break;
             case 1:
                 this.anim.frame = 0;
                 c.beginPath();
-                c.fillStyle = `rgba(${this.colour},1)`;
+                c.fillStyle = `rgba(${this.colour},${this.opacity})`;
                 c.rect(this.x, this.y, this.w, this.h);
                 c.lineWidth = 2;
                 c.fill();
-                this.vel = 0;
-                this.opacity = 100;
                 break;
             case 2:
                 if (this.anim.frame >= 50){
@@ -146,7 +162,7 @@ class GuiButton2 {
 
                 } else {
                     c.beginPath();
-                    c.fillStyle = `rgba(${this.colour},${Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)}`;
+                    c.fillStyle = `rgba(${this.colour},${this.opacity*Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)}`;
                     c.rect(this.x, this.y, this.w, this.h);
                     c.lineWidth = 2;
                     c.fill();
@@ -180,7 +196,7 @@ class GuiButton2 {
 }
 
 class Buttontext {
-    constructor(x,y,w,font,size,msg,colour){
+    constructor(x,y,w,font,size,msg,colour, deleteAction){
         this.name = "Buttontext";
         this.x = x;
         this.y = y+50;
@@ -200,6 +216,7 @@ class Buttontext {
             destx: x,
             desty: y,
         }
+        this.deleteAction = deleteAction;
     }
 
     draw = () => {
@@ -211,24 +228,37 @@ class Buttontext {
                 }
                 c.font = `${this.size}px ${this.font}`
                 c.fillStyle = `rgb(${this.colour},${Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)})`;
+                this.opacity = Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2);
                 c.textAlign = "center"
                 c.fillText(this.msg, this.x, this.y, this.w);
                 this.y = Math.pow((this.anim.frame/this.anim.animlength),0.1)*(this.anim.desty-this.anim.starty)+this.anim.starty;
                 this.anim.frame++;
                 break;
             case 1:
+                this.opacity = 1;
                 c.font = `${this.size}px ${this.font}`
                 c.fillStyle = `rgb(${this.colour},1)`;
                 c.textAlign = "center"
                 c.fillText(this.msg, this.x, this.y, this.w)
                 break;
             case 2:
+                if (this.opacity <= 0.05) {
+                    try {
+                        this.deleteAction();
+                    } catch (error) {
+                        "no deleteAction"
+                    }
+                    
+                } else {
                 c.font = `${this.size}px ${this.font}`
                 c.fillStyle = `rgb(${this.colour},${Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)})`;
+                this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2);
+                // console.log(this.opacity);
                 c.textAlign = "center"
                 c.fillText(this.msg, this.x, this.y, this.w);
                 this.y = Math.pow(((this.anim.frame)/this.anim.animlength),0.4)*(this.anim.desty-this.anim.starty)+this.anim.starty;
                 this.anim.frame++;
+                }
                 break;
         }
     }
@@ -668,8 +698,8 @@ class Leftbutton {
         this.state = 1;
     }
     hovering = () =>{
-        console.log(mpos.x, this.x-this.w, this.x);
-        console.log(innerWidth-canvas.width);
+        // console.log(mpos.x, this.x-this.w, this.x);
+        // console.log(innerWidth-canvas.width);
         if (isHovering(mpos.x, mpos.y, this.x-this.w, this.y, this.w, this.w)) {
             return true;
         } else {

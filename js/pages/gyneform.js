@@ -2,6 +2,7 @@ class Page{
     constructor(){
         this.list = [];
         this.fontsize = canvas.width/30;
+        this.gyneage = undefined;
     }
     initpage = () => {
         window.onload = () => {
@@ -27,108 +28,164 @@ class Page{
             subheight,
             (canvas.width*0.75),
             "Helvetica",
-            (canvas.width*0.04),
+            this.fontsize*3,
             "Questionaire"
         ));
-        this.list.push(new Tickbox(
-            3.5*canvas.width/5,
-            3*canvas.height/8,
-            30,
-            "#fff",
-            'in-out-patient'
-        ));
-        let btntext = new Buttontext(
+        this.list.push(new SubtitleText(
             (canvas.width/2),
-            (4*(canvas.height/5))+7,
+            subheight+(canvas.height*0.06),
+            (canvas.width*0.75),
+            "Helvetica",
+            this.fontsize*1.4,
+            "Gynecology"
+        ));
+        
+        let pedibtn = new Buttontext(
+            (canvas.width/2),
+            (4*canvas.height/10)+32,
             200,
             "Helvetica",
-            20,
-            "Continue" 
+            14,
+            "Pediatrics (4 - 14 Years)",
+            '53,144,133'
         );
-        this.list.push(btntext)
-
-        this.list.push(new GuiButton1(
-            (canvas.width/2)-(200/2),
-            (4*(canvas.height/5))-(50/2),
+        let adolbtn = new Buttontext(
+            (canvas.width/2),
+            (5*canvas.height/10)+32,
             200,
+            "Helvetica",
+            14,
+            "Adolescence (>14 - <18 Years)",
+            '53,144,133'
+        );
+        let adulbtn = new Buttontext(
+            (canvas.width/2),
+            (6*canvas.height/10)+32,
+            200,
+            "Helvetica",
+            14,
+            "Adult (18+ Years)",
+            '53,144,133'
+        );
+        this.list.push(new GuiButton2(
+            (canvas.width/2)-(300/2),
+            4*canvas.height/10,
+            300,
             50,
-            "#fff",
+            "221,221,221",
             'decider.html',
-            btntext
+            pedibtn
+        ));
+        this.list.push(new GuiButton2(
+            (canvas.width/2)-(300/2),
+            5*canvas.height/10,
+            300,
+            50,
+            "221,221,221",
+            'decider.html',
+            adolbtn
+        ));
+        this.list.push(new GuiButton2(
+            (canvas.width/2)-(300/2),
+            6*canvas.height/10,
+            300,
+            50,
+            "221,221,221",
+            'decider.html',
+            adulbtn
         ));
         this.list.push(new Ntext(
-            this.textx(),
-            3*canvas.height/8+20,
+            canvas.width/2,
+            3.3*canvas.height/10,
             canvas.width,
             'Helvetica',
             this.fontsize,
-            'Is this person an Inpatient?',
-            'left'
-        ));
-
-        this.list.push(new EmptyObj());
-
-        this.list.push(new Ntext(
-            canvas.width/2,
-            5*canvas.height/8+20,
-            canvas.width,
-            'Helvetica',
-            `italic ${this.fontsize}`,
-            '* only 14 years and under allowed for CAMHS Oupatients',
+            "Please choose the patient's age range",
             'center'
         ));
+        
+        this.list.push(pedibtn)
+        this.list.push(adolbtn)
+        this.list.push(adulbtn)
 
+        let backw = () => {
+            if (canvas.width > 600) {
+                return canvas.width/50;
+            } else {
+                return canvas.width/20;
+            }
+        }
+        this.list.push(new Leftbutton(
+            70,
+            canvas.height/20,
+            backw(),
+            'select.html'
+        ));
 
         return this.list;
     }
     
     action = () => {
-        let button = this.list[3]
-        if (button.hovering()){
-            this.list.forEach(element => {
-                element.delete()
-            });
+        let createConBtn = () => {
+            let btntext = new Buttontext(
+                (canvas.width/2),
+                (4*(canvas.height/5))+7,
+                200,
+                "Helvetica",
+                20,
+                "Continue",
+                "221,221,221"
+            );
+            this.list.push(btntext)
+    
+            this.list.push(new GuiButton1(
+                (canvas.width/2)-(200/2),
+                (4*(canvas.height/5))-(50/2),
+                200,
+                50,
+                "221,221,221",
+                'decider.html',
+                btntext
+            ));
         }
-        if (this.list[1].hovering()) {
-            this.list[1].tickToggle();
-            if (this.list[1].state == 2) {
-                this.list.splice(5,2);
-                this.list.push(new Ntext(
-                    this.textx(),
-                    4*canvas.height/8+20,
-                    canvas.width,
-                    'Helvetica',
-                    this.fontsize,
-                    'Is this patient over 14 years old?',
-                    'left'
-                ));
-                this.list.push(new Tickbox(
-                    3.5*canvas.width/5,
-                    4*canvas.height/8,
-                    30,
-                    "#fff",
-                    'ageReq'
-                ));
+        
+        if (this.list[9].hovering()){
+            this.list[9].click = true;
+            this.list[9].delete();
+        }
 
-            } else if (this.list[1].state == 1){
-                this.list.splice(5,2);
-                this.list.splice(5,0,new EmptyObj(), 
-                    new Ntext(
-                        canvas.width/2,
-                        5*canvas.height/8+20,
-                        canvas.width,
-                        'Helvetica',
-                        `italic ${this.fontsize}`,
-                        '* only 14 years and under allowed for CAMHS Oupatients',
-                        'center'
-                    ));   
+        try{
+        if (this.gyneage != undefined){
+            if (this.list[11].hovering()){
+                localStorage.setItem('gyneAge', this.gyneage);
+                this.list[11].click = true;
+                this.list.forEach(element => {
+                    element.delete()
+                });
             }
+        }} catch {console.log('Create gyneage')}
+        if (this.list[2].hovering()){
+            if (this.gyneage == undefined){createConBtn();}
+            this.gyneage = 0;
+            this.list[2].opacity = 1;
+            this.list[3].opacity = 0.5;
+            this.list[4].opacity = 0.5;
         }
-        if (this.list[1].state == 2 && this.list[6].hovering()){
-            this.list[6].tickToggle();
+        if (this.list[3].hovering()){
+            if (this.gyneage == undefined){createConBtn();}
+            this.gyneage = 1;
+            this.list[2].opacity = 0.5;
+            this.list[3].opacity = 1;
+            this.list[4].opacity = 0.5;
+        }
+        if (this.list[4].hovering()){
+            if (this.gyneage == undefined){createConBtn();}
+            this.gyneage = 2;
+            this.list[2].opacity = 0.5;
+            this.list[3].opacity = 0.5;
+            this.list[4].opacity = 1;
         }
     }
-    
     textx = () => {
         if (canvas.width >= 600){
             return (1*canvas.width/5)+(canvas.width/12);

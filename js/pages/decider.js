@@ -57,7 +57,22 @@ class Page{
                     }
                 }
                 break;
-                
+            case 'Gynecology':
+                console.log('poopy');
+                switch (parseInt(localStorage.getItem('gyneAge'))) {
+                    case 0:
+                        location.href='sole.html';
+                        break;
+                    case 1:
+                        location.href='preferred.html';
+                        break;
+                    case 2:
+                        location.href='preferred.html';
+                        break;
+                    default:
+                        break;
+                }
+            
             default:
                 break;
         }

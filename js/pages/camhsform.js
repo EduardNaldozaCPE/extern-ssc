@@ -114,9 +114,7 @@ class Page{
         }
         if (this.list[8].hovering()){
             this.list[8].click = true;
-            this.list.forEach(element => {
-                element.delete()
-            });
+            this.list[8].delete();
         }
         if (this.list[2].hovering()) {
             this.list[2].tickToggle();

@@ -24,8 +24,3 @@ function newLineArray() {
 pagecontent = new Page();
 var instanceList = pagecontent.startInstanceList();
 console.log(instanceList);
-try {
-    pagecontent.initpage();
-} catch (error) {
-    console.log(error);   
-}
