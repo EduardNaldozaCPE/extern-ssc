@@ -22,7 +22,7 @@ function animation(frame) {
             //Draw each instance in the list.
             instanceList.forEach((instanceobj, i) => {
                 // Delete all objects that are both at state=2 (to be deleted), and is already invisible.
-                if (instanceobj.state == 2 && instanceobj.opacity <= 0){
+                if (instanceobj.state == 2 && instanceobj.opacity <= 0.001){
                     instanceList.splice(i,1);
                 }
                 // Draw all objects

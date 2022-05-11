@@ -51,14 +51,12 @@ class GuiButton1 {
                 this.opacity = 1;
                 break;
             case 2:
-                console.log(this.opacity);
+                // console.log(this.opacity);
                 if (this.opacity <= 0.2){
                     if (this.click){
                         try {
                             location.href = this.url;
-                        } catch {
-                            console.log('idk');
-                        }
+                        } catch {}
                         pageState = 1;
                     } else {
                         try {
@@ -223,7 +221,7 @@ class Buttontext {
     }
 
     draw = () => {
-        // console.log(this.state);
+        // console.log (this.state);
         switch (this.state) {
             case 0:
                 if (this.anim.frame > this.anim.animlength){
@@ -617,19 +615,26 @@ class Ntext {
                 break;
         
             case 1:
+                this.opacity = 1;
                 c.font = `${this.size}px ${this.font}`
-                c.fillStyle = `rgb(221,221,221,1)`;
+                c.fillStyle = `rgb(221,221,221,${this.opacity})`;
                 c.textAlign = this.align;
                 c.fillText(this.msg, this.x, this.y, this.w);
                 break;
 
             case 2:
+                if (this.opacity <= 0){
+                    this.opacity = 0;
+                    c.fillStyle = `rgb(221,221,221,${this.opacity})`;
+                } else {
                     c.font = `${this.size}px ${this.font}`
-                    c.fillStyle = `rgb(221,221,221,${Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)})`;
+                    this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)
+                    c.fillStyle = `rgb(221,221,221,${this.opacity})`;
                     c.textAlign = this.align;
                     c.fillText(this.msg, this.x, this.y, this.w);
                     this.anim.frame++;
                     break;
+                }
         }
     }
     delete = () => {

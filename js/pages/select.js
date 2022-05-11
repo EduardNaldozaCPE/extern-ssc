@@ -14,6 +14,30 @@ class Page{
                 "nicuform.html", "index.html", ""
             ]
         };
+        this.servicelist2 = {
+            name:[
+                "Adolescent Medicine", "Rehab medicine",
+                "Allergy Immunology", "Neonatal Surgery",
+                "Endocrinology", "Neurosurgery",
+                "Gastroenterology", "Ophthalmology",
+                "Cardiology", "Orthopedics",
+                "Hematology/Oncology", "Transplant",
+                "Nephrology", "Urology",
+                "Infectious disease", "Peri/Post Natal Mental Health",
+                "Pulmonology", "Rheumatology"
+            ],
+            url:"sole.html"
+        };
+        this.servicelist3 = {
+            name:[
+                "Adult Services",
+                "Obstetrics",
+                "Dev Peds",
+                "Rep Meds (IVF)",
+                "Aesthetics"
+            ],
+            url:"sole.html"
+        };
         this.count = 0;
         this.boxheight = 50;
         this.boxwidth = canvas.width/4.5;
@@ -86,22 +110,45 @@ class Page{
                     for (let i=3; i<=18; i++){
                         this.list[i].delete()
                     }
-                //Change white button text to "back"
-                    this.btntext.msg = "Back";
+                //Change white button text to "More"
+                    this.btntext.msg = "More";
                     this.list.splice(1,1,this.btntext)
                     this.page = 2;
                 //Add page2() objects
                     this.page2();
                     break;
+
+
                 case 2:
                 //Delete Previous items, canvas_anim will remove the objects from the array
                     this.list[3].delete()
+                    this.list[4].delete()
+                    for (let i=5; i<=22; i++){
+                        this.list[i].delete()
+                    }
+                //Change white button text to "Back"
+                    this.btntext.msg = "Back";
+                    this.list.splice(1,1,this.btntext)
+                    this.page = 3;
+                //Add page1() objects
+                    this.page3();
+                    break;
+
+
+                case 3:
+                //Delete Previous items, canvas_anim will remove the objects from the array
+                    this.list[3].delete()
+                    this.list[4].delete()
+                    for (let i=5; i<=22; i++){
+                        this.list[i].delete()
+                    }
                 //Change white button text to "More"
                     this.btntext.msg = "More";
                     this.list.splice(1,1,this.btntext)
                     this.page = 1;
                 //Add page1() objects
                     this.page1();
+                    break;
                 default:
                     break;
             }
@@ -191,28 +238,128 @@ class Page{
     page2 = () => {
         let defboxy = undefined;
         if (canvas.width > 780) {
-            defboxy = (canvas.width*0.15)+20;
+            defboxy = (4.2*canvas.height/6)+20;
         } else {
-            defboxy = (2*canvas.height/6)+20;
+            defboxy = (4.1*canvas.height/6)+20;
         }
-        let defboxw = 6*canvas.width/10;
+        let defboxw = 3.5*canvas.width/10;
         
         let defboxh = undefined;
         if (canvas.width > 780) {
-            defboxh = 4.8*canvas.height/10;
+            defboxh = 0.6*canvas.height/10;
         } else {
-            defboxh = 4*canvas.height/10;
+            defboxh = 0.8*canvas.height/10;
         }
+
         this.count = 0;
-        //BUTTON 1 FRAME (STATE 1)
+        let subheight = undefined;
+        if (canvas.width > 780) {
+            subheight = canvas.width*0.15;
+        } else {
+            subheight = 2*canvas.height/6;
+        }
+        if (canvas.width <= 620){
+            this.servicelist2.name[15] = "Peri/Post Natal";
+        }
+        let rowspace = undefined;
+        for (let row=1;row<=9;row++){
+            if (canvas.width > 780) {
+                rowspace = subheight+(0.5+row)*(canvas.height/24);
+            } else {
+                rowspace = subheight+(0.5+row)*(canvas.height/30);
+            }
+            for (let i=1;i<=2;i++){
+                this.list.push(new Ntext(
+                    (1.7+(i*5.5))*(canvas.width/20),
+                    rowspace,
+                    (canvas.width),
+                    "Helvetica",
+                    this.fontsize*0.7   ,
+                    this.servicelist2.name[this.count],
+                    "center"
+                ));
+                this.count++;
+            }
+        }
+
+        let txt = new Buttontext(
+            ((canvas.width)/2),
+            defboxy+(defboxh/2)+(this.fontsize/2),
+            defboxw,
+            "Helvetica",
+            this.fontsize,
+            "Any of the above",
+            '221,221,221'
+        );
+
         this.list.splice(3,0,new GuiButton1(
             ((canvas.width)/2)-(defboxw/2),
             defboxy,
             defboxw,
             defboxh,
             "221,221,221",
-            "Def",
-            ()=>{}
+            "sole.html",
+            txt,
+            () => {}
         ));
+        this.list.splice(3,0,txt);
+    }
+    page3 = () => {
+        let defboxy = undefined;
+        if (canvas.width > 780) {
+            defboxy = (4.2*canvas.height/6)+20;
+        } else {
+            defboxy = (4.1*canvas.height/6)+20;
+        }
+        let defboxw = 3.5*canvas.width/10;
+        
+        let defboxh = undefined;
+        if (canvas.width > 780) {
+            defboxh = 0.6*canvas.height/10;
+        } else {
+            defboxh = 0.8*canvas.height/10;
+        }
+
+        this.count = 0;
+        let subheight = undefined;
+        if (canvas.width > 780) {
+            subheight = canvas.width*0.15;
+        } else {
+            subheight = 2*canvas.height/6;
+        }
+        for (let row=1;row<=5;row++){
+            this.list.push(new Ntext(
+                (canvas.width/2),
+                subheight+(1.4*row*canvas.height/30),
+                (canvas.width),
+                "Helvetica",
+                this.fontsize,
+                this.servicelist3.name[this.count],
+                "center"
+            ));
+            this.count++;
+        }
+
+        let txt = new Buttontext(
+            ((canvas.width)/2),
+            defboxy+(defboxh/2)+(this.fontsize/2),
+            defboxw,
+            "Helvetica",
+            this.fontsize,
+            "Any of the above",
+            '221,221,221'
+        );
+
+        this.list.splice(3,0,new GuiButton1(
+            ((canvas.width)/2)-(defboxw/2),
+            defboxy,
+            defboxw,
+            defboxh,
+            "221,221,221",
+            "preferred.html",
+            txt,
+            () => {}
+        ));
+        this.list.splice(3,0,txt);
     }
 }

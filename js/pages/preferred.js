@@ -45,7 +45,7 @@ class Page{
             (3*canvas.height/4)-(50/2),
             200,
             50,
-            "#fff",
+            "221,221,221",
             "select.html",
             btntext
         ));

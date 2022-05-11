@@ -16,7 +16,7 @@ class Page{
         this.list.push(new Titletext(
             (canvas.width/2),
             titleheight,
-            (canvas.width*0.75),
+            (canvas.width),
             "Helvetica",
             (canvas.width*0.04),
             "Sole Service"
