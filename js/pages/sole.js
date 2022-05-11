@@ -36,7 +36,8 @@ class Page{
             200,
             "Helvetica",
             20,
-            "Select Service" 
+            "Select Service",
+            '221,221,221'
         );
         this.list.push(btntext)
         this.list.push(new GuiButton1(
@@ -44,7 +45,7 @@ class Page{
             (3*canvas.height/4)-(50/2),
             200,
             50,
-            "#fff",
+            "221,221,221",
             "select.html",
             btntext
         ));

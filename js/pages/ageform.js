@@ -219,7 +219,8 @@ class Page{
             200,
             "Helvetica",
             20,
-            "Continue" 
+            "Continue",
+            '221,221,221' 
         );
         this.list.push(btntext)
 

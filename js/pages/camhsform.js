@@ -42,7 +42,7 @@ class Page{
             3.5*canvas.width/5,
             3*canvas.height/8,
             30,
-            "#fff",
+            "221,221,221",
             'in-out-patient'
         ));
         let btntext = new Buttontext(
@@ -51,7 +51,8 @@ class Page{
             200,
             "Helvetica",
             20,
-            "Continue" 
+            "Continue",
+            '221,221,221'
         );
         this.list.push(btntext)
 
@@ -60,7 +61,7 @@ class Page{
             (4*(canvas.height/5))-(50/2),
             200,
             50,
-            "#fff",
+            "221,221,221",
             'decider.html',
             btntext
         ));

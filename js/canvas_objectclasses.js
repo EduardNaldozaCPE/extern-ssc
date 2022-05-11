@@ -51,13 +51,16 @@ class GuiButton1 {
                 this.opacity = 1;
                 break;
             case 2:
-                if (this.opacity <= 0.1){
+                console.log(this.opacity);
+                if (this.opacity <= 0.2){
                     if (this.click){
-                        console.log(this.url);
+                        try {
+                            location.href = this.url;
+                        } catch {
+                            console.log('idk');
+                        }
                         pageState = 1;
-                        location.href = this.url;
                     } else {
-                        this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)
                         try {
                             // console.log(`deleteAction complete: ${this.deleteAction}`);
                             this.deleteAction();
@@ -65,8 +68,8 @@ class GuiButton1 {
                             // console.log("no deleteAction");
                         }
                     }
-                } else if (this.opacity <= 0.001){
-                    
+                    this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2);
+                    this.anim.frame++;
                 } else {
                     c.beginPath();
                     this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)
@@ -242,18 +245,18 @@ class Buttontext {
                 c.fillText(this.msg, this.x, this.y, this.w)
                 break;
             case 2:
-                if (this.opacity <= 0.05) {
+                if (this.opacity <= 0.2) {
                     try {
                         this.deleteAction();
                     } catch (error) {
                         "no deleteAction"
                     }
-                    
+                    this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2);
+                    this.anim.frame++;
                 } else {
                 c.font = `${this.size}px ${this.font}`
                 c.fillStyle = `rgb(${this.colour},${Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)})`;
                 this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2);
-                // console.log(this.opacity);
                 c.textAlign = "center"
                 c.fillText(this.msg, this.x, this.y, this.w);
                 this.y = Math.pow(((this.anim.frame)/this.anim.animlength),0.4)*(this.anim.desty-this.anim.starty)+this.anim.starty;
@@ -690,6 +693,7 @@ class Leftbutton {
             case 1:
                 if (this.click) {
                     location.href = this.url;
+                    pageState = 1;
                 }
                 break;
         }

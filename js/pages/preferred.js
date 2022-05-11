@@ -36,7 +36,8 @@ class Page{
             200,
             "Helvetica",
             20,
-            "Select Service" 
+            "Select Service",
+            '221,221,221'
         );
         this.list.push(btntext)
         this.list.push(new GuiButton1(
