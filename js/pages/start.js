@@ -23,7 +23,8 @@ class Page{
             200,
             "Helvetica",
             20,
-            "Select Service" 
+            "Select Service",
+            "221,221,221"
         );
         this.list.push(btntext)
         //START BUTTON FRAME
@@ -32,7 +33,7 @@ class Page{
             startbuttonheight-(50/2),
             200,
             50,
-            "#fff",
+            "221,221,221",
             "html/select.html",
             btntext
         ));
