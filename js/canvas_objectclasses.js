@@ -608,7 +608,8 @@ class Ntext {
                     this.state = 1
                 }
                 c.font = `${this.size}px ${this.font}`
-                c.fillStyle = `rgb(221,221,221,${Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)})`;
+                this.opacity = Math.pow(this.anim.frame/this.anim.animlength, 2)
+                c.fillStyle = `rgb(221,221,221,${this.opacity})`;
                 c.textAlign = this.align;
                 c.fillText(this.msg, this.x, this.y, this.w);
                 this.anim.frame++;

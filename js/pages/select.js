@@ -137,10 +137,10 @@ class Page{
 
                 case 3:
                 //Delete Previous items, canvas_anim will remove the objects from the array
-                    this.list[3].delete()
-                    this.list[4].delete()
-                    for (let i=5; i<=22; i++){
-                        this.list[i].delete()
+                    this.list[3].delete();
+                    this.list[4].delete();
+                    for (let i=5; i<=9; i++){
+                        this.list[i].delete();
                     }
                 //Change white button text to "More"
                     this.btntext.msg = "More";
