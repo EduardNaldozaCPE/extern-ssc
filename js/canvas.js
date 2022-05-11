@@ -1,16 +1,5 @@
 var canvas = document.querySelector('canvas');
 var pageState = 0;
-/* 
-
-PAGE STATES
-
-0   Stable
-1   Button 1
-2   Button 2
-3   Button 3
-...
-
-*/
 
 if (innerWidth < 1550) {
     canvas.width = window.innerWidth-15;
