@@ -19,6 +19,7 @@ class GuiButton1 {
             destx: x,
             desty: y,
         }
+        this.click = false;
     }
 
     draw = () => {
@@ -49,10 +50,11 @@ class GuiButton1 {
                 break;
             case 2:
                 if (this.anim.frame >= 50){
-                    console.log(this.url);
-                    location.href = this.url;
-                    pageState = 1;
-
+                    if (this.click){
+                        console.log(this.url);
+                        pageState = 1;
+                        location.href = this.url;
+                    }
                 } else {
                     c.beginPath();
                     c.strokeStyle = `rgba(${this.colour},${Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)}`;
@@ -630,20 +632,50 @@ class Rightbutton {
 }
 
 class Leftbutton {
-    constructor(x,y){
+    constructor(x,y,w,url){
         this.name = "Leftbutton";
         this.x = x;
         this.y = y;
+        this.w = w;
+        this.state = 0;
+        this.url = url;
+        this.click = false;
     }
     draw = () => {
-        c.beginPath();
-        c.moveTo(this.x, this.y);
-        c.lineTo(this.x-30, this.y+15);
-        c.lineTo(this.x, this.y+30);
-        c.lineTo(this.x, this.y);
-        c.fill();
+        switch (this.state) {
+            case 0:
+                c.beginPath();
+                c.moveTo(this.x, this.y);
+                c.lineTo(this.x-this.w, this.y+(this.w/2));
+                c.lineTo(this.x, this.y+this.w);
+                c.lineTo(this.x, this.y);
+                c.fillStyle = 'rgb(221,221,221,1)';
+                c.fill();
+                // c.beginPath();
+                // c.moveTo(this.x, this.y);
+                // c.rect(this.x-this.w,this.y,this.w,this.w)
+                // c.fillStyle = 'rgb(221,0,0,0.3)';
+                // c.fill();
+                break;
+            case 1:
+                if (this.click) {
+                    location.href = this.url;
+                }
+                break;
+        }
     }
-    delete = () => {}
+    delete = () => {
+        this.state = 1;
+    }
+    hovering = () =>{
+        console.log(mpos.x, this.x-this.w, this.x);
+        console.log(innerWidth-canvas.width);
+        if (isHovering(mpos.x, mpos.y, this.x-this.w, this.y, this.w, this.w)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 class EmptyObj {

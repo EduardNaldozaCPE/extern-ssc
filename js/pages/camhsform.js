@@ -85,6 +85,19 @@ class Page{
             '* only 14 years and under allowed for CAMHS Oupatients',
             'center'
         ));
+        let backw = () => {
+            if (canvas.width > 600) {
+                return canvas.width/50;
+            } else {
+                return canvas.width/20;
+            }
+        }
+        this.list.push(new Leftbutton(
+            70,
+            canvas.height/20,
+            backw(),
+            'select.html'
+        ));
 
 
         return this.list;
@@ -93,6 +106,14 @@ class Page{
     action = () => {
         let button = this.list[4]
         if (button.hovering()){
+            button.click = true;
+            console.log(button.click);
+            this.list.forEach(element => {
+                element.delete()
+            });
+        }
+        if (this.list[8].hovering()){
+            this.list[8].click = true;
             this.list.forEach(element => {
                 element.delete()
             });
@@ -100,8 +121,7 @@ class Page{
         if (this.list[2].hovering()) {
             this.list[2].tickToggle();
             if (this.list[2].state == 2) {
-                this.list.splice(6,2);
-                this.list.push(new Ntext(
+                this.list.splice(6,2,new Ntext(
                     this.textx(),
                     4*canvas.height/8+20,
                     canvas.width,
@@ -109,8 +129,7 @@ class Page{
                     this.fontsize,
                     'Is this patient over 14 years old?',
                     'left'
-                ));
-                this.list.push(new Tickbox(
+                ),new Tickbox(
                     3.5*canvas.width/5,
                     4*canvas.height/8,
                     30,
@@ -119,8 +138,7 @@ class Page{
                 ));
 
             } else if (this.list[2].state == 1){
-                this.list.splice(6,2);
-                this.list.splice(6,0,new EmptyObj(), 
+                this.list.splice(6,2,new EmptyObj(), 
                     new Ntext(
                         canvas.width/2,
                         5*canvas.height/8+20,

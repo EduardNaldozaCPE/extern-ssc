@@ -65,6 +65,7 @@ class Page{
 
     action = () => {
         if (this.list[3].hovering()) {
+            this.list[3].click = true;
             this.list.forEach(element => {
                 element.delete();
             });

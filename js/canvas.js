@@ -26,12 +26,6 @@ var mpos = {
     y:undefined
 }
 canvas.addEventListener('mousemove', (event) => {
-    // console.log(currentState);
-    if (innerWidth < 1550) {
-        mpos.x = event.x;
-    } else {
-        mpos.x = event.x - ((innerWidth-canvas.width)/2);
-    }
-    // console.log(event.x - ((innerWidth-canvas.width)/2));
+    mpos.x = event.x - ((innerWidth-canvas.width)/2);
     mpos.y = event.y;
 });

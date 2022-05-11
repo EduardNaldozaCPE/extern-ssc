@@ -107,6 +107,7 @@ class Page{
         this.list.forEach(element => {
             if (element.name == "GuiButton1"){
                 if (element.hovering()) {
+                    element.click = true;
                     localStorage.setItem('branch',element.partner.msg);
                     element.delete();
                 }

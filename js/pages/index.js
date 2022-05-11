@@ -51,6 +51,7 @@ class Page{
 
     action = () => {
         if (this.list[1].hovering()) {
+            this.list[1].click = true;
             this.list[2].delete();
             this.list[1].delete();
             this.list[0].delete();

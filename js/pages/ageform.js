@@ -232,6 +232,19 @@ class Page{
             'decider.html',
             btntext
         ));
+        let backw = () => {
+            if (canvas.width > 600) {
+                return canvas.width/50;
+            } else {
+                return canvas.width/20;
+            }
+        }
+        this.list.push(new Leftbutton(
+            70,
+            canvas.height/20,
+            backw(),
+            'select.html'
+        ));
 
         return this.list;
     }
@@ -239,9 +252,14 @@ class Page{
     action = () => {
         let button = this.list[7]
         if (button.hovering()){
+            button.click = true;
             this.list.forEach(element => {
                 element.delete()
             });
+        }
+        if (this.list[8].hovering()){
+            this.list[8].click = true;
+            this.list[8].delete();
         }
         switch (localStorage.getItem('branch')) {
             // case 'Genetics':
