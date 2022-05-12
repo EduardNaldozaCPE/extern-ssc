@@ -615,14 +615,13 @@ class Ntext {
                 c.textAlign = this.align;
                 c.fillText(this.msg, this.x, this.y, this.w);
                 break;
-
             case 2:
-                    c.font = `${this.size}px ${this.font}`
-                    this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2)
-                    c.fillStyle = `rgb(221,221,221,${this.opacity})`;
-                    c.textAlign = this.align;
-                    c.fillText(this.msg, this.x, this.y, this.w);
-                    this.anim.frame++;
+                c.font = `${this.size}px ${this.font}`
+                this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2)
+                c.fillStyle = `rgb(221,221,221,${this.opacity})`;
+                c.textAlign = this.align;
+                c.fillText(this.msg, this.x, this.y, this.w);
+                this.anim.frame++;
                 break;
         }
     }

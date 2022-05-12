@@ -3,7 +3,6 @@ class Page{
         this.list = [];
     }
     initpage = () => {
-        pageState = 1;
         switch (localStorage.getItem('branch')) {
 
             case "CAMHS":
@@ -72,11 +71,40 @@ class Page{
                         break;
                     default:
                         break;
+                
                 }
+            case 'NICU':
+                switch (localStorage.getItem('niculvl')) {
+                    case "0":
+                        switch (localStorage.getItem('up-down-graded')) {
+                            case "true":
+                                location.href = 'sole.html';
+                                break;
+                            case "false":
+                                location.href = 'preferred.html';
+                                console.log('nicu');
+                                break;
+                        }
+                        break;
+                
+                    case "1":
+                        switch (localStorage.getItem('up-down-graded')) {
+                            case "true":
+                                location.href = 'sole.html';
+                                break;
+                            case "false":
+                                location.href = 'sole.html';
+                                break;
+                        }
+                        break;
+                }
+                break;
             
             default:
                 break;
+        
         }
+        pageState = 1;
     }
     startInstanceList = () => {
         var titleheight = undefined;
