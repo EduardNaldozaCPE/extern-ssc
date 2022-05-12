@@ -71,8 +71,8 @@ class Page{
                         break;
                     default:
                         break;
-                
                 }
+            break;
             case 'NICU':
                 switch (localStorage.getItem('niculvl')) {
                     case "0":
@@ -108,10 +108,12 @@ class Page{
                 switch (localStorage.getItem('emergType')) {
                     case '0':
                         location.href = 'sole.html';
+                        break;
                     case '1':
                         if (esi > 3){ location.href = 'preferred.html'} else{location.href = 'sole.html'}
                         break;
                 }
+            break;
             default:
                 break;
         
