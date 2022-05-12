@@ -29,7 +29,7 @@ class Page{
             (canvas.width*0.75),
             "Helvetica",
             this.fontsize*3,
-            "Questionaire"
+            "Questionnaire"
         ));
         this.list.push(new SubtitleText(
             (canvas.width/2),

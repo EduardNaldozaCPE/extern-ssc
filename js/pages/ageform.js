@@ -28,7 +28,7 @@ class Page{
             (canvas.width*0.75),
             "Helvetica",
             this.fontsize*3,
-            "Questionaire"
+            "Questionnaire"
         ));
         switch (localStorage.getItem('branch')) {
             case 'Genetics':
