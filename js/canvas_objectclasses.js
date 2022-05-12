@@ -37,7 +37,6 @@ class GuiButton1 {
                 c.lineWidth = 2;
                 c.stroke();
                 this.y = Math.pow((this.anim.frame/this.anim.animlength),0.1)*(this.anim.desty-this.anim.starty)+this.anim.starty;
-                // console.log(this.anim.frame + " " + this.y);
                 this.anim.frame++;
                 break;
             case 1:
@@ -60,10 +59,8 @@ class GuiButton1 {
                         pageState = 1;
                     } else {
                         try {
-                            // console.log(`deleteAction complete: ${this.deleteAction}`);
                             this.deleteAction();
                         } catch {
-                            // console.log("no deleteAction");
                         }
                     }
                     this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2);
@@ -434,7 +431,8 @@ class Titletext {
                     this.state = 1
                 }
                 c.font = `bold ${this.size}px ${this.font}`
-                c.fillStyle = `rgb(221,221,221,${Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)})`;
+                this.opacity = Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)
+                c.fillStyle = `rgb(221,221,221,${this.opacity})`;
                 c.textAlign = "center";
                 c.fillText(this.msg, this.x, this.y, this.w);
                 this.anim.frame++;
@@ -448,11 +446,12 @@ class Titletext {
                 break;
 
             case 2:
+                console.log(this.anim.frame);
                 c.font = `bold ${this.size}px ${this.font}`
-                c.fillStyle = `rgb(221,221,221,${Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)})`;
+                this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)
+                c.fillStyle = `rgb(221,221,221,${this.opacity})`;
                 c.textAlign = "center";
                 c.fillText(this.msg, this.x, this.y, this.w);
-                this.opacity -= 1;
                 this.anim.frame++;
                 break;
         }
@@ -543,7 +542,8 @@ class SubtitleText {
                     this.state = 1
                 }
                 c.font = `bold ${this.size}px ${this.font}`
-                c.fillStyle = `rgb(221,221,221,${Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)})`;
+                this.opacity = Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)
+                c.fillStyle = `rgb(221,221,221,${this.opacity})`;
                 c.textAlign = "center";
                 c.fillText(this.msg, this.x, this.y, this.w);
                 this.anim.frame++;
@@ -558,7 +558,8 @@ class SubtitleText {
 
             case 2:
                 c.font = `bold ${this.size}px ${this.font}`
-                c.fillStyle = `rgb(221,221,221,${Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)})`;
+                this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2);
+                c.fillStyle = `rgb(221,221,221,${this.opacity})`;
                 c.textAlign = "center";
                 c.fillText(this.msg, this.x, this.y, this.w);
                 this.anim.frame++;
