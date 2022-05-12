@@ -3,6 +3,7 @@ class Page{
         this.list = [];
     }
     initpage = () => {
+        pageState = 1;
         switch (localStorage.getItem('branch')) {
 
             case "CAMHS":
@@ -118,7 +119,6 @@ class Page{
                 break;
         
         }
-        pageState = 1;
     }
     startInstanceList = () => {
         var titleheight = undefined;
