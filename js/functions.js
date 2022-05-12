@@ -39,3 +39,17 @@ function getRootDir(subfoldernum) {
 function writeLS() {
     localStorage.setItem('clientAge',undefined);
 }
+
+
+const parseCookie = str =>
+  str
+  .split(';')
+  .map(v => v.split('='))
+  .reduce((acc, v) => {
+    acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
+    return acc;
+  }, {});
+  
+// cookie in browser: `pkg=math; equation=E%3Dmc%5E2`
+console.log(parseCookie('boop=asd;aaarp=21'));
+//console: { pkg: 'math', equation: 'E=mc^2' }

@@ -1,7 +1,7 @@
 //BACKGROUND LINE ANIMATION
 function newLineArray() {
     let lineArray = [];
-    for (let i=0; i<50; i++){
+    for (let i=0; i<70; i++){
         var x1 = (innerWidth*Math.random())-1;
         var y1 = (innerHeight*Math.random())-1;
         var x2 = (innerWidth*Math.random())-1;
