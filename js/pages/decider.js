@@ -99,7 +99,19 @@ class Page{
                         break;
                 }
                 break;
-            
+            case 'Emergency Services':
+                let esi = undefined;
+                for (let esiLS = 1; esiLS<=5; esiLS++){
+                    if (localStorage.getItem(`esilvl-${esiLS}`) == "true") {esi = esiLS}
+                }
+                console.log(esi);
+                switch (localStorage.getItem('emergType')) {
+                    case '0':
+                        location.href = 'sole.html';
+                    case '1':
+                        if (esi > 3){ location.href = 'preferred.html'} else{location.href = 'sole.html'}
+                        break;
+                }
             default:
                 break;
         
