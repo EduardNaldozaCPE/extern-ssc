@@ -602,40 +602,28 @@ class Ntext {
     }
 
     draw = () => {
+        // console.log(this.anim.frame);
         switch (this.state) {
             case 0:
-                if (this.anim.frame > this.anim.animlength){
-                    this.state = 1
-                }
-                c.font = `${this.size}px ${this.font}`
-                this.opacity = Math.pow(this.anim.frame/this.anim.animlength, 2)
-                c.fillStyle = `rgb(221,221,221,${this.opacity})`;
-                c.textAlign = this.align;
-                c.fillText(this.msg, this.x, this.y, this.w);
-                this.anim.frame++;
-                break;
-        
+                if (this.anim.frame == this.anim.animlength){
+                    this.state = 1;
+                } else {this.anim.frame++;}
+                    this.opacity = Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2);
             case 1:
-                this.opacity = 1;
-                c.font = `${this.size}px ${this.font}`
+                c.font = `${this.size}px ${this.font}`;
                 c.fillStyle = `rgb(221,221,221,${this.opacity})`;
                 c.textAlign = this.align;
                 c.fillText(this.msg, this.x, this.y, this.w);
                 break;
 
             case 2:
-                if (this.opacity <= 0){
-                    this.opacity = 0;
-                    c.fillStyle = `rgb(221,221,221,${this.opacity})`;
-                } else {
                     c.font = `${this.size}px ${this.font}`
-                    this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)
+                    this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2)
                     c.fillStyle = `rgb(221,221,221,${this.opacity})`;
                     c.textAlign = this.align;
                     c.fillText(this.msg, this.x, this.y, this.w);
                     this.anim.frame++;
-                    break;
-                }
+                break;
         }
     }
     delete = () => {

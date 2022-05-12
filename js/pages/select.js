@@ -1,7 +1,10 @@
 class Page{
     constructor(){
+        this.name = "select"
         this.list = [];
+        this.transition = false;
         this.page = 1;
+        this.pagefuncs = [this.page1,this.page2,this.page3];
         this.servicelist = {
             name:[
                 "CAMHS", "Genetics", "ENT", 
@@ -47,7 +50,7 @@ class Page{
         this.bottext = "More";
         this.btntext = new Buttontext(
             ((2*canvas.width)/4),
-            (canvas.height/3)+(4*canvas.height/8)+7,
+            (7*canvas.height/8)+7,
             this.boxwidth,
             "Helvetica",
             this.fontsize,
@@ -67,7 +70,7 @@ class Page{
         //MORE BUTTON
         this.list.push(new GuiButton2(
             ((2*canvas.width)/4)-((canvas.width/4.5)/2),
-            (canvas.height/3)+(4*canvas.height/8)-(50/2),
+            (7*canvas.height/8)-(50/2),
             this.boxwidth,
             this.boxheight,
             "221,221,221",
@@ -102,57 +105,54 @@ class Page{
                 }
             }
         });
-
-        if (this.list[0].hovering()) { //CLICK BOTTOM BUTTON
-            switch (this.page) {
-                case 1: 
-                //Delete Previous items, canvas_anim will remove the objects from the array
-                    for (let i=3; i<=18; i++){
-                        this.list[i].delete()
-                    }
-                //Change white button text to "More"
-                    this.btntext.msg = "More";
-                    this.list.splice(1,1,this.btntext)
-                    this.page = 2;
-                //Add page2() objects
-                    this.page2();
-                    break;
-
-
-                case 2:
-                //Delete Previous items, canvas_anim will remove the objects from the array
-                    this.list[3].delete()
-                    this.list[4].delete()
-                    for (let i=5; i<=22; i++){
-                        this.list[i].delete()
-                    }
-                //Change white button text to "Back"
-                    this.btntext.msg = "Back";
-                    this.list.splice(1,1,this.btntext)
-                    this.page = 3;
-                //Add page1() objects
-                    this.page3();
-                    break;
+            if (this.list[0].hovering() && !this.transition) { //CLICK BOTTOM BUTTON
+                switch (this.page) {
+                    case 1: 
+                    //Delete Previous items, canvas_anim will remove the objects from the array
+                        for (let i=3; i<=18; i++){
+                            this.list[i].delete()
+                        }
+                    //Change white button text to "More"
+                        this.btntext.msg = "More";
+                        this.list.splice(1,1,this.btntext)
+                        this.page = 2;
+                    //Add page2() objects
+                        // this.page2();
+                        break;
 
 
-                case 3:
-                //Delete Previous items, canvas_anim will remove the objects from the array
-                    this.list[3].delete();
-                    this.list[4].delete();
-                    for (let i=5; i<=9; i++){
-                        this.list[i].delete();
-                    }
-                //Change white button text to "More"
-                    this.btntext.msg = "More";
-                    this.list.splice(1,1,this.btntext)
-                    this.page = 1;
-                //Add page1() objects
-                    this.page1();
-                    break;
-                default:
-                    break;
+                    case 2:
+                    //Delete Previous items, canvas_anim will remove the objects from the array
+                        this.list[3].delete()
+                        this.list[4].delete()
+                        for (let i=5; i<=22; i++){
+                            this.list[i].delete()
+                        }
+                    //Change white button text to "Back"
+                        this.btntext.msg = "Back";
+                        this.list.splice(1,1,this.btntext)
+                        this.page = 3;
+                    //Add page1() objects
+                        // this.page3();
+                        break;
+
+
+                    case 3:
+                    //Delete Previous items, canvas_anim will remove the objects from the array
+                        this.list[3].delete();
+                        this.list[4].delete();
+                        for (let i=5; i<=9; i++){
+                            this.list[i].delete();
+                        }
+                    //Change white button text to "More"
+                        this.btntext.msg = "More";
+                        this.list.splice(1,1,this.btntext)
+                        this.page = 1;
+                    //Add page1() objects
+                        // this.page1();
+                        break;
+                }
             }
-        }
     }
 
     page1 = () => {
@@ -292,7 +292,7 @@ class Page{
             '221,221,221'
         );
 
-        this.list.splice(3,0,new GuiButton1(
+        this.list.push(new GuiButton1(
             ((canvas.width)/2)-(defboxw/2),
             defboxy,
             defboxw,
@@ -302,7 +302,7 @@ class Page{
             txt,
             () => {}
         ));
-        this.list.splice(3,0,txt);
+        this.list.push(txt);
     }
     page3 = () => {
         let defboxy = undefined;

@@ -3,6 +3,7 @@ class Page{
         this.list = [];
     }
     initpage = () => {
+        pageState = 1;
         switch (localStorage.getItem('branch')) {
 
             case "CAMHS":
