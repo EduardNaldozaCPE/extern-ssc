@@ -9,12 +9,12 @@ class Page{
             name:[
                 "CAMHS", "Genetics", "ENT", 
                 "Plastic Surgery", "Dermatology", "Gynecology", 
-                "NICU","Emergency Services", ""
+                "NICU","Emergency Services", "Internal Referral"
             ],
             url:[
                 "camhsform.html", "ageform.html", "ageform.html", 
                 "ageform.html", "ageform.html", "gyneform.html", 
-                "nicuform.html", "emergency.html", ""
+                "nicuform.html", "emergency.html", "internalref.html"
             ]
         };
         this.servicelist2 = {
@@ -157,7 +157,7 @@ class Page{
 
     page1 = () => {
         this.count = 0;
-        for (let row=1; row<=2; row++){
+        for (let row=1; row<=3; row++){
             for (let i=1; i<=3; i++){
                 if (canvas.width <= 620){
                     this.fontsize = ((this.boxwidth+this.boxheight)/2)/6;
@@ -190,48 +190,48 @@ class Page{
                 this.count++;
             }
         }
-        let btntext1 = new Buttontext(
-            ((7*canvas.width)/20),
-            (canvas.height/3)+(3*canvas.height/8)+7,
-            this.botboxwidth,
-            "Helvetica",
-            this.fontsize,
-            this.servicelist.name[6],
-            '221,221,221'
-        );
-        this.list.splice(3,0,btntext1);
+        // let btntext1 = new Buttontext(
+        //     ((7*canvas.width)/20),
+        //     (canvas.height/3)+(3*canvas.height/8)+7,
+        //     this.botboxwidth,
+        //     "Helvetica",
+        //     this.fontsize,
+        //     this.servicelist.name[6],
+        //     '221,221,221'
+        // );
+        // this.list.splice(3,0,btntext1);
 
-        //BUTTON 1 FRAME (STATE 1)
-        this.list.splice(3,0,new GuiButton1(
-            ((7*canvas.width)/20)-(this.botboxwidth/2),
-            (canvas.height/3)+(3*canvas.height/8)-(50/2),
-            this.botboxwidth,
-            this.botboxheight,
-            "221,221,221",
-            this.servicelist.url[6],
-            btntext1
-        ));
-        let btntext2 = new Buttontext(
-            ((13*canvas.width)/20),
-            (canvas.height/3)+(3*canvas.height/8)+7,
-            this.botboxwidth,
-            "Helvetica",
-            this.fontsize,
-            this.servicelist.name[7],
-            '221,221,221'
-        );
-        this.list.splice(3,0,btntext2);
+        // //BUTTON 1 FRAME (STATE 1)
+        // this.list.splice(3,0,new GuiButton1(
+        //     ((7*canvas.width)/20)-(this.botboxwidth/2),
+        //     (canvas.height/3)+(3*canvas.height/8)-(50/2),
+        //     this.botboxwidth,
+        //     this.botboxheight,
+        //     "221,221,221",
+        //     this.servicelist.url[6],
+        //     btntext1
+        // ));
+        // let btntext2 = new Buttontext(
+        //     ((13*canvas.width)/20),
+        //     (canvas.height/3)+(3*canvas.height/8)+7,
+        //     this.botboxwidth,
+        //     "Helvetica",
+        //     this.fontsize,
+        //     this.servicelist.name[7],
+        //     '221,221,221'
+        // );
+        // this.list.splice(3,0,btntext2);
 
-        //BUTTON 1 FRAME (STATE 1)
-        this.list.splice(3,0,new GuiButton1(
-            ((13*canvas.width)/20)-(this.botboxwidth/2),
-            (canvas.height/3)+(3*canvas.height/8)-(50/2),
-            this.botboxwidth,
-            this.botboxheight,
-            "221,221,221",
-            this.servicelist.url[7],
-            btntext2,
-        ));
+        // //BUTTON 1 FRAME (STATE 1)
+        // this.list.splice(3,0,new GuiButton1(
+        //     ((13*canvas.width)/20)-(this.botboxwidth/2),
+        //     (canvas.height/3)+(3*canvas.height/8)-(50/2),
+        //     this.botboxwidth,
+        //     this.botboxheight,
+        //     "221,221,221",
+        //     this.servicelist.url[7],
+        //     btntext2,
+        // ));
 
 
     }

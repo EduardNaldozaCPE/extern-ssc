@@ -135,7 +135,8 @@ class GuiButton2 {
                     this.state = 1;
                 }
                 c.beginPath();
-                c.fillStyle = `rgba(${this.colour},${Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)})`;
+                this.opacity = Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2);
+                c.fillStyle = `rgba(${this.colour},${this.opacity})`;
                 c.rect(this.x, this.y, this.w, this.h);
                 c.lineWidth = 2;
                 c.fill();
@@ -145,6 +146,7 @@ class GuiButton2 {
                 this.anim.frame++;
                 break;
             case 1:
+                // this.opacity = 1
                 this.anim.frame = 0;
                 c.beginPath();
                 c.fillStyle = `rgba(${this.colour},${this.opacity})`;
@@ -153,14 +155,16 @@ class GuiButton2 {
                 c.fill();
                 break;
             case 2:
-                if (this.anim.frame >= 50){
-                    console.log(this.url);
-                    location.href = this.url;
-                    pageState = 1;
-
+                if (this.opacity <= 0.2){
+                    // console.log(this.url);
+                    // location.href = this.url;
+                    // pageState = 1;
+                    this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2);
+                    this.anim.frame++;
                 } else {
                     c.beginPath();
-                    c.fillStyle = `rgba(${this.colour},${this.opacity*Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)}`;
+                    this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2);
+                    c.fillStyle = `rgba(${this.colour},${this.opacity}`;
                     c.rect(this.x, this.y, this.w, this.h);
                     c.lineWidth = 2;
                     c.fill();

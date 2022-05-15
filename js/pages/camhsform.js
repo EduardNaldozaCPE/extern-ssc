@@ -3,15 +3,7 @@ class Page{
         this.list = [];
         this.fontsize = canvas.width/30;
     }
-    initpage = () => {
-        window.onload = () => {
-            $("#in-text.hidden").slideDown("slow");
-            $("#in-text").css('opacity', 0).slideDown('slow').animate(
-              { opacity: 1 },
-              { queue: false, duration: 'slow' }
-            );
-        };
-    }
+    initpage = () => {}
     startInstanceList = () => {
         if (canvas.width > 600) {
             this.fontsize = 15;
