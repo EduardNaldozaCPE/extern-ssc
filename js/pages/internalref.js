@@ -125,7 +125,27 @@ class Page{
                 'decider.html',
                 drop1
             ));
+
             this.list.splice(10,0,drop1);
+            let drop2 = new Buttontext(
+                (canvas.width/2)-100-(300/2),
+                (6*canvas.height/10)+32,
+                200,
+                "Helvetica",
+                14,
+                "Adult Mental Health Services",
+                '221,221,221'
+            );
+            this.list.splice(9,0,new GuiButton1(
+                (canvas.width/2)-(300+100),
+                6*canvas.height/10,
+                300,
+                50,
+                "221,221,221",
+                'decider.html',
+                drop2
+            ));
+            this.list.splice(10,0,drop2);
         }
         let todrops = () => {
             let drop1 = new Buttontext(
@@ -147,6 +167,25 @@ class Page{
                 drop1
             ));
             this.list.splice(10,0,drop1);
+            let drop2 = new Buttontext(
+                (canvas.width/2)+100+(300/2),
+                (6*canvas.height/10)+32,
+                200,
+                "Helvetica",
+                14,
+                "Obestetrics Services",
+                '221,221,221'
+            );
+            this.list.splice(9,0,new GuiButton1(
+                (canvas.width/2)+100,
+                6*canvas.height/10,
+                300,
+                50,
+                "221,221,221",
+                'decider.html',
+                drop2
+            ));
+            this.list.splice(10,0,drop2);
         }
         let replacedrop1 = () => {
             let lv12btn = new Buttontext(
@@ -197,13 +236,36 @@ class Page{
                     replacedrop1();
                     this.to = "To...";
                     replacedrop2();
+                    try {
+                        this.list.forEach((element, i) => {
+                            try {
+                                if (element.name == "continue"){
+                                    this.list.splice(i-1,2);
+                                }
+                            } catch {console.log("err");}
+                        });
+                    } catch (error) {}
                 }
-                this.list.splice(9,2);
+                
+                if (this.list[11].hovering()){
+                    this.from = "Adult Mental Health Services";
+                    replacedrop1();
+                    this.to = "To...";
+                    replacedrop2();
+                    try {
+                        this.list.forEach((element, i) => {
+                            try {
+                                if (element.name == "continue"){
+                                    this.list.splice(i-1,2);
+                                }
+                            } catch {console.log("err");}
+                        });
+                    } catch (error) {}
+                }
+
+                this.list.splice(9,4);
                 this.drop1open = false;
             } catch {console.log("Dropdown closed");}
-            try {
-                this.list.splice(9,2);
-            } catch (error) {}
         }
         let closedrop2 = () => {
             try {
@@ -211,7 +273,16 @@ class Page{
                     this.to = "Developmental Pediatrics";
                     replacedrop2();
                 }
-                this.list.splice(9,2);
+                this.list.splice(9,4);
+                this.drop2open = false;
+            } catch {console.log("Dropdown closed");}
+            
+            try {
+                if (this.list[11].hovering()){
+                    this.to = "Obstetrics Services";
+                    replacedrop2();
+                }
+                this.list.splice(9,4);
                 this.drop2open = false;
             } catch {console.log("Dropdown closed");}
 
@@ -231,8 +302,7 @@ class Page{
                     '221,221,221' 
                 );
                 this.list.push(btntext)
-        
-                this.list.push(new GuiButton1(
+                let btncont =  new GuiButton1(
                     (canvas.width/2)-(200/2),
                     (4*(canvas.height/5))-(50/2),
                     200,
@@ -240,11 +310,13 @@ class Page{
                     "221,221,221",
                     'decider.html',
                     btntext
-                ));
+                );
+                btncont.name = "continue";
+                this.list.push(btncont);
             }
         }
 
-        if (!this.drop1open){
+        if (!this.drop1open){ 
             if (this.list[2].hovering()) {
                 if (this.drop2open) {
                     closedrop2();
@@ -261,20 +333,22 @@ class Page{
             } catch {console.log("no list[2]");}
             closedrop1();
         }
-
-        if (!this.drop2open){
-            if (this.list[3].hovering()) {
-                todrops();
-                this.drop2open = true;
-            }
-        } else {
-            try {
+        if (this.from != 'From...'){
+            if (!this.drop2open){
                 if (this.list[3].hovering()) {
-                    this.drop2open = false;
+                    todrops();
+                    this.drop2open = true;
                 }
-            } catch {console.log("no list[3]");}
-            closedrop2();
+            } else {
+                try {
+                    if (this.list[3].hovering()) {
+                        this.drop2open = false;
+                    }
+                } catch {console.log("no list[3]");}
+                closedrop2();
+            }
         }
+        
 
         if (this.list[8].hovering()){
             this.list[8].click = true;
