@@ -146,7 +146,7 @@ class GuiButton2 {
                 this.anim.frame++;
                 break;
             case 1:
-                this.opacity = 1
+                // this.opacity = 1
                 this.anim.frame = 0;
                 c.beginPath();
                 c.fillStyle = `rgba(${this.colour},${this.opacity})`;
