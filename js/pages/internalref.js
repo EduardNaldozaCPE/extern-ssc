@@ -116,7 +116,7 @@ class Page{
                 "Sole Services",
                 '221,221,221'
             );
-            this.list.push(new GuiButton1(
+            this.list.splice(9,0,new GuiButton1(
                 (canvas.width/2)-(300+100),
                 5*canvas.height/10,
                 300,
@@ -125,7 +125,7 @@ class Page{
                 'decider.html',
                 drop1
             ));
-            this.list.push(drop1);
+            this.list.splice(10,0,drop1);
         }
         let todrops = () => {
             let drop1 = new Buttontext(
@@ -137,7 +137,7 @@ class Page{
                 "Developmental Pediatrics",
                 '221,221,221'
             );
-            this.list.push(new GuiButton1(
+            this.list.splice(9,0,new GuiButton1(
                 (canvas.width/2)+100,
                 5*canvas.height/10,
                 300,
@@ -146,7 +146,7 @@ class Page{
                 'decider.html',
                 drop1
             ));
-            this.list.push(drop1);
+            this.list.splice(10,0,drop1);
         }
         let replacedrop1 = () => {
             let lv12btn = new Buttontext(
@@ -201,6 +201,9 @@ class Page{
                 this.list.splice(9,2);
                 this.drop1open = false;
             } catch {console.log("Dropdown closed");}
+            try {
+                this.list.splice(9,2);
+            } catch (error) {}
         }
         let closedrop2 = () => {
             try {
@@ -211,7 +214,13 @@ class Page{
                 this.list.splice(9,2);
                 this.drop2open = false;
             } catch {console.log("Dropdown closed");}
+
             if (this.from != "From..." && this.to != "To...") {
+                try {
+                    this.list.splice(9,2);
+                } catch (error) {
+                    
+                }
                 let btntext = new Buttontext(
                     (canvas.width/2),
                     (4*(canvas.height/5))+7,
@@ -237,11 +246,11 @@ class Page{
 
         if (!this.drop1open){
             if (this.list[2].hovering()) {
-                fromdrops();
-                this.drop1open = true;
                 if (this.drop2open) {
                     closedrop2();
                 }
+                this.drop1open = true;
+                fromdrops();
                 console.log('open drop1');
             }
         } else {
@@ -257,9 +266,6 @@ class Page{
             if (this.list[3].hovering()) {
                 todrops();
                 this.drop2open = true;
-                if (this.drop1open) {
-                    closedrop1();
-                }
             }
         } else {
             try {
