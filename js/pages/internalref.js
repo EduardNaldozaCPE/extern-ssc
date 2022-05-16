@@ -7,12 +7,14 @@ class Page{
         this.drop2open = false;
         this.from = "From...";
         this.to = "To...";
-        this.fromlist = ['Adult Mental Health Services', 'Sole Service','bop'];
+        this.fromlist = ['Adult Mental Health Services','Adult Congenital Heart Disease', 'Sole Service','Obstetrics'];
         this.tolist = [
             ["Obstetrics"],
+            ["Obstetrics"],
             ["Developmental Pediatrics"],
-            ['beep','bap']
+            ['Diabetic New','Endocrinology New', 'Physiotherapy New', "Internal Medicine", "Adult Cardiology New"]
         ]
+        this.dropstart = 9;
     }
     initpage = () => {}
     startInstanceList = () => {
@@ -113,20 +115,11 @@ class Page{
     
     action = () => {
         let toi = undefined;
-        switch (this.from) {
-            case "Adult Mental Health Services":
-                    toi = 0;
-                break;
-            case "Sole Service":
-                    toi = 1;
-                break;
-            case "bop":
-                    toi = 2;
-                break;
-        
-            default:
-                break;
-        }
+        this.fromlist.forEach((element,i) => {
+            if (element==this.from){
+                toi = i;
+            }
+        });
         let fromdrops = (optionslist) => {
             optionslist.forEach((element, i) => {
                 let drop1 = new Buttontext(
@@ -138,7 +131,7 @@ class Page{
                     element,
                     '221,221,221'
                 );
-                this.list.splice(9+i,0,new GuiButton1(
+                this.list.splice(this.dropstart+i,0,new GuiButton1(
                     (canvas.width/2)-(300+100),
                     (5+i)*canvas.height/10,
                     300,
@@ -161,7 +154,7 @@ class Page{
                         element,
                         '221,221,221'
                     );
-                    this.list.splice(9+i,0,new GuiButton1(
+                    this.list.splice(this.dropstart+i,0,new GuiButton1(
                         (canvas.width/2)+100,
                         (5+i)*canvas.height/10,
                         300,
@@ -216,13 +209,42 @@ class Page{
                 lv12btn
             ));
             this.list.splice(7,1,lv12btn);
+
+            if (this.dropstart==11 && this.to == "To..."){
+                this.list.splice(9,2)
+                this.dropstart = 9;
+            }
+
+            if (this.from != "From..." && this.to != "To..."){
+                let btntext = new Buttontext(
+                    (canvas.width/2),
+                    (4*(canvas.height/5))+7,
+                    200,
+                    "Helvetica",
+                    20,
+                    "Continue",
+                    '221,221,221'
+                );
+                this.list.splice(9,0,btntext)
+        
+                this.list.splice(9,0,new GuiButton1(
+                    (canvas.width/2)-(200/2),
+                    (4*(canvas.height/5))-(50/2),
+                    200,
+                    50,
+                    "221,221,221",
+                    'decider.html',
+                    btntext
+                ));
+                this.dropstart = 11;
+            }
         }
         let closedrop1 = () => {
-            this.list.splice(9,this.fromlist.length*2);
+            this.list.splice(this.dropstart,this.fromlist.length*2);
             this.drop1open = false;
         }
         let closedrop2 = () => {
-            this.list.splice(9,this.tolist[toi].length*2);
+            this.list.splice(this.dropstart,this.tolist[toi].length*2);
             this.drop2open = false;
         }
 
@@ -238,9 +260,13 @@ class Page{
         } else {                                        // IF "FROM" BOX IS ALREADY OPEN
             this.list.forEach((element,i) => {          // Check for element clicked and replace from drop
                 try{
-                    // console.log(this.list[i+this.fromlist.length].msg, this.fromlist[i-9]);
-                    if (element.hovering() && this.list[i+this.fromlist.length].msg == this.fromlist[i-9] && i>=9) {
-                        this.from = this.fromlist[i-9];
+                    // console.log(this.list[i+this.fromlist.length].msg, this.fromlist[i-this.dropstart]);
+                    if (element.hovering() && this.list[i+this.fromlist.length].msg == this.fromlist[i-this.dropstart] && i>=this.dropstart) {
+                        this.from = this.fromlist[i-this.dropstart];
+                        if (this.list.length >= this.fromlist.length*2 + this.dropstart)
+                        {
+                            this.list.splice(this.dropstart,2);
+                        }
                         replacedrop1();
                     }
                 } catch {}
@@ -257,10 +283,11 @@ class Page{
             } else {                                    // WHEN "TO" BOX IS OPEN, CLOSE BOX
                 this.list.forEach((element,i) => {          // Check for element clicked and replace "to" drop
                     try{
-                        // console.log(this.list[i+this.tolist[toi].length].msg, this.tolist[toi][i-9]);
-                        if (element.hovering() && this.list[i+this.tolist[toi].length].msg == this.tolist[toi][i-9] && i>=9) {
-                            this.to = this.tolist[toi][i-9];
+                        // console.log(element.hovering() && this.list[i+this.tolist[toi].length].msg == this.tolist[toi][i-this.dropstart] && i>=this.dropstart);
+                        if (element.hovering() && this.list[i+this.tolist[toi].length].msg == this.tolist[toi][i-this.dropstart] && i>=this.dropstart) {
+                            this.to = this.tolist[toi][i-this.dropstart];
                             replacedrop2();
+                            closedrop2();
                         }
                     } catch {}
                 });
@@ -273,6 +300,16 @@ class Page{
             this.list[8].click = true;
             this.list[8].delete();
         }
+
+        if (this.dropstart == 11){
+            if (this.list[9].hovering()){
+                localStorage.setItem('internalref_from',this.from);
+                localStorage.setItem('internalref_to',this.to);
+                this.list[9].click = true;
+                this.list[9].delete();
+            }
+        }
+
     }
     textx = () => {
         if (canvas.width >= 600){
