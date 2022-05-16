@@ -7,6 +7,12 @@ class Page{
         this.drop2open = false;
         this.from = "From...";
         this.to = "To...";
+        this.fromlist = ['Adult Mental Health Services', 'Sole Service','bop'];
+        this.tolist = [
+            ["Obstetrics"],
+            ["Developmental Pediatrics"],
+            ['beep','bap']
+        ]
     }
     initpage = () => {}
     startInstanceList = () => {
@@ -106,86 +112,66 @@ class Page{
     }
     
     action = () => {
-        let fromdrops = () => {
-            let drop1 = new Buttontext(
-                (canvas.width/2)-100-(300/2),
-                (5*canvas.height/10)+32,
-                200,
-                "Helvetica",
-                14,
-                "Sole Services",
-                '221,221,221'
-            );
-            this.list.splice(9,0,new GuiButton1(
-                (canvas.width/2)-(300+100),
-                5*canvas.height/10,
-                300,
-                50,
-                "221,221,221",
-                'decider.html',
-                drop1
-            ));
-
-            this.list.splice(10,0,drop1);
-            let drop2 = new Buttontext(
-                (canvas.width/2)-100-(300/2),
-                (6*canvas.height/10)+32,
-                200,
-                "Helvetica",
-                14,
-                "Adult Mental Health Services",
-                '221,221,221'
-            );
-            this.list.splice(9,0,new GuiButton1(
-                (canvas.width/2)-(300+100),
-                6*canvas.height/10,
-                300,
-                50,
-                "221,221,221",
-                'decider.html',
-                drop2
-            ));
-            this.list.splice(10,0,drop2);
+        let toi = undefined;
+        switch (this.from) {
+            case "Adult Mental Health Services":
+                    toi = 0;
+                break;
+            case "Sole Service":
+                    toi = 1;
+                break;
+            case "bop":
+                    toi = 2;
+                break;
+        
+            default:
+                break;
         }
-        let todrops = () => {
-            let drop1 = new Buttontext(
-                (canvas.width/2)+100+(300/2),
-                (5*canvas.height/10)+32,
-                200,
-                "Helvetica",
-                14,
-                "Developmental Pediatrics",
-                '221,221,221'
-            );
-            this.list.splice(9,0,new GuiButton1(
-                (canvas.width/2)+100,
-                5*canvas.height/10,
-                300,
-                50,
-                "221,221,221",
-                'decider.html',
-                drop1
-            ));
-            this.list.splice(10,0,drop1);
-            let drop2 = new Buttontext(
-                (canvas.width/2)+100+(300/2),
-                (6*canvas.height/10)+32,
-                200,
-                "Helvetica",
-                14,
-                "Obestetrics Services",
-                '221,221,221'
-            );
-            this.list.splice(9,0,new GuiButton1(
-                (canvas.width/2)+100,
-                6*canvas.height/10,
-                300,
-                50,
-                "221,221,221",
-                'decider.html',
-                drop2
-            ));
-            this.list.splice(10,0,drop2);
+        let fromdrops = (optionslist) => {
+            optionslist.forEach((element, i) => {
+                let drop1 = new Buttontext(
+                    (canvas.width/2)-100-(300/2),
+                    ((5+i)*canvas.height/10)+32,
+                    200,
+                    "Helvetica",
+                    14,
+                    element,
+                    '221,221,221'
+                );
+                this.list.splice(9+i,0,new GuiButton1(
+                    (canvas.width/2)-(300+100),
+                    (5+i)*canvas.height/10,
+                    300,
+                    50,
+                    "221,221,221",
+                    'decider.html',
+                    drop1
+                ));
+                this.list.push(drop1);
+            });
+        }
+        let todrops = (optionslist) => {
+                optionslist.forEach((element,i) => {
+                    let drop1 = new Buttontext(
+                        (canvas.width/2)+100+(300/2),
+                        ((5+i)*canvas.height/10)+32,
+                        200,
+                        "Helvetica",
+                        14,
+                        element,
+                        '221,221,221'
+                    );
+                    this.list.splice(9+i,0,new GuiButton1(
+                        (canvas.width/2)+100,
+                        (5+i)*canvas.height/10,
+                        300,
+                        50,
+                        "221,221,221",
+                        'decider.html',
+                        drop1
+                    ));
+                    this.list.push(drop1);
+                });
         }
         let replacedrop1 = () => {
             let lv12btn = new Buttontext(
@@ -207,6 +193,8 @@ class Page{
                 lv12btn
             ));
             this.list.splice(6,1,lv12btn);
+            this.to = "To..."
+            replacedrop2()
         }
         let replacedrop2 = () => {
             let lv12btn = new Buttontext(
@@ -230,121 +218,52 @@ class Page{
             this.list.splice(7,1,lv12btn);
         }
         let closedrop1 = () => {
-            try {
-                if (this.list[9].hovering()){
-                    this.from = "Sole Service";
-                    replacedrop1();
-                    this.to = "To...";
-                    replacedrop2();
-                    try {
-                        this.list.forEach((element, i) => {
-                            try {
-                                if (element.name == "continue"){
-                                    this.list.splice(i-1,2);
-                                }
-                            } catch {console.log("err");}
-                        });
-                    } catch (error) {}
-                }
-                
-                if (this.list[11].hovering()){
-                    this.from = "Adult Mental Health Services";
-                    replacedrop1();
-                    this.to = "To...";
-                    replacedrop2();
-                    try {
-                        this.list.forEach((element, i) => {
-                            try {
-                                if (element.name == "continue"){
-                                    this.list.splice(i-1,2);
-                                }
-                            } catch {console.log("err");}
-                        });
-                    } catch (error) {}
-                }
-
-                this.list.splice(9,4);
-                this.drop1open = false;
-            } catch {console.log("Dropdown closed");}
+            this.list.splice(9,this.fromlist.length*2);
+            this.drop1open = false;
         }
         let closedrop2 = () => {
-            try {
-                if (this.list[9].hovering()){
-                    this.to = "Developmental Pediatrics";
-                    replacedrop2();
-                }
-                this.list.splice(9,4);
-                this.drop2open = false;
-            } catch {console.log("Dropdown closed");}
-            
-            try {
-                if (this.list[11].hovering()){
-                    this.to = "Obstetrics Services";
-                    replacedrop2();
-                }
-                this.list.splice(9,4);
-                this.drop2open = false;
-            } catch {console.log("Dropdown closed");}
-
-            if (this.from != "From..." && this.to != "To...") {
-                try {
-                    this.list.splice(9,2);
-                } catch (error) {
-                    
-                }
-                let btntext = new Buttontext(
-                    (canvas.width/2),
-                    (4*(canvas.height/5))+7,
-                    200,
-                    "Helvetica",
-                    20,
-                    "Continue",
-                    '221,221,221' 
-                );
-                this.list.push(btntext)
-                let btncont =  new GuiButton1(
-                    (canvas.width/2)-(200/2),
-                    (4*(canvas.height/5))-(50/2),
-                    200,
-                    50,
-                    "221,221,221",
-                    'decider.html',
-                    btntext
-                );
-                btncont.name = "continue";
-                this.list.push(btncont);
-            }
+            this.list.splice(9,this.tolist[toi].length*2);
+            this.drop2open = false;
         }
 
         if (!this.drop1open){ 
-            if (this.list[2].hovering()) {
-                if (this.drop2open) {
+            if (this.list[2].hovering()) {              // OPEN "FROM" BOX
+                if (this.drop2open) {                   // IF "TO" BOX IS OPEN, CLOSE IT
                     closedrop2();
                 }
                 this.drop1open = true;
-                fromdrops();
+                fromdrops(this.fromlist);
                 console.log('open drop1');
             }
-        } else {
-            try {
-                if (this.list[2].hovering()) {
-                    this.drop1open = false;
-                }
-            } catch {console.log("no list[2]");}
+        } else {                                        // IF "FROM" BOX IS ALREADY OPEN
+            this.list.forEach((element,i) => {          // Check for element clicked and replace from drop
+                try{
+                    // console.log(this.list[i+this.fromlist.length].msg, this.fromlist[i-9]);
+                    if (element.hovering() && this.list[i+this.fromlist.length].msg == this.fromlist[i-9] && i>=9) {
+                        this.from = this.fromlist[i-9];
+                        replacedrop1();
+                    }
+                } catch {}
+            });
             closedrop1();
         }
-        if (this.from != 'From...'){
-            if (!this.drop2open){
-                if (this.list[3].hovering()) {
-                    todrops();
+
+        if (this.from != 'From...'){                    // WHEN "FROM" HAS ALREADY BEEN SELECTED, ENABLE "TO" BOX
+            if (!this.drop2open){                       // WHEN "TO" BOX IS NOT OPEN
+                if (this.list[3].hovering()) {          // WHEN "TO" BOX IS CLICKED, OPEN BOX
+                    todrops(this.tolist[toi]);
                     this.drop2open = true;
                 }
-            } else {
-                try {
-                    if (this.list[3].hovering()) {
-                        this.drop2open = false;
-                    }
-                } catch {console.log("no list[3]");}
+            } else {                                    // WHEN "TO" BOX IS OPEN, CLOSE BOX
+                this.list.forEach((element,i) => {          // Check for element clicked and replace "to" drop
+                    try{
+                        // console.log(this.list[i+this.tolist[toi].length].msg, this.tolist[toi][i-9]);
+                        if (element.hovering() && this.list[i+this.tolist[toi].length].msg == this.tolist[toi][i-9] && i>=9) {
+                            this.to = this.tolist[toi][i-9];
+                            replacedrop2();
+                        }
+                    } catch {}
+                });
                 closedrop2();
             }
         }
