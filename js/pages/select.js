@@ -109,7 +109,7 @@ class Page{
                 switch (this.page) {
                     case 1: 
                     //Delete Previous items, canvas_anim will remove the objects from the array
-                        for (let i=3; i<=18; i++){
+                        for (let i=3; i<=20; i++){
                             this.list[i].delete()
                         }
                     //Change white button text to "More"
