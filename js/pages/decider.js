@@ -9,7 +9,11 @@ class Page{
             case "CAMHS":
                 if(localStorage.getItem('in-out-patient') == 'true'
                     && localStorage.getItem('ageReq') == 'true'){
-                    location.href = 'preferred.html';
+                    if (localStorage.getItem('internalRef') == 'true'){
+                        location.href = 'physmpages.html';
+                    } else {
+                        location.href = 'preferred.html';
+                    }
                 } else {
                     location.href = 'sole.html';
                 }
@@ -115,6 +119,15 @@ class Page{
                         break;
                 }
             break;
+            case 'Obstetrics':
+                console.log(localStorage.getItem('internalRef'));
+                    if (localStorage.getItem('internalRef') == 'true'){
+                        location.href = 'physmpages.html';
+                    } else {
+                        location.href = 'preferred.html';
+                    }
+                break;
+            
             default:
                 break;
         

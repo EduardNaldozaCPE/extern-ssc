@@ -9,12 +9,12 @@ class Page{
             name:[
                 "CAMHS", "Genetics", "ENT", 
                 "Plastic Surgery", "Dermatology", "Gynecology", 
-                "NICU","Emergency Services", "Internal Referral"
+                "NICU","Emergency Services", "Obstetrics"
             ],
             url:[
                 "camhsform.html", "ageform.html", "ageform.html", 
                 "ageform.html", "ageform.html", "gyneform.html", 
-                "nicuform.html", "emergency.html", "internalref.html"
+                "nicuform.html", "emergency.html", "obstetrics.html"
             ]
         };
         this.servicelist2 = {
@@ -34,7 +34,6 @@ class Page{
         this.servicelist3 = {
             name:[
                 "Adult Services",
-                "Obstetrics",
                 "Dev Peds",
                 "Rep Meds (IVF)",
                 "Aesthetics"
@@ -141,7 +140,7 @@ class Page{
                     //Delete Previous items, canvas_anim will remove the objects from the array
                         this.list[3].delete();
                         this.list[4].delete();
-                        for (let i=5; i<=9; i++){
+                        for (let i=5; i<=8; i++){
                             this.list[i].delete();
                         }
                     //Change white button text to "More"
@@ -190,49 +189,6 @@ class Page{
                 this.count++;
             }
         }
-        // let btntext1 = new Buttontext(
-        //     ((7*canvas.width)/20),
-        //     (canvas.height/3)+(3*canvas.height/8)+7,
-        //     this.botboxwidth,
-        //     "Helvetica",
-        //     this.fontsize,
-        //     this.servicelist.name[6],
-        //     '221,221,221'
-        // );
-        // this.list.splice(3,0,btntext1);
-
-        // //BUTTON 1 FRAME (STATE 1)
-        // this.list.splice(3,0,new GuiButton1(
-        //     ((7*canvas.width)/20)-(this.botboxwidth/2),
-        //     (canvas.height/3)+(3*canvas.height/8)-(50/2),
-        //     this.botboxwidth,
-        //     this.botboxheight,
-        //     "221,221,221",
-        //     this.servicelist.url[6],
-        //     btntext1
-        // ));
-        // let btntext2 = new Buttontext(
-        //     ((13*canvas.width)/20),
-        //     (canvas.height/3)+(3*canvas.height/8)+7,
-        //     this.botboxwidth,
-        //     "Helvetica",
-        //     this.fontsize,
-        //     this.servicelist.name[7],
-        //     '221,221,221'
-        // );
-        // this.list.splice(3,0,btntext2);
-
-        // //BUTTON 1 FRAME (STATE 1)
-        // this.list.splice(3,0,new GuiButton1(
-        //     ((13*canvas.width)/20)-(this.botboxwidth/2),
-        //     (canvas.height/3)+(3*canvas.height/8)-(50/2),
-        //     this.botboxwidth,
-        //     this.botboxheight,
-        //     "221,221,221",
-        //     this.servicelist.url[7],
-        //     btntext2,
-        // ));
-
 
     }
     page2 = () => {
@@ -327,7 +283,7 @@ class Page{
         } else {
             subheight = 2*canvas.height/6;
         }
-        for (let row=1;row<=5;row++){
+        for (let row=1;row<=4;row++){
             this.list.push(new Ntext(
                 (canvas.width/2),
                 subheight+(1.4*row*canvas.height/30),

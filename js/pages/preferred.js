@@ -5,7 +5,7 @@ class Page{
     initpage = () => {
     }
     startInstanceList = () => {
-        var service = localStorage.getItem('branch')
+        // var service = localStorage.getItem('branch')
         var titleheight = undefined;
         if (canvas.width > 700) {
             titleheight = canvas.height*0.23;

@@ -450,7 +450,7 @@ class Titletext {
                 break;
 
             case 2:
-                console.log(this.anim.frame);
+                // console.log(this.anim.frame);
                 c.font = `bold ${this.size}px ${this.font}`
                 this.opacity = Math.pow((50-this.anim.frame)/this.anim.animlength, 2).toFixed(2)
                 c.fillStyle = `rgb(221,221,221,${this.opacity})`;
