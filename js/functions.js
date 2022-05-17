@@ -51,5 +51,5 @@ const parseCookie = str =>
   }, {});
   
 // cookie in browser: `pkg=math; equation=E%3Dmc%5E2`
-console.log(parseCookie('boop=asd;aaarp=21'));
+// console.log(parseCookie('boop=asd;aaarp=21'));
 //console: { pkg: 'math', equation: 'E=mc^2' }

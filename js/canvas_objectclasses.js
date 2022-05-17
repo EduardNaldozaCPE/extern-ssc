@@ -645,21 +645,47 @@ class Ntext {
 }
 
 class Rightbutton {
-    constructor(x,y){
+    constructor(x,y,w,url){
         this.name = "Rightbutton";
         this.x = x;
         this.y = y;
+        this.w = w;
+        this.state = 0;
+        this.url = url;
+        this.click = false;
     }
     draw = () => {
-        c.beginPath();
-        c.moveTo(this.x, this.y);
-        c.lineTo(this.x+30, this.y+15);
-        c.lineTo(this.x, this.y+30);
-        c.lineTo(this.x, this.y);
-        c.fill();
+        switch (this.state) {
+            case 0:
+            c.beginPath();
+            c.fillStyle='rgba(221,221,221,0.7)';
+            c.moveTo(this.x, this.y);
+            c.lineTo(this.x+30, this.y+15);
+            c.lineTo(this.x, this.y+30);
+            c.lineTo(this.x, this.y);
+            // c.fillStyle = 'rgb(221,221,221,1)';
+            c.fill();
+            break;
+        case 1:
+            if (this.click) {
+                location.href = this.url;
+                pageState = 1;
+            }
+            break;
+        }
+    }
+    delete = () => {
+        this.state = 1;
     }
 
     delete = () => {}
+    hovering = () =>{
+        if (isHovering(mpos.x, mpos.y, this.x, this.y, this.w, this.w)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 class Leftbutton {
@@ -676,17 +702,13 @@ class Leftbutton {
         switch (this.state) {
             case 0:
                 c.beginPath();
+                c.fillStyle='rgba(221,221,221,0.7)';
                 c.moveTo(this.x, this.y);
                 c.lineTo(this.x-this.w, this.y+(this.w/2));
                 c.lineTo(this.x, this.y+this.w);
                 c.lineTo(this.x, this.y);
-                c.fillStyle = 'rgb(221,221,221,1)';
+                // c.fillStyle = 'rgb(221,221,221,1)';
                 c.fill();
-                // c.beginPath();
-                // c.moveTo(this.x, this.y);
-                // c.rect(this.x-this.w,this.y,this.w,this.w)
-                // c.fillStyle = 'rgb(221,0,0,0.3)';
-                // c.fill();
                 break;
             case 1:
                 if (this.click) {
@@ -700,8 +722,6 @@ class Leftbutton {
         this.state = 1;
     }
     hovering = () =>{
-        // console.log(mpos.x, this.x-this.w, this.x);
-        // console.log(innerWidth-canvas.width);
         if (isHovering(mpos.x, mpos.y, this.x-this.w, this.y, this.w, this.w)) {
             return true;
         } else {
@@ -713,4 +733,100 @@ class Leftbutton {
 class EmptyObj {
     draw = () => {}
     delete = () => {}
+}
+
+class PageIndicator {
+    constructor(x,y){
+        this.x = x;
+        this.y = y;
+        this.selected = false;
+    }
+
+    draw = () => {
+        c.beginPath();
+        c.strokeStyle='rgba(221,221,221,0.7)';
+        c.lineWidth = '3'
+        c.arc(this.x, this.y, 10, 0, 2 * Math.PI);
+        c.stroke();
+
+        if (this.selected == true){
+            c.beginPath();
+            c.fillStyle='rgba(221,221,221,0.7)';
+            c.lineWidth = '3'
+            c.arc(this.x, this.y, 5, 0, 2 * Math.PI);
+            c.fill();
+        }
+    }
+
+    toggle = () => {
+        this.selected = !this.selected;
+    }
+    setOn = () => {
+        this.selected = true;
+    }
+    setOff = () => {
+        this.selected = false;
+    }
+}
+
+class PageFilter {
+    constructor(x,y){
+        this.x = x,
+        this.y = y,
+        this.selectedletter = undefined;
+        this.selectedletter_index = undefined;
+        this.alphabList = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+    }
+
+    draw = () => {
+        for (let l=0;l<26;l++){
+            c.beginPath();
+            c.font = 'bold 16px Helvetica';
+            c.fillStyle = "rgba(211,211,211,1)"
+            c.fillText(this.alphabList[l],this.x + (l*25),this.y);
+        }
+        c.beginPath();
+        c.strokeStyle = 'rgba(221,221,221,1)';
+        c.rect(this.x + 650, this.y-16, 50, 20);
+        c.fill()
+        c.beginPath();
+        c.font = 'bolder 11px Helvetica';
+        c.fillStyle = "rgba(53,144,133,1)"
+        c.fillText("CLEAR",this.x + 650 + 25, this.y-2);
+
+        if (this.selectedletter_index != undefined) {
+            c.beginPath();
+            c.strokeStyle = 'rgba(221,221,221,1)';
+            c.moveTo(this.x + (this.selectedletter_index*25)-8, this.y+5);
+            c.lineTo(this.x + (this.selectedletter_index*25)+8, this.y+5);
+            c.stroke()
+        }
+        
+    }
+    delete = () => {
+    }
+    hovering = () => {
+        let letterclicked = false;
+        for (let l=0;l<26;l++){
+            if (isHovering(mpos.x,mpos.y, this.x + (l*25)-8, this.y-16, 16, 25)){
+                this.selectedletter = this.alphabList[l];
+                this.selectedletter_index = l;
+                letterclicked = true;
+                break;
+            } else {
+                letterclicked = false;
+            }
+        }
+        if (letterclicked) {return true;} else {
+            if (isHovering(mpos.x,mpos.y, this.x + 650, this.y-16, 50, 20)) {
+                this.selectedletter = "CLEAR"
+                this.selectedletter_index = undefined;
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+    getLetter = () => {return this.selectedletter}
 }

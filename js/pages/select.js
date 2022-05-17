@@ -1,44 +1,67 @@
 class Page{
     constructor(){
-        this.name = "select"
+        this.name = "select";
         this.list = [];
         this.transition = false;
         this.page = 1;
+        this.alphabetical = false;
+        this.chosenLetter = undefined;
         this.pagefuncs = [this.page1,this.page2,this.page3];
-        this.servicelist = {
-            name:[
-                "CAMHS", "Genetics", "ENT", 
-                "Plastic Surgery", "Dermatology", "Gynecology", 
-                "NICU","Emergency Services", "Obstetrics"
-            ],
-            url:[
-                "camhsform.html", "ageform.html", "ageform.html", 
-                "ageform.html", "ageform.html", "gyneform.html", 
-                "nicuform.html", "emergency.html", "obstetrics.html"
-            ]
-        };
-        this.servicelist2 = {
-            name:[
-                "Adolescent Medicine", "Rehab medicine",
-                "Allergy Immunology", "Neonatal Surgery",
-                "Endocrinology", "Neurosurgery",
-                "Gastroenterology", "Ophthalmology",
-                "Cardiology", "Orthopedics",
-                "Hematology/Oncology", "Transplant",
-                "Nephrology", "Urology",
-                "Infectious disease", "Peri/Post Natal Mental Health",
-                "Pulmonology", "Rheumatology"
-            ],
-            url:"sole.html"
-        };
-        this.servicelist3 = {
-            name:[
-                "Adult Services",
-                "Developmental Pediatrics",
-                "Rep Meds (IVF)",
-                "Aesthetics"
-            ],
-            url:"sole.html"
+        this.servicelist = [
+            {
+                name:[
+                    "Adolescent Medicine", "Adult Services", "Aesthetics", 
+                    "Allergy Immunology", "Ancillary Services", "CAMHS", 
+                    "Cardiology","Dental Surgery", "Dermatology",
+                    "Developmental Pediatrics", "ENT", "Emergency Services", 
+                ],
+                url:[
+                    "camhsform.html", "ageform.html", "ageform.html", 
+                    "ageform.html", "ageform.html", "camhsform.html", 
+                    "nicuform.html", "emergency.html", "obstetrics.html",
+                    "camhsform.html", "ageform.html", "ageform.html", 
+                ]
+            }, {
+                name:[
+                    "Endocrinology", "Gastroenterology", "General Pediatrics", 
+                    "General Surgery","Genetics", "Gynecology",
+                    "Hematology/Oncology", "Infectious Disease", "Maternal Fetal Medicine", 
+                    "NICU", "Neonatal Surgery", "Nephrology", 
+                ],
+                url:[
+                    "ageform.html", "ageform.html", "gyneform.html", 
+                    "nicuform.html", "emergency.html", "obstetrics.html",
+                    "camhsform.html", "ageform.html", "ageform.html", 
+                    "ageform.html", "ageform.html", "gyneform.html", 
+                ]
+            }, {
+                name:[
+                    "Neurology","Neurosurgery", "Obstetrics",
+                    "Ophthalmology", "Orthopedics", "Peri/Post Natal Mental Health", 
+                    "Plastic Surgery", "Pulmonology", "Rehab Medicine", 
+                    "Reproductive Medicine","Rheumatology", "Transplant"
+                ],
+                url:[
+                    "nicuform.html", "emergency.html", "obstetrics.html",
+                    "camhsform.html", "ageform.html", "ageform.html", 
+                    "ageform.html", "ageform.html", "gyneform.html", 
+                    "nicuform.html", "emergency.html", "obstetrics.html"
+                ]
+            }, {
+                name:[
+                    "Urology"
+                ],
+                url:[
+                    "sole.html"
+                ]
+            }, 
+        ];
+        this.servicelist_alpha = {
+                name:[
+                    "Adolescent Medicine", "Adult Services", "Aesthetics", "Allergy Immunology", "Ancillary Services", "CAMHS", "Cardiology", "Dental Surgery", "Dermatology", "Developmental Pediatrics", "ENT", "Emergency Services", "Endocrinology", "Gastroenterology", "General Pediatrics", "General Surgery", "Genetics", "Gynecology", 
+                    "Hematology/Oncology", "Infectious Disease", "Maternal Fetal Medicine", "NICU", "Neonatal Surgery", "Nephrology", "Neurology", "Neurosurgery", "Obstetrics", "Ophthalmology", "Orthopedics", "Peri/Post Natal Mental Health", "Plastic Surgery", "Pulmonology", "Rehab Medicine", "Reproductive Medicine", "Rheumatology", "Transplant", "Urology"
+                ],
+                url:[]
         };
         this.count = 0;
         this.boxheight = 50;
@@ -66,18 +89,12 @@ class Page{
             subheight = 2*canvas.height/6;
         }
 
-        //MORE BUTTON
-        this.list.push(new GuiButton2(
-            ((2*canvas.width)/4)-((canvas.width/4.5)/2),
-            (7*canvas.height/8)-(50/2),
-            this.boxwidth,
-            this.boxheight,
-            "221,221,221",
-            "",
-            this.btntext
-            ));
-        this.list.push(this.btntext);
-    
+        this.list.push(new PageFilter(
+            ((canvas.width)/4)-((canvas.width/4.5)/2)+6,
+            11*canvas.height/30
+        ));
+        this.showPageNav();
+        
         this.list.push(new Titletext(
             (canvas.width/4),
             subheight,
@@ -87,235 +104,157 @@ class Page{
             "Select Service"
         ));
 
-        //Add page1() objects
-        this.page1();
+        if (canvas.width <= 620){
+            this.fontsize = ((this.boxwidth+this.boxheight)/2)/6;
+        }
+
+        this.newPage();
+        this.setPageIndicator();
 
         return this.list;
     }
     
     action = () => {
-        //When clicking on a service, click = true, and start to delete specific object
-        this.list.forEach(element => {
-            if (element.name == "GuiButton1"){
-                if (element.hovering()) {
-                    element.click = true;
-                    localStorage.setItem('branch',element.partner.msg);
-                    element.delete();
+        if (this.list[0].hovering()){
+            console.log(this.list[0].getLetter());
+            if (this.list[0].getLetter() == "CLEAR"){
+                this.alphabetical = false;
+                this.chosenLetter = undefined;
+                this.list.splice(8,this.servicelist[this.page-1].name.length*2);
+                this.page = 1;
+                this.newPage();
+                this.setPageIndicator();
+            } else {
+                this.alphabetical = true;
+                this.chosenLetter = this.list[0].getLetter();
+                this.list.splice(8,this.servicelist[this.page-1].name.length*2);
+
+                let alphab_list = [];
+                this.servicelist_alpha.name.forEach(item => {
+                    if (item[0] == this.chosenLetter){
+                        alphab_list.push(item);
+                    }
+                });
+                if (alphab_list.length != 0) {
+                    let count = 1;
+                    for (let row=1;row<=3;row++){
+                        for (let i=1; i<=3; i++){
+                            let btn = new Buttontext(
+                                ((i*canvas.width)/4),
+                                (canvas.height/3)+(row*canvas.height/9)+7,
+                                this.boxwidth,
+                                "Helvetica",
+                                this.fontsize,
+                                alphab_list[count-1],
+                                '221,221,221'
+                            );
+                            this.list.splice(8+(count*2), 0, new GuiButton1(
+                                ((i*canvas.width)/4)-((canvas.width/4.5)/2),
+                                (canvas.height/3)+(row*canvas.height/9)-(50/2),
+                                this.boxwidth,
+                                this.boxheight,
+                                "221,221,221",
+                                "",
+                                btn
+                                ), btn);
+                            count++;
+                            if (count > alphab_list.length){break;}
+                        }
+                        if (count > alphab_list.length){break;}
+                    }
                 }
             }
-        });
-            if (this.list[0].hovering() && !this.transition) { //CLICK BOTTOM BUTTON
-                switch (this.page) {
-                    case 1: 
-                    //Delete Previous items, canvas_anim will remove the objects from the array
-                        for (let i=3; i<=20; i++){
-                            this.list[i].delete()
-                        }
-                    //Change white button text to "More"
-                        this.btntext.msg = "More";
-                        this.list.splice(1,1,this.btntext)
-                        this.page = 2;
-                    //Add page2() objects
-                        // this.page2();
-                        break;
-
-
-                    case 2:
-                    //Delete Previous items, canvas_anim will remove the objects from the array
-                        this.list[3].delete()
-                        this.list[4].delete()
-                        for (let i=5; i<=22; i++){
-                            this.list[i].delete()
-                        }
-                    //Change white button text to "Back"
-                        this.btntext.msg = "Back";
-                        this.list.splice(1,1,this.btntext)
-                        this.page = 3;
-                    //Add page1() objects
-                        // this.page3();
-                        break;
-
-
-                    case 3:
-                    //Delete Previous items, canvas_anim will remove the objects from the array
-                        this.list[3].delete();
-                        this.list[4].delete();
-                        for (let i=5; i<=8; i++){
-                            this.list[i].delete();
-                        }
-                    //Change white button text to "More"
-                        this.btntext.msg = "More";
-                        this.list.splice(1,1,this.btntext)
-                        this.page = 1;
-                    //Add page1() objects
-                        // this.page1();
-                        break;
+        }
+        
+        if (!this.alphabetical) {
+            if (this.list[1].hovering()){
+                this.list.splice(8,this.servicelist[this.page-1].name.length*2);
+                if (this.page == this.servicelist.length){
+                    this.page = 1;
+                } else {
+                    this.page++;
                 }
+                this.newPage();
+                this.setPageIndicator();
             }
+            if (this.list[2].hovering()){
+                this.list.splice(8,this.servicelist[this.page-1].name.length*2);
+                if (this.page == 1){
+                    this.page = this.servicelist.length;
+                } else {
+                    this.page--;
+                }
+                this.newPage();
+                this.setPageIndicator();
+            }
+        }
     }
-
-    page1 = () => {
-        this.count = 0;
-        for (let row=1; row<=3; row++){
+    newPage = () => {
+        let count = 1;
+        for (let row=1; row<=4; row++){
             for (let i=1; i<=3; i++){
-                if (canvas.width <= 620){
-                    this.fontsize = ((this.boxwidth+this.boxheight)/2)/6;
-                } 
-                if (canvas.width <= 620){
-                    this.servicelist.name.splice(7,1,"Emergency");
-                    this.servicelist.name.splice(3,1,"Plastic Surg.");
-                }
-                let btntext = new Buttontext(
+                let btn = new Buttontext(
                     ((i*canvas.width)/4),
-                    (canvas.height/3)+(row*canvas.height/8)+7,
+                    (canvas.height/3)+(row*canvas.height/9)+7,
                     this.boxwidth,
                     "Helvetica",
                     this.fontsize,
-                    this.servicelist.name[this.count],
+                    this.servicelist[this.page-1].name[count-1],
                     '221,221,221'
                 );
-                this.list.splice(3,0,btntext);
-
-                //BUTTON 1 FRAME (STATE 1)
-                this.list.splice(3,0,new GuiButton1(
+                this.list.splice(8+(count*2), 0, new GuiButton1(
                     ((i*canvas.width)/4)-((canvas.width/4.5)/2),
-                    (canvas.height/3)+(row*canvas.height/8)-(50/2),
+                    (canvas.height/3)+(row*canvas.height/9)-(50/2),
                     this.boxwidth,
                     this.boxheight,
                     "221,221,221",
-                    this.servicelist.url[this.count],
-                    btntext
-                ));
-                this.count++;
+                    this.servicelist[this.page-1].url[count-1],
+                    btn
+                    ), btn);
+                count++;
+                if (count > this.servicelist[this.page-1].name.length){
+                    break;
+                }
+            }
+            if (count > this.servicelist[this.page-1].name.length){
+                break;
             }
         }
-
     }
-    page2 = () => {
-        let defboxy = undefined;
-        if (canvas.width > 780) {
-            defboxy = (4.2*canvas.height/6)+20;
-        } else {
-            defboxy = (4.1*canvas.height/6)+20;
+    setPageIndicator = () => {
+        for (let i=3;i<=6;i++){
+            this.list[i].setOff();
         }
-        let defboxw = 3.5*canvas.width/10;
-        
-        let defboxh = undefined;
-        if (canvas.width > 780) {
-            defboxh = 0.6*canvas.height/10;
-        } else {
-            defboxh = 0.8*canvas.height/10;
-        }
-
-        this.count = 0;
-        let subheight = undefined;
-        if (canvas.width > 780) {
-            subheight = canvas.width*0.15;
-        } else {
-            subheight = 2*canvas.height/6;
-        }
-        if (canvas.width <= 620){
-            this.servicelist2.name[15] = "Peri/Post Natal";
-        }
-        let rowspace = undefined;
-        for (let row=1;row<=9;row++){
-            if (canvas.width > 780) {
-                rowspace = subheight+(row)*(canvas.height/24);
-            } else {
-                rowspace = subheight+(0.5+row)*(canvas.height/30);
-            }
-            for (let i=1;i<=2;i++){
-                this.list.push(new Ntext(
-                    (1.7+(i*5.5))*(canvas.width/20),
-                    rowspace,
-                    (canvas.width),
-                    "Helvetica",
-                    this.fontsize*0.7   ,
-                    this.servicelist2.name[this.count],
-                    "center"
-                ));
-                this.count++;
-            }
-        }
-
-        let txt = new Buttontext(
-            ((canvas.width)/2),
-            defboxy+(defboxh/2)+(this.fontsize/2),
-            defboxw,
-            "Helvetica",
-            this.fontsize,
-            "Any of the above",
-            '221,221,221'
-        );
-
-        this.list.push(new GuiButton1(
-            ((canvas.width)/2)-(defboxw/2),
-            defboxy,
-            defboxw,
-            defboxh,
-            "221,221,221",
-            "sole.html",
-            txt,
-            () => {}
-        ));
-        this.list.push(txt);
+        this.list[this.page+2].setOn();
     }
-    page3 = () => {
-        let defboxy = undefined;
-        if (canvas.width > 780) {
-            defboxy = (4.2*canvas.height/6)+20;
-        } else {
-            defboxy = (4.1*canvas.height/6)+20;
-        }
-        let defboxw = 3.5*canvas.width/10;
-        
-        let defboxh = undefined;
-        if (canvas.width > 780) {
-            defboxh = 0.6*canvas.height/10;
-        } else {
-            defboxh = 0.8*canvas.height/10;
-        }
-
-        this.count = 0;
-        let subheight = undefined;
-        if (canvas.width > 780) {
-            subheight = canvas.width*0.15;
-        } else {
-            subheight = 2*canvas.height/6;
-        }
-        for (let row=1;row<=4;row++){
-            this.list.push(new Ntext(
-                (canvas.width/2),
-                subheight+(1.4*row*canvas.height/30),
-                (canvas.width),
-                "Helvetica",
-                this.fontsize,
-                this.servicelist3.name[this.count],
-                "center"
-            ));
-            this.count++;
-        }
-
-        let txt = new Buttontext(
-            ((canvas.width)/2),
-            defboxy+(defboxh/2)+(this.fontsize/2),
-            defboxw,
-            "Helvetica",
-            this.fontsize,
-            "Any of the above",
-            '221,221,221'
-        );
-
-        this.list.splice(3,0,new GuiButton1(
-            ((canvas.width)/2)-(defboxw/2),
-            defboxy,
-            defboxw,
-            defboxh,
-            "221,221,221",
-            "preferred.html",
-            txt,
-            () => {}
+    showPageNav = () => {
+        this.list.push(new Rightbutton(
+            15*canvas.width/25,
+            (7*canvas.height/8)-(50/2),
+            30,
+            ""
         ));
-        this.list.splice(3,0,txt);
+        this.list.push(new Leftbutton(
+            10*canvas.width/25,
+            (7*canvas.height/8)-(50/2),
+            30,
+            ""
+        ));
+        this.list.push(new PageIndicator(
+            11*canvas.width/25,
+            (7*canvas.height/8)-(50/2)+15,
+        ));
+        this.list.push(new PageIndicator(
+            12*canvas.width/25,
+            (7*canvas.height/8)-(50/2)+15,
+        ));
+        this.list.push(new PageIndicator(
+            13*canvas.width/25,
+            (7*canvas.height/8)-(50/2)+15,
+        ));
+        this.list.push(new PageIndicator(
+            14*canvas.width/25,
+            (7*canvas.height/8)-(50/2)+15,
+        ));
     }
 }
