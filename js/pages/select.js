@@ -61,7 +61,7 @@ class Page{
     startInstanceList = () => {
         var subheight = undefined;
         if (canvas.width > 780) {
-            subheight = canvas.width*0.15;
+            subheight = canvas.height*0.25;
         } else {
             subheight = 2*canvas.height/6;
         }
@@ -220,7 +220,7 @@ class Page{
         let rowspace = undefined;
         for (let row=1;row<=9;row++){
             if (canvas.width > 780) {
-                rowspace = subheight+(0.5+row)*(canvas.height/24);
+                rowspace = subheight+(row)*(canvas.height/24);
             } else {
                 rowspace = subheight+(0.5+row)*(canvas.height/30);
             }

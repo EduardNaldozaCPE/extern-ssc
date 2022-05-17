@@ -24,6 +24,8 @@ class Page{
                 } else {
                     if(localStorage.getItem('ageReq') == 'true'){
                         location.href = 'sole.html';
+                    } else if (localStorage.getItem('internalRef') == 'true'){
+                        location.href = 'physmpages.html';
                     } else {
                         location.href = 'preferred.html';
                     }
@@ -53,6 +55,8 @@ class Page{
                 } else {
                     if(localStorage.getItem('ageReq') == 'true'){
                         location.href = 'preferred.html';
+                    } else if (localStorage.getItem('internalRef') == 'true'){
+                        location.href = 'physmpages.html';
                     } else {
                         location.href = 'sole.html';
                     }
