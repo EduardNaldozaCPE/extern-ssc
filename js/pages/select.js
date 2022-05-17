@@ -34,7 +34,7 @@ class Page{
         this.servicelist3 = {
             name:[
                 "Adult Services",
-                "Dev Peds",
+                "Developmental Pediatrics",
                 "Rep Meds (IVF)",
                 "Aesthetics"
             ],

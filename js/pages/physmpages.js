@@ -49,6 +49,15 @@ class Page{
             "select.html",
             btntext
         ));
+        this.list.push(new Ntext(
+            (canvas.width/2),
+            (canvas.height*0.6),
+            (canvas.width),
+            "Helvetica",
+            "oblique " + (canvas.width*0.013),
+            `All Follow Up Orders will inherit the classification determined by the Mpages questionnaire.`,
+            "center"
+        ));
         return this.list;
     }
 

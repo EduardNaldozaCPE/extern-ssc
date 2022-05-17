@@ -30,25 +30,21 @@ class Page{
                 }
                 break;
             case 'ENT':
-                if(localStorage.getItem('selfRef') == 'true'){
+                if (localStorage.getItem('selfRef') == 'true'){
                     location.href = 'preferred.html';
-                } else {
-                    if(localStorage.getItem('ageReq') == 'true'){
+                } else if (localStorage.getItem('ageReq') == 'true'){
                         location.href = 'sole.html';
-                    } else {
-                        location.href = 'index.html';
-                    }
+                } else {
+                    location.href = 'physmpages.html';
                 }
                 break;
             case 'Plastic Surgery':
                 if(localStorage.getItem('selfRef') == 'true'){
                     location.href = 'preferred.html';
+                } else if (localStorage.getItem('ageReq') == 'true'){
+                    location.href = 'sole.html';
                 } else {
-                    if(localStorage.getItem('ageReq') == 'true'){
-                        location.href = 'sole.html';
-                    } else {
-                        location.href = 'index.html';
-                    }
+                    location.href = 'physmpages.html';
                 }
                 break;
             case 'Dermatology':
