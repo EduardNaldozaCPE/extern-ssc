@@ -16,10 +16,10 @@ class Page{
                     "Developmental Pediatrics", "ENT", "Emergency Services", 
                 ],
                 url:[
-                    "camhsform.html", "ageform.html", "ageform.html", 
-                    "ageform.html", "ageform.html", "camhsform.html", 
-                    "nicuform.html", "emergency.html", "obstetrics.html",
-                    "camhsform.html", "ageform.html", "ageform.html", 
+                    "test.html", "test.html", "test.html", 
+                    "test.html", "test.html", "test.html", 
+                    "test.html", "emergetestncy.html", "test.html",
+                    "test.html", "test.html", "test.html", 
                 ]
             }, {
                 name:[
@@ -188,6 +188,19 @@ class Page{
                 this.setPageIndicator();
             }
         }
+
+        this.list.forEach((element, i) => {
+            // btn = undefined;
+            if (element.name === "GuiButton1" && element.state == 1) {
+                if (element.hovering()){
+                    console.log(this.list[i+1].msg);
+                    localStorage.setItem('branch',this.list[i+1].msg)
+                    pageState = 1;
+                    location.href = "html/test.html";
+                }
+            }
+            
+        });
     }
     newPage = () => {
         let count = 1;

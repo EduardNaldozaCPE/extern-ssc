@@ -830,3 +830,28 @@ class PageFilter {
     }
     getLetter = () => {return this.selectedletter}
 }
+
+class LeftPanel {
+    constructor(){
+
+    }
+    draw = () => {
+        c.beginPath();
+        c.fillStyle = "rgba(255,255,255,1)";
+        c.fillRect(0,0,canvas.width/5, canvas.height);
+    }
+}
+
+class Qpanel {
+    constructor(){}
+    draw = () => {
+        c.beginPath();
+        c.fillStyle = "rgba(255,255,255,1)";
+        c.roundRect(
+            (canvas.width/5)+10,
+            3*canvas.height/8-10,
+            canvas.width-(canvas.width/5)-20,
+            5*canvas.height/8, 
+        10).fill()
+    }
+}

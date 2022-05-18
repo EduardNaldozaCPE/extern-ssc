@@ -3,21 +3,22 @@ body {
     text-align: center;
     margin: 0;
 }
-@media screen and (min-width: 1001px) {
+/* @media screen and (min-width: 1001px) {
     #logo {
-        width: 5%;
+        width: 19.5%;
     }
 }
 @media screen and (max-width: 1000px) {
     #logo {
         width: 10%;
     }
-}
+} */
 #logo {
     position: fixed;
-    top:0%;
-    left:100%;
-    transform: translate(-160%,50%);
+    top: 8px;
+    left: 9px;
+    width: 18%;
+    /* transform: translate(-160%,50%); */
     opacity: 0.9;
 }
 
@@ -34,7 +35,7 @@ a.hover {
     height: 100%;
 }
 
-@media screen and (min-width: 1001px) {
+/* @media screen and (min-width: 1001px) {
     .title {
         top: 30%;
         font-size: 2vw;
@@ -45,7 +46,7 @@ a.hover {
         top: 15%;
         font-size: 3vw;
     }
-}
+} */
 .title {
     left: 50%;
     transform: translateX(-50%);
@@ -62,22 +63,6 @@ a.hover {
     margin-top: 5px;
     margin-bottom: 0px;
     margin-right: 0px;
-}
-
-.test {
-    width: 50%;
-    height: 50%;
-    background-color: rgba(255, 34, 34, 0.5);
-    position: fixed;
-    z-index: 10;
-}
-.test-2 {
-    left: 50%;
-    width: 50%;
-    height: 50%;
-    background-color: rgba(34, 255, 34, 0.5);
-    position: fixed;
-    z-index: 10;
 }
 
 .start-button {
@@ -99,7 +84,7 @@ a.hover {
     font-weight: bold;
 }
 
-@media screen and (min-width: 884px) {
+/* @media screen and (min-width: 884px) {
     .start-button {
         font-size: larger;
     }
@@ -116,7 +101,7 @@ a.hover {
         margin-top: 1.3vh;
         margin-bottom: 1.2vh;
     }
-}
+} */
 #in-text {
     position: fixed;
     width: 20%;
@@ -135,4 +120,130 @@ a.hover {
 
 .hidden {
     display: none;
+}
+
+#left-panel {
+    position: fixed;
+    top: 5px;
+    left: 7px;
+    width: 19.9%;
+    height: 98.2%;
+    z-index: 0;
+    background-color: white;
+    /* border: 5px solid #222; */
+    overflow: scroll;
+}
+
+#left-panel-scroll {
+    position: fixed;
+    top: 20%;
+    left: 11px;
+    width: 19.2%;
+    height: 78%;
+    z-index: 10;
+    /* border: 5px solid #222; */
+    overflow: scroll;
+}
+
+#left-panel-scroll button {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    width: 100%;
+    height: 6%;
+
+    color: #298678;
+    font-size: 14px;
+    background-color: rgb(255, 255, 255);
+    display: inline-block;
+    border-radius: 5px;
+    border: 2px solid #298678;
+    box-shadow: none;
+}
+
+#left-panel-scroll button:active {
+    color: #298678;
+    font-size: 14px;
+    background-color: rgb(221, 221, 221);
+    display: inline-block;
+    border-radius: 5px;
+    border: 2px solid #298678;
+    box-shadow: none;
+}
+
+#outcome-scrn {
+    position: fixed;
+    /* border: 5px solid #222; */
+    top: calc(5px + 0.5%);
+    left: calc(13px + 20%);
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 73%;
+    height: 33%;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+#outcome {
+    opacity: 0;
+    margin-top: 5%;
+    font-size: 50px;
+    /* margin-bottom: 5%; */
+}
+
+#outcome-sub {
+    opacity: 0;
+}
+
+#q-panel {
+    opacity: 0;
+    position: fixed;
+    /* border: 5px solid #222; */
+    padding: 1%;
+    top: calc(5px + 37.5%);
+    left: calc(13px + 21%);
+    width: 73%;
+    height: 52%;
+    color: #298678;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    overflow: hidden;
+}
+
+#q-panel-header {
+    margin-left: 1%;
+    margin-top: 0%;
+    margin-bottom: 2%;
+}
+
+/* #q-panel1 p {
+    opacity: 0;
+} */
+
+#q-panel1 {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    padding-left: 2%;
+    overflow: scroll;
+    position: absolute;
+    width: 96.5%;
+    height: 84%;
+}
+
+/* #q-panel1-header{
+} */
+
+.qpanel1-qbox {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+.qpanel-q {
+    margin: 0px;
+}
+
+.checkbox{
+    margin-right: 30px;
+    transform: translateY(-1px);
 }
