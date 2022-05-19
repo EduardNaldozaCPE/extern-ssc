@@ -197,6 +197,9 @@ a.hover {
 
 #outcome-scrn {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     /* border: 5px solid #222; */
     top: calc(5px + 0.5%);
     left: calc(13px + 20%);
@@ -211,7 +214,6 @@ a.hover {
 
 #outcome {
     opacity: 0;
-    margin-top: 6.5%;
     color: #eee;
     font-size: 32px;
     /* margin-bottom: 5%; */
