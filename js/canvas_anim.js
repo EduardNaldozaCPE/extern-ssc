@@ -70,6 +70,10 @@ function updateClassif() {
     let ls_agereq = localStorage.getItem('ageReq');
     let ls_inoutpatient = localStorage.getItem('in-out-patient');
     let ls_internalRef = localStorage.getItem('internalRef');
+    let ls_niculvl = localStorage.getItem('niculvl');
+    let ls_updowngraded = localStorage.getItem('up-down-graded');
+    let ls_agegroup = localStorage.getItem('agegroup');
+    let ls_obsRef = localStorage.getItem('obsRef');
 
     switch (localStorage.getItem('branch')) {
         case "Adolescent Medicine":
@@ -252,7 +256,7 @@ function updateClassif() {
                 if (ls_agereq == 'true') {
                     internalRefDiv.style.display = 'flex';
                     if (ls_internalRef == 'true') {
-                        outcome.innerText = 'Physician Assessment';
+                        outcome.innerText = 'Require Comorbidity Assessment';
                         outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
                     } else {
                         outcome.innerText = 'Preferred';
@@ -283,7 +287,7 @@ function updateClassif() {
         
         case "ENT":
             if (ls_agereq == 'true') {
-                outcome.innerText = 'Physician Assessment';
+                outcome.innerText = 'Require Clinical Assessment';
                 outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
             } else {
                 outcome.innerText = 'Sole';
@@ -291,12 +295,169 @@ function updateClassif() {
             }
             break;
         
+        case "Plastic Surgery":
+            if (ls_agereq == 'true') {
+                outcome.innerText = 'Require Clinical Assessment';
+                outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+            } else {
+                outcome.innerText = 'Sole';
+                outcomeSub.innerText = 'Plastic Surgery service for patients under 18 years of age is classified as Sole';
+            }
+            break;
+
+        case "Dermatology":
+            if (ls_agereq == 'true') {
+                outcome.innerText = 'Require Comorbidity Assessment';
+                outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+            } else {
+                outcome.innerText = 'Preferred';
+                outcomeSub.innerText = 'Dermatology service for patients under 3 months of age is classified as Preferred';
+            }
+            break;
+        
+        case 'NICU':
+            if (ls_updowngraded == "true"){
+                outcome.innerText = 'Sole';
+                outcomeSub.innerText = "The Newborn Intensive Care Unit service is classified as sole when upgraded/downgraded";
+            } else {
+                switch (ls_niculvl) {
+                    case "0":
+                        outcome.innerText = 'Preferred';
+                        outcomeSub.innerText = "The Newborn Intensive Care Unit service is classified as Preferred for NICU Levels 1 & 2";        
+                        break;
+                    case "1":
+                        outcome.innerText = 'Sole';
+                        outcomeSub.innerText = "The Newborn Intensive Care Unit service is classified as Sole for NICU Levels 3 & 4";        
+                        break;
+                    default:
+                        break;
+                }
+            }
+            break;
+        
+        case 'Gynecology':
+            switch (ls_agegroup) {
+                case "0":
+                        outcome.innerText = 'Sole';
+                        outcomeSub.innerText = "The Gynecology service is classified as Sole for patients at 4 to 14 years of age";        
+                    break;
+                case "1":
+                        outcome.innerText = 'Preferred';
+                        outcomeSub.innerText = "The Gynecology service is classified as Preferred for patients at 15 to 17 Years years of age";        
+                    break;
+                case "2":
+                        outcome.innerText = 'Preferred';
+                        outcomeSub.innerText = "The Gynecology service is classified as Preferred for patients aged 18 years and older";        
+                    break;
+            
+                default:
+                    break;
+            }
+            break;
+        
+        case 'Emergency Services':
+            outcome.innerText = "Sole / Preferred"
+            outcomeSub.innerText = "Emergency Services Classification is dependent on the patient's urgency (ESI) level. \n Please Read Below"
+            break;
+        
+        case 'Developmental Pediatrics':
+            switch (ls_internalRef) {
+                case 'true':
+                    outcome.innerText = 'Require Comorbidity Assessment';
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                    break;
+                case 'false':
+                    outcome.innerText = 'Preferred';
+                    outcomeSub.innerText = "The Developmental Pediatrics service is classified as Preferred by default";
+                    break;
+            
+                default:
+                    break;
+            }
+            break;
+
+        case 'Obstetrics':
+            let obsRef1 = document.getElementById("obsRef1");
+            let obsRef2 = document.getElementById("obsRef2");
+            switch (ls_internalRef) {
+                case 'true':
+                    obsRef1.style.display = "flex";
+                    obsRef2.style.display = "flex";
+                    if (ls_obsRef == '1'){
+                        outcome.innerText = 'Require Clinical Assessment';
+                        outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                    } else {
+                        outcome.innerText = 'Require Clinical Assessment';
+                        outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                    }
+                    break;
+                case 'false':
+                    obsRef1.style.display = "none";
+                    obsRef2.style.display = "none";
+                    outcome.innerText = 'Preferred';
+                    outcomeSub.innerText = "The Obstetrics service is classified as Preferred by default";
+                    break;
+            
+                default:
+                    break;
+            }
+            break;
+        
+        case 'Ancillary Services':
+            outcome.innerText = "Sole or Preferred"
+            outcomeSub.innerText = "Inherits the service classification from originating encounter."
+            break;
+        
+        case 'Adult Services':
+            switch (ls_internalRef) {
+                case 'true':
+                    outcome.innerText = 'Sole or Preferred';
+                    outcomeSub.innerText = "The service inherits the service classification from originating encounter";
+                    break;
+                case 'false':
+                    outcome.innerText = 'Preferred';
+                    outcomeSub.innerText = "The Developmental Pediatrics service is classified as Preferred by default";
+                    break;
+            
+                default:
+                    break;
+            }
+            break;
+
+        case "Inpatient & Ambulatory Surgery Procedures":
+            outcome.innerText = 'Require Clinical Assessment';
+            outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+            break;
+
+        case "Dental Surgery":
+            outcome.innerText = 'Require Clinical Assessment';
+            outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+            break;
+        case "General Surgery":
+            outcome.innerText = 'Require Clinical Assessment';
+            outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+            break;
+        case "General Pediatrics":
+            outcome.innerText = 'Require Clinical Assessment';
+            outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+            break;
+        case "Maternal Fetal Medicine":
+            outcome.innerText = 'Require Clinical Assessment';
+            outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+            break;
+        
         default:
             break;
-    }
+        }
 
+        
     fade(outcome);
     fade(outcomeSub);
+}
+
+function goHome() {
+    pageState = 1;
+    location.href = getRootDir(1) + "index.html"
 }
 
 function ageReq() {
@@ -323,7 +484,44 @@ function internalRef() {
     updateClassif();
 }
 
+function nicuLvl() {
+    let radioButtons = document.querySelectorAll('input[name="niculvl"]');
+    for (let radioButton of radioButtons) {
+        if (radioButton.checked) {
+            localStorage.setItem('niculvl', radioButton.value);
+            break;
+        }
+    }
+    updateClassif();
+}
 
+function updowngradedReq() {
+    let check1 = document.getElementById('updowngradedBox');
+    localStorage.setItem('up-down-graded', check1.checked);
+    updateClassif();
+}
+
+function ageGroup() {
+    let radioButtons = document.querySelectorAll('input[name="agegroup"]');
+    for (let radioButton of radioButtons) {
+        if (radioButton.checked) {
+            localStorage.setItem('agegroup', radioButton.value);
+            break;
+        }
+    }
+    updateClassif();
+}
+
+function internalRefObs() {
+    let radioButtons = document.querySelectorAll('input[name="obsRef"]');
+    for (let radioButton of radioButtons) {
+        if (radioButton.checked) {
+            localStorage.setItem('obsRef', radioButton.value);
+            break;
+        }
+    }
+    updateClassif();
+}
 
 
 if (location.pathname == '/'+getRootDir()+"test.html"){
@@ -337,7 +535,7 @@ if (location.pathname == '/'+getRootDir()+"test.html"){
         var qpanel1 = document.getElementById('q-panel1');
         var qpanel1header = document.getElementById('q-panel1-header');
         qpanelheader.innerText = branch;
-
+        const homebtn = document.getElementById('home-btn');
         const btnlist = document.getElementsByClassName('panel-btn');
         for (let btn=0;btn<btnlist.length;btn++){
                 btnlist[btn].onclick = () => {
@@ -346,7 +544,7 @@ if (location.pathname == '/'+getRootDir()+"test.html"){
                     fadeout(document.getElementById("outcome"));
                     fadeout(document.getElementById("outcome-sub"));
                     fadeout(document.getElementById("q-panel"));
-                }   
+                } 
         }
 
 
@@ -588,7 +786,7 @@ if (location.pathname == '/'+getRootDir()+"test.html"){
                 break;
 
             case "Genetics":
-                qpanel1.innerHTML = `
+                qpanel1.innerHTML += `
                 <div class='qpanel1-qbox' id="ageReqDiv">
                     <input class="checkbox" type="checkbox" onclick="ageReq()" id="ageReqBox">
                     <p class="qpanel-q">Is the patient above 18 years of age?</p></input>
@@ -598,7 +796,7 @@ if (location.pathname == '/'+getRootDir()+"test.html"){
                 break;
 
             case "ENT":
-                qpanel1.innerHTML = `
+                qpanel1.innerHTML += `
                 <div class='qpanel1-qbox' id="ageReqDiv">
                     <input class="checkbox" type="checkbox" onclick="ageReq()" id="ageReqBox">
                     <p class="qpanel-q">Is the patient above 3 years of age?</p></input>
@@ -606,6 +804,170 @@ if (location.pathname == '/'+getRootDir()+"test.html"){
                 `;
                 ageReq();
                 break;
+
+            case "Plastic Surgery":
+                qpanel1.innerHTML += `
+                <div class='qpanel1-qbox' id="ageReqDiv">
+                    <input class="checkbox" type="checkbox" onclick="ageReq()" id="ageReqBox">
+                    <p class="qpanel-q">Is the patient over 18 years of age?</p></input>
+                </div>
+                `;
+                ageReq();
+                break;
+
+            case "Dermatology":
+                    qpanel1.innerHTML += `
+                    <div class='qpanel1-qbox' id="ageReqDiv">
+                        <input class="checkbox" type="checkbox" onclick="ageReq()" id="ageReqBox">
+                        <p class="qpanel-q">Is the patient over 3 Months of age?</p></input>
+                    </div>
+                    `;
+                    ageReq();
+                    break;
+
+            case "NICU":
+                    qpanel1.innerHTML += `
+                    <div class='qpanel1-qbox' id="">
+                        <input class="checkbox" type="radio" onclick="nicuLvl()" id="" name="niculvl" checked value="0">
+                        <p class="qpanel-q">NICU Level 1 or 2</p></input>
+                    </div>
+                    <div class='qpanel1-qbox' id="">
+                        <input class="checkbox" type="radio" onclick="nicuLvl()" id="" name="niculvl" value="1">
+                        <p class="qpanel-q">NICU Level 3 or 4</p></input>
+                    </div>
+                    <div style="height: 15px"></div>
+                    <div class='qpanel1-qbox' id="updowngradedDiv">
+                        <input class="checkbox" type="checkbox" onclick="updowngradedReq()" id="updowngradedBox">
+                        <p class="qpanel-q">Has the NICU Level been upgraded to level 3/4 or downgraded to level 1/2?</p></input>
+                    </div>
+                    `;
+                    nicuLvl();
+                    updowngradedReq();
+                    break;
+            
+            case "Gynecology":
+                qpanel1.innerHTML += `
+                <div class='qpanel1-qbox' id="">
+                    <h3>Choose Age Group:</h3>
+                </div>
+
+                <div class='qpanel1-qbox' id="">
+                    <input class="checkbox" type="radio" onclick="ageGroup()" id="" name="agegroup" checked value="0">
+                    <p class="qpanel-q">Pediatrics (4 - 14 Years)</p></input>
+                </div>
+                <div class='qpanel1-qbox' id="">
+                    <input class="checkbox" type="radio" onclick="ageGroup()" id="" name="agegroup" value="1">
+                    <p class="qpanel-q">Adolescence (15 - 17 Years)</p></input>
+                </div>
+                <div class='qpanel1-qbox' id="">
+                    <input class="checkbox" type="radio" onclick="ageGroup()" id="" name="agegroup" value="2">
+                    <p class="qpanel-q">Adult (18 Years and Above)</p></input>
+                </div>
+                `;
+                ageGroup();
+                break;
+            
+            case "Emergency Services":
+                qpanel1.innerHTML = `
+                <p>Trauma ESI levels I - V is classified as <b>Sole</b></p>
+                <p>Medical ESI levels I, II, and III are classified as <b>Sole</b></p>
+                <p>Urgent Care ESI levels IV & V are classified as <b>Preferred</b></p>
+                `;
+                break;
+                
+            case "Developmental Pediatrics":
+                qpanel1.innerHTML += `
+                <div class='qpanel1-qbox' id="internalRefDiv">
+                    <input class="checkbox" type="checkbox" onclick="internalRef()" id="internalRefBox">
+                    <p class="qpanel-q">Is the patient internally referred from a Sole service?</p></input>
+                </div>
+                `;
+                internalRef();
+                break;
+
+            case "Obstetrics":
+                qpanel1.innerHTML += `
+                <div class='qpanel1-qbox' id="internalRefDiv">
+                    <input class="checkbox" type="checkbox" onclick="internalRef()" id="internalRefBox">
+                    <p class="qpanel-q">Is the patient internally referred from...</p></input>
+                </div>
+                <div class='qpanel1-qbox' id="obsRef1">
+                    <span style="width: 20px"></span>
+                    <input class="checkbox" type="radio" onclick="internalRefObs()" id="" name="obsRef" checked value="0">
+                    <p class="qpanel-q">Adult Mental Health Services</p></input>
+                </div>
+                <div class='qpanel1-qbox' id="obsRef2">
+                    <span style="width: 20px"></span>
+                    <input class="checkbox" type="radio" onclick="internalRefObs()" id="" name="obsRef" value="1">
+                    <p class="qpanel-q">Cardiology</p></input>
+                </div>
+                `;
+                internalRef();
+                internalRefObs();
+                break;
+
+            case "Ancillary Services":
+                qpanel1.innerHTML = `
+                    <p>Services Include:</p>
+                    <ul>
+                        <li>Radiology</li>
+                        <li>Pharmacy</li>
+                        <li>Pathology/Labs</li>
+                        <li>Allied Health Services</li>
+                        <li>Audiology</li>
+                        <li>Homecare</li>
+                        <li>Anesthesia / PAT</li>
+                    </ul>
+                `;
+                break;
+            
+            case "Adult Services":
+                qpanel1.innerHTML += `
+                <div class='qpanel1-qbox' id="internalRefDiv">
+                    <input class="checkbox" type="checkbox" onclick="internalRef()" id="internalRefBox">
+                    <p class="qpanel-q">Is the patient internally referred from Obstetrics?</p></input>
+                </div>
+                <p>Services Include:</p>
+                <ul>
+                    <li>Diabetic New</li>
+                    <li>Endocrinology New</li>
+                    <li>Dietician New</li>
+                    <li>Physiotherapy New</li>
+                    <li>Internal Medicine</li>
+                    <li>Adult Cardiology New (Congenital Hearth Disease)</li>
+                </ul>
+
+                `;
+
+                break;
+
+            case "Inpatient & Ambulatory Surgery Procedures":
+                qpanel1.innerHTML = `
+                <p>Inpatient & Ambulatory Surgery Procedures is classified under "Automatic Carry Forward"</p>
+                `
+                break;
+
+            case "Dental Surgery":
+                qpanel1.innerHTML = `
+                <p>Dental Surgery requires a Physician's clinical assessment by default to determine the service's classification.</p>
+                `
+                break;
+            case "General Surgery":
+                qpanel1.innerHTML = `
+                <p>General Surgery requires a Physician's clinical assessment by default to determine the service's classification.</p>
+                `
+                break;
+            case "General Pediatrics":
+                qpanel1.innerHTML = `
+                <p>General Pediatrics requires a Physician's clinical assessment by default to determine the service's classification.</p>
+                `
+                break;
+            case "Maternal Fetal Medicine":
+                qpanel1.innerHTML = `
+                <p>Maternal Fetal Medicine requires a Physician's clinical assessment by default to determine the service's classification.</p>
+                `
+                break;
+
             default:
                 break;
         }

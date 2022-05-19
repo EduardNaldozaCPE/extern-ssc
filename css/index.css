@@ -136,7 +136,7 @@ a.hover {
 
 #left-panel-scroll {
     position: fixed;
-    top: 20%;
+    top: 25%;
     left: 11px;
     width: 19.2%;
     height: 78%;
@@ -145,11 +145,27 @@ a.hover {
     overflow: scroll;
 }
 
+#home-btn {
+    position: absolute;
+    top: 18%;
+    /* z-index: 10; */
+    left: 5px;
+    width: 95%;
+    height: 6%;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    background-color: #298678;
+    display: inline-block;
+    border-radius: 5px;
+    border: 2px solid #298678;
+    box-shadow: none;
+}
+
 #left-panel-scroll button {
     margin-top: 3px;
     margin-bottom: 3px;
     width: 100%;
-    height: 6%;
+    height: 10%;
 
     color: #298678;
     font-size: 14px;
