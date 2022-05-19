@@ -468,7 +468,7 @@ function updateClassif() {
 
 function goHome() {
     pageState = 1;
-    location.href = getRootDir(1) + "index.html"
+    location.href = "../index.html"
 }
 
 function ageReq() {
