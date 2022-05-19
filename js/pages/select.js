@@ -177,7 +177,7 @@ class Page{
                     console.log(this.list[i+1].msg);
                     localStorage.setItem('branch',this.list[i+1].msg)
                     pageState = 1;
-                    location.href = "html/form.html";
+                    location.href = "form.html";
                 }
             }
             
