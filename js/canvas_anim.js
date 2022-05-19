@@ -524,7 +524,7 @@ function internalRefObs() {
 }
 
 
-if (location.pathname == '/'+getRootDir()+"test.html"){
+if (location.pathname == '/'+getRootDir()+"form.html"){
     window.onload = () => {
         
         const branch = localStorage.getItem('branch')

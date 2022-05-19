@@ -14,54 +14,32 @@ class Page{
                     "Allergy Immunology", "Ancillary Services", "CAMHS", 
                     "Cardiology","Dental Surgery", "Dermatology",
                     "Developmental Pediatrics", "ENT", "Emergency Services", 
-                ],
-                url:[
-                    "test.html", "test.html", "test.html", 
-                    "test.html", "test.html", "test.html", 
-                    "test.html", "emergetestncy.html", "test.html",
-                    "test.html", "test.html", "test.html", 
                 ]
             }, {
                 name:[
                     "Endocrinology", "Gastroenterology", "General Pediatrics", 
                     "General Surgery","Genetics", "Gynecology",
-                    "Hematology/Oncology", "Infectious Disease", "Maternal Fetal Medicine", 
+                    "Hematology/Oncology", "Infectious Disease", "Inpatient & Ambulatory Surgery Procedures", 
                     "NICU", "Neonatal Surgery", "Nephrology", 
-                ],
-                url:[
-                    "ageform.html", "ageform.html", "gyneform.html", 
-                    "nicuform.html", "emergency.html", "obstetrics.html",
-                    "camhsform.html", "ageform.html", "ageform.html", 
-                    "ageform.html", "ageform.html", "gyneform.html", 
                 ]
             }, {
                 name:[
-                    "Neurology","Neurosurgery", "Obstetrics",
-                    "Ophthalmology", "Orthopedics", "Peri/Post Natal Mental Health", 
-                    "Plastic Surgery", "Pulmonology", "Rehab Medicine", 
-                    "Reproductive Medicine","Rheumatology", "Transplant"
-                ],
-                url:[
-                    "nicuform.html", "emergency.html", "obstetrics.html",
-                    "camhsform.html", "ageform.html", "ageform.html", 
-                    "ageform.html", "ageform.html", "gyneform.html", 
-                    "nicuform.html", "emergency.html", "obstetrics.html"
+                    "Maternal Fetal Medicine","Neurology","Neurosurgery", 
+                    "Obstetrics","Ophthalmology", "Orthopedics", 
+                    "Peri/Post Natal Mental Health", "Plastic Surgery", "Pulmonology", 
+                    "Rehab Medicine", "Reproductive Medicine","Rheumatology"
                 ]
             }, {
                 name:[
-                    "Urology"
-                ],
-                url:[
-                    "sole.html"
+                    "Transplant","Urology"
                 ]
             }, 
         ];
         this.servicelist_alpha = {
                 name:[
                     "Adolescent Medicine", "Adult Services", "Aesthetics", "Allergy Immunology", "Ancillary Services", "CAMHS", "Cardiology", "Dental Surgery", "Dermatology", "Developmental Pediatrics", "ENT", "Emergency Services", "Endocrinology", "Gastroenterology", "General Pediatrics", "General Surgery", "Genetics", "Gynecology", 
-                    "Hematology/Oncology", "Infectious Disease", "Maternal Fetal Medicine", "NICU", "Neonatal Surgery", "Nephrology", "Neurology", "Neurosurgery", "Obstetrics", "Ophthalmology", "Orthopedics", "Peri/Post Natal Mental Health", "Plastic Surgery", "Pulmonology", "Rehab Medicine", "Reproductive Medicine", "Rheumatology", "Transplant", "Urology"
-                ],
-                url:[]
+                    "Hematology/Oncology", "Infectious Disease","Inpatient & Ambulatory Surgery Procedures", "Maternal Fetal Medicine", "NICU", "Neonatal Surgery", "Nephrology", "Neurology", "Neurosurgery", "Obstetrics", "Ophthalmology", "Orthopedics", "Peri/Post Natal Mental Health", "Plastic Surgery", "Pulmonology", "Rehab Medicine", "Reproductive Medicine", "Rheumatology", "Transplant", "Urology"
+                ]
         };
         this.count = 0;
         this.boxheight = 50;
@@ -196,7 +174,7 @@ class Page{
                     console.log(this.list[i+1].msg);
                     localStorage.setItem('branch',this.list[i+1].msg)
                     pageState = 1;
-                    location.href = "html/test.html";
+                    location.href = "html/form.html";
                 }
             }
             
@@ -221,7 +199,7 @@ class Page{
                     this.boxwidth,
                     this.boxheight,
                     "221,221,221",
-                    this.servicelist[this.page-1].url[count-1],
+                    // this.servicelist[this.page-1].url[count-1],
                     btn
                     ), btn);
                 count++;
@@ -243,31 +221,31 @@ class Page{
     showPageNav = () => {
         this.list.push(new Rightbutton(
             15*canvas.width/25,
-            (7*canvas.height/8)-(50/2),
+            (7.2*canvas.height/8)-(50/2),
             30,
             ""
         ));
         this.list.push(new Leftbutton(
             10*canvas.width/25,
-            (7*canvas.height/8)-(50/2),
+            (7.2*canvas.height/8)-(50/2),
             30,
             ""
         ));
         this.list.push(new PageIndicator(
             11*canvas.width/25,
-            (7*canvas.height/8)-(50/2)+15,
+            (7.2*canvas.height/8)-(50/2)+15,
         ));
         this.list.push(new PageIndicator(
             12*canvas.width/25,
-            (7*canvas.height/8)-(50/2)+15,
+            (7.2*canvas.height/8)-(50/2)+15,
         ));
         this.list.push(new PageIndicator(
             13*canvas.width/25,
-            (7*canvas.height/8)-(50/2)+15,
+            (7.2*canvas.height/8)-(50/2)+15,
         ));
         this.list.push(new PageIndicator(
             14*canvas.width/25,
-            (7*canvas.height/8)-(50/2)+15,
+            (7.2*canvas.height/8)-(50/2)+15,
         ));
     }
 }
