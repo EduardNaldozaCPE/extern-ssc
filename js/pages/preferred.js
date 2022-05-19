@@ -1,11 +1,17 @@
 class Page{
     constructor(){
         this.list = [];
+        this.subtitle2 = "";
+        if (localStorage.getItem('branch') == 'Obstetrics') {
+            this.subtitle2 = "Any following Adult Women's Services will inherit this classification (Diabetic New, Endocrinology New, Dietician New, etc.).";
+        } else {
+            this.subtitle2 = `Any following Ancillary Services (Radiology, Pharmacy, Pathology/Labs, etc.) will inherit this classification.`;
+        }
     }
     initpage = () => {
     }
     startInstanceList = () => {
-        var service = localStorage.getItem('branch')
+        // var service = localStorage.getItem('branch')
         var titleheight = undefined;
         if (canvas.width > 700) {
             titleheight = canvas.height*0.23;
@@ -60,6 +66,15 @@ class Page{
                 'center'
             ));
         }
+        this.list.push(new Ntext(
+            (canvas.width/2),
+            (canvas.height*0.6),
+            (canvas.width),
+            "Helvetica",
+            "oblique " + (canvas.width*0.013),
+            this.subtitle2,           
+            "center"
+        ));
 
         return this.list;
     }

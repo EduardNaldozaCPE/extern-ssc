@@ -5,7 +5,7 @@ class Page{
     initpage = () => {
     }
     startInstanceList = () => {
-        // var service = localStorage.getItem('branch')
+        var service = localStorage.getItem('branch')
         var titleheight = undefined;
         if (canvas.width > 700) {
             titleheight = canvas.height*0.23;
@@ -19,7 +19,7 @@ class Page{
             (canvas.width),
             "Helvetica",
             (canvas.width*0.04),
-            "Sole Service"
+            "Physician Mpages"
         ));
         this.list.push(new Ntext(
             (canvas.width/2),
@@ -27,7 +27,7 @@ class Page{
             (canvas.width),
             "Helvetica",
             (canvas.width*0.015),
-            `From the details you have entered, the chosen service is will be provided by Sidra Medicine as a sole provider.`,
+            `From the details you have entered, the chosen service is requires a Physician's Assessment to determine classification.`,
             "center"
         ));
         let btntext = new Buttontext(
@@ -55,7 +55,7 @@ class Page{
             (canvas.width),
             "Helvetica",
             "oblique " + (canvas.width*0.013),
-            `Any following Ancillary Services (Radiology, Pharmacy, Pathology/Labs, etc.) will inherit this classification.`,
+            `All Follow Up Orders will inherit the classification determined by the Mpages questionnaire.`,
             "center"
         ));
         return this.list;

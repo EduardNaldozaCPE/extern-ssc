@@ -3,15 +3,7 @@ class Page{
         this.list = [];
         this.fontsize = canvas.width/30;
     }
-    initpage = () => {
-        // window.onload = () => {
-        //     $("#in-text.hidden").slideDown("slow");
-        //     $("#in-text").css('opacity', 0).slideDown('slow').animate(
-        //       { opacity: 1 },
-        //       { queue: false, duration: 'slow' }
-        //     );
-        // };
-    }
+    initpage = () => {}
     startInstanceList = () => {
         if (canvas.width > 600) {
             this.fontsize = 15;
@@ -71,6 +63,22 @@ class Page{
                     30,
                     "#fff",
                     'selfRef'
+                ));
+                this.list.push(new Ntext(
+                    this.textx(),
+                    5*canvas.height/8+20,
+                    canvas.width,
+                    'Helvetica',
+                    this.fontsize,
+                    'Is the patient internal referred from a Sole Service?',
+                    'left'
+                ));
+                this.list.push(new Tickbox(
+                    3.5*canvas.width/5,
+                    5*canvas.height/8,
+                    30,
+                    "#fff",
+                    'internalRef'
                 ));
                 break;
 
@@ -209,6 +217,22 @@ class Page{
                     "#fff",
                     'selfRef'
                 ));
+                this.list.push(new Ntext(
+                    this.textx(),
+                    5*canvas.height/8+20,
+                    canvas.width,
+                    'Helvetica',
+                    this.fontsize,
+                    'Is the patient internal referred from a Sole Service?',
+                    'left'
+                ));
+                this.list.push(new Tickbox(
+                    3.5*canvas.width/5,
+                    5*canvas.height/8,
+                    30,
+                    "#fff",
+                    'internalRef'
+                ));
                 break;
 
         }
@@ -229,7 +253,7 @@ class Page{
             (4*(canvas.height/5))-(50/2),
             200,
             50,
-            "#fff",
+            "221,221,221",
             'decider.html',
             btntext
         ));
@@ -251,27 +275,162 @@ class Page{
     }
     
     action = () => {
-        let button = this.list[7]
-        if (button.hovering()){
-            button.click = true;
-            this.list.forEach(element => {
-                element.delete()
-            });
-        }
-        if (this.list[8].hovering()){
-            this.list[8].click = true;
-            this.list[8].delete();
-        }
+        let button = undefined;
         switch (localStorage.getItem('branch')) {
-            // case 'Genetics':
-            //     break;
+            case 'Genetics':
+                button = (()=>{
+                    if (this.list.length == 11){
+                        return this.list[9];
+                    } else {
+                        return this.list[7];
+                    }
+                })();
+                if (button.hovering()){
+                    button.click = true;
+                    this.list.forEach(element => {
+                        element.delete()
+                    });
+                }
+                if (this.list[2].hovering()) {
+                    this.list[2].tickToggle();
+                    if (this.list[2].state == 2 && this.list.length == 11){
+                        if (this.list[7].state == 2) {this.list[7].tickToggle();}
+                        this.list.splice(6,2);
+                    } else if (this.list[5].state != 2 && this.list[2].state != 2){
+                        this.list.splice(6,0, new Ntext(
+                                this.textx(),
+                                5*canvas.height/8+20,
+                                canvas.width,
+                                'Helvetica',
+                                this.fontsize,
+                                'Is the patient internal referred from a Sole Service?',
+                                'left'
+                            ),new Tickbox(
+                                3.5*canvas.width/5,
+                                5*canvas.height/8,
+                                30,
+                                "#fff",
+                                'internalRef'
+                            ));
+                    }
+
+                }
+                if (this.list[5].hovering()) {
+                    this.list[5].tickToggle();
+                    if (this.list[5].state == 2 && this.list.length == 11){
+                        if (this.list[7].state == 2) {this.list[7].tickToggle();}
+                        this.list.splice(6,2);
+                    } else if (this.list[5].state != 2 && this.list[2].state != 2){
+                        this.list.splice(6,0, new Ntext(
+                                this.textx(),
+                                5*canvas.height/8+20,
+                                canvas.width,
+                                'Helvetica',
+                                this.fontsize,
+                                'Is the patient internal referred from a Sole Service?',
+                                'left'
+                            ),new Tickbox(
+                                3.5*canvas.width/5,
+                                5*canvas.height/8,
+                                30,
+                                "#fff",
+                                'internalRef'
+                            ));
+                    }
+                }
+                if (this.list[2].state != 2) {
+                    try {
+                        if (this.list[7].hovering()) {
+                            this.list[7].tickToggle();
+                        }
+                    } catch {}
+                }
+                break;
             // case 'ENT':
             //     break;
             // case 'Plastic Surgery':
             //     break;
-            // case 'Dermatology':
-            //     break;
+            case 'Dermatology':
+                button = (()=>{
+                    if (this.list.length == 11){
+                        return this.list[9];
+                    } else {
+                        return this.list[7];
+                    }
+                })();
+                if (button.hovering()){
+                    button.click = true;
+                    this.list.forEach(element => {
+                        element.delete()
+                    });
+                }
+                if (this.list[2].hovering()) {
+                    this.list[2].tickToggle();
+                    if (this.list[2].state == 2 && this.list.length == 11){
+                        if (this.list[7].state == 2) {this.list[7].tickToggle();}
+                        this.list.splice(6,2);
+                    } else if (this.list[5].state != 2 && this.list[2].state != 2){
+                        this.list.splice(6,0, new Ntext(
+                                this.textx(),
+                                5*canvas.height/8+20,
+                                canvas.width,
+                                'Helvetica',
+                                this.fontsize,
+                                'Is the patient internal referred from a Sole Service?',
+                                'left'
+                            ),new Tickbox(
+                                3.5*canvas.width/5,
+                                5*canvas.height/8,
+                                30,
+                                "#fff",
+                                'internalRef'
+                            ));
+                    }
+
+                }
+                if (this.list[5].hovering()) {
+                    this.list[5].tickToggle();
+                    if (this.list[5].state == 2 && this.list.length == 11){
+                        if (this.list[7].state == 2) {this.list[7].tickToggle();}
+                        this.list.splice(6,2);
+                    } else if (this.list[5].state != 2 && this.list[2].state != 2){
+                        this.list.splice(6,0, new Ntext(
+                                this.textx(),
+                                5*canvas.height/8+20,
+                                canvas.width,
+                                'Helvetica',
+                                this.fontsize,
+                                'Is the patient internal referred from a Sole Service?',
+                                'left'
+                            ),new Tickbox(
+                                3.5*canvas.width/5,
+                                5*canvas.height/8,
+                                30,
+                                "#fff",
+                                'internalRef'
+                            ));
+                    }
+                }
+                if (this.list[2].state != 2) {
+                    try {
+                        if (this.list[7].hovering()) {
+                            this.list[7].tickToggle();
+                        }
+                    } catch {}
+                }
+                break;
             default:
+                button = this.list[7];
+                if (button.hovering()){
+                    button.click = true;
+                    this.list.forEach(element => {
+                        element.delete()
+                    });
+                }
+                if (this.list[8].hovering()){
+                    this.list[8].click = true;
+                    this.list[8].delete();
+                }
                 if (this.list[2].hovering()) {
                     this.list[2].tickToggle()
                 }

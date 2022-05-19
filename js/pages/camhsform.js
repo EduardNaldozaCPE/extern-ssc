@@ -105,10 +105,6 @@ class Page{
                 element.delete()
             });
         }
-        if (this.list[8].hovering()){
-            this.list[8].click = true;
-            this.list[8].delete();
-        }
         if (this.list[2].hovering()) {
             this.list[2].tickToggle();
             if (this.list[2].state == 2) {
@@ -127,9 +123,12 @@ class Page{
                     "#fff",
                     'ageReq'
                 ));
-
             } else if (this.list[2].state == 1){
-                this.list.splice(6,2,new EmptyObj(), 
+                if (this.list[7].state == 2) {this.list[7].tickToggle();}
+                try {if (this.list[9].state == 2) {this.list[9].tickToggle();}} catch {}
+                let splicenum = 2;
+                if (this.list.length == 11) {splicenum = 4}
+                this.list.splice(6,splicenum,new EmptyObj(), 
                     new Ntext(
                         canvas.width/2,
                         5*canvas.height/8+20,
@@ -143,6 +142,45 @@ class Page{
         }
         if (this.list[2].state == 2 && this.list[7].hovering()){
             this.list[7].tickToggle();
+            if (this.list[7].state == 2) {
+                this.list.splice(8,0,new Ntext(
+                    this.textx(),
+                    5*canvas.height/8+20,
+                    canvas.width,
+                    'Helvetica',
+                    this.fontsize,
+                    'Has the patient been internally referred from a Sole Service?',
+                    'left'
+                ),new Tickbox(
+                    3.5*canvas.width/5,
+                    5*canvas.height/8,
+                    30,
+                    "221,221,221",
+                    'internalRef'
+                ));
+            } else {
+                if (this.list[9].state == 2) {this.list[9].tickToggle();}
+                this.list.splice(8,2);
+            }
+            try {
+                if (this.list[10].hovering()){
+                    this.list[10].click = true;
+                    this.list[10].delete();
+                }
+            } catch {}
+        }
+
+        if (this.list[2].state != 2){
+            try {
+                if (this.list[8].hovering()){
+                    this.list[8].click = true;
+                    this.list[8].delete();
+                }
+            } catch {'skipping selete list[8]'}
+        }
+
+        if (this.list[2].state == 2 && this.list[7].state == 2 && this.list[9].hovering()){
+            this.list[9].tickToggle();
         }
     }
     

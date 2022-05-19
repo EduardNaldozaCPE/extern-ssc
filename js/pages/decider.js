@@ -9,7 +9,11 @@ class Page{
             case "CAMHS":
                 if(localStorage.getItem('in-out-patient') == 'true'
                     && localStorage.getItem('ageReq') == 'true'){
-                    location.href = 'preferred.html';
+                    if (localStorage.getItem('internalRef') == 'true'){
+                        location.href = 'physmpages.html';
+                    } else {
+                        location.href = 'preferred.html';
+                    }
                 } else {
                     location.href = 'sole.html';
                 }
@@ -20,31 +24,29 @@ class Page{
                 } else {
                     if(localStorage.getItem('ageReq') == 'true'){
                         location.href = 'sole.html';
+                    } else if (localStorage.getItem('internalRef') == 'true'){
+                        location.href = 'physmpages.html';
                     } else {
                         location.href = 'preferred.html';
                     }
                 }
                 break;
             case 'ENT':
-                if(localStorage.getItem('selfRef') == 'true'){
+                if (localStorage.getItem('selfRef') == 'true'){
                     location.href = 'preferred.html';
-                } else {
-                    if(localStorage.getItem('ageReq') == 'true'){
+                } else if (localStorage.getItem('ageReq') == 'true'){
                         location.href = 'sole.html';
-                    } else {
-                        location.href = 'index.html';
-                    }
+                } else {
+                    location.href = 'physmpages.html';
                 }
                 break;
             case 'Plastic Surgery':
                 if(localStorage.getItem('selfRef') == 'true'){
                     location.href = 'preferred.html';
+                } else if (localStorage.getItem('ageReq') == 'true'){
+                    location.href = 'sole.html';
                 } else {
-                    if(localStorage.getItem('ageReq') == 'true'){
-                        location.href = 'sole.html';
-                    } else {
-                        location.href = 'index.html';
-                    }
+                    location.href = 'physmpages.html';
                 }
                 break;
             case 'Dermatology':
@@ -53,6 +55,8 @@ class Page{
                 } else {
                     if(localStorage.getItem('ageReq') == 'true'){
                         location.href = 'preferred.html';
+                    } else if (localStorage.getItem('internalRef') == 'true'){
+                        location.href = 'physmpages.html';
                     } else {
                         location.href = 'sole.html';
                     }
@@ -115,6 +119,15 @@ class Page{
                         break;
                 }
             break;
+            case 'Obstetrics':
+                console.log(localStorage.getItem('internalRef'));
+                    if (localStorage.getItem('internalRef') == 'true'){
+                        location.href = 'physmpages.html';
+                    } else {
+                        location.href = 'preferred.html';
+                    }
+                break;
+            
             default:
                 break;
         
