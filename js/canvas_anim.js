@@ -271,47 +271,67 @@ function updateClassif() {
                 internalRefDiv.style.display = 'none';
                 ageReqDiv.style.display = 'none';
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = "CAMHS Inpatient service is preferred.";
+                outcomeSub.innerText = "CAMHS Inpatient service (only for patients aged 15 and above) is classified as preferred.";
             }
             break;
         
         case "Genetics":
-            if (ls_agereq == 'true') {
+            if (ls_selfref == 'true'){
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Genetics services are Classified as Preferred for patients aged 18 and above.'
+                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
             } else {
-                outcome.innerText = 'Sole'
-                outcomeSub.innerText = "Genetics services are Classified as Sole for patients below 18 years of age."
+                if (ls_agereq == 'true') {
+                    outcome.innerText = 'Preferred'
+                    outcomeSub.innerText = 'Genetics services are Classified as Preferred for patients aged 18 and above.'
+                } else {
+                    outcome.innerText = 'Sole'
+                    outcomeSub.innerText = "Genetics services are Classified as Sole for patients below 18 years of age."
+                }
             }
             break;
         
         case "ENT":
-            if (ls_agereq == 'true') {
-                outcome.innerText = 'Require Clinical Assessment';
-                outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+            if (ls_selfref == 'true'){
+                outcome.innerText = 'Preferred';
+                outcomeSub.innerText = 'Self-referred services are Classified as Preferred';
             } else {
-                outcome.innerText = 'Sole';
-                outcomeSub.innerText = 'ENT service for patients aged 3 and below is classified as Sole';
+                if (ls_agereq == 'true') {
+                    outcome.innerText = 'Require Clinical Assessment';
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                } else {
+                    outcome.innerText = 'Sole';
+                    outcomeSub.innerText = 'ENT service for patients aged 3 and below is classified as Sole';
+                }
             }
             break;
         
         case "Plastic Surgery":
-            if (ls_agereq == 'true') {
-                outcome.innerText = 'Require Clinical Assessment';
-                outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+            if (ls_selfref == 'true'){
+                outcome.innerText = 'Preferred';
+                outcomeSub.innerText = 'Self-referred services are Classified as Preferred';
             } else {
-                outcome.innerText = 'Sole';
-                outcomeSub.innerText = 'Plastic Surgery service for patients under 18 years of age is classified as Sole';
+                if (ls_agereq == 'true') {
+                    outcome.innerText = 'Require Clinical Assessment';
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                } else {
+                    outcome.innerText = 'Sole';
+                    outcomeSub.innerText = 'Plastic Surgery service for patients under 18 years of age is classified as Sole';
+                }
             }
             break;
 
         case "Dermatology":
-            if (ls_agereq == 'true') {
-                outcome.innerText = 'Require Comorbidity Assessment';
-                outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
-            } else {
+            if (ls_selfref == 'true'){
                 outcome.innerText = 'Preferred';
-                outcomeSub.innerText = 'Dermatology service for patients under 3 months of age is classified as Preferred';
+                outcomeSub.innerText = 'Self-referred services are Classified as Preferred';
+            } else {
+                if (ls_agereq == 'true') {
+                    outcome.innerText = 'Require Comorbidity Assessment';
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                } else {
+                    outcome.innerText = 'Preferred';
+                    outcomeSub.innerText = 'Dermatology service for patients under 3 months of age is classified as Preferred';
+                }
             }
             break;
         
@@ -336,22 +356,28 @@ function updateClassif() {
             break;
         
         case 'Gynecology':
-            switch (ls_agegroup) {
-                case "0":
-                        outcome.innerText = 'Sole';
-                        outcomeSub.innerText = "The Gynecology service is classified as Sole for patients at 4 to 14 years of age";        
-                    break;
-                case "1":
-                        outcome.innerText = 'Preferred';
-                        outcomeSub.innerText = "The Gynecology service is classified as Preferred for patients at 15 to 17 Years years of age";        
-                    break;
-                case "2":
-                        outcome.innerText = 'Preferred';
-                        outcomeSub.innerText = "The Gynecology service is classified as Preferred for patients aged 18 years and older";        
-                    break;
+            if (ls_selfref == 'true'){
+                outcome.innerText = 'Preferred';
+                outcomeSub.innerText = 'Self-referred services are Classified as Preferred';
+            } else {
             
-                default:
-                    break;
+                switch (ls_agegroup) {
+                    case "0":
+                            outcome.innerText = 'Sole';
+                            outcomeSub.innerText = "The Gynecology service is classified as Sole for patients at 4 to 14 years of age";        
+                        break;
+                    case "1":
+                            outcome.innerText = 'Preferred';
+                            outcomeSub.innerText = "The Gynecology service is classified as Preferred for patients at 15 to 17 Years years of age";        
+                        break;
+                    case "2":
+                            outcome.innerText = 'Preferred';
+                            outcomeSub.innerText = "The Gynecology service is classified as Preferred for patients aged 18 years and older";        
+                        break;
+                
+                    default:
+                        break;
+                }
             }
             break;
         
@@ -386,25 +412,13 @@ function updateClassif() {
             outcomeSub.innerText = "The Reproductive Medicine service is classified as Preferred by default."
             break;
             
-
         case 'Obstetrics':
-            let obsRef1 = document.getElementById("obsRef1");
-            let obsRef2 = document.getElementById("obsRef2");
             switch (ls_internalRef) {
                 case 'true':
-                    obsRef1.style.display = "flex";
-                    obsRef2.style.display = "flex";
-                    if (ls_obsRef == '1'){
-                        outcome.innerText = 'Require Clinical Assessment';
-                        outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
-                    } else {
-                        outcome.innerText = 'Require Clinical Assessment';
-                        outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
-                    }
-                    break;
+                    outcome.innerText = 'Require Clinical Assessment';
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                break;
                 case 'false':
-                    obsRef1.style.display = "none";
-                    obsRef2.style.display = "none";
                     outcome.innerText = 'Preferred';
                     outcomeSub.innerText = "The Obstetrics service is classified as Preferred by default";
                     break;
@@ -436,8 +450,8 @@ function updateClassif() {
             break;
 
         case "Inpatient & Ambulatory Surgery Procedures":
-            outcome.innerText = 'Require Clinical Assessment';
-            outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+            outcome.innerText = 'Sole or Preferred';
+            outcomeSub.innerText = "The service inherits the service classification from originating encounter";
             break;
 
         case "Dental Surgery":
@@ -523,17 +537,23 @@ function ageGroup() {
     updateClassif();
 }
 
-function internalRefObs() {
-    let radioButtons = document.querySelectorAll('input[name="obsRef"]');
-    for (let radioButton of radioButtons) {
-        if (radioButton.checked) {
-            localStorage.setItem('obsRef', radioButton.value);
+function internalRefObs(check) {
+    let check1 = document.getElementById('internalRefBox1');
+    let check2 = document.getElementById('internalRefBox2');
+    switch (check) {
+        case 1:
+            check2.checked = false;
             break;
-        }
+
+        case 2:
+            check1.checked = false;
+            break;
+        default:
+            break;
     }
+    localStorage.setItem('internalRef', (check1.checked ||check2.checked));
     updateClassif();
 }
-
 
 if (location.pathname == '/'+getRootDir()+"form.html"){
     window.onload = () => {
@@ -574,6 +594,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Allergy Immunology":
                 outcome.innerText = "Sole";
@@ -585,6 +606,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Endocrinology":
                 outcome.innerText = "Sole";
@@ -596,6 +618,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Gastroenterology":
                 outcome.innerText = "Sole";
@@ -607,6 +630,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Cardiology":
                 outcome.innerText = "Sole";
@@ -618,6 +642,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Hematology/Oncology":
                 outcome.innerText = "Sole";
@@ -629,6 +654,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Nephrology":
                 outcome.innerText = "Sole";
@@ -640,6 +666,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Neurology":
                 outcome.innerText = "Sole";
@@ -651,6 +678,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Infectious Disease":
                 outcome.innerText = "Sole";
@@ -662,6 +690,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Pulmonology":
                 outcome.innerText = "Sole";
@@ -673,6 +702,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Rheumatology":
                 outcome.innerText = "Sole";
@@ -684,6 +714,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Rehab Medicine":
                 outcome.innerText = "Sole";
@@ -695,6 +726,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Neonatal Surgery":
                 outcome.innerText = "Sole";
@@ -706,6 +738,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Neurosurgery":
                 outcome.innerText = "Sole";
@@ -717,6 +750,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Ophthalmology":
                 outcome.innerText = "Sole";
@@ -728,6 +762,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Orthopedics":
                 outcome.innerText = "Sole";
@@ -739,6 +774,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
             case "Transplant":
                 outcome.innerText = "Sole";
@@ -772,6 +808,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <p class="qpanel-q">Is the patient self-referred?</p></input>
                 </div>
                 `;
+                selfRef();
                 break;
         
             case "CAMHS":
@@ -798,43 +835,63 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
 
             case "Genetics":
                 qpanel1.innerHTML += `
+                <div class='qpanel1-qbox'>
+                    <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
+                    <p class="qpanel-q">Is the patient self-referred?</p></input>
+                </div>
                 <div class='qpanel1-qbox' id="ageReqDiv">
                     <input class="checkbox" type="checkbox" onclick="ageReq()" id="ageReqBox">
                     <p class="qpanel-q">Is the patient above 18 years of age?</p></input>
                 </div>
                 `;
+                selfRef();
                 ageReq();
                 break;
 
             case "ENT":
                 qpanel1.innerHTML += `
+                <div class='qpanel1-qbox'>
+                    <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
+                    <p class="qpanel-q">Is the patient self-referred?</p></input>
+                </div>
                 <div class='qpanel1-qbox' id="ageReqDiv">
                     <input class="checkbox" type="checkbox" onclick="ageReq()" id="ageReqBox">
                     <p class="qpanel-q">Is the patient above 3 years of age?</p></input>
                 </div>
                 `;
                 ageReq();
+                selfRef();
                 break;
 
             case "Plastic Surgery":
                 qpanel1.innerHTML += `
+                <div class='qpanel1-qbox'>
+                    <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
+                    <p class="qpanel-q">Is the patient self-referred?</p></input>
+                </div>
                 <div class='qpanel1-qbox' id="ageReqDiv">
                     <input class="checkbox" type="checkbox" onclick="ageReq()" id="ageReqBox">
                     <p class="qpanel-q">Is the patient over 18 years of age?</p></input>
                 </div>
                 `;
                 ageReq();
+                selfRef();
                 break;
 
             case "Dermatology":
-                    qpanel1.innerHTML += `
-                    <div class='qpanel1-qbox' id="ageReqDiv">
-                        <input class="checkbox" type="checkbox" onclick="ageReq()" id="ageReqBox">
-                        <p class="qpanel-q">Is the patient over 3 Months of age?</p></input>
-                    </div>
-                    `;
-                    ageReq();
-                    break;
+                qpanel1.innerHTML += `
+                <div class='qpanel1-qbox'>
+                    <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
+                    <p class="qpanel-q">Is the patient self-referred?</p></input>
+                </div>
+                <div class='qpanel1-qbox' id="ageReqDiv">
+                    <input class="checkbox" type="checkbox" onclick="ageReq()" id="ageReqBox">
+                    <p class="qpanel-q">Is the patient over 3 Months of age?</p></input>
+                </div>
+                `;
+                ageReq();
+                selfRef();
+                break;
 
             case "NICU":
                     qpanel1.innerHTML += `
@@ -858,6 +915,10 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
             
             case "Gynecology":
                 qpanel1.innerHTML += `
+                <div class='qpanel1-qbox'>
+                    <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
+                    <p class="qpanel-q">Is the patient self-referred?</p></input>
+                </div>
                 <div class='qpanel1-qbox' id="">
                     <h3>Choose Age Group:</h3>
                 </div>
@@ -876,6 +937,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 </div>
                 `;
                 ageGroup();
+                selfRef();
                 break;
             
             case "Emergency Services":
@@ -898,7 +960,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
 
             case "Aesthetics":
                 qpanel1.innerHTML = `
-                The Aesthetics service has no conditions which affect its classification.
+                <p style="font-style:oblique">The Aesthetics service has no conditions which affect its classification.</p>
                 `;
                 break;
 
@@ -911,27 +973,20 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
             case "Obstetrics":
                 qpanel1.innerHTML += `
                 <div class='qpanel1-qbox' id="internalRefDiv">
-                    <input class="checkbox" type="checkbox" onclick="internalRef()" id="internalRefBox">
-                    <p class="qpanel-q">Is the patient internally referred from...</p></input>
+                    <input class="checkbox" type="checkbox" onclick="internalRefObs(1)" id="internalRefBox1">
+                    <p class="qpanel-q">Is the patient referred from Sidra Adult Mental Health Services</p></input>
                 </div>
-                <div class='qpanel1-qbox' id="obsRef1">
-                    <span style="width: 20px"></span>
-                    <input class="checkbox" type="radio" onclick="internalRefObs()" id="" name="obsRef" checked value="0">
-                    <p class="qpanel-q">Adult Mental Health Services</p></input>
-                </div>
-                <div class='qpanel1-qbox' id="obsRef2">
-                    <span style="width: 20px"></span>
-                    <input class="checkbox" type="radio" onclick="internalRefObs()" id="" name="obsRef" value="1">
-                    <p class="qpanel-q">Cardiology</p></input>
+                <div class='qpanel1-qbox' id="internalRefDiv">
+                    <input class="checkbox" type="checkbox" onclick="internalRefObs(2)" id="internalRefBox2">
+                    <p class="qpanel-q">Is the patient referred from Sidra Cardiology (Congenital Heart Disease)</p></input>
                 </div>
                 `;
-                internalRef();
                 internalRefObs();
                 break;
 
             case "Ancillary Services":
                 qpanel1.innerHTML = `
-                    <p>Services Include:</p>
+                    <p>Services Included:</p>
                     <ul>
                         <li>Radiology</li>
                         <li>Pharmacy</li>
@@ -941,6 +996,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                         <li>Homecare</li>
                         <li>Anesthesia / PAT</li>
                     </ul>
+                    <p style="font-style:oblique">Ancillary Services has no conditions that will affect its classification</p>
                 `;
                 break;
             
@@ -950,7 +1006,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     <input class="checkbox" type="checkbox" onclick="internalRef()" id="internalRefBox">
                     <p class="qpanel-q">Is the patient internally referred from Obstetrics?</p></input>
                 </div>
-                <p>Services Include:</p>
+                <p>Services Included:</p>
                 <ul>
                     <li>Diabetic New</li>
                     <li>Endocrinology New</li>
@@ -966,28 +1022,33 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
 
             case "Inpatient & Ambulatory Surgery Procedures":
                 qpanel1.innerHTML = `
-                <p>Inpatient & Ambulatory Surgery Procedures is classified under "Automatic Carry Forward"</p>
+                <p style="font-style:oblique">"Inpatient & Ambulatory Surgery Procedures" has no conditions that will affect its classification</p>
                 `
                 break;
 
             case "Dental Surgery":
                 qpanel1.innerHTML = `
                 <p>Dental Surgery requires a Physician's clinical assessment by default to determine the service's classification.</p>
+                <p style="font-style:oblique">Dental Surgery has no conditions that will affect its classification</p>
                 `
                 break;
             case "General Surgery":
                 qpanel1.innerHTML = `
                 <p>General Surgery requires a Physician's clinical assessment by default to determine the service's classification.</p>
+                <p style="font-style:oblique">General Surgery has no conditions that will affect its classification</p>
                 `
                 break;
             case "General Pediatrics":
                 qpanel1.innerHTML = `
                 <p>General Pediatrics requires a Physician's clinical assessment by default to determine the service's classification.</p>
+                <p style="font-style:oblique">General Pediatrics has no conditions that will affect its classification</p>
                 `
                 break;
             case "Maternal Fetal Medicine":
                 qpanel1.innerHTML = `
                 <p>Maternal Fetal Medicine requires a Physician's clinical assessment by default to determine the service's classification.</p>
+                <p style="font-style:oblique">Maternal Fetal Medicine has no conditions that will affect its classification</p>
+
                 `
                 break;
 

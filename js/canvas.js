@@ -1,11 +1,6 @@
 var canvas = document.querySelector('canvas');
 var pageState = 0;
 
-// if (innerWidth < 1550) {
-//     canvas.width = window.innerWidth-15;
-// } else {
-//     canvas.width = 1550
-// }
 canvas.width = innerWidth-15;
 canvas.height = innerHeight-15;
 var c = canvas.getContext('2d');
