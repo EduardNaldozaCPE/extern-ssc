@@ -131,7 +131,7 @@ a.hover {
     z-index: 0;
     background-color: white;
     /* border: 5px solid #222; */
-    overflow: scroll;
+    overflow:hidden;
 }
 
 #left-panel-scroll {

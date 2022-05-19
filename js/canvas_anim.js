@@ -376,6 +376,17 @@ function updateClassif() {
             }
             break;
 
+        case 'Aesthetics':
+            outcome.innerText = "Preferred";
+            outcomeSub.innerText = "The Aesthetics service is classified as Preferred by default."
+            break;
+
+        case 'Reproductive Medicine':
+            outcome.innerText = "Preferred";
+            outcomeSub.innerText = "The Reproductive Medicine service is classified as Preferred by default."
+            break;
+            
+
         case 'Obstetrics':
             let obsRef1 = document.getElementById("obsRef1");
             let obsRef2 = document.getElementById("obsRef2");
@@ -883,6 +894,18 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 </div>
                 `;
                 internalRef();
+                break;
+
+            case "Aesthetics":
+                qpanel1.innerHTML = `
+                The Aesthetics service has no conditions which affect its classification.
+                `;
+                break;
+
+            case "Reproductive Medicine":
+                qpanel1.innerHTML = `
+                The Reproductive Medicine service has no conditions which affect its classification.
+                `;
                 break;
 
             case "Obstetrics":

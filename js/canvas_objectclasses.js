@@ -436,7 +436,7 @@ class Titletext {
                 }
                 c.font = `bold ${this.size}px ${this.font}`
                 this.opacity = Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)
-                c.fillStyle = `rgb(221,221,221,${this.opacity})`;
+                c.fillStyle = `rgb(255,255,255,${this.opacity})`;
                 c.textAlign = "center";
                 c.fillText(this.msg, this.x, this.y, this.w);
                 this.anim.frame++;
@@ -444,7 +444,7 @@ class Titletext {
         
             case 1:
                 c.font = `bold ${this.size}px ${this.font}`
-                c.fillStyle = `rgb(221,221,221,1)`;
+                c.fillStyle = `rgb(255,255,255,1)`;
                 c.textAlign = "center";
                 c.fillText(this.msg, this.x, this.y, this.w);
                 break;
@@ -645,7 +645,7 @@ class Ntext {
 }
 
 class Rightbutton {
-    constructor(x,y,w,url){
+    constructor(x,y,w,url,colour){
         this.name = "Rightbutton";
         this.x = x;
         this.y = y;
@@ -653,12 +653,13 @@ class Rightbutton {
         this.state = 0;
         this.url = url;
         this.click = false;
+        this.colour = colour;
     }
     draw = () => {
         switch (this.state) {
             case 0:
             c.beginPath();
-            c.fillStyle='rgba(221,221,221,0.7)';
+            c.fillStyle=`rgba(${this.colour},0.7)`;
             c.moveTo(this.x, this.y);
             c.lineTo(this.x+30, this.y+15);
             c.lineTo(this.x, this.y+30);
@@ -689,7 +690,7 @@ class Rightbutton {
 }
 
 class Leftbutton {
-    constructor(x,y,w,url){
+    constructor(x,y,w,url,colour){
         this.name = "Leftbutton";
         this.x = x;
         this.y = y;
@@ -697,12 +698,13 @@ class Leftbutton {
         this.state = 0;
         this.url = url;
         this.click = false;
+        this.colour = colour;
     }
     draw = () => {
         switch (this.state) {
             case 0:
                 c.beginPath();
-                c.fillStyle='rgba(221,221,221,0.7)';
+                c.fillStyle=`rgba(${this.colour},0.7)`;
                 c.moveTo(this.x, this.y);
                 c.lineTo(this.x-this.w, this.y+(this.w/2));
                 c.lineTo(this.x, this.y+this.w);
@@ -736,22 +738,23 @@ class EmptyObj {
 }
 
 class PageIndicator {
-    constructor(x,y){
+    constructor(x,y,colour){
         this.x = x;
         this.y = y;
         this.selected = false;
+        this.colour = colour;
     }
 
     draw = () => {
         c.beginPath();
-        c.strokeStyle='rgba(221,221,221,0.7)';
+        c.strokeStyle=`rgba(${this.colour},0.7)`;
         c.lineWidth = '3'
         c.arc(this.x, this.y, 10, 0, 2 * Math.PI);
         c.stroke();
 
         if (this.selected == true){
             c.beginPath();
-            c.fillStyle='rgba(221,221,221,0.7)';
+            c.fillStyle=`rgba(${this.colour},0.7)`;
             c.lineWidth = '3'
             c.arc(this.x, this.y, 5, 0, 2 * Math.PI);
             c.fill();
@@ -770,9 +773,10 @@ class PageIndicator {
 }
 
 class PageFilter {
-    constructor(x,y){
+    constructor(x,y, colour){
         this.x = x,
         this.y = y,
+        this.colour = colour;
         this.selectedletter = undefined;
         this.selectedletter_index = undefined;
         this.alphabList = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
@@ -783,21 +787,21 @@ class PageFilter {
         for (let l=0;l<26;l++){
             c.beginPath();
             c.font = 'bold 16px Helvetica';
-            c.fillStyle = "rgba(211,211,211,1)"
+            c.fillStyle = `rgba(${this.colour},1)`;
             c.fillText(this.alphabList[l],this.x + (l*25),this.y);
         }
         c.beginPath();
-        c.strokeStyle = 'rgba(221,221,221,1)';
+        c.strokeStyle = 'rgba(255,255,255,1)';
         c.rect(this.x + 650, this.y-16, 50, 20);
         c.fill()
         c.beginPath();
         c.font = 'bolder 11px Helvetica';
-        c.fillStyle = "rgba(53,144,133,1)"
+        c.fillStyle = "rgba(255,255,255,1)"
         c.fillText("CLEAR",this.x + 650 + 25, this.y-2);
 
         if (this.selectedletter_index != undefined) {
             c.beginPath();
-            c.strokeStyle = 'rgba(221,221,221,1)';
+            c.strokeStyle = `rgba(${this.colour},1)`;
             c.moveTo(this.x + (this.selectedletter_index*25)-8, this.y+5);
             c.lineTo(this.x + (this.selectedletter_index*25)+8, this.y+5);
             c.stroke()
@@ -853,5 +857,15 @@ class Qpanel {
             canvas.width-(canvas.width/5)-20,
             5*canvas.height/8, 
         10).fill()
+    }
+}
+
+class SelectPanel {
+    constructor(){}
+
+    draw = () => {
+        c.beginPath();
+        c.fillStyle = "rgba(255,255,255,1)";
+        c.roundRect(1*canvas.width/10,2.9*canvas.height/10,7.9*canvas.width/10,6.7*canvas.height/10,15).fill();
     }
 }

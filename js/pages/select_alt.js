@@ -62,17 +62,14 @@ class Page{
     startInstanceList = () => {
         var subheight = undefined;
         if (canvas.width > 780) {
-            subheight = canvas.height*0.2;
+            subheight = canvas.height*0.25;
         } else {
             subheight = 2*canvas.height/6;
         }
 
-        this.list.push(new SelectPanel());
-
         this.list.push(new PageFilter(
             ((canvas.width)/4)-((canvas.width/4.5)/2)+6,
-            11*canvas.height/30,
-            "53,144,133"
+            11*canvas.height/30
         ));
         this.showPageNav();
         
@@ -96,19 +93,19 @@ class Page{
     }
     
     action = () => {
-        if (this.list[1].hovering()){
-            console.log(this.list[1].getLetter());
-            if (this.list[1].getLetter() == "CLEAR"){
+        if (this.list[0].hovering()){
+            console.log(this.list[0].getLetter());
+            if (this.list[0].getLetter() == "CLEAR"){
                 this.alphabetical = false;
                 this.chosenLetter = undefined;
-                this.list.splice(9,this.servicelist[this.page-1].name.length*2);
+                this.list.splice(8,this.servicelist[this.page-1].name.length*2);
                 this.page = 1;
                 this.newPage();
                 this.setPageIndicator();
             } else {
                 this.alphabetical = true;
-                this.chosenLetter = this.list[1].getLetter();
-                this.list.splice(9,this.servicelist[this.page-1].name.length*2);
+                this.chosenLetter = this.list[0].getLetter();
+                this.list.splice(8,this.servicelist[this.page-1].name.length*2);
 
                 let alphab_list = [];
                 this.servicelist_alpha.name.forEach(item => {
@@ -127,14 +124,14 @@ class Page{
                                 "Helvetica",
                                 this.fontsize,
                                 alphab_list[count-1],
-                                '53,144,133'
+                                '221,221,221'
                             );
                             this.list.splice(8+(count*2), 0, new GuiButton1(
                                 ((i*canvas.width)/4)-((canvas.width/4.5)/2),
                                 (canvas.height/3)+(row*canvas.height/9)-(50/2),
                                 this.boxwidth,
                                 this.boxheight,
-                                "53,144,133",
+                                "221,221,221",
                                 "",
                                 btn
                                 ), btn);
@@ -148,8 +145,8 @@ class Page{
         }
         
         if (!this.alphabetical) {
-            if (this.list[2].hovering()){
-                this.list.splice(9,this.servicelist[this.page-1].name.length*2);
+            if (this.list[1].hovering()){
+                this.list.splice(8,this.servicelist[this.page-1].name.length*2);
                 if (this.page == this.servicelist.length){
                     this.page = 1;
                 } else {
@@ -158,8 +155,8 @@ class Page{
                 this.newPage();
                 this.setPageIndicator();
             }
-            if (this.list[3].hovering()){
-                this.list.splice(9,this.servicelist[this.page-1].name.length*2);
+            if (this.list[2].hovering()){
+                this.list.splice(8,this.servicelist[this.page-1].name.length*2);
                 if (this.page == 1){
                     this.page = this.servicelist.length;
                 } else {
@@ -194,14 +191,14 @@ class Page{
                     "Helvetica",
                     this.fontsize,
                     this.servicelist[this.page-1].name[count-1],
-                    '53,144,133'
+                    '221,221,221'
                 );
                 this.list.splice(8+(count*2), 0, new GuiButton1(
                     ((i*canvas.width)/4)-((canvas.width/4.5)/2),
                     (canvas.height/3)+(row*canvas.height/9)-(50/2),
                     this.boxwidth,
                     this.boxheight,
-                    "53,144,133",
+                    "221,221,221",
                     // this.servicelist[this.page-1].url[count-1],
                     btn
                     ), btn);
@@ -216,45 +213,39 @@ class Page{
         }
     }
     setPageIndicator = () => {
-        for (let i=4;i<=7;i++){
+        for (let i=3;i<=6;i++){
             this.list[i].setOff();
         }
-        this.list[this.page+3].setOn();
+        this.list[this.page+2].setOn();
     }
     showPageNav = () => {
         this.list.push(new Rightbutton(
             15*canvas.width/25,
             (7.2*canvas.height/8)-(50/2),
             30,
-            "",
-            "53,144,133"
+            ""
         ));
         this.list.push(new Leftbutton(
             10*canvas.width/25,
             (7.2*canvas.height/8)-(50/2),
             30,
-            "",
-            "53,144,133"
+            ""
         ));
         this.list.push(new PageIndicator(
             11*canvas.width/25,
             (7.2*canvas.height/8)-(50/2)+15,
-            "53,144,133"
         ));
         this.list.push(new PageIndicator(
             12*canvas.width/25,
             (7.2*canvas.height/8)-(50/2)+15,
-            "53,144,133"
         ));
         this.list.push(new PageIndicator(
             13*canvas.width/25,
             (7.2*canvas.height/8)-(50/2)+15,
-            "53,144,133"
         ));
         this.list.push(new PageIndicator(
             14*canvas.width/25,
             (7.2*canvas.height/8)-(50/2)+15,
-            "53,144,133"
         ));
     }
 }
