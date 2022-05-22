@@ -78,7 +78,7 @@ function updateClassif() {
         case "Adolescent Medicine":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Adolescent Medicine's classification is Sole by default"
@@ -87,7 +87,7 @@ function updateClassif() {
         case "Allergy Immunology":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Allergy Immunology's classification is Sole by default"
@@ -96,7 +96,7 @@ function updateClassif() {
         case "Endocrinology":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Endocrinology's classification is Sole by default"
@@ -105,7 +105,7 @@ function updateClassif() {
         case "Gastroenterology":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Gastroenterology's classification is Sole by default"
@@ -114,7 +114,7 @@ function updateClassif() {
         case "Cardiology":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Cardiology's classification is Sole by default"
@@ -123,7 +123,7 @@ function updateClassif() {
         case "Hematology/Oncology":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Hematology/Oncology's classification is Sole by default"
@@ -132,7 +132,7 @@ function updateClassif() {
         case "Nephrology":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Nephrology's classification is Sole by default"
@@ -141,7 +141,7 @@ function updateClassif() {
         case "Neurology":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Neurology's classification is Sole by default"
@@ -150,7 +150,7 @@ function updateClassif() {
         case "Infectious Disease":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Infectious Disease's classification is Sole by default"
@@ -159,7 +159,7 @@ function updateClassif() {
         case "Pulmonology":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Pulmonology's classification is Sole by default"
@@ -168,7 +168,7 @@ function updateClassif() {
         case "Rheumatology":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Rheumatology's classification is Sole by default"
@@ -177,7 +177,7 @@ function updateClassif() {
         case "Rehab Medicine":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Rehab Medicine's classification is Sole by default"
@@ -186,7 +186,7 @@ function updateClassif() {
         case "Neonatal Surgery":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Neonatal Surgery's classification is Sole by default"
@@ -195,7 +195,7 @@ function updateClassif() {
         case "Neurosurgery":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Neurosurgery's classification is Sole by default"
@@ -204,7 +204,7 @@ function updateClassif() {
         case "Ophthalmology":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Ophthalmology's classification is Sole by default"
@@ -213,7 +213,7 @@ function updateClassif() {
         case "Orthopedics":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Orthopedics's classification is Sole by default"
@@ -222,7 +222,7 @@ function updateClassif() {
         case "Transplant":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Transplant's classification is Sole by default"
@@ -231,7 +231,7 @@ function updateClassif() {
         case "Urology":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Urology's classification is Sole by default"
@@ -240,7 +240,7 @@ function updateClassif() {
         case "Peri/Post Natal Mental Health":
             if (ls_selfref == 'true') {
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 outcome.innerText = 'Sole'
                 outcomeSub.innerText = "Peri/Post Natal Mental Health's classification is Sole by default"
@@ -277,7 +277,7 @@ function updateClassif() {
         case "Genetics":
             if (ls_selfref == 'true'){
                 outcome.innerText = 'Preferred'
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred'
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 if (ls_agereq == 'true') {
                     outcome.innerText = 'Preferred'
@@ -292,7 +292,7 @@ function updateClassif() {
         case "ENT":
             if (ls_selfref == 'true'){
                 outcome.innerText = 'Preferred';
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred';
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
             } else {
                 if (ls_agereq == 'true') {
                     outcome.innerText = 'Require Clinical Assessment';
@@ -307,7 +307,7 @@ function updateClassif() {
         case "Plastic Surgery":
             if (ls_selfref == 'true'){
                 outcome.innerText = 'Preferred';
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred';
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
             } else {
                 if (ls_agereq == 'true') {
                     outcome.innerText = 'Require Clinical Assessment';
@@ -322,7 +322,7 @@ function updateClassif() {
         case "Dermatology":
             if (ls_selfref == 'true'){
                 outcome.innerText = 'Preferred';
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred';
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
             } else {
                 if (ls_agereq == 'true') {
                     outcome.innerText = 'Require Comorbidity Assessment';
@@ -357,7 +357,7 @@ function updateClassif() {
         case 'Gynecology':
             if (ls_selfref == 'true'){
                 outcome.innerText = 'Preferred';
-                outcomeSub.innerText = 'Self-referred services are Classified as Preferred';
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
             } else {
             
                 switch (ls_agegroup) {
