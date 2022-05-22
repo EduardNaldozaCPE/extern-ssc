@@ -62,7 +62,7 @@ class Page{
     startInstanceList = () => {
         var subheight = undefined;
         if (canvas.width > 780) {
-            subheight = canvas.height*0.2;
+            subheight = canvas.height*0.23;
         } else {
             subheight = 2*canvas.height/6;
         }
@@ -77,12 +77,12 @@ class Page{
         this.showPageNav();
         
         this.list.push(new Titletext(
-            (canvas.width/4),
+            11*(canvas.width/40),
             subheight,
             (canvas.width*0.75),
             "Helvetica",
             (canvas.width*0.04),
-            "Select Service"
+            "Choose a Service"
         ));
 
         if (canvas.width <= 620){

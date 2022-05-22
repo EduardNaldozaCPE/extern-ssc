@@ -73,7 +73,6 @@ function updateClassif() {
     let ls_niculvl = localStorage.getItem('niculvl');
     let ls_updowngraded = localStorage.getItem('up-down-graded');
     let ls_agegroup = localStorage.getItem('agegroup');
-    let ls_obsRef = localStorage.getItem('obsRef');
 
     switch (localStorage.getItem('branch')) {
         case "Adolescent Medicine":
@@ -472,6 +471,8 @@ function updateClassif() {
             break;
         
         default:
+            outcome.innerText = 'Error';
+            outcomeSub.innerText = "No service selected / Service selected is not encoded.";
             break;
         }
 
@@ -565,8 +566,9 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
         var qpanelheader = document.getElementById('q-panel-header');
         var qpanel1 = document.getElementById('q-panel1');
         var qpanel1header = document.getElementById('q-panel1-header');
-        qpanelheader.innerText = branch;
         const homebtn = document.getElementById('home-btn');
+        qpanelheader.innerText = branch;
+
         const btnlist = document.getElementsByClassName('panel-btn');
         for (let btn=0;btn<btnlist.length;btn++){
                 btnlist[btn].onclick = () => {
