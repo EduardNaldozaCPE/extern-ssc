@@ -36,7 +36,7 @@ function animation() {
         });
 
         // ADDITIONAL RESOURCES THUMBNAIL
-        if (location.pathname.endsWith("index.html")){
+        if (location.pathname.endsWith("index.html") || location.pathname.endsWith("/extern-ssc/")){
             if (mpos.x >= (canvas.width-(canvas.width/7.4))-15 && mpos.y >= (7.1*canvas.height/8)-15){
                 if (mpos.x < (canvas.width-(canvas.width/7.4))+15 && mpos.y < (7.1*canvas.height/8)+15){ 
                     c.fillStyle = 'rgb(100,100,100,0.5)';               
@@ -74,7 +74,7 @@ function animation() {
 canvas.addEventListener('click', () => {
     pagecontent.action();
 
-    if (location.pathname.endsWith("index.html")){
+    if (location.pathname.endsWith("index.html")  || location.pathname.endsWith("/extern-ssc/")){
         if (mpos.x >= (canvas.width-(canvas.width/7.4))-15 && mpos.y >= (7.1*canvas.height/8)-15){
             if (mpos.x < (canvas.width-(canvas.width/7.4))+15 && mpos.y < (7.1*canvas.height/8)+15){
                 window.open(
