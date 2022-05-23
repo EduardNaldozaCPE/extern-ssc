@@ -52,7 +52,6 @@ function animation() {
     } else {
         console.log("Loading next page");
     }
-    // requestAnimationFrame(animation);
 }
 
 //ONCLICK
