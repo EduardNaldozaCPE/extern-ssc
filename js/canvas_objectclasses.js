@@ -499,9 +499,9 @@ class Qpanel {
         c.beginPath();
         c.fillStyle = "rgba(255,255,255,1)";
         c.roundRect(
-            (canvas.width/5)+10,
+            (canvas.width/5)+15,
             3*canvas.height/8-10,
-            canvas.width-(canvas.width/5)-20,
+            canvas.width-(canvas.width/5)-25,
             5*canvas.height/8, 
         10).fill()
     }
@@ -513,6 +513,11 @@ class SelectPanel {
     draw = () => {
         c.beginPath();
         c.fillStyle = "rgba(255,255,255,1)";
-        c.roundRect(1*canvas.width/10,2.9*canvas.height/10,7.9*canvas.width/10,6.7*canvas.height/10,15).fill();
+        c.roundRect(2*canvas.width/20,5.2*canvas.height/20,7.9*canvas.width/10,6.7*canvas.height/10,15).fill();
     }
+}
+
+class EmptyObj {
+    draw = () => {}
+    delete = () => {}
 }

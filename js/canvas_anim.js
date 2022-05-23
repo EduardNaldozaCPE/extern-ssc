@@ -59,9 +59,6 @@ canvas.addEventListener('click', () => {
     pagecontent.action();
 });
 
-// Running Animation
-// animation(0);
-
 function updateClassif() {
     let outcome = document.getElementById("outcome");
     let outcomeSub = document.getElementById("outcome-sub");
@@ -70,179 +67,180 @@ function updateClassif() {
     let ls_inoutpatient = localStorage.getItem('in-out-patient');
     let ls_internalRef = localStorage.getItem('internalRef');
     let ls_niculvl = localStorage.getItem('niculvl');
+    let ls_obsradio = localStorage.getItem('obsRadio');
     let ls_updowngraded = localStorage.getItem('up-down-graded');
     let ls_agegroup = localStorage.getItem('agegroup');
 
     switch (localStorage.getItem('branch')) {
         case "Adolescent Medicine":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Adolescent Medicine's classification is Sole by default"
             }
             break;
         case "Allergy Immunology":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Allergy Immunology's classification is Sole by default"
             }
             break;
         case "Endocrinology":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Endocrinology's classification is Sole by default"
             }
             break;
         case "Gastroenterology":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Gastroenterology's classification is Sole by default"
             }
             break;
         case "Cardiology":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Cardiology's classification is Sole by default"
             }
             break;
         case "Hematology/Oncology":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Hematology/Oncology's classification is Sole by default"
             }
             break;
         case "Nephrology":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Nephrology's classification is Sole by default"
             }
             break;
         case "Neurology":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Neurology's classification is Sole by default"
             }
             break;
         case "Infectious Disease":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Infectious Disease's classification is Sole by default"
             }
             break;
         case "Pulmonology":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Pulmonology's classification is Sole by default"
             }
             break;
         case "Rheumatology":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Rheumatology's classification is Sole by default"
             }
             break;
         case "Rehab Medicine":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Rehab Medicine's classification is Sole by default"
             }
             break;
         case "Neonatal Surgery":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Neonatal Surgery's classification is Sole by default"
             }
             break;
         case "Neurosurgery":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Neurosurgery's classification is Sole by default"
             }
             break;
         case "Ophthalmology":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Ophthalmology's classification is Sole by default"
             }
             break;
         case "Orthopedics":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Orthopedics's classification is Sole by default"
             }
             break;
         case "Transplant":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Transplant's classification is Sole by default"
             }
             break;
         case "Urology":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
+                outcome.innerText = "Sole Provider"
                 outcomeSub.innerText = "Urology's classification is Sole by default"
             }
             break;
-        case "Peri/Post Natal Mental Health":
+        case "Adult Mental Health":
             if (ls_selfref == 'true') {
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                outcome.innerText = 'Sole'
-                outcomeSub.innerText = "Peri/Post Natal Mental Health's classification is Sole by default"
+                outcome.innerText = "Sole Provider"
+                outcomeSub.innerText = "Adult Mental Health's classification is Sole by default"
             }
             break;
         
@@ -257,32 +255,32 @@ function updateClassif() {
                         outcome.innerText = 'Require Comorbidity Assessment';
                         outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
                     } else {
-                        outcome.innerText = 'Preferred';
+                        outcome.innerText = "Preferred Provider";
                         outcomeSub.innerText = 'CAMHS service for patients above 14 years of age is classified as Preferred';
                             }
                 } else {
                     internalRefDiv.style.display = 'none';
-                    outcome.innerText = 'Sole';
+                    outcome.innerText = "Sole Provider";
                     outcomeSub.innerText = 'CAMHS service for patients aged 14 and below is classified as Sole';
                     }
             } else {
                 internalRefDiv.style.display = 'none';
                 ageReqDiv.style.display = 'none';
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = "CAMHS Inpatient service (only for patients aged 15 and above) is classified as preferred.";
             }
             break;
         
         case "Genetics":
             if (ls_selfref == 'true'){
-                outcome.innerText = 'Preferred'
+                outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
                 if (ls_agereq == 'true') {
-                    outcome.innerText = 'Preferred'
+                    outcome.innerText = "Preferred Provider"
                     outcomeSub.innerText = 'Genetics services are Classified as Preferred for patients aged 18 and above.'
                 } else {
-                    outcome.innerText = 'Sole'
+                    outcome.innerText = "Sole Provider"
                     outcomeSub.innerText = "Genetics services are Classified as Sole for patients below 18 years of age."
                 }
             }
@@ -290,14 +288,14 @@ function updateClassif() {
         
         case "ENT":
             if (ls_selfref == 'true'){
-                outcome.innerText = 'Preferred';
+                outcome.innerText = "Preferred Provider";
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
             } else {
                 if (ls_agereq == 'true') {
                     outcome.innerText = 'Require Clinical Assessment';
                     outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
                 } else {
-                    outcome.innerText = 'Sole';
+                    outcome.innerText = "Sole Provider";
                     outcomeSub.innerText = 'ENT service for patients aged 3 and below is classified as Sole';
                 }
             }
@@ -305,14 +303,14 @@ function updateClassif() {
         
         case "Plastic Surgery":
             if (ls_selfref == 'true'){
-                outcome.innerText = 'Preferred';
+                outcome.innerText = "Preferred Provider";
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
             } else {
                 if (ls_agereq == 'true') {
                     outcome.innerText = 'Require Clinical Assessment';
                     outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
                 } else {
-                    outcome.innerText = 'Sole';
+                    outcome.innerText = "Sole Provider";
                     outcomeSub.innerText = 'Plastic Surgery service for patients under 18 years of age is classified as Sole';
                 }
             }
@@ -320,14 +318,14 @@ function updateClassif() {
 
         case "Dermatology":
             if (ls_selfref == 'true'){
-                outcome.innerText = 'Preferred';
+                outcome.innerText = "Preferred Provider";
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
             } else {
                 if (ls_agereq == 'true') {
                     outcome.innerText = 'Require Comorbidity Assessment';
                     outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
                 } else {
-                    outcome.innerText = 'Preferred';
+                    outcome.innerText = "Preferred Provider";
                     outcomeSub.innerText = 'Dermatology service for patients under 3 months of age is classified as Preferred';
                 }
             }
@@ -335,17 +333,29 @@ function updateClassif() {
         
         case 'NICU':
             if (ls_updowngraded == "true"){
-                outcome.innerText = 'Sole';
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "The Newborn Intensive Care Unit service is classified as sole when upgraded/downgraded";
+                switch (ls_niculvl) {
+                    case "0":
+                        document.getElementById('updowngrade-q').innerText = "Has the NICU Level been upgraded to level 3/4?";
+                        break;
+                    case "1":
+                        document.getElementById('updowngrade-q').innerText = "Has the NICU Level been downgraded to level 1/2?";        
+                        break;
+                    default:
+                        break;
+                }
             } else {
                 switch (ls_niculvl) {
                     case "0":
-                        outcome.innerText = 'Preferred';
-                        outcomeSub.innerText = "The Newborn Intensive Care Unit service is classified as Preferred for NICU Levels 1 & 2";        
+                        outcome.innerText = "Preferred Provider";
+                        outcomeSub.innerText = "The Newborn Intensive Care Unit service is classified as Preferred for NICU Levels 1 & 2";
+                        document.getElementById('updowngrade-q').innerText = "Has the NICU Level been upgraded to level 3/4?";
                         break;
                     case "1":
-                        outcome.innerText = 'Sole';
-                        outcomeSub.innerText = "The Newborn Intensive Care Unit service is classified as Sole for NICU Levels 3 & 4";        
+                        outcome.innerText = "Sole Provider";
+                        outcomeSub.innerText = "The Newborn Intensive Care Unit service is classified as Sole for NICU Levels 3 & 4";
+                        document.getElementById('updowngrade-q').innerText = "Has the NICU Level been downgraded to level 1/2?";        
                         break;
                     default:
                         break;
@@ -355,21 +365,21 @@ function updateClassif() {
         
         case 'Gynecology':
             if (ls_selfref == 'true'){
-                outcome.innerText = 'Preferred';
+                outcome.innerText = "Preferred Provider";
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
             } else {
             
                 switch (ls_agegroup) {
                     case "0":
-                            outcome.innerText = 'Sole';
+                            outcome.innerText = "Sole Provider";
                             outcomeSub.innerText = "The Gynecology service is classified as Sole for patients at 4 to 14 years of age";        
                         break;
                     case "1":
-                            outcome.innerText = 'Preferred';
+                            outcome.innerText = "Preferred Provider";
                             outcomeSub.innerText = "The Gynecology service is classified as Preferred for patients at 15 to 17 Years years of age";        
                         break;
                     case "2":
-                            outcome.innerText = 'Preferred';
+                            outcome.innerText = "Preferred Provider";
                             outcomeSub.innerText = "The Gynecology service is classified as Preferred for patients aged 18 years and older";        
                         break;
                 
@@ -391,7 +401,7 @@ function updateClassif() {
                     outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
                     break;
                 case 'false':
-                    outcome.innerText = 'Preferred';
+                    outcome.innerText = "Preferred Provider";
                     outcomeSub.innerText = "The Developmental Pediatrics service is classified as Preferred by default";
                     break;
             
@@ -401,23 +411,24 @@ function updateClassif() {
             break;
 
         case 'Aesthetics':
-            outcome.innerText = "Preferred";
+            outcome.innerText = "Preferred Provider";
             outcomeSub.innerText = "The Aesthetics service is classified as Preferred by default."
             break;
 
         case 'Reproductive Medicine':
-            outcome.innerText = "Preferred";
+            outcome.innerText = "Preferred Provider";
             outcomeSub.innerText = "The Reproductive Medicine service is classified as Preferred by default."
             break;
             
         case 'Obstetrics':
-            switch (ls_internalRef) {
-                case 'true':
+            switch (ls_obsradio) {
+                case "0":
+                case "1":                    
                     outcome.innerText = 'Require Clinical Assessment';
                     outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
-                break;
-                case 'false':
-                    outcome.innerText = 'Preferred';
+                    break;
+                case "2":
+                    outcome.innerText = "Preferred Provider";
                     outcomeSub.innerText = "The Obstetrics service is classified as Preferred by default";
                     break;
             
@@ -438,8 +449,8 @@ function updateClassif() {
                     outcomeSub.innerText = "The service inherits the service classification from originating encounter";
                     break;
                 case 'false':
-                    outcome.innerText = 'Preferred';
-                    outcomeSub.innerText = "The Developmental Pediatrics service is classified as Preferred by default";
+                    outcome.innerText = "Preferred Provider";
+                    outcomeSub.innerText = "The Obstetrics service is classified as Preferred by default";
                     break;
             
                 default:
@@ -520,6 +531,17 @@ function nicuLvl() {
     updateClassif();
 }
 
+function obsRadio() {
+    let radioButtons = document.querySelectorAll('input[name="obsRadio"]');
+    for (let radioButton of radioButtons) {
+        if (radioButton.checked) {
+            localStorage.setItem('obsRadio', radioButton.value);
+            break;
+        }
+    }
+    updateClassif();
+}
+
 function updowngradedReq() {
     let check1 = document.getElementById('updowngradedBox');
     localStorage.setItem('up-down-graded', check1.checked);
@@ -534,24 +556,6 @@ function ageGroup() {
             break;
         }
     }
-    updateClassif();
-}
-
-function internalRefObs(check) {
-    let check1 = document.getElementById('internalRefBox1');
-    let check2 = document.getElementById('internalRefBox2');
-    switch (check) {
-        case 1:
-            check2.checked = false;
-            break;
-
-        case 2:
-            check1.checked = false;
-            break;
-        default:
-            break;
-    }
-    localStorage.setItem('internalRef', (check1.checked ||check2.checked));
     updateClassif();
 }
 
@@ -586,7 +590,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
 
         switch (branch) {
             case "Adolescent Medicine":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Adolescent Medicine's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -598,7 +602,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Allergy Immunology":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Allergy ImmunologyAllergy Immunology's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -610,7 +614,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Endocrinology":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Endocrinology's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -622,7 +626,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Gastroenterology":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Gastroenterology's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -634,7 +638,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Cardiology":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Cardiology's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -646,7 +650,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Hematology/Oncology":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Hematology/Oncology's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -658,7 +662,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Nephrology":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Nephrology's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -670,7 +674,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Neurology":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Neurology's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -682,7 +686,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Infectious Disease":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Infectious Disease's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -694,7 +698,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Pulmonology":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Pulmonology's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -706,7 +710,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Rheumatology":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Rheumatology's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -718,7 +722,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Rehab Medicine":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Rehab Medicine's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -730,7 +734,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Neonatal Surgery":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Neonatal Surgery's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -742,7 +746,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Neurosurgery":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Neurosurgery's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -754,7 +758,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Ophthalmology":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Ophthalmology's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -766,7 +770,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Orthopedics":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Orthopedics's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -778,7 +782,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 selfRef();
                 break;
             case "Transplant":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Transplant's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -789,7 +793,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 `;
                 break;
             case "Urology":
-                outcome.innerText = "Sole";
+                outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "Urology's classification is Sole by default";
 
                 qpanel1.innerHTML += `
@@ -799,9 +803,9 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 </div>
                 `;
                 break;
-            case "Peri/Post Natal Mental Health":
-                outcome.innerText = "Sole";
-                outcomeSub.innerText = "Peri/Post Natal Mental Health's classification is Sole by default";
+            case "Adult Mental Health":
+                outcome.innerText = "Sole Provider";
+                outcomeSub.innerText = "Adult Mental Health's classification is Sole by default";
 
                 qpanel1.innerHTML += `
                 <div class='qpanel1-qbox'>
@@ -906,8 +910,8 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                     </div>
                     <div style="height: 15px"></div>
                     <div class='qpanel1-qbox' id="updowngradedDiv">
-                        <input class="checkbox" type="checkbox" onclick="updowngradedReq()" id="updowngradedBox">
-                        <p class="qpanel-q">Has the NICU Level been upgraded to level 3/4 or downgraded to level 1/2?</p></input>
+                        <input class="checkbox" type="checkbox" onclick="updowngradedReq()" id="updowngradedBox" name="updowngraded">
+                        <p class="qpanel-q" id="updowngrade-q">Has the NICU Level been upgraded to level 3/4?</p></input>
                     </div>
                     `;
                     nicuLvl();
@@ -973,16 +977,20 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
 
             case "Obstetrics":
                 qpanel1.innerHTML += `
-                <div class='qpanel1-qbox' id="internalRefDiv">
-                    <input class="checkbox" type="checkbox" onclick="internalRefObs(1)" id="internalRefBox1">
+                <div class='qpanel1-qbox' id="">
+                    <input class="checkbox" type="radio" onclick="obsRadio()" id="" name="obsRadio" checked value="0">
                     <p class="qpanel-q">Is the patient referred from Sidra Adult Mental Health Services</p></input>
                 </div>
-                <div class='qpanel1-qbox' id="internalRefDiv">
-                    <input class="checkbox" type="checkbox" onclick="internalRefObs(2)" id="internalRefBox2">
+                <div class='qpanel1-qbox' id="">
+                    <input class="checkbox" type="radio" onclick="obsRadio()" id="" name="obsRadio" value="1">
                     <p class="qpanel-q">Is the patient referred from Sidra Cardiology (Congenital Heart Disease)</p></input>
                 </div>
+                <div class='qpanel1-qbox' id="">
+                    <input class="checkbox" type="radio" onclick="obsRadio()" id="" name="obsRadio" value="2" checked>
+                    <p class="qpanel-q">None of the above</p></input>
+                </div>
                 `;
-                internalRefObs();
+                obsRadio();
                 break;
 
             case "Ancillary Services":
@@ -1005,7 +1013,7 @@ if (location.pathname == '/'+getRootDir()+"form.html"){
                 qpanel1.innerHTML += `
                 <div class='qpanel1-qbox' id="internalRefDiv">
                     <input class="checkbox" type="checkbox" onclick="internalRef()" id="internalRefBox">
-                    <p class="qpanel-q">Is the patient internally referred from Obstetrics?</p></input>
+                    <p class="qpanel-q">Is the patient internally referred from Obstetrics to any of the following services?</p></input>
                 </div>
                 <p>Services Included:</p>
                 <ul>

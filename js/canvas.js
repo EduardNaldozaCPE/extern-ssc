@@ -28,3 +28,7 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
     return this;
 }
 
+window.onresize = () => {
+    canvas.width = innerWidth-15;
+    canvas.height = innerHeight-15;
+}

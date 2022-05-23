@@ -71,19 +71,21 @@ class Page{
 
         this.list.push(new PageFilter(
             ((canvas.width)/4)-((canvas.width/4.5)/2)+6,
-            11*canvas.height/30,
+            10*canvas.height/30,
             "53,144,133"
         ));
         this.showPageNav();
         
-        this.list.push(new Titletext(
-            11*(canvas.width/40),
-            subheight,
-            (canvas.width*0.75),
-            "Helvetica",
-            (canvas.width*0.04),
-            "Choose a Service"
-        ));
+        // this.list.push(new Titletext(
+        //     16.8*(canvas.width/40),
+        //     subheight,
+        //     (canvas.width*0.75),
+        //     "Helvetica",
+        //     (canvas.width*0.028),
+        //     "Preferred/Sole Provider Services Classification"
+        // ));
+
+        this.list.push(new EmptyObj());
 
         if (canvas.width <= 620){
             this.fontsize = ((this.boxwidth+this.boxheight)/2)/6;
@@ -171,7 +173,6 @@ class Page{
         }
 
         this.list.forEach((element, i) => {
-            // btn = undefined;
             if (element.name === "GuiButton1" && element.state == 1) {
                 if (element.hovering()){
                     console.log(this.list[i+1].msg);
@@ -189,7 +190,7 @@ class Page{
             for (let i=1; i<=3; i++){
                 let btn = new Buttontext(
                     ((i*canvas.width)/4),
-                    (canvas.height/3)+(row*canvas.height/9)+7,
+                    0.92*(canvas.height/3)+(row*canvas.height/9)+7,
                     this.boxwidth,
                     "Helvetica",
                     this.fontsize,
@@ -198,7 +199,7 @@ class Page{
                 );
                 this.list.splice(8+(count*2), 0, new GuiButton1(
                     ((i*canvas.width)/4)-((canvas.width/4.5)/2),
-                    (canvas.height/3)+(row*canvas.height/9)-(50/2),
+                    0.92*(canvas.height/3)+(row*canvas.height/9)-(50/2),
                     this.boxwidth,
                     this.boxheight,
                     "53,144,133",
@@ -224,36 +225,36 @@ class Page{
     showPageNav = () => {
         this.list.push(new Rightbutton(
             15*canvas.width/25,
-            (7.2*canvas.height/8)-(50/2),
+            (7*canvas.height/8)-(50/2),
             30,
             "",
             "53,144,133"
         ));
         this.list.push(new Leftbutton(
             10*canvas.width/25,
-            (7.2*canvas.height/8)-(50/2),
+            (7*canvas.height/8)-(50/2),
             30,
             "",
             "53,144,133"
         ));
         this.list.push(new PageIndicator(
             11*canvas.width/25,
-            (7.2*canvas.height/8)-(50/2)+15,
+            (7*canvas.height/8)-(50/2)+15,
             "53,144,133"
         ));
         this.list.push(new PageIndicator(
             12*canvas.width/25,
-            (7.2*canvas.height/8)-(50/2)+15,
+            (7*canvas.height/8)-(50/2)+15,
             "53,144,133"
         ));
         this.list.push(new PageIndicator(
             13*canvas.width/25,
-            (7.2*canvas.height/8)-(50/2)+15,
+            (7*canvas.height/8)-(50/2)+15,
             "53,144,133"
         ));
         this.list.push(new PageIndicator(
             14*canvas.width/25,
-            (7.2*canvas.height/8)-(50/2)+15,
+            (7*canvas.height/8)-(50/2)+15,
             "53,144,133"
         ));
     }
