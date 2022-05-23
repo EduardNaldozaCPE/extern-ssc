@@ -10,23 +10,23 @@ class Page{
         this.servicelist = [
             {
                 name:[
-                    "Adolescent Medicine", "Adult Services", "Aesthetics", 
-                    "Allergy Immunology", "Ancillary Services", "CAMHS", 
-                    "Cardiology","Dental Surgery", "Dermatology",
-                    "Developmental Pediatrics", "ENT", "Emergency Services", 
+                    "Adolescent Medicine", "Adult Mental Health", "Adult Services",  
+                    "Aesthetics", "Allergy Immunology", "Ancillary Services", 
+                    "CAMHS", "Cardiology","Dental Surgery",
+                    "Dermatology", "Developmental Pediatrics", "ENT", 
                 ]
             }, {
                 name:[
-                    "Endocrinology", "Gastroenterology", "General Pediatrics", 
-                    "General Surgery","Genetics", "Gynecology",
-                    "Hematology/Oncology", "Infectious Disease", "Inpatient & Ambulatory Surgery Procedures", 
-                    "NICU", "Neonatal Surgery", "Nephrology", 
+                    "Emergency Services",  "Endocrinology", "Gastroenterology", 
+                    "General Pediatrics", "General Surgery","Genetics", 
+                    "Gynecology", "Hematology/Oncology", "Infectious Disease",
+                    "Inpatient & Ambulatory Surgery Procedures", "NICU", "Neonatal Surgery",
                 ]
             }, {
                 name:[
-                    "Maternal Fetal Medicine","Neurology","Neurosurgery", 
-                    "Obstetrics","Ophthalmology", "Orthopedics", 
-                    "Peri/Post Natal Mental Health", "Plastic Surgery", "Pulmonology", 
+                    "Nephrology", "Maternal Fetal Medicine","Neurology",
+                    "Neurosurgery", "Obstetrics","Ophthalmology", 
+                    "Orthopedics", "Plastic Surgery", "Pulmonology", 
                     "Rehab Medicine", "Reproductive Medicine","Rheumatology"
                 ]
             }, {
@@ -37,8 +37,8 @@ class Page{
         ];
         this.servicelist_alpha = {
                 name:[
-                    "Adolescent Medicine", "Adult Services", "Aesthetics", "Allergy Immunology", "Ancillary Services", "CAMHS", "Cardiology", "Dental Surgery", "Dermatology", "Developmental Pediatrics", "ENT", "Emergency Services", "Endocrinology", "Gastroenterology", "General Pediatrics", "General Surgery", "Genetics", "Gynecology", 
-                    "Hematology/Oncology", "Infectious Disease","Inpatient & Ambulatory Surgery Procedures", "Maternal Fetal Medicine", "NICU", "Neonatal Surgery", "Nephrology", "Neurology", "Neurosurgery", "Obstetrics", "Ophthalmology", "Orthopedics", "Peri/Post Natal Mental Health", "Plastic Surgery", "Pulmonology", "Rehab Medicine", "Reproductive Medicine", "Rheumatology", "Transplant", "Urology"
+                    "Adolescent Medicine", "Adult Mental Health", "Adult Services", "Aesthetics", "Allergy Immunology", "Ancillary Services", "CAMHS", "Cardiology", "Dental Surgery", "Dermatology", "Developmental Pediatrics", "ENT", "Emergency Services", "Endocrinology", "Gastroenterology", "General Pediatrics", "General Surgery", "Genetics", "Gynecology", 
+                    "Hematology/Oncology", "Infectious Disease","Inpatient & Ambulatory Surgery Procedures", "Maternal Fetal Medicine", "NICU", "Neonatal Surgery", "Nephrology", "Neurology", "Neurosurgery", "Obstetrics", "Ophthalmology", "Orthopedics", "Plastic Surgery", "Pulmonology", "Rehab Medicine", "Reproductive Medicine", "Rheumatology", "Transplant", "Urology"
                 ]
         };
         this.count = 0;
