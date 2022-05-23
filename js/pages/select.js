@@ -85,7 +85,11 @@ class Page{
         //     "Preferred/Sole Provider Services Classification"
         // ));
 
-        this.list.push(new EmptyObj());
+        this.list.push(new ResourcesIcon(
+            canvas.width-(canvas.width/7.4),
+            7.1*canvas.height/8,
+            document.getElementById("mindmap-thumb")
+        ));
 
         if (canvas.width <= 620){
             this.fontsize = ((this.boxwidth+this.boxheight)/2)/6;

@@ -138,7 +138,7 @@ class Buttontext {
                 c.font = `${this.size}px ${this.font}`
                 c.fillStyle = `rgb(${this.colour},${Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2)})`;
                 this.opacity = Math.pow(this.anim.frame/this.anim.animlength, 2).toFixed(2);
-                c.textAlign = "center"
+                c.textAlign = "center";
                 c.fillText(this.msg, this.x, this.y, this.w);
                 this.y = Math.pow((this.anim.frame/this.anim.animlength),0.1)*(this.anim.desty-this.anim.starty)+this.anim.starty;
                 this.anim.frame++;
@@ -520,4 +520,47 @@ class SelectPanel {
 class EmptyObj {
     draw = () => {}
     delete = () => {}
+}
+
+class ResourcesIcon {
+    constructor(x,y,img) {
+        this.x = x;
+        this.y = y;
+        this.w = 20;
+        this.h = 20;
+        this.state = 0;
+        this.img = img;
+    }
+
+    draw = () => {
+        switch (this.state) {
+            case 0:
+                // c.beginPath();
+                // c.fillStyle = 'rgb(12,12,12,0.5)';
+                // c.font = `bold 20px Helvetica`
+                // c.textAlign = "center";
+                // c.fillText('?',this.x,this.y+7,canvas.width);
+                let icon = document.getElementById('mindmap-icon');
+                c.globalAlpha=0.60;
+                c.drawImage(icon,this.x-10,this.y-9,20,20);
+                c.beginPath();
+                c.strokeStyle = `rgb(0,0,0,${c.globalAlpha})`;
+                c.lineWidth = 2
+                c.arc(this.x,this.y,15,0,Math.PI*2,false);
+                c.stroke();
+                c.globalAlpha=1;
+            default:
+                break;
+        }
+    }
+
+    delete = () => {}
+
+    hovering = () => {
+        if (isHovering(mpos.x, mpos.y, this.x, this.y, this.w, this.h)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

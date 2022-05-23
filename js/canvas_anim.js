@@ -35,6 +35,22 @@ function animation() {
             instanceobj.draw();
         });
 
+        // ADDITIONAL RESOURCES THUMBNAIL
+        if (location.pathname.endsWith("index.html")){
+            if (mpos.x >= (canvas.width-(canvas.width/7.4))-15 && mpos.y >= (7.1*canvas.height/8)-15){
+                if (mpos.x < (canvas.width-(canvas.width/7.4))+15 && mpos.y < (7.1*canvas.height/8)+15){ 
+                    c.fillStyle = 'rgb(100,100,100,0.5)';               
+                    c.fillRect(mpos.x-126, (mpos.y-86)-20, 124, 84)
+                    c.beginPath();
+                    c.moveTo(mpos.x-2,mpos.y-22);
+                    c.lineTo(mpos.x,mpos.y)
+                    c.lineTo(mpos.x-15,mpos.y-22);
+                    c.fill();
+                    c.drawImage(document.getElementById("mindmap-thumb"),mpos.x-124, (mpos.y-84)-20, 120, 80);
+    
+                }
+            }
+        }
         // On the Select page, if the transitions have finished (no more objects at state=2), update page.
         //  If there are still transitions, page.transition will be/stay true.
         //  But if there are no more objects and page.transition is still true, run the new page objects and make page.transition false
@@ -57,6 +73,17 @@ function animation() {
 //ONCLICK
 canvas.addEventListener('click', () => {
     pagecontent.action();
+
+    if (location.pathname.endsWith("index.html")){
+        if (mpos.x >= (canvas.width-(canvas.width/7.4))-15 && mpos.y >= (7.1*canvas.height/8)-15){
+            if (mpos.x < (canvas.width-(canvas.width/7.4))+15 && mpos.y < (7.1*canvas.height/8)+15){
+                window.open(
+                    './mindmap.pdf',
+                    '_blank'
+                  );
+            }
+        }
+    }
 });
 
 function updateClassif() {
