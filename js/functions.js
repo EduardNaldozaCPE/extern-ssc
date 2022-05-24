@@ -1,20 +1,66 @@
-function posneg() {
-    let n = Math.round(Math.random());
-    if (n == 0) {
-        return -1;
-    } else {
-        return 1;
-    }
+function ageReq() {
+    let check1 = document.getElementById('ageReqBox');
+    localStorage.setItem('ageReq', check1.checked);
+    updateClassif();
 }
 
-function isHovering(x1,y1,x2,y2,w2,h2) {
-    if(x1 > x2 && x1 < x2 + w2 &&
-        y1 > y2 && y1 < y2 + h2) {
-            return true;
-     } else {
-         return false;
-     }
+function selfRef() {
+    let check1 = document.getElementById('selfRefbox');
+    localStorage.setItem('selfRef', check1.checked);
+    updateClassif();
 }
+
+function inoutpatient() {
+    let check1 = document.getElementById('inoutpatientBox');
+    localStorage.setItem('in-out-patient', check1.checked);
+    updateClassif();
+}
+
+function internalRef() {
+    let check1 = document.getElementById('internalRefBox');
+    localStorage.setItem('internalRef', check1.checked);
+    updateClassif();
+}
+
+function nicuLvl() {
+    let radioButtons = document.querySelectorAll('input[name="niculvl"]');
+    for (let radioButton of radioButtons) {
+        if (radioButton.checked) {
+            localStorage.setItem('niculvl', radioButton.value);
+            break;
+        }
+    }
+    updateClassif();
+}
+
+function obsRadio() {
+    let radioButtons = document.querySelectorAll('input[name="obsRadio"]');
+    for (let radioButton of radioButtons) {
+        if (radioButton.checked) {
+            localStorage.setItem('obsRadio', radioButton.value);
+            break;
+        }
+    }
+    updateClassif();
+}
+
+function updowngradedReq() {
+    let check1 = document.getElementById('updowngradedBox');
+    localStorage.setItem('up-down-graded', check1.checked);
+    updateClassif();
+}
+
+function ageGroup() {
+    let radioButtons = document.querySelectorAll('input[name="agegroup"]');
+    for (let radioButton of radioButtons) {
+        if (radioButton.checked) {
+            localStorage.setItem('agegroup', radioButton.value);
+            break;
+        }
+    }
+    updateClassif();
+}
+
 
 function fade(element) {
     var op = 0.1;  // initial opacity
@@ -43,9 +89,32 @@ function fadeout(element) {
     }, 5);
 }
 
-//function getPath_last() {
-//    return location.pathname.split("/")[location.pathname.split("/").length-1]
-//}
+function goHome() {
+    pageState = 1;
+    location.href = "index.html"
+}
+
+
+//      CANVAS FUNCTIONS
+
+function posneg() {
+    let n = Math.round(Math.random());
+    if (n == 0) {
+        return -1;
+    } else {
+        return 1;
+    }
+}
+
+function isHovering(x1,y1,x2,y2,w2,h2) {
+    if(x1 > x2 && x1 < x2 + w2 &&
+        y1 > y2 && y1 < y2 + h2) {
+            return true;
+     } else {
+         return false;
+     }
+}
+
 function getRootDir(subfoldernum) {
     let dir = location.pathname.split("/");
     let finaldir = "";
@@ -59,14 +128,6 @@ function getRootDir(subfoldernum) {
     });
     return finaldir;
 }
-//function getPath_secondlast() {
-//    return location.pathname.split("/")[location.pathname.split("/").length-2]
-//}
-
-function writeLS() {
-    localStorage.setItem('clientAge',undefined);
-}
-
 
 const parseCookie = str =>
   str
@@ -76,7 +137,3 @@ const parseCookie = str =>
     acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
     return acc;
   }, {});
-  
-// cookie in browser: `pkg=math; equation=E%3Dmc%5E2`
-// console.log(parseCookie('boop=asd;aaarp=21'));
-//console: { pkg: 'math', equation: 'E=mc^2' }

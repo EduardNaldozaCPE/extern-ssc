@@ -36,7 +36,7 @@ class Page{
             }, 
         ];
         this.servicelist_alpha = {
-                name:[
+                name:[ //MAKE THIS THE ONLY LIST NEEDED; CREATE A FUNCTION THAT PARSES THIS LIST INTO THE ONE ABOVE.
                     "Adolescent Medicine", "Adult Mental Health", "Adult Services", "Aesthetics", "Allergy Immunology", "Ancillary Services", "CAMHS", "Cardiology", "Dental Surgery", "Dermatology", "Developmental Pediatrics", "ENT", "Emergency Services", "Endocrinology", "Gastroenterology", "General Pediatrics", "General Surgery", "Genetics", "Gynecology", 
                     "Hematology/Oncology", "Infectious Disease","Inpatient & Ambulatory Surgery Procedures", "Maternal Fetal Medicine", "NICU", "Neonatal Surgery", "Nephrology", "Neurology", "Neurosurgery", "Obstetrics", "Ophthalmology", "Orthopedics", "Plastic Surgery", "Pulmonology", "Rehab Medicine", "Reproductive Medicine", "Rheumatology", "Transplant", "Urology"
                 ]
