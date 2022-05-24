@@ -75,15 +75,6 @@ class Page{
             "53,144,133"
         ));
         this.showPageNav();
-        
-        // this.list.push(new Titletext(
-        //     16.8*(canvas.width/40),
-        //     subheight,
-        //     (canvas.width*0.75),
-        //     "Helvetica",
-        //     (canvas.width*0.028),
-        //     "Preferred/Sole Provider Services Classification"
-        // ));
 
         this.list.push(new ResourcesIcon(
             canvas.width-(canvas.width/7.4),

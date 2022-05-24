@@ -16,9 +16,6 @@ class Page{
         } else {
             startbuttonheight = 4*canvas.height/6;
         }
-        // // TITLE
-        // this.list.push(new LeftPanel(
-        // ));
         this.list.push(new Qpanel(
         ));
         return this.list;

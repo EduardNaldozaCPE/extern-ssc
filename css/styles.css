@@ -10,7 +10,6 @@ body {
     font-size: 2.5rem;
     color: rgba(255, 255, 255, 1);
     left: 11%;
-    /* transform: translateX(-50%); */
     top: 13%;
 }
 
@@ -26,10 +25,9 @@ body {
 
 #logo {
     position: fixed;
-    top: 8px;
-    left: 9px;
+    top: 16px;
+    left: 20px;
     width: 18%;
-    /* transform: translate(-160%,50%); */
     opacity: 0.9;
 }
 
@@ -55,18 +53,6 @@ a.hover {
     height: 100%;
 }
 
-/* @media screen and (min-width: 1001px) {
-    .title {
-        top: 30%;
-        font-size: 2vw;
-    }
-}
-@media screen and (max-width: 1000px) {
-    .title {
-        top: 15%;
-        font-size: 3vw;
-    }
-} */
 .title {
     left: 50%;
     transform: translateX(-50%);
@@ -104,24 +90,6 @@ a.hover {
     font-weight: bold;
 }
 
-/* @media screen and (min-width: 884px) {
-    .start-button {
-        font-size: larger;
-    }
-    .start-button p {
-        margin-top: 1.2vh;
-        margin-bottom: 1.2vh;
-    }
-}
-@media screen and (max-width: 883px) {
-    .start-button {
-        font-size: 17px;
-    }
-    .start-button p {
-        margin-top: 1.3vh;
-        margin-bottom: 1.2vh;
-    }
-} */
 #in-text {
     position: fixed;
     width: 20%;
@@ -143,12 +111,13 @@ a.hover {
 }
 
 #left-panel {
+    border-radius: 10px;
     position: fixed;
-    top: 6px;
-    left: 6px;
+    top: 15px;
+    left: 16px;
     padding-left: 5px;
     width: 19.9%;
-    height: 97.7%;
+    height: 95%;
     z-index: 0;
     background-color: white;
     overflow: hidden;
@@ -156,10 +125,10 @@ a.hover {
 
 #left-panel-scroll {
     position: fixed;
-    top: 25%;
+    top: 26%;
     /* left: 11px; */
     width: 19.2%;
-    height: 73.2%;
+    height: 71%;
     z-index: 10;
     overflow: scroll;
 }
@@ -212,7 +181,7 @@ a.hover {
     justify-content: center;
     /* border: 5px solid #222; */
     top: calc(5px + 0.5%);
-    left: calc(13px + 20%);
+    left: calc(20px + 20%);
     padding-left: 2%;
     padding-right: 2%;
     width: 73%;
@@ -240,8 +209,8 @@ a.hover {
     /* border: 5px solid #222; */
     padding: 1%;
     top: calc(5px + 37.5%);
-    left: calc(13px + 21%);
-    width: 73%;
+    left: calc(25px + 21%);
+    width: 71.5%;
     height: 52%;
     color: #298678;
     font-family: Arial, Helvetica, sans-serif;
@@ -255,10 +224,6 @@ a.hover {
     margin-bottom: 2%;
 }
 
-/* #q-panel1 p {
-    opacity: 0;
-} */
-
 #q-panel1 {
     display: flex;
     justify-content: left;
@@ -269,9 +234,6 @@ a.hover {
     width: 96.5%;
     height: 84%;
 }
-
-/* #q-panel1-header{
-} */
 
 .qpanel1-qbox {
     display: flex;

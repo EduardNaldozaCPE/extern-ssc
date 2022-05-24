@@ -1,4 +1,5 @@
 lineArray = newLineArray();
+
 // Instantiating Objects in Animation
 var pageinit = true;
 let frame = 0;
@@ -6,7 +7,6 @@ setInterval(animation,8);
 function animation() {
     frame++;
     c.clearRect(0,0,innerWidth,innerHeight);
-    // console.log(frame);
 
     // Create Background Lines 
     for (let i=0; i<lineArray.length; i++){
