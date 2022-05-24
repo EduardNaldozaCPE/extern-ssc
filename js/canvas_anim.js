@@ -37,32 +37,44 @@ function animation() {
 
         // ADDITIONAL RESOURCES THUMBNAIL
         if (location.pathname.endsWith("index.html") || location.pathname.endsWith("/extern-ssc/")){
-            if (mpos.x >= (canvas.width-(canvas.width/7.4))-15 && mpos.y >= (7.1*canvas.height/8)-15){
-                if (mpos.x < (canvas.width-(canvas.width/7.4))+15 && mpos.y < (7.1*canvas.height/8)+15){ 
-                    c.fillStyle = 'rgb(100,100,100,0.5)';               
-                    c.fillRect(mpos.x-126, (mpos.y-86)-20, 124, 84)
+            let addResIcon_x = canvas.width-(canvas.width/7.4);
+            let addResIcon_y = (7.1*canvas.height/8);
+            if (mpos.x >= addResIcon_x-15 && mpos.y >= addResIcon_y-15){
+                if (mpos.x < addResIcon_x+15 && mpos.y < addResIcon_y+15){ 
+                    c.fillStyle = 'rgb(50,50,50,0.7)';               
+                    c.fillRect(addResIcon_x-126, (addResIcon_y-86)-20, 124, 84)
                     c.beginPath();
-                    c.moveTo(mpos.x-2,mpos.y-22);
-                    c.lineTo(mpos.x,mpos.y)
-                    c.lineTo(mpos.x-15,mpos.y-22);
+                    c.moveTo(addResIcon_x-2,addResIcon_y-22);
+                    c.lineTo(addResIcon_x,addResIcon_y)
+                    c.lineTo(addResIcon_x-15,addResIcon_y-22);
                     c.fill();
-                    c.drawImage(document.getElementById("mindmap-thumb"),mpos.x-124, (mpos.y-84)-20, 120, 80);
+                    c.drawImage(document.getElementById("mindmap-thumb"),addResIcon_x-124, (addResIcon_y-84)-20, 120, 80);
     
                 }
             }
-        }
-        // On the Select page, if the transitions have finished (no more objects at state=2), update page.
-        //  If there are still transitions, page.transition will be/stay true.
-        //  But if there are no more objects and page.transition is still true, run the new page objects and make page.transition false
-        //  This makes the pagefunctions run only once every transition stage, making it impossible to make multiple transitions while one is still running 
-        if (pagecontent.name == 'select'){
-            if (transobjs > 0) {
-                pagecontent.transition = true;
-            } else {
-                if(pagecontent.transition == true){
-                    pagecontent.pagefuncs[pagecontent.page-1]()
+
+            let contactIcon_x = canvas.width-(canvas.width/6);
+            let contactIcon_y = (7.1*canvas.height/8);
+            let contactMsg = "For technical inquiries or clarification, Please contact: ApplicationRevenueCycle@sidra.org";
+            if (mpos.x >= contactIcon_x-15 && mpos.y >= contactIcon_y-15){
+                if (mpos.x < contactIcon_x+15 && mpos.y < contactIcon_y+15){ 
+                    c.fillStyle = 'rgb(50,50,50,0.7)';               
+                    c.fillRect(contactIcon_x-(contactMsg.length*15/2)-2, (contactIcon_y-70), (contactMsg.length*15/2), 70-22)
+                    c.beginPath();
+                    c.moveTo(contactIcon_x-2,contactIcon_y-22);
+                    c.lineTo(contactIcon_x,contactIcon_y);
+                    c.lineTo(contactIcon_x-15,contactIcon_y-22);
+                    c.fill();
+                    c.fillStyle = 'rgb(255,255,255,1)';
+                    c.textAlign =  'center';
+                    c.font = "15px Helvetica"
+                    c.fillText(contactMsg,
+                     contactIcon_x-(contactMsg.length*15/2)+(contactMsg.length*15/2)/2,
+                     contactIcon_y-40,
+                     canvas.width/2
+                    );
+    
                 }
-                pagecontent.transition = false;
             }
         }
     } else {
@@ -81,6 +93,11 @@ canvas.addEventListener('click', () => {
                     './mindmap.pdf',
                     '_blank'
                   );
+            }
+        }
+        if (mpos.x >= (canvas.width-(canvas.width/6))-15 && mpos.y >= (7.1*canvas.height/8)-15){
+            if (mpos.x < (canvas.width-(canvas.width/6))+15 && mpos.y < (7.1*canvas.height/8)+15){
+                window.open('mailto:ApplicationRevenueCycle@sidra.org');
             }
         }
     }

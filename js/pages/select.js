@@ -57,6 +57,7 @@ class Page{
             "More",
             '53,144,133'
         );
+        this.objectCount;
     }
     initpage = () => {}
     startInstanceList = () => {
@@ -67,20 +68,28 @@ class Page{
             subheight = 2*canvas.height/6;
         }
 
-        this.list.push(new SelectPanel());
+        this.objectCount = 10;                              //   CHANGE DEPENDING ON HOW MANY OBJECTS ARE PUSHED
 
-        this.list.push(new PageFilter(
+        this.list.push(new SelectPanel());                  // 1
+
+        this.list.push(new PageFilter(                      // 2
             ((canvas.width)/4)-((canvas.width/4.5)/2)+6,
             10*canvas.height/30,
             "53,144,133"
         ));
-        this.showPageNav();
+        this.showPageNav();                                 // 3-8
 
-        this.list.push(new ResourcesIcon(
+        this.list.push(new ResourcesIcon(                   // 9
             canvas.width-(canvas.width/7.4),
-            7.1*canvas.height/8,
-            document.getElementById("mindmap-thumb")
-        ));
+            7.1*canvas.height/8
+        )); // For on-click/hover actions, refer to canvas_anim.js
+        
+        this.list.push(new ContactIcon(                     // 10
+            canvas.width-(canvas.width/6),
+            7.1*canvas.height/8
+        )); // For on-click/hover actions, refer to canvas_anim.js
+
+        //ADD NEW OBJECTS HERE
 
         if (canvas.width <= 620){
             this.fontsize = ((this.boxwidth+this.boxheight)/2)/6;
@@ -98,14 +107,14 @@ class Page{
             if (this.list[1].getLetter() == "CLEAR"){
                 this.alphabetical = false;
                 this.chosenLetter = undefined;
-                this.list.splice(9,this.servicelist[this.page-1].name.length*2);
+                this.list.splice(this.objectCount,this.servicelist[this.page-1].name.length*2);
                 this.page = 1;
                 this.newPage();
                 this.setPageIndicator();
             } else {
                 this.alphabetical = true;
                 this.chosenLetter = this.list[1].getLetter();
-                this.list.splice(9,this.servicelist[this.page-1].name.length*2);
+                this.list.splice(this.objectCount,this.servicelist[this.page-1].name.length*2);
 
                 let alphab_list = [];
                 this.servicelist_alpha.name.forEach(item => {
@@ -126,7 +135,7 @@ class Page{
                                 alphab_list[count-1],
                                 '53,144,133'
                             );
-                            this.list.splice(8+(count*2), 0, new GuiButton1(
+                            this.list.splice(this.objectCount+(count*2), 0, new GuiButton1(
                                 ((i*canvas.width)/4)-((canvas.width/4.5)/2),
                                 (canvas.height/3)+(row*canvas.height/9)-(50/2),
                                 this.boxwidth,
@@ -146,7 +155,7 @@ class Page{
         
         if (!this.alphabetical) {
             if (this.list[2].hovering()){
-                this.list.splice(9,this.servicelist[this.page-1].name.length*2);
+                this.list.splice(this.objectCount,this.servicelist[this.page-1].name.length*2);
                 if (this.page == this.servicelist.length){
                     this.page = 1;
                 } else {
@@ -156,7 +165,7 @@ class Page{
                 this.setPageIndicator();
             }
             if (this.list[3].hovering()){
-                this.list.splice(9,this.servicelist[this.page-1].name.length*2);
+                this.list.splice(this.objectCount,this.servicelist[this.page-1].name.length*2);
                 if (this.page == 1){
                     this.page = this.servicelist.length;
                 } else {
@@ -192,7 +201,7 @@ class Page{
                     this.servicelist[this.page-1].name[count-1],
                     '53,144,133'
                 );
-                this.list.splice(8+(count*2), 0, new GuiButton1(
+                this.list.splice(this.objectCount+(count*2), 0, new GuiButton1(
                     ((i*canvas.width)/4)-((canvas.width/4.5)/2),
                     0.92*(canvas.height/3)+(row*canvas.height/9)-(50/2),
                     this.boxwidth,

@@ -431,6 +431,7 @@ class PageFilter {
     }
 
     draw = () => {
+        c.textAlign =  'center';
         for (let l=0;l<26;l++){
             c.beginPath();
             c.font = 'bold 16px Helvetica';
@@ -543,6 +544,43 @@ class ResourcesIcon {
                 let icon = document.getElementById('mindmap-icon');
                 c.globalAlpha=0.60;
                 c.drawImage(icon,this.x-10,this.y-9,20,20);
+                c.beginPath();
+                c.strokeStyle = `rgb(0,0,0,${c.globalAlpha})`;
+                c.lineWidth = 2
+                c.arc(this.x,this.y,15,0,Math.PI*2,false);
+                c.stroke();
+                c.globalAlpha=1;
+            default:
+                break;
+        }
+    }
+
+    delete = () => {}
+
+    hovering = () => {
+        if (isHovering(mpos.x, mpos.y, this.x, this.y, this.w, this.h)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+class ContactIcon {
+    constructor(x,y) {
+        this.x = x;
+        this.y = y;
+        this.w = 20;
+        this.h = 20;
+        this.state = 0;
+    }
+
+    draw = () => {
+        switch (this.state) {
+            case 0:
+                let icon = document.getElementById('contact-icon');
+                c.globalAlpha=0.60;
+                c.drawImage(icon,this.x-9,this.y-6,18,13);
                 c.beginPath();
                 c.strokeStyle = `rgb(0,0,0,${c.globalAlpha})`;
                 c.lineWidth = 2
