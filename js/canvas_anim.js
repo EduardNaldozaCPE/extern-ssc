@@ -104,8 +104,10 @@ canvas.addEventListener('click', () => {
                 window.open('mailto:ApplicationRevenueCycle@sidra.org');
             }
         }
-        
+
     }
 });
 
-formQuestions();
+if (location.pathname.endsWith("/extern-ssc/form.html")){
+    formQuestions();
+}

@@ -1,3 +1,41 @@
+parseServiceList = (list) => {
+    var newList = [];
+    list.forEach(element => {
+        newList.push(element)
+    });
+    let count = 0;
+    let pagelist = [];
+    let pageitems = [];
+    let finaldata = [];
+    while (newList.length != 0){
+        count++;
+        let k;
+
+        if (newList.length >= 12){
+            k = 12;
+        } else {
+            k = newList.length;
+        }
+
+        for (let i = 0; i < k; i++){
+            pageitems.push(newList[i]);
+        }
+
+        pagelist.push(pageitems);
+
+        if (newList.length < 12){
+            newList.splice(0,newList.length);
+        } else {
+            newList.splice(0,12);
+        }
+        pageitems = [];
+    }
+    pagelist.forEach(page => {
+        finaldata.push({name:page})
+    });
+    return finaldata;
+}
+
 function ageReq() {
     let check1 = document.getElementById('ageReqBox');
     localStorage.setItem('ageReq', check1.checked);

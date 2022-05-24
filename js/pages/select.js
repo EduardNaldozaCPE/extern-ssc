@@ -7,40 +7,14 @@ class Page{
         this.alphabetical = false;
         this.chosenLetter = undefined;
         this.pagefuncs = [this.page1,this.page2,this.page3];
-        this.servicelist = [
-            {
-                name:[
-                    "Adolescent Medicine", "Adult Mental Health", "Adult Services",  
-                    "Aesthetics", "Allergy Immunology", "Ancillary Services", 
-                    "CAMHS", "Cardiology","Dental Surgery",
-                    "Dermatology", "Developmental Pediatrics", "ENT", 
-                ]
-            }, {
-                name:[
-                    "Emergency Services",  "Endocrinology", "Gastroenterology", 
-                    "General Pediatrics", "General Surgery","Genetics", 
-                    "Gynecology", "Hematology/Oncology", "Infectious Disease",
-                    "Inpatient & Ambulatory Surgery Procedures", "NICU", "Neonatal Surgery",
-                ]
-            }, {
-                name:[
-                    "Nephrology", "Maternal Fetal Medicine","Neurology",
-                    "Neurosurgery", "Obstetrics","Ophthalmology", 
-                    "Orthopedics", "Plastic Surgery", "Pulmonology", 
-                    "Rehab Medicine", "Reproductive Medicine","Rheumatology"
-                ]
-            }, {
-                name:[
-                    "Transplant","Urology"
-                ]
-            }, 
-        ];
         this.servicelist_alpha = {
-                name:[ //MAKE THIS THE ONLY LIST NEEDED; CREATE A FUNCTION THAT PARSES THIS LIST INTO THE ONE ABOVE.
-                    "Adolescent Medicine", "Adult Mental Health", "Adult Services", "Aesthetics", "Allergy Immunology", "Ancillary Services", "CAMHS", "Cardiology", "Dental Surgery", "Dermatology", "Developmental Pediatrics", "ENT", "Emergency Services", "Endocrinology", "Gastroenterology", "General Pediatrics", "General Surgery", "Genetics", "Gynecology", 
-                    "Hematology/Oncology", "Infectious Disease","Inpatient & Ambulatory Surgery Procedures", "Maternal Fetal Medicine", "NICU", "Neonatal Surgery", "Nephrology", "Neurology", "Neurosurgery", "Obstetrics", "Ophthalmology", "Orthopedics", "Plastic Surgery", "Pulmonology", "Rehab Medicine", "Reproductive Medicine", "Rheumatology", "Transplant", "Urology"
+            name: [
+                "Adolescent Medicine", "Adult Mental Health", "Adult Services", "Aesthetics", "Allergy Immunology", "Ancillary Services", "CAMHS", "Cardiology", "Dental Surgery", "Dermatology", "Developmental Pediatrics", "Emergency Services", "Endocrinology", "ENT","Gastroenterology", "General Pediatrics", "General Surgery", "Genetics", "Gynecology", 
+                "Hematology/Oncology", "Infectious Disease","Inpatient & Ambulatory Surgery Procedures", "Maternal Fetal Medicine", "NICU", "Neonatal Surgery", "Nephrology", "Neurology", "Neurosurgery", "Obstetrics", "Ophthalmology", "Orthopedics", "Plastic Surgery", "Pulmonology", "Rehab Medicine", "Reproductive Medicine", "Rheumatology", "Transplant", "Urology"
                 ]
         };
+        this.servicelist = parseServiceList(this.servicelist_alpha.name);
+        
         this.count = 0;
         this.boxheight = 50;
         this.boxwidth = canvas.width/4.5;
@@ -59,7 +33,9 @@ class Page{
         );
         this.objectCount;
     }
-    initpage = () => {}
+    initpage = () => {
+        // console.log(this.servlist);
+    }
     startInstanceList = () => {
         var subheight = undefined;
         if (canvas.width > 780) {
@@ -103,7 +79,7 @@ class Page{
     
     action = () => {
         if (this.list[1].hovering()){
-            console.log(this.list[1].getLetter());
+            // console.log(this.list[1].getLetter());
             if (this.list[1].getLetter() == "CLEAR"){
                 this.alphabetical = false;
                 this.chosenLetter = undefined;
@@ -117,6 +93,7 @@ class Page{
                 this.list.splice(this.objectCount,this.servicelist[this.page-1].name.length*2);
 
                 let alphab_list = [];
+                // console.log(this.servicelist_alpha);
                 this.servicelist_alpha.name.forEach(item => {
                     if (item[0] == this.chosenLetter){
                         alphab_list.push(item);
@@ -179,7 +156,7 @@ class Page{
         this.list.forEach((element, i) => {
             if (element.name === "GuiButton1" && element.state == 1) {
                 if (element.hovering()){
-                    console.log(this.list[i+1].msg);
+                    // console.log(this.list[i+1].msg);
                     localStorage.setItem('branch',this.list[i+1].msg)
                     pageState = 1;
                     location.href = "form.html";
