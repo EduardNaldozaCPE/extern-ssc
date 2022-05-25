@@ -175,3 +175,45 @@ const parseCookie = str =>
     acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
     return acc;
   }, {});
+
+
+
+// MOBILE FUNCTIONS
+
+
+function filterBtn(ltr) {
+    var services = document.getElementsByClassName("mobile-panel-btn");
+    var letters = document.getElementsByClassName("filter-btn");
+    for (let i=0;i<letters.length; i++){
+        if (letters[i].innerText == ltr.innerText) {
+            letters[i].style.textDecoration = "underline";
+        } else {
+            letters[i].style.textDecoration = "none";
+        }
+    }
+    for (let i=0;i<services.length; i++){
+        // console.log(services[i].innerText, services[i].innerText[0] != ltr.innerText);
+        if (services[i].innerText[0] != ltr.innerText){
+            services[i].style.display = "none";
+        } else {
+            services[i].style.display = "block";
+        }
+    }
+}
+
+function clearBtn() {
+    var services = document.getElementsByClassName("mobile-panel-btn");
+    var letters = document.getElementsByClassName("filter-btn");
+    for (let i=0;i<letters.length; i++){
+        letters[i].style.textDecoration = "none";
+    }
+    for (let i=0;i<services.length; i++){
+        services[i].style.display = "block";
+    }
+}
+
+function serviceBtn(btn) {
+    sessionStorage.setItem('branch',btn.innerText)
+    pageState = 1;
+    location.href = "form.html";
+}
