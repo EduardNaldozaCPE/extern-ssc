@@ -7,6 +7,7 @@ class Page{
             document.getElementById("left-panel").style.display = "none";
 
             var outcomescrn = document.getElementById("outcome-scrn");
+            var outcome = document.getElementById("outcome");
             var qbox = document.getElementById("q");
             var qheader = document.getElementById("q-panel-header");
             var qbody = document.getElementById("q-panel1");
@@ -20,6 +21,7 @@ class Page{
             // qbox.style.height = "58%";
             qbox.style.transform = "translateX(-50%)";
             qheader.style.fontSize = "1.6em";
+            outcome.style.fontSize = "1.6em";
             qbody.style.width = "88%";
 
             document.getElementById('content2').innerHTML += `

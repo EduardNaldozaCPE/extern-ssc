@@ -320,8 +320,8 @@ a.hover {
     text-decoration: none;
     font: 0.7em bold white;
     font-family: Arial, Helvetica, sans-serif;
-    top: 2%;
-    left: 3%;
+    top: 15px;
+    left: 15px;
     outline: white solid 2px;
     padding: 1.2% 2%;
 }
