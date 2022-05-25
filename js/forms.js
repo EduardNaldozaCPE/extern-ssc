@@ -42,9 +42,9 @@ function formQuestions() {
                     btnlist[btn].onclick = () => {
                         console.log(btnlist[btn].innerText);
                         sessionStorage.setItem('branch',btnlist[btn].innerText);
-                        fadeout(document.getElementById("outcome"));
-                        fadeout(document.getElementById("outcome-sub"));
-                        fadeout(document.getElementById("q-panel"));
+                        // fadeout(document.getElementById("outcome"));
+                        // fadeout(document.getElementById("outcome-sub"));
+                        // fadeout(document.getElementById("q-panel"));
                     } 
             }
     
