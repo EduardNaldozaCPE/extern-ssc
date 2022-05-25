@@ -48,9 +48,9 @@ function formQuestions() {
                     } 
             }
     
-            fade(outcome);
-            fade(outcomeSub);
-            fade(qpanel);
+            // fade(outcome);
+            // fade(outcomeSub);
+            // fade(qpanel);
     
             switch (branch) {
                 case "Adolescent Medicine":
