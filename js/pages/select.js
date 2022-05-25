@@ -157,7 +157,7 @@ class Page{
             if (element.name === "GuiButton1" && element.state == 1) {
                 if (element.hovering()){
                     // console.log(this.list[i+1].msg);
-                    localStorage.setItem('branch',this.list[i+1].msg)
+                    sessionStorage.setItem('branch',this.list[i+1].msg)
                     pageState = 1;
                     location.href = "form.html";
                 }

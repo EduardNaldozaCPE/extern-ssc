@@ -29,7 +29,7 @@ function formQuestions() {
     if (location.pathname == '/'+getRootDir()+"form.html"){
         window.onload = () => {
             
-            const branch = localStorage.getItem('branch')
+            const branch = sessionStorage.getItem('branch')
             var outcome = document.getElementById("outcome");
             var outcomeSub = document.getElementById("outcome-sub");
             var qpanel = document.getElementById("q-panel");
@@ -41,7 +41,7 @@ function formQuestions() {
             for (let btn=0;btn<btnlist.length;btn++){
                     btnlist[btn].onclick = () => {
                         console.log(btnlist[btn].innerText);
-                        localStorage.setItem('branch',btnlist[btn].innerText);
+                        sessionStorage.setItem('branch',btnlist[btn].innerText);
                         fadeout(document.getElementById("outcome"));
                         fadeout(document.getElementById("outcome-sub"));
                         fadeout(document.getElementById("q-panel"));

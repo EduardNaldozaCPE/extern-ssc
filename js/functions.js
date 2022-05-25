@@ -38,25 +38,25 @@ parseServiceList = (list) => {
 
 function ageReq() {
     let check1 = document.getElementById('ageReqBox');
-    localStorage.setItem('ageReq', check1.checked);
+    sessionStorage.setItem('ageReq', check1.checked);
     updateClassif();
 }
 
 function selfRef() {
     let check1 = document.getElementById('selfRefbox');
-    localStorage.setItem('selfRef', check1.checked);
+    sessionStorage.setItem('selfRef', check1.checked);
     updateClassif();
 }
 
 function inoutpatient() {
     let check1 = document.getElementById('inoutpatientBox');
-    localStorage.setItem('in-out-patient', check1.checked);
+    sessionStorage.setItem('in-out-patient', check1.checked);
     updateClassif();
 }
 
 function internalRef() {
     let check1 = document.getElementById('internalRefBox');
-    localStorage.setItem('internalRef', check1.checked);
+    sessionStorage.setItem('internalRef', check1.checked);
     updateClassif();
 }
 
@@ -64,7 +64,7 @@ function nicuLvl() {
     let radioButtons = document.querySelectorAll('input[name="niculvl"]');
     for (let radioButton of radioButtons) {
         if (radioButton.checked) {
-            localStorage.setItem('niculvl', radioButton.value);
+            sessionStorage.setItem('niculvl', radioButton.value);
             break;
         }
     }
@@ -75,7 +75,7 @@ function obsRadio() {
     let radioButtons = document.querySelectorAll('input[name="obsRadio"]');
     for (let radioButton of radioButtons) {
         if (radioButton.checked) {
-            localStorage.setItem('obsRadio', radioButton.value);
+            sessionStorage.setItem('obsRadio', radioButton.value);
             break;
         }
     }
@@ -84,7 +84,7 @@ function obsRadio() {
 
 function updowngradedReq() {
     let check1 = document.getElementById('updowngradedBox');
-    localStorage.setItem('up-down-graded', check1.checked);
+    sessionStorage.setItem('up-down-graded', check1.checked);
     updateClassif();
 }
 
@@ -92,7 +92,7 @@ function ageGroup() {
     let radioButtons = document.querySelectorAll('input[name="agegroup"]');
     for (let radioButton of radioButtons) {
         if (radioButton.checked) {
-            localStorage.setItem('agegroup', radioButton.value);
+            sessionStorage.setItem('agegroup', radioButton.value);
             break;
         }
     }

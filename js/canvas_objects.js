@@ -12,8 +12,6 @@ function newLineArray() {
         var dy2 = posneg()*Math.random()/3;
         let r = Math.floor(Math.random()*255);
         let g = Math.floor(Math.random()*255);
-        // let b = Math.floor(Math.random()*255);
-        // var colour = `rgb(${r}, ${g}, ${b})`
         var colour = `#359085`
         lineArray.push(new Backline(x1,x2,y1,y2,dx1,dx2,dy1,dy2,colour))
     }

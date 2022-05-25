@@ -1,16 +1,16 @@
 function updateClassif() {
     let outcome = document.getElementById("outcome");
     let outcomeSub = document.getElementById("outcome-sub");
-    let ls_selfref = localStorage.getItem('selfRef');
-    let ls_agereq = localStorage.getItem('ageReq');
-    let ls_inoutpatient = localStorage.getItem('in-out-patient');
-    let ls_internalRef = localStorage.getItem('internalRef');
-    let ls_niculvl = localStorage.getItem('niculvl');
-    let ls_obsradio = localStorage.getItem('obsRadio');
-    let ls_updowngraded = localStorage.getItem('up-down-graded');
-    let ls_agegroup = localStorage.getItem('agegroup');
+    let ls_selfref = sessionStorage.getItem('selfRef');
+    let ls_agereq = sessionStorage.getItem('ageReq');
+    let ls_inoutpatient = sessionStorage.getItem('in-out-patient');
+    let ls_internalRef = sessionStorage.getItem('internalRef');
+    let ls_niculvl = sessionStorage.getItem('niculvl');
+    let ls_obsradio = sessionStorage.getItem('obsRadio');
+    let ls_updowngraded = sessionStorage.getItem('up-down-graded');
+    let ls_agegroup = sessionStorage.getItem('agegroup');
 
-    switch (localStorage.getItem('branch')) {
+    switch (sessionStorage.getItem('branch')) {
         case "Adolescent Medicine":
             if (ls_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"

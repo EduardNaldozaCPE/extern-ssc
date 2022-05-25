@@ -38,7 +38,7 @@ function animation() {
             instanceobj.draw();
         });
 
-        // ADDITIONAL RESOURCES THUMBNAIL
+        // ADDITIONAL RESOURCES AND CONTACT ICON
         if (location.pathname.endsWith("index.html") || location.pathname.endsWith("/extern-ssc/")){
             let addResIcon_x = canvas.width-(canvas.width/7.4);
             let addResIcon_y = (7.1*canvas.height/8);
