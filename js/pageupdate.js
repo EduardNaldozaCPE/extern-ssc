@@ -428,7 +428,8 @@ function updateClassif() {
             break;
         }
 
-        
-    fade(outcome);
-    fade(outcomeSub);
+    if (canvas.width > canvas.height+(canvas.width/10)) {
+        fade(outcome);
+        fade(outcomeSub);
+    }
 }

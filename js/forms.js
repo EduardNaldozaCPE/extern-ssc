@@ -47,7 +47,7 @@ function formQuestions() {
                         // fadeout(document.getElementById("q-panel"));
                     } 
             }
-    
+            
             // fade(outcome);
             // fade(outcomeSub);
             // fade(qpanel);
