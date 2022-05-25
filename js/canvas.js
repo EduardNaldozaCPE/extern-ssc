@@ -1,5 +1,6 @@
 var canvas = document.querySelector('canvas');
 var pageState = 0;
+var pageloaded = false;
 
 canvas.width = innerWidth-15;
 canvas.height = innerHeight-15;

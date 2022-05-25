@@ -8,6 +8,9 @@ let frame = 0;
 // ANIMATE CANVAS
 setInterval(animation,8);  
 function animation() {
+    if (frame > 100){
+        pageloaded = true;
+    }
     frame++;
     c.clearRect(0,0,innerWidth,innerHeight);
 
@@ -16,6 +19,7 @@ function animation() {
         lineArray[i].draw();
         lineArray[i].update();
     }
+
     if (pageinit){
         pagecontent.initpage();
     }
@@ -87,6 +91,7 @@ function animation() {
 
 //ONCLICK
 canvas.addEventListener('click', () => {
+    console.log('asdasd');
     pagecontent.action();
 
     if (location.pathname.endsWith("index.html")  || location.pathname.endsWith("/extern-ssc/")){

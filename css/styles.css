@@ -117,7 +117,8 @@ a.hover {
     left: 16px;
     padding-left: 5px;
     width: 19.9%;
-    height: 95%;
+    /* height: 95%; */
+    bottom: 20px;
     z-index: 0;
     background-color: white;
     overflow: hidden;
@@ -130,7 +131,7 @@ a.hover {
     width: 19.2%;
     height: 71%;
     z-index: 10;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 #home-btn {
@@ -192,26 +193,30 @@ a.hover {
 }
 
 #outcome {
-    opacity: 0;
     color: #eee;
     font-size: 32px;
     /* margin-bottom: 5%; */
 }
 
 #outcome-sub {
-    opacity: 0;
     color: #eee;
 }
 
+#q {
+    position: absolute;
+    /* border: 1px solid #222; */
+    padding: 2%;
+    top: 37%;
+    left: 22%;
+    /* width: 73%;
+    height: 53.5%; */
+    bottom: 20px;
+    right: 10px;
+    background-color: white;
+    border-radius: 12px;
+}
+
 #q-panel {
-    opacity: 0;
-    position: fixed;
-    /* border: 5px solid #222; */
-    padding: 1%;
-    top: calc(5px + 37.5%);
-    left: calc(25px + 21%);
-    width: 71.5%;
-    height: 52%;
     color: #298678;
     font-family: Arial, Helvetica, sans-serif;
     text-align: left;
@@ -229,10 +234,10 @@ a.hover {
     justify-content: left;
     flex-direction: column;
     padding-left: 2%;
-    overflow: scroll;
+    overflow-y: scroll;
     position: absolute;
-    width: 96.5%;
-    height: 84%;
+    width: 94.5%;
+    height: 76%;
 }
 
 .qpanel1-qbox {
@@ -308,4 +313,15 @@ a.hover {
     background: transparent;
     color: #298678;
     font-weight: bold;
+}
+
+#mobile-backbtn {
+    position: fixed;
+    text-decoration: none;
+    font: 0.7em bold white;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 2%;
+    left: 3%;
+    outline: white solid 2px;
+    padding: 1.2% 2%;
 }

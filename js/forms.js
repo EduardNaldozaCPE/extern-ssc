@@ -29,7 +29,7 @@ function formQuestions() {
     if (location.pathname == '/'+getRootDir()+"form.html"){
         window.onload = () => {
             
-            const branch = sessionStorage.getItem('branch')
+            const branch = sessionStorage.getItem('branch');
             var outcome = document.getElementById("outcome");
             var outcomeSub = document.getElementById("outcome-sub");
             var qpanel = document.getElementById("q-panel");

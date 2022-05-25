@@ -10,7 +10,7 @@ function mobileUI() {
     logo.style.transform = "translateX(-50%)"
     
     let disclaimer = document.getElementById("contact");
-    disclaimer.style.top = "92%";
+    disclaimer.style.top = "91%";
     disclaimer.style.width = "92%";
 
     document.getElementById("content").innerHTML +=`
@@ -87,5 +87,4 @@ function mobileUI() {
         </div>
     </div>
         `
-
 }
