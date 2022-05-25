@@ -1,8 +1,8 @@
 function mobileUI() {
     let title = document.getElementById("title");
-    title.style.fontSize = "1.3rem";
+    title.style.fontSize = "1.1rem";
     title.style.left = "50%";
-    title.style.top = "10%";
+    title.style.top = "6%";
     title.style.transform = "translateX(-50%)";
 
     let logo = document.getElementById("logo-white");
@@ -10,7 +10,8 @@ function mobileUI() {
     logo.style.transform = "translateX(-50%)"
     
     let disclaimer = document.getElementById("contact");
-    disclaimer.style.top = "90%";
+    disclaimer.style.top = "92%";
+    disclaimer.style.width = "92%";
 
     document.getElementById("content").innerHTML +=`
     <div id="mobile-panel">
@@ -42,6 +43,7 @@ function mobileUI() {
             <a onclick="filterBtn(this)" class="filter-btn">X</a>
             <a onclick="filterBtn(this)" class="filter-btn">Y</a>
             <a onclick="filterBtn(this)" class="filter-btn">Z</a>
+            <br>
             <input type="button" value="CLEAR" id="mobile-clear-btn" onclick="clearBtn()"></input>
         </div>
         <div id="mobile-panel-scroll">
