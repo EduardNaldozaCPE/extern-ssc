@@ -1,18 +1,20 @@
 function updateClassif() {
+    //#region
     let outcome = document.getElementById("outcome");
     let outcomeSub = document.getElementById("outcome-sub");
-    let ls_selfref = sessionStorage.getItem('selfRef');
-    let ls_agereq = sessionStorage.getItem('ageReq');
-    let ls_inoutpatient = sessionStorage.getItem('in-out-patient');
-    let ls_internalRef = sessionStorage.getItem('internalRef');
-    let ls_niculvl = sessionStorage.getItem('niculvl');
-    let ls_obsradio = sessionStorage.getItem('obsRadio');
-    let ls_updowngraded = sessionStorage.getItem('up-down-graded');
-    let ls_agegroup = sessionStorage.getItem('agegroup');
-
+    let ss_selfref = sessionStorage.getItem('selfRef');
+    let ss_agereq = sessionStorage.getItem('ageReq');
+    let ss_inoutpatient = sessionStorage.getItem('in-out-patient');
+    let ss_internalRef = sessionStorage.getItem('internalRef');
+    let ss_niculvl = sessionStorage.getItem('niculvl');
+    let ss_obsradio = sessionStorage.getItem('obsRadio');
+    let ss_updowngraded = sessionStorage.getItem('up-down-graded');
+    let ss_agegroup = sessionStorage.getItem('agegroup');
+    //#endregion
+    
     switch (sessionStorage.getItem('branch')) {
         case "Adolescent Medicine":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -21,7 +23,7 @@ function updateClassif() {
             }
             break;
         case "Allergy Immunology":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -30,7 +32,7 @@ function updateClassif() {
             }
             break;
         case "Endocrinology":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -39,7 +41,7 @@ function updateClassif() {
             }
             break;
         case "Gastroenterology":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -48,7 +50,7 @@ function updateClassif() {
             }
             break;
         case "Cardiology":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -57,7 +59,7 @@ function updateClassif() {
             }
             break;
         case "Hematology/Oncology":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -66,7 +68,7 @@ function updateClassif() {
             }
             break;
         case "Nephrology":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -75,7 +77,7 @@ function updateClassif() {
             }
             break;
         case "Neurology":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -84,7 +86,7 @@ function updateClassif() {
             }
             break;
         case "Infectious Disease":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -93,7 +95,7 @@ function updateClassif() {
             }
             break;
         case "Pulmonology":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -102,7 +104,7 @@ function updateClassif() {
             }
             break;
         case "Rheumatology":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -111,7 +113,7 @@ function updateClassif() {
             }
             break;
         case "Rehab Medicine":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -120,7 +122,7 @@ function updateClassif() {
             }
             break;
         case "Neonatal Surgery":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -129,7 +131,7 @@ function updateClassif() {
             }
             break;
         case "Neurosurgery":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -138,7 +140,7 @@ function updateClassif() {
             }
             break;
         case "Ophthalmology":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -147,7 +149,7 @@ function updateClassif() {
             }
             break;
         case "Orthopedics":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -156,7 +158,7 @@ function updateClassif() {
             }
             break;
         case "Transplant":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -165,7 +167,7 @@ function updateClassif() {
             }
             break;
         case "Urology":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -174,7 +176,7 @@ function updateClassif() {
             }
             break;
         case "Adult Mental Health":
-            if (ls_selfref == 'true') {
+            if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
@@ -186,11 +188,11 @@ function updateClassif() {
         case "CAMHS":
             let ageReqDiv = document.getElementById('ageReqDiv');
             let internalRefDiv = document.getElementById('internalRefDiv');
-            if (ls_inoutpatient == 'true') {
+            if (ss_inoutpatient == 'true') {
                 ageReqDiv.style.display = 'flex';
-                if (ls_agereq == 'true') {
+                if (ss_agereq == 'true') {
                     internalRefDiv.style.display = 'flex';
-                    if (ls_internalRef == 'true') {
+                    if (ss_internalRef == 'true') {
                         outcome.innerText = 'Require Comorbidity Assessment';
                         outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
                     } else {
@@ -211,11 +213,11 @@ function updateClassif() {
             break;
         
         case "Genetics":
-            if (ls_selfref == 'true'){
+            if (ss_selfref == 'true'){
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
             } else {
-                if (ls_agereq == 'true') {
+                if (ss_agereq == 'true') {
                     outcome.innerText = "Preferred Provider"
                     outcomeSub.innerText = 'Genetics services are Classified as Preferred for patients aged 18 and above.'
                 } else {
@@ -226,11 +228,11 @@ function updateClassif() {
             break;
         
         case "ENT":
-            if (ls_selfref == 'true'){
+            if (ss_selfref == 'true'){
                 outcome.innerText = "Preferred Provider";
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
             } else {
-                if (ls_agereq == 'true') {
+                if (ss_agereq == 'true') {
                     outcome.innerText = 'Require Clinical Assessment';
                     outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
                 } else {
@@ -241,11 +243,11 @@ function updateClassif() {
             break;
         
         case "Plastic Surgery":
-            if (ls_selfref == 'true'){
+            if (ss_selfref == 'true'){
                 outcome.innerText = "Preferred Provider";
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
             } else {
-                if (ls_agereq == 'true') {
+                if (ss_agereq == 'true') {
                     outcome.innerText = 'Require Clinical Assessment';
                     outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
                 } else {
@@ -256,11 +258,11 @@ function updateClassif() {
             break;
 
         case "Dermatology":
-            if (ls_selfref == 'true'){
+            if (ss_selfref == 'true'){
                 outcome.innerText = "Preferred Provider";
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
             } else {
-                if (ls_agereq == 'true') {
+                if (ss_agereq == 'true') {
                     outcome.innerText = 'Require Comorbidity Assessment';
                     outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
                 } else {
@@ -271,10 +273,10 @@ function updateClassif() {
             break;
         
         case 'NICU':
-            if (ls_updowngraded == "true"){
+            if (ss_updowngraded == "true"){
                 outcome.innerText = "Sole Provider";
                 outcomeSub.innerText = "The Newborn Intensive Care Unit service is classified as sole when upgraded/downgraded";
-                switch (ls_niculvl) {
+                switch (ss_niculvl) {
                     case "0":
                         document.getElementById('updowngrade-q').innerText = "Has the NICU Level been upgraded to level 3/4?";
                         break;
@@ -285,7 +287,7 @@ function updateClassif() {
                         break;
                 }
             } else {
-                switch (ls_niculvl) {
+                switch (ss_niculvl) {
                     case "0":
                         outcome.innerText = "Preferred Provider";
                         outcomeSub.innerText = "The Newborn Intensive Care Unit service is classified as Preferred for NICU Levels 1 & 2";
@@ -303,12 +305,12 @@ function updateClassif() {
             break;
         
         case 'Gynecology':
-            if (ls_selfref == 'true'){
+            if (ss_selfref == 'true'){
                 outcome.innerText = "Preferred Provider";
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
             } else {
             
-                switch (ls_agegroup) {
+                switch (ss_agegroup) {
                     case "0":
                             outcome.innerText = "Sole Provider";
                             outcomeSub.innerText = "The Gynecology service is classified as Sole for patients at 4 to 14 years of age";        
@@ -334,7 +336,7 @@ function updateClassif() {
             break;
         
         case 'Developmental Pediatrics':
-            switch (ls_internalRef) {
+            switch (ss_internalRef) {
                 case 'true':
                     outcome.innerText = 'Require Comorbidity Assessment';
                     outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
@@ -360,7 +362,7 @@ function updateClassif() {
             break;
             
         case 'Obstetrics':
-            switch (ls_obsradio) {
+            switch (ss_obsradio) {
                 case "0":
                 case "1":                    
                     outcome.innerText = 'Require Clinical Assessment';
@@ -382,7 +384,7 @@ function updateClassif() {
             break;
         
         case 'Adult Services':
-            switch (ls_internalRef) {
+            switch (ss_internalRef) {
                 case 'true':
                     outcome.innerText = 'Sole or Preferred';
                     outcomeSub.innerText = "The service inherits the service classification from originating encounter";
@@ -421,8 +423,8 @@ function updateClassif() {
             break;
         
         default:
-            outcome.innerText = 'Error';
-            outcomeSub.innerText = "No service selected / Service selected is not encoded.";
+            outcome.innerText = 'Select a Service';
+            outcomeSub.innerText = "Choose a service from the menu.";
             break;
         }
 

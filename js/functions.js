@@ -1,4 +1,4 @@
-parseServiceList = (list) => {
+formatServiceList = (list) => {
     var newList = [];
     list.forEach(element => {
         newList.push(element)

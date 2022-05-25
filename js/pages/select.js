@@ -9,11 +9,18 @@ class Page{
         this.pagefuncs = [this.page1,this.page2,this.page3];
         this.servicelist_alpha = {
             name: [
-                "Adolescent Medicine", "Adult Mental Health", "Adult Services", "Aesthetics", "Allergy Immunology", "Ancillary Services", "CAMHS", "Cardiology", "Dental Surgery", "Dermatology", "Developmental Pediatrics", "Emergency Services", "Endocrinology", "ENT","Gastroenterology", "General Pediatrics", "General Surgery", "Genetics", "Gynecology", 
-                "Hematology/Oncology", "Infectious Disease","Inpatient & Ambulatory Surgery Procedures", "Maternal Fetal Medicine", "NICU", "Neonatal Surgery", "Nephrology", "Neurology", "Neurosurgery", "Obstetrics", "Ophthalmology", "Orthopedics", "Plastic Surgery", "Pulmonology", "Rehab Medicine", "Reproductive Medicine", "Rheumatology", "Transplant", "Urology"
+                "Adolescent Medicine", "Adult Mental Health", "Adult Services", "Aesthetics", 
+                "Allergy Immunology", "Ancillary Services", "CAMHS", "Cardiology", 
+                "Dental Surgery", "Dermatology", "Developmental Pediatrics", "Emergency Services", 
+                "Endocrinology", "ENT","Gastroenterology", "General Pediatrics", "General Surgery", 
+                "Genetics", "Gynecology", "Hematology/Oncology", "Infectious Disease",
+                "Inpatient & Ambulatory Surgery Procedures", "Maternal Fetal Medicine", 
+                "NICU", "Neonatal Surgery", "Nephrology", "Neurology", "Neurosurgery", "Obstetrics", 
+                "Ophthalmology", "Orthopedics", "Plastic Surgery", "Pulmonology", "Rehab Medicine", 
+                "Reproductive Medicine", "Rheumatology", "Transplant", "Urology"
                 ]
         };
-        this.servicelist = parseServiceList(this.servicelist_alpha.name);
+        this.servicelist = formatServiceList(this.servicelist_alpha.name);
         
         this.count = 0;
         this.boxheight = 50;
@@ -33,9 +40,7 @@ class Page{
         );
         this.objectCount;
     }
-    initpage = () => {
-        // console.log(this.servlist);
-    }
+    initpage = () => {}
     startInstanceList = () => {
         var subheight = undefined;
         if (canvas.width > 780) {
@@ -156,7 +161,6 @@ class Page{
         this.list.forEach((element, i) => {
             if (element.name === "GuiButton1" && element.state == 1) {
                 if (element.hovering()){
-                    // console.log(this.list[i+1].msg);
                     sessionStorage.setItem('branch',this.list[i+1].msg)
                     pageState = 1;
                     location.href = "form.html";

@@ -1,4 +1,4 @@
-/* 
+/* #region 
 
     In the case that conditions must be changed, follow steps below:
 
@@ -6,7 +6,7 @@
         
         2. In select.js, add service name in this.servicelist_alpha "name" list (if adding new service).
 
-        3. In forms.js, add new case statement inside formQuestions function's switch statement (line 37). (if adding new service)
+        3. In forms.js, add new case statement inside formQuestions function's switch statement (line 55). (if adding new service)
             
             3a. To create new conditions, use "qpanel1.innerHTML += [HTML CODE]"
                 - Every question div follows the same class name
@@ -17,13 +17,13 @@
             
             3b. To set initial outcome message, use "outcome.innerText" and "outcomeSub.innerText"
         
-        4. In pageupdate.js add new case statement inside updateClassif function's switch statement (line 13). (if adding new service)
+        4. In pageupdate.js add new case statement inside updateClassif function's switch statement (line 15). (if adding new service)
         
         5. Using the variables prefixed "ls_", apply decision logic in the case statement. 
             
             5a. use "outcome.innerText" and "outcomeSub.innerText" to change outcome.
 
-*/
+#endregion  */
 
 function formQuestions() {
     if (location.pathname == '/'+getRootDir()+"form.html"){
