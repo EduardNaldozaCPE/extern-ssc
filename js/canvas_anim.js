@@ -91,7 +91,6 @@ function animation() {
 
 //ONCLICK
 canvas.addEventListener('click', () => {
-    console.log('asdasd');
     pagecontent.action();
 
     if (location.pathname.endsWith("index.html")  || location.pathname.endsWith("/extern-ssc/")){
