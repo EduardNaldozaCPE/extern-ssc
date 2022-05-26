@@ -25,7 +25,7 @@ class Page{
             qbody.style.width = "88%";
 
             document.getElementById('content2').innerHTML += `
-                <a id="mobile-backbtn" onclick="goHome()"> < </a>
+                <a id="mobile-backbtn" onclick="goHome()"><</a>
             `
 
         }
