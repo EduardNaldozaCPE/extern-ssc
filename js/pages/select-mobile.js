@@ -8,6 +8,7 @@ function mobileUI() {
     let logo = document.getElementById("logo-white");
     logo.style.left = "50%"
     logo.style.transform = "translateX(-50%)"
+    logo.style.width = "18%";
     
     let disclaimer = document.getElementById("contact");
     disclaimer.style.top = "91%";
