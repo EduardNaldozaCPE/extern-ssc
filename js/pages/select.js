@@ -51,7 +51,7 @@ class Page{
 
         this.objectCount = 10;                                  //   CHANGE DEPENDING ON HOW MANY OBJECTS ARE PUSHED
 
-        if (canvas.width > canvas.height+(canvas.width/10)) {
+        if (!(canvas.width <= canvas.height+(canvas.width/10) || canvas.width <= 1000)) {
             this.list.push(new SelectPanel());                  // 1
     
             this.list.push(new PageFilter(                      // 2

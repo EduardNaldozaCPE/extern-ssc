@@ -428,7 +428,7 @@ function updateClassif() {
             break;
         }
 
-    if (canvas.width > canvas.height+(canvas.width/10)) {
+    if (canvas.width > canvas.height+(canvas.width/10) || canvas.width > 1000) {
         fade(outcome);
         fade(outcomeSub);
     }

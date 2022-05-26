@@ -3,7 +3,7 @@ class Page{
         this.list = [];
     }
     initpage = () => {
-        if (canvas.width <= canvas.height+(canvas.width/10)) {
+        if (canvas.width <= canvas.height+(canvas.width/10) || canvas.width <= 1000) {
             document.getElementById("left-panel").style.display = "none";
 
             var outcomescrn = document.getElementById("outcome-scrn");
