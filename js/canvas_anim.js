@@ -100,7 +100,7 @@ canvas.addEventListener('click', () => {
                 window.open(
                     './mindmap.pdf',
                     '_blank'
-                  );
+                );
             }
         }
         if (mpos.x >= (canvas.width-(canvas.width/6))-15 && mpos.y >= (7.1*canvas.height/8)-15){
