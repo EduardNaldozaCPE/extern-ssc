@@ -18,7 +18,6 @@ class Page{
             qbox.style.width = "85%";
             qbox.style.paddingLeft = "3.5%";
             qbox.style.paddingTop = "3.5%";
-            // qbox.style.height = "58%";
             qbox.style.transform = "translateX(-50%)";
             qheader.style.fontSize = "1.6em";
             outcome.style.fontSize = "1.6em";
