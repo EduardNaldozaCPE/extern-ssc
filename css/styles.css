@@ -264,7 +264,7 @@ a.hover {
     height: 66%;
     left: 50%;
     transform: translateX(-50%);
-    background: #eee;
+    background: #fff;
     padding: 4%;
     border-radius: 10px;
     display: flex;
