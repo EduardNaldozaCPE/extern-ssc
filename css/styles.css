@@ -267,14 +267,14 @@ a.hover {
     padding: 4%;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
 }
 
 #mobile-panel-scroll {
     /* position: absolute; */
     /* top: 20%; */
     /* width: 90%; */
-    /* height: 77%; */
+    height: 77%;
     overflow-y: scroll;
 }
 
