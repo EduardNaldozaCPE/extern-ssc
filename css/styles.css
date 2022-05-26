@@ -250,6 +250,7 @@ a.hover {
 .checkbox{
     margin-right: 30px;
     transform: translateY(-1px);
+    min-width: 20px;
 }
 
 
