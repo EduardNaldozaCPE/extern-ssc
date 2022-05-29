@@ -450,8 +450,12 @@ a.hover {
     /* position: absolute; */
     /* top: 20%; */
     /* width: 90%; */
-    height: 77%;
+    height: 60%;
     overflow-y: scroll;
+}
+
+#mobile-panel-extrabtn{
+    margin-top: auto;
 }
 
 
