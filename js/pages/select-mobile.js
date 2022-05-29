@@ -17,33 +17,33 @@ function mobileUI() {
     document.getElementById("content").innerHTML +=`
     <div id="mobile-panel">
         <div id="mobile-panel-filter">
-            <a onclick="filterBtn(this)" class="filter-btn">A</a>
-            <a onclick="filterBtn(this)" class="filter-btn">B</a>
-            <a onclick="filterBtn(this)" class="filter-btn">C</a>
-            <a onclick="filterBtn(this)" class="filter-btn">D</a>
-            <a onclick="filterBtn(this)" class="filter-btn">E</a>
-            <a onclick="filterBtn(this)" class="filter-btn">F</a>
-            <a onclick="filterBtn(this)" class="filter-btn">G</a>
-            <a onclick="filterBtn(this)" class="filter-btn">H</a>
-            <a onclick="filterBtn(this)" class="filter-btn">I</a>
-            <a onclick="filterBtn(this)" class="filter-btn">J</a>
-            <a onclick="filterBtn(this)" class="filter-btn">K</a>
-            <a onclick="filterBtn(this)" class="filter-btn">L</a>
-            <a onclick="filterBtn(this)" class="filter-btn">M</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">A</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">B</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">C</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">D</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">E</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">F</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">G</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">H</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">I</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">J</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">K</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">L</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">M</a>
             <br>
-            <a onclick="filterBtn(this)" class="filter-btn">N</a>
-            <a onclick="filterBtn(this)" class="filter-btn">O</a>
-            <a onclick="filterBtn(this)" class="filter-btn">P</a>
-            <a onclick="filterBtn(this)" class="filter-btn">Q</a>
-            <a onclick="filterBtn(this)" class="filter-btn">R</a>
-            <a onclick="filterBtn(this)" class="filter-btn">S</a>
-            <a onclick="filterBtn(this)" class="filter-btn">T</a>
-            <a onclick="filterBtn(this)" class="filter-btn">U</a>
-            <a onclick="filterBtn(this)" class="filter-btn">V</a>
-            <a onclick="filterBtn(this)" class="filter-btn">W</a>
-            <a onclick="filterBtn(this)" class="filter-btn">X</a>
-            <a onclick="filterBtn(this)" class="filter-btn">Y</a>
-            <a onclick="filterBtn(this)" class="filter-btn">Z</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">N</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">O</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">P</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">Q</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">R</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">S</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">T</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">U</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">V</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">W</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">X</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">Y</a>
+            <a onclick="filterBtn(this)" class="mobile-filter-btn">Z</a>
             <br>
             <input type="button" value="CLEAR" id="mobile-clear-btn" onclick="clearBtn()"></input>
         </div>

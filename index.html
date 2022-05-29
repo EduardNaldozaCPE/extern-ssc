@@ -25,6 +25,69 @@
         <script src="./js/canvas_objects.js"></script>
         <script src="./js/canvas_anim.js"></script>
     </div>
+    <div id="content1">
+        <div id="selectpanel">
+            <div id="filter">
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">A</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">B</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">C</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">D</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">E</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">F</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">G</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">H</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">I</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">J</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">K</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">L</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">M</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">N</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">O</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">P</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">Q</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">R</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">S</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">T</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">U</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">V</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">W</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">X</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">Y</a>
+                <a onclick="filterBtn_desktop(this)" class="filter-btn">Z</a>
+                <input type="button" value="CLEAR" id="clear-btn" onclick="selectPage(1)"></input>
+            </div>
+
+            <div id="servicelist">
+                <button class="select-panel-btn" onclick="serviceBtn(this)">Adolescent Medicine</button>
+                <button class="select-panel-btn" onclick="serviceBtn(this)">Adult Mental Health</button>
+                <button class="select-panel-btn" onclick="serviceBtn(this)">Adult Services</button>
+                <button class="select-panel-btn" onclick="serviceBtn(this)">Aesthetics</button>
+                <button class="select-panel-btn" onclick="serviceBtn(this)">Allergy Immunology</button>
+                <button class="select-panel-btn" onclick="serviceBtn(this)">Ancillary Services</button>
+                <button class="select-panel-btn" onclick="serviceBtn(this)">CAMHS</button>
+                <button class="select-panel-btn" onclick="serviceBtn(this)">Cardiology</button>
+                <button class="select-panel-btn" onclick="serviceBtn(this)">Dental Surgery</button>
+                <button class="select-panel-btn" onclick="serviceBtn(this)">Dermatology</button>
+                <button class="select-panel-btn" onclick="serviceBtn(this)">Developmental Pediatrics</button>
+                <button class="select-panel-btn" onclick="serviceBtn(this)">Emergency Services</button>
+            </div>
+            <div id="pagenav">
+                <div id="counterdiv"></div>
+                <img src="./images/leftbutton.png" alt="" id="leftbutton" onclick="leftbutton()">
+                <div id="pageicons">
+                </div>
+                <img src="./images/rightbutton.png" alt="" id="rightbutton" onclick="rightbutton()">
+
+                <div id="extrabtns">
+                    <input type="image" src="./images/contact-button.png" id="contactbtn" onclick='location.href="mailto:ApplicationRevenueCycle@sidra.org"' onmouseover="showContact()" onmouseout="hideContact()">
+                    <input type="image" src="./images/mindmap-button.png" alt="" id="mindmapbtn" onclick="window.open(`./mindmap.pdf`,`_blank`);" onmouseover="showMindMap()" onmouseout="hideMindMap()">
+                </div>
+            </div>
+            <img src="./images/ssc-map.PNG" alt="" id="popup-mindmap">
+            <div id="popup-contact">
+                <p>For technical inquiries or clarification, Please contact: <i>ApplicationRevenueCycle@sidra.org</i></p>
+            </div>
+    </div>
     
 </body>
 </html>

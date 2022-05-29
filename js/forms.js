@@ -28,6 +28,12 @@
 function formQuestions() {
     if (location.pathname == '/'+getRootDir()+"form.html"){
         window.onload = () => {
+            let leftpanelscroll = document.getElementById("left-panel-scroll");
+            console.log(leftpanelscroll);
+        
+            if (sessionStorage.getItem("left-panel-scroll") != null) {
+                leftpanelscroll.scrollTop = sessionStorage.getItem("left-panel-scroll");
+            }
             
             const branch = sessionStorage.getItem('branch');
             var outcome = document.getElementById("outcome");
@@ -284,22 +290,24 @@ function formQuestions() {
                 case "CAMHS":
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox' id="inoutpatientDiv">
-                        <input class="checkbox" type="checkbox" onclick="inoutpatient()" id="inoutpatientBox">
-                        <p class="qpanel-q">Is this person an Outpatient?</p></input>
+                        <input class="checkbox" type="radio" onclick="camhsradio()" id="inoutpatientBox" name="camhs" value=0>
+                        <p class="qpanel-q">Child and Adolescent Psychiatry (CAMHS) Outpatient</p></input>
                     </div>
-                    <div class='qpanel1-qbox' id="ageReqDiv" style="display: none">
-                        <input class="checkbox" type="checkbox" onclick="ageReq()" id="ageReqBox">
-                        <p class="qpanel-q">Is the patient above 14 years of age?</p></input>
+                    <div class='qpanel1-qbox' id="inoutpatientDiv">
+                        <input class="checkbox" type="radio" onclick="camhsradio()" id="inoutpatientBox" name="camhs" value=1>
+                        <p class="qpanel-q">Child and Adolescent Psychiatry (CAMHS) Inpatient ≤ 14 Years</p></input>
                     </div>
-                    <div class='qpanel1-qbox' id="internalRefDiv" style="display: none">
+                    <div class='qpanel1-qbox' id="inoutpatientDiv">
+                        <input class="checkbox" type="radio" onclick="camhsradio()" id="inoutpatientBox" name="camhs" value=2>
+                        <p class="qpanel-q">Child and Adolescent Psychiatry (CAMHS) Inpatient > 14 Years</p></input>
+                    </div>
+                    <div class='qpanel1-qbox' id="internalRefDiv">
                         <input class="checkbox" type="checkbox" onclick="internalRef()" id="internalRefBox">
                         <p class="qpanel-q">Is the patient internally referred from a Sole service?</p></input>
                     </div>
                     `;
-    
-                    inoutpatient();
-                    ageReq();
                     internalRef();
+                    sessionStorage.setItem('camhs', -1);
     
                     break;
     
@@ -310,12 +318,16 @@ function formQuestions() {
                         <p class="qpanel-q">Is the patient self-referred?</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="ageReqDiv">
-                        <input class="checkbox" type="checkbox" onclick="ageReq()" id="ageReqBox">
-                        <p class="qpanel-q">Is the patient above 18 years of age?</p></input>
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=0>
+                        <p class="qpanel-q">The patient age is 18 years old or older</p></input>
+                    </div>
+                    <div class='qpanel1-qbox' id="ageReqDiv">
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=1>
+                        <p class="qpanel-q">The patient is below 18 years of age</p></input>
                     </div>
                     `;
                     selfRef();
-                    ageReq();
+                    sessionStorage.setItem('agereq', -1);
                     break;
     
                 case "ENT":
@@ -325,11 +337,15 @@ function formQuestions() {
                         <p class="qpanel-q">Is the patient self-referred?</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="ageReqDiv">
-                        <input class="checkbox" type="checkbox" onclick="ageReq()" id="ageReqBox">
-                        <p class="qpanel-q">Is the patient above 3 years of age?</p></input>
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=0>
+                        <p class="qpanel-q">The patient is above 3 years of age</p></input>
+                    </div>
+                    <div class='qpanel1-qbox' id="ageReqDiv">
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=1>
+                        <p class="qpanel-q">The patient is 3 years of age or younger</p></input>
                     </div>
                     `;
-                    ageReq();
+                    sessionStorage.setItem('agereq', -1);
                     selfRef();
                     break;
     
@@ -340,11 +356,15 @@ function formQuestions() {
                         <p class="qpanel-q">Is the patient self-referred?</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="ageReqDiv">
-                        <input class="checkbox" type="checkbox" onclick="ageReq()" id="ageReqBox">
-                        <p class="qpanel-q">Is the patient over 18 years of age?</p></input>
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=0>
+                        <p class="qpanel-q">The patient is 18 years old or older</p></input>
+                    </div>
+                    <div class='qpanel1-qbox' id="ageReqDiv">
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=1>
+                        <p class="qpanel-q">The patient is below 18 years of age</p></input>
                     </div>
                     `;
-                    ageReq();
+                    sessionStorage.setItem('agereq', -1);
                     selfRef();
                     break;
     
@@ -355,10 +375,15 @@ function formQuestions() {
                         <p class="qpanel-q">Is the patient self-referred?</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="ageReqDiv">
-                        <input class="checkbox" type="checkbox" onclick="ageReq()" id="ageReqBox">
-                        <p class="qpanel-q">Is the patient over 3 Months of age?</p></input>
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=0>
+                        <p class="qpanel-q">The patient's age is 3 months or older</p></input>
+                    </div>
+                    <div class='qpanel1-qbox' id="ageReqDiv">
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=1>
+                        <p class="qpanel-q">The patient is below 3 months of age</p></input>
                     </div>
                     `;
+                    sessionStorage.setItem('agereq', -1);
                     ageReq();
                     selfRef();
                     break;
@@ -429,9 +454,7 @@ function formQuestions() {
                     break;
     
                 case "Aesthetics":
-                    qpanel1.innerHTML = `
-                    <p style="font-style:oblique">The Aesthetics service has no conditions which affect its classification.</p>
-                    `;
+                    qpanel1.innerHTML = ``;
                     break;
     
                 case "Reproductive Medicine":
@@ -470,7 +493,6 @@ function formQuestions() {
                             <li>Homecare</li>
                             <li>Anesthesia / PAT</li>
                         </ul>
-                        <p style="font-style:oblique">Ancillary Services has no conditions that will affect its classification</p>
                     `;
                     break;
                 
@@ -480,7 +502,6 @@ function formQuestions() {
                         <input class="checkbox" type="checkbox" onclick="internalRef()" id="internalRefBox">
                         <p class="qpanel-q">Is the patient internally referred from Obstetrics to any of the following services?</p></input>
                     </div>
-                    <p>Services Included:</p>
                     <ul>
                         <li>Diabetic New</li>
                         <li>Endocrinology New</li>
@@ -496,33 +517,27 @@ function formQuestions() {
     
                 case "Inpatient & Ambulatory Surgery Procedures":
                     qpanel1.innerHTML = `
-                    <p style="font-style:oblique">"Inpatient & Ambulatory Surgery Procedures" has no conditions that will affect its classification</p>
                     `
                     break;
     
                 case "Dental Surgery":
                     qpanel1.innerHTML = `
                     <p>Dental Surgery requires a Physician's clinical assessment by default to determine the service's classification.</p>
-                    <p style="font-style:oblique">Dental Surgery has no conditions that will affect its classification</p>
                     `
                     break;
                 case "General Surgery":
                     qpanel1.innerHTML = `
                     <p>General Surgery requires a Physician's clinical assessment by default to determine the service's classification.</p>
-                    <p style="font-style:oblique">General Surgery has no conditions that will affect its classification</p>
                     `
                     break;
                 case "General Pediatrics":
                     qpanel1.innerHTML = `
                     <p>General Pediatrics requires a Physician's clinical assessment by default to determine the service's classification.</p>
-                    <p style="font-style:oblique">General Pediatrics has no conditions that will affect its classification</p>
                     `
                     break;
                 case "Maternal Fetal Medicine":
                     qpanel1.innerHTML = `
-                    <p>Maternal Fetal Medicine requires a Physician's clinical assessment by default to determine the service's classification.</p>
-                    <p style="font-style:oblique">Maternal Fetal Medicine has no conditions that will affect its classification</p>
-    
+                    <p>Maternal Fetal Medicine requires a Physician's clinical assessment by default to determine the service's classification.</p>    
                     `
                     break;
     

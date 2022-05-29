@@ -49,35 +49,40 @@ class Page{
             subheight = 2*canvas.height/6;
         }
 
-        this.objectCount = 10;                              //   CHANGE DEPENDING ON HOW MANY OBJECTS ARE PUSHED
+        this.objectCount = 10;                                  //   CHANGE DEPENDING ON HOW MANY OBJECTS ARE PUSHED
 
-        this.list.push(new SelectPanel());                  // 1
+        if (!(canvas.width <= canvas.height+(canvas.width/10) || canvas.width <= 1000)) {
+            this.list.push(new SelectPanel());                  // 1
+    
+            this.list.push(new PageFilter(                      // 2
+                ((canvas.width)/4)-((canvas.width/4.5)/2)+6,
+                10*canvas.height/30,
+                "53,144,133"
+            ));
+            this.showPageNav();                                 // 3-8
+    
+            this.list.push(new ResourcesIcon(                   // 9
+                canvas.width-(canvas.width/7.4),
+                7.1*canvas.height/8
+            )); // For on-click/hover actions, refer to canvas_anim.js
+            
+            this.list.push(new ContactIcon(                     // 10
+                canvas.width-(canvas.width/6),
+                7.1*canvas.height/8
+            )); // For on-click/hover actions, refer to canvas_anim.js
+    
+            //ADD NEW OBJECTS HERE
+    
+            if (canvas.width <= 620){
+                this.fontsize = ((this.boxwidth+this.boxheight)/2)/6;
+            }
 
-        this.list.push(new PageFilter(                      // 2
-            ((canvas.width)/4)-((canvas.width/4.5)/2)+6,
-            10*canvas.height/30,
-            "53,144,133"
-        ));
-        this.showPageNav();                                 // 3-8
-
-        this.list.push(new ResourcesIcon(                   // 9
-            canvas.width-(canvas.width/7.4),
-            7.1*canvas.height/8
-        )); // For on-click/hover actions, refer to canvas_anim.js
-        
-        this.list.push(new ContactIcon(                     // 10
-            canvas.width-(canvas.width/6),
-            7.1*canvas.height/8
-        )); // For on-click/hover actions, refer to canvas_anim.js
-
-        //ADD NEW OBJECTS HERE
-
-        if (canvas.width <= 620){
-            this.fontsize = ((this.boxwidth+this.boxheight)/2)/6;
+            this.newPage();
+            this.setPageIndicator();
+        } else {
+            mobileUI();
         }
 
-        this.newPage();
-        this.setPageIndicator();
 
         return this.list;
     }

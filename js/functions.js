@@ -71,6 +71,28 @@ function nicuLvl() {
     updateClassif();
 }
 
+function camhsradio() {
+    let radioButtons = document.querySelectorAll('input[name="camhs"]');
+    for (let radioButton of radioButtons) {
+        if (radioButton.checked) {
+            sessionStorage.setItem('camhs', radioButton.value);
+            break;
+        }
+    }
+    updateClassif();
+}
+
+function ageradio() {
+    let radioButtons = document.querySelectorAll('input[name="agereq"]');
+    for (let radioButton of radioButtons) {
+        if (radioButton.checked) {
+            sessionStorage.setItem('agereq', radioButton.value);
+            break;
+        }
+    }
+    updateClassif();
+}
+
 function obsRadio() {
     let radioButtons = document.querySelectorAll('input[name="obsRadio"]');
     for (let radioButton of radioButtons) {
@@ -126,11 +148,36 @@ function fadeout(element) {
     }, 5);
 }
 
+function fadegrid(element) {
+    var op = 0.1;  // initial opacity
+    element.style.display = 'grid';
+    var timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1;
+    }, 5);
+}
+
+function fadeoutgrid(element) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op <= 0.1){
+            clearInterval(timer);
+            element.style.display = 'none';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+    }, 5);
+}
+
 function goHome() {
     pageState = 1;
     location.href = "index.html"
 }
-
 
 //      CANVAS FUNCTIONS
 
@@ -175,6 +222,109 @@ const parseCookie = str =>
     return acc;
   }, {});
 
+function rememberScroll(div) {
+    sessionStorage.setItem("left-panel-scroll", div.scrollTop);
+}
+
+// SELECT SCREEN
+function updatePageList() {
+    fadegrid(document.getElementById("servicelist"));
+    for (let index = 0; index < 12; index++) {
+        if ((index)+(12*(page-1)) >= servicelist.length){
+            break;
+        }
+        document.getElementById("servicelist").innerHTML += `<button class="panel-btn" onclick="serviceBtn(this)">${servicelist[(index)+(12*(page-1))]}</button>`
+    }
+    updatepageicons()
+}
+
+function updatepageicons() {
+    pageicon = document.getElementsByClassName("pageicon");
+    for (let index = 0; index < pageicon.length; index++) {
+        const element = pageicon[index];
+        element.setAttribute('src','./images/pageicon.png');
+    }
+    document.getElementById(`pageicon-${page}`).setAttribute('src','./images/pageicon-active.png');
+}
+
+function rightbutton() { 
+    if (document.getElementById('pagenav').style.opacity != 0.5){
+        document.getElementById("servicelist").innerHTML = ""
+        if (page == Math.ceil(servicelist.length/12)) {
+            page = 1;
+        } else {
+            console.log(Math.floor(servicelist.length/12));
+            page++;
+        }
+        updatePageList()
+    }  else {
+        console.log('waht');
+    }
+}
+
+function leftbutton() {    
+    if (document.getElementById('pagenav').style.opacity != 0.5){
+        document.getElementById("servicelist").innerHTML = ""
+        if (page == 1) {
+            page = Math.ceil(servicelist.length/12);
+        } else {
+            page--;
+        }
+        updatePageList()
+    }
+}
+
+function selectPage(p){
+    var letters = document.getElementsByClassName("filter-btn");
+    for (let i=0;i<letters.length; i++){
+        letters[i].style.textDecoration = "none";
+    }
+    document.getElementById('pagenav').style.opacity = 1;
+    document.getElementById("servicelist").innerHTML = ""
+    page = p;
+    updatePageList();
+}
+
+function filterBtn_desktop(ltr) {
+    fadegrid(document.getElementById("servicelist"));
+    document.getElementById('pagenav').style.opacity = 0.5;
+    // var services = document.getElementsByClassName("panel-btn");
+    var letters = document.getElementsByClassName("filter-btn");
+    for (let i=0;i<letters.length; i++){
+        if (letters[i].innerText == ltr.innerText) {
+            letters[i].style.textDecoration = "underline";
+        } else {
+            letters[i].style.textDecoration = "none";
+        }
+    }
+    document.getElementById("servicelist").innerHTML = "";
+    for (let index = 0; index < servicelist.length; index++) {
+        if (servicelist[index].startsWith(ltr.innerText)){
+            document.getElementById("servicelist").innerHTML += `<button class="panel-btn" onclick="serviceBtn(this)">${servicelist[index]}</button>`
+        }
+    }
+    if (document.getElementsByClassName('panel-btn').length < 12){
+        for (let index = 0; index < 12-document.getElementsByClassName('panel-btn').length; index++) {
+            document.getElementById("servicelist").innerHTML += `<div style="height: 50px; width: 90%; margin: 4%;"></div>`
+            
+        }
+    }
+
+}
+
+function showMindMap(){
+    document.getElementById('popup-mindmap').style.display = "block";
+}
+function hideMindMap(){
+    document.getElementById('popup-mindmap').style.display = "none";
+}
+
+function showContact(){
+    document.getElementById('popup-contact').style.display = "block";
+}
+function hideContact(){
+    document.getElementById('popup-contact').style.display = "none";
+}
 
 
 // MOBILE FUNCTIONS
@@ -182,7 +332,7 @@ const parseCookie = str =>
 
 function filterBtn(ltr) {
     var services = document.getElementsByClassName("mobile-panel-btn");
-    var letters = document.getElementsByClassName("filter-btn");
+    var letters = document.getElementsByClassName("mobile-filter-btn");
     for (let i=0;i<letters.length; i++){
         if (letters[i].innerText == ltr.innerText) {
             letters[i].style.textDecoration = "underline";
