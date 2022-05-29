@@ -325,6 +325,13 @@ function hideContact(){
     document.getElementById('popup-contact').style.display = "none";
 }
 
+function showAdditRes(){
+    document.getElementById('popup-additres').style.display = "block";
+}
+function hideAdditRes(){
+    document.getElementById('popup-additres').style.display = "none";
+}
+
 
 // MOBILE FUNCTIONS
 
