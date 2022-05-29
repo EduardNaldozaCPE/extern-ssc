@@ -3,10 +3,11 @@ class Page{
         this.list = [];
     }
     initpage = () => {
-        if (!(canvas.width <= canvas.height+(canvas.width/10) || canvas.width <= 1000)) {
+        if (!(canvas.width <= canvas.height+(canvas.width/7))) {
             
         } else {
-            // mobileUI()
+            document.getElementById('selectpanel').style.display = 'none';
+            mobileUI()
         }
 
     }

@@ -233,7 +233,7 @@ function updatePageList() {
         if ((index)+(12*(page-1)) >= servicelist.length){
             break;
         }
-        document.getElementById("servicelist").innerHTML += `<button class="panel-btn" onclick="serviceBtn(this)">${servicelist[(index)+(12*(page-1))]}</button>`
+        document.getElementById("servicelist").innerHTML += `<button class="select-panel-btn" onclick="serviceBtn(this)">${servicelist[(index)+(12*(page-1))]}</button>`
     }
     updatepageicons()
 }
@@ -288,7 +288,6 @@ function selectPage(p){
 function filterBtn_desktop(ltr) {
     fadegrid(document.getElementById("servicelist"));
     document.getElementById('pagenav').style.opacity = 0.5;
-    // var services = document.getElementsByClassName("panel-btn");
     var letters = document.getElementsByClassName("filter-btn");
     for (let i=0;i<letters.length; i++){
         if (letters[i].innerText == ltr.innerText) {
@@ -300,11 +299,11 @@ function filterBtn_desktop(ltr) {
     document.getElementById("servicelist").innerHTML = "";
     for (let index = 0; index < servicelist.length; index++) {
         if (servicelist[index].startsWith(ltr.innerText)){
-            document.getElementById("servicelist").innerHTML += `<button class="panel-btn" onclick="serviceBtn(this)">${servicelist[index]}</button>`
+            document.getElementById("servicelist").innerHTML += `<button class="select-panel-btn" onclick="serviceBtn(this)">${servicelist[index]}</button>`
         }
     }
-    if (document.getElementsByClassName('panel-btn').length < 12){
-        for (let index = 0; index < 12-document.getElementsByClassName('panel-btn').length; index++) {
+    if (document.getElementsByClassName('select-panel-btn').length < 12){
+        for (let index = 0; index < 12-document.getElementsByClassName('select-panel-btn').length; index++) {
             document.getElementById("servicelist").innerHTML += `<div style="height: 50px; width: 90%; margin: 4%;"></div>`
             
         }
