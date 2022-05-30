@@ -460,7 +460,7 @@ function updateClassif() {
         outcome.style.outline = "solid 1.5px";
         outcome.style.padding = "15px"
         if (outcome.innerText == "Preferred Provider") {
-            outcome.style.outline = "solid 1.5px #ff3131";
+            outcome.style.outline = "solid 1.5px rgb(255 12 0)";
         }
     } else {
         outcome.style.outline = "0px";

@@ -159,9 +159,9 @@ a.hover {
     width: 100%;
     height: 10%;
     cursor: pointer;
+    font-size: 1.2vw;
 
     color: #298678;
-    font-size: 14px;
     background-color: rgb(255, 255, 255);
     display: inline-block;
     border-radius: 5px;
@@ -198,11 +198,12 @@ a.hover {
 
 #outcome {
     color: #eee;
-    font-size: 32px;
+    font-size: 2.5vw;
 }
 
 #outcome-sub {
     color: #eee;
+    font-size: 1.5vw;
 }
 
 #q {

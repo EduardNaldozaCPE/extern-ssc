@@ -8,6 +8,7 @@ class Page{
 
             var outcomescrn = document.getElementById("outcome-scrn");
             var outcome = document.getElementById("outcome");
+            var outcomesub = document.getElementById("outcome-sub");
             var qbox = document.getElementById("q");
             var qheader = document.getElementById("q-panel-header");
             var qbody = document.getElementById("q-panel1");
@@ -23,11 +24,17 @@ class Page{
             outcome.style.fontSize = "1.6em";
             outcome.style.width = "60%";
             outcome.style.marginBottom = "0px";
+            outcomesub.style.fontSize = "1em";
             qbody.style.width = "88%";
+            qbody.style.fontSize = "1rem";
 
             document.getElementById('content2').innerHTML += `
                 <a id="mobile-backbtn" onclick="goHome()"><</a>
             `
+
+        } else {
+            var qbody = document.getElementById("q-panel1");
+            qbody.style.fontSize = "1.2vw";
 
         }
     }
