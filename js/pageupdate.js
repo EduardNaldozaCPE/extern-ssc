@@ -190,11 +190,11 @@ function updateClassif() {
             if (ss_internalRef == "false"){
                 switch (ss_camhs) {
                     case "0":
-                        outcome.innerText = "Sole";
+                        outcome.innerText = "Sole Provider";
                         outcomeSub.innerText = "CAMHS Outpatient service is classified as Sole Provider";
                         break;
                     case "1":      
-                        outcome.innerText = "Sole";
+                        outcome.innerText = "Sole Provider";
                         outcomeSub.innerText = "CAMHS Inpatient service (for patients aged 14 and below) is classified as Sole Provider";
                         break;
                     case "2":
