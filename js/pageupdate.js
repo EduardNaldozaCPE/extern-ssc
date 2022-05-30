@@ -198,7 +198,7 @@ function updateClassif() {
                         outcomeSub.innerText = "CAMHS Inpatient service (for patients aged 14 and below) is classified as Sole Provider";
                         break;
                     case "2":
-                        outcome.innerText = "Preferred";
+                        outcome.innerText = "Preferred Provider";
                         outcomeSub.innerText = "CAMHS Inpatient service (for patients aged 15 and above) is classified as Preferred";
                         break;
                     default:
