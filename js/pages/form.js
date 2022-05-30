@@ -3,7 +3,7 @@ class Page{
         this.list = [];
     }
     initpage = () => {
-        if (canvas.width <= canvas.height+(canvas.width/10) || canvas.width <= 1000) {
+        if (canvas.width <= canvas.height+(canvas.width/7)) {
             document.getElementById("left-panel").style.display = "none";
 
             var outcomescrn = document.getElementById("outcome-scrn");
@@ -21,6 +21,8 @@ class Page{
             qbox.style.transform = "translateX(-50%)";
             qheader.style.fontSize = "1.6em";
             outcome.style.fontSize = "1.6em";
+            outcome.style.width = "60%";
+            outcome.style.marginBottom = "0px";
             qbody.style.width = "88%";
 
             document.getElementById('content2').innerHTML += `

@@ -4,7 +4,7 @@
 
         1. Add button tag in form.html using "panel-btn" class name (if adding new service).
         
-        2. In select.js, add service name in this.servicelist_alpha "name" list (if adding new service).
+        2. In canvas.js, add service name in servicelist array (if adding new service).
 
         3. In forms.js, add new case statement inside formQuestions function's switch statement (line 55). (if adding new service)
             

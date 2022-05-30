@@ -182,6 +182,7 @@ a.hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     top: calc(5px + 0.5%);
     left: calc(20px + 20%);
     padding-left: 2%;
@@ -204,14 +205,11 @@ a.hover {
 
 #q {
     position: absolute;
-    /* border: 1px solid #222; */
     padding: 2%;
     top: 37%;
     left: 22%;
-    /* width: 73%;
-    height: 53.5%; */
     bottom: 20px;
-    right: 10px;
+    right: 15px;
     background-color: white;
     border-radius: 12px;
 }
@@ -326,6 +324,7 @@ a.hover {
     border: 2.5px solid;
     margin: 10px;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 #pagenav {
