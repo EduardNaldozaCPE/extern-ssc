@@ -447,6 +447,7 @@ a.hover {
     padding: 4%;
     border-radius: 10px;
     display: flex;
+    justify-content: space-between;
     flex-direction: column; 
 }
 
@@ -465,7 +466,7 @@ a.hover {
 
 .mobile-panel-btn {
     width: 100%;
-    height: 8%;
+    /* height: 8%; */
     padding: 2px;
     background-color: transparent;
     color: #42a394;
