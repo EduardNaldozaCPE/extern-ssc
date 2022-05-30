@@ -113,24 +113,28 @@ a.hover {
 }
 
 #left-panel {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     border-radius: 10px;
     position: fixed;
     top: 15px;
     left: 16px;
     padding-left: 5px;
-    width: 19.9%;
+    right: 78%;
     /* height: 95%; */
+    display: flex;
     bottom: 20px;
     z-index: 0;
     background-color: white;
-    overflow: hidden;
+    overflow: hidden
 }
 
 #left-panel-scroll {
-    position: fixed;
+    position: absolute;
     top: 26%;
     /* left: 11px; */
-    width: 19.2%;
+    width: 94%;
     height: 71%;
     z-index: 10;
     overflow-y: scroll;
@@ -210,7 +214,7 @@ a.hover {
     position: absolute;
     padding: 2%;
     top: 37%;
-    left: 22%;
+    left: 22.5%;
     bottom: 20px;
     right: 15px;
     background-color: white;
@@ -510,4 +514,5 @@ a.hover {
     left: 15px;
     outline: white solid 2px;
     padding: 1.2% 2%;
+    font-weight: 900;
 }
