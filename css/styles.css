@@ -284,16 +284,16 @@ a.hover {
 .filter-btn {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    color: #298678;
+    color: #42a394;
     margin-left: 1.5%;
     cursor: pointer;
 }
 #clear-btn {
     margin-left: 1.5%;
     width: 60px;
-    border: 2px solid #298678;
+    border: 2px solid #42a394;
     background: transparent;
-    background-color: #298678;
+    background-color: #42a394;
     color: white;
     font-size: 0.7em;
     font-weight: bold;
@@ -366,19 +366,21 @@ a.hover {
 #contactbtn {
     cursor: pointer;
     margin-left: 10px;
+    opacity: 0.6;
     width: 30px;
 }
 
 #mindmapbtn {
     cursor: pointer;
     margin-left: 10px;
+    opacity: 0.6;
     width: 30px;
 }
 
 #additresbtn {
     cursor: pointer;
     margin-left: 10px;
-    opacity: 0.5;
+    opacity: 0.6;
     width: 30px;
 }
 
@@ -463,8 +465,8 @@ a.hover {
     height: 8%;
     padding: 2px;
     background-color: transparent;
-    color: #298678;
-    border-color: #298678;
+    color: #42a394;
+    border-color: #42a394;
     border: 2px solid;
     margin-bottom: 3%;
 }
@@ -482,16 +484,16 @@ a.hover {
 .mobile-filter-btn {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    color: #298678;
+    color: #42a394;
     margin-left: 2.2%;
 }
 
 #mobile-clear-btn {
     width: 25%;
     margin-top: 2%;
-    border: 2px solid #298678;
+    border: 2px solid #42a394;
     background: transparent;
-    color: #298678;
+    color: #42a394;
     font-weight: bold;
 }
 

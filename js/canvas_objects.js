@@ -57,7 +57,7 @@ function newLineArray() {
         var colour = `#359085`;
         lineArray.push(new Backline(x1,x2,y1,y2,dx1,dx2,dy1,dy2,colour));
     }
-    console.log(x1, y1 ,x2, y2);
+    // console.log(x1, y1 ,x2, y2);
     return lineArray;
 }
 
