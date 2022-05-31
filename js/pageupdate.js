@@ -187,120 +187,119 @@ function updateClassif() {
             break;
         
         case "CAMHS":
-            let internalref_q = document.getElementById("internalRefDiv")
+            // let internalref_q = document.getElementById("internalRefDiv")
             switch (ss_camhs) {
                 case "0":
                     outcome.innerText = "Sole Provider";
                     outcomeSub.innerText = "CAMHS Outpatient service is classified as Sole Provider";
-                    internalref_q.style.display = "none";
                     break;
                 case "1":      
                     outcome.innerText = "Sole Provider";
                     outcomeSub.innerText = "CAMHS Inpatient service (for patients aged 14 and below) is classified as Sole Provider";
-                    internalref_q.style.display = "none";
                     break;
                 case "2":
                     outcome.innerText = "Preferred Provider";
-                    outcomeSub.innerText = "CAMHS Inpatient service (for patients aged 15 and above) is classified as Preferred";
-                    internalref_q.style.display = "flex";
-                    if (ss_internalRef == "true"){
-                        outcome.innerText = "Require Comorbidity Assessment";
-                        outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
-                    }
+                    outcomeSub.innerText = "CAMHS Inpatient service (for patients aged 15 and above) is classified as Preferred";                    break;
+                case "3":
+                    outcome.innerText = "Require Comorbidity Assessment";
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
                     break;
                 default:
                     outcome.innerText = "";
                     outcomeSub.innerText = "";
-                    internalref_q.style.display = "none";
                     break;
             }
             break;
         
         case "Genetics":
-            if (ss_selfref == 'true'){
-                outcome.innerText = "Preferred Provider"
-                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
-            } else {
-                switch (ss_agereq) {
-                    case "0":
-                        outcome.innerText = "Preferred Provider"
-                        outcomeSub.innerText = 'Genetics services are Classified as Preferred for patients aged 18 and above.'
-                        break;
-                    case "1":
-                        outcome.innerText = "Sole Provider"
-                        outcomeSub.innerText = "Genetics services are Classified as Sole Provider for patients below 18 years of age."
-                            break;
-                    default:
-                        outcome.innerText = ""
-                        outcomeSub.innerText = ""
-                        break;
-                }
+            switch (ss_agereq) {
+                case "0":
+                    outcome.innerText = "Preferred Provider";
+                    outcomeSub.innerText = 'Genetics services are Classified as Preferred for patients aged 18 and above.';
+                    break;
+                case "1":
+                    outcome.innerText = "Sole Provider";
+                    outcomeSub.innerText = "Genetics services are Classified as Sole Provider for patients below 18 years of age.";
+                    break;
+                case "2":
+                    outcome.innerText = "Preferred Provider";
+                    outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
+                    break;
+                case "3":
+                    outcome.innerText = 'Require Comorbidity Assessment';
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                    break;
+                default:
+                    outcome.innerText = "";
+                    outcomeSub.innerText = "";
+                    break;
             }
             break;
         
         case "ENT":
-            if (ss_selfref == 'true'){
-                outcome.innerText = "Preferred Provider";
-                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
-            } else {
-                switch (ss_agereq) {
-                    case "0":
-                        outcome.innerText = 'Require Clinical Assessment';
-                        outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
-                        break;
-                    case "1":
-                        outcome.innerText = "Sole Provider";
-                        outcomeSub.innerText = 'ENT service for patients aged 3 and below is classified as Sole Provider';
-                        break;
-                    default:
-                        outcome.innerText = ""
-                        outcomeSub.innerText = ""
-                        break;
-                }
+            switch (ss_agereq) {
+                case "0":
+                    outcome.innerText = 'Require Clinical Assessment';
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                    break;
+                case "1":
+                    outcome.innerText = "Sole Provider";
+                    outcomeSub.innerText = 'ENT service for patients aged 3 and below is classified as Sole Provider';
+                    break;
+                case "2":
+                    outcome.innerText = "Preferred Provider";
+                    outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
+                    break;
+                default:
+                    outcome.innerText = ""
+                    outcomeSub.innerText = ""
+                    break;
             }
             break;
         
         case "Plastic Surgery":
-            if (ss_selfref == 'true'){
-                outcome.innerText = "Preferred Provider";
-                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
-            } else {
-                switch (ss_agereq) {
-                    case "0":
-                        outcome.innerText = 'Require Clinical Assessment';
-                        outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
-                            break;
-                    case "1":
-                        outcome.innerText = "Sole Provider";
-                        outcomeSub.innerText = 'Plastic Surgery service for patients under 18 years of age is classified as Sole Provider';
-                            break;
-                    default:
-                        outcome.innerText = ""
-                        outcomeSub.innerText = ""
-                        break;
-                }
+            switch (ss_agereq) {
+                case "0":
+                    outcome.innerText = 'Require Clinical Assessment';
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                    break;
+                case "1":
+                    outcome.innerText = "Sole Provider";
+                    outcomeSub.innerText = 'Plastic Surgery service for patients under 18 years of age is classified as Sole Provider';
+                    break;
+                case "2":
+                    outcome.innerText = "Preferred Provider";
+                    outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
+                    break;
+                default:
+                    outcome.innerText = "";
+                    outcomeSub.innerText = "";
+                    break;
             }
-            break;
+        break;
 
         case "Dermatology":
-            if (ss_selfref == 'true'){
-                outcome.innerText = "Preferred Provider";
-                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
-            } else {
-                switch (ss_agereq) {
-                    case "0":
-                        outcome.innerText = 'Require Comorbidity Assessment';
-                        outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
-                        break;
-                    case "1":
-                        outcome.innerText = "Preferred Provider";
-                        outcomeSub.innerText = 'Dermatology service for patients under 3 months of age is classified as Preferred';
-                        break;
-                    default:
-                        outcome.innerText = ""
-                        outcomeSub.innerText = ""
-                        break;
-                }
+            switch (ss_agereq) {
+                case "0":
+                    outcome.innerText = "Sole Provider"
+                    outcomeSub.innerText = 'Dermatology service for patients aged 3 months and older is classified as Sole';
+                    break;
+                case "1":
+                    outcome.innerText = "Preferred Provider";
+                    outcomeSub.innerText = 'Dermatology service for patients under 3 months of age is classified as Preferred';
+                    break;
+                case "2":
+                    outcome.innerText = "Preferred Provider";
+                    outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
+                    break;
+                case "3":
+                    outcome.innerText = 'Require Comorbidity Assessment';
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                    break;
+                default:
+                    outcome.innerText = "";
+                    outcomeSub.innerText = "";
+                    break;
             }
             break;
         
@@ -310,10 +309,10 @@ function updateClassif() {
                 outcomeSub.innerText = "The Newborn Intensive Care Unit service is classified as Sole Provider when upgraded/downgraded";
                 switch (ss_niculvl) {
                     case "0":
-                        document.getElementById('updowngrade-q').innerText = "Has the NICU Level been upgraded to level 3/4?";
+                        document.getElementById('updowngrade-q').innerText = "The NICU Level has been upgraded to level 3/4";
                         break;
                     case "1":
-                        document.getElementById('updowngrade-q').innerText = "Has the NICU Level been downgraded to level 1/2?";        
+                        document.getElementById('updowngrade-q').innerText = "The NICU Level has been downgraded to level 1/2";        
                         break;
                     default:
                         break;
@@ -323,12 +322,12 @@ function updateClassif() {
                     case "0":
                         outcome.innerText = "Preferred Provider";
                         outcomeSub.innerText = "The Newborn Intensive Care Unit service is classified as Preferred for NICU Levels 1 & 2";
-                        document.getElementById('updowngrade-q').innerText = "Has the NICU Level been upgraded to level 3/4?";
+                        document.getElementById('updowngrade-q').innerText = "The NICU Level has been upgraded to level 3/4";
                         break;
                     case "1":
                         outcome.innerText = "Sole Provider";
                         outcomeSub.innerText = "The Newborn Intensive Care Unit service is classified as Sole Provider for NICU Levels 3 & 4";
-                        document.getElementById('updowngrade-q').innerText = "Has the NICU Level been downgraded to level 1/2?";        
+                        document.getElementById('updowngrade-q').innerText = "The NICU Level has been downgraded to level 1/2";        
                         break;
                     default:
                         break;
@@ -337,28 +336,28 @@ function updateClassif() {
             break;
         
         case 'Gynecology':
-            if (ss_selfref == 'true'){
-                outcome.innerText = "Preferred Provider";
-                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
-            } else {
+            switch (ss_agegroup) {
+                case "0":
+                    outcome.innerText = "Sole Provider";
+                    outcomeSub.innerText = "The Gynecology service is classified as Sole Provider for patients at 4 to 14 years of age";        
+                    break;
+                case "1":
+                    outcome.innerText = "Preferred Provider";
+                    outcomeSub.innerText = "The Gynecology service is classified as Preferred for patients at 15 to 17 Years years of age";        
+                    break;
+                case "2":
+                    outcome.innerText = "Preferred Provider";
+                    outcomeSub.innerText = "The Gynecology service is classified as Preferred for patients aged 18 years and older";        
+                    break;
+                case "3":
+                    outcome.innerText = "Preferred Provider";
+                    outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)';
+                    break;
             
-                switch (ss_agegroup) {
-                    case "0":
-                            outcome.innerText = "Sole Provider";
-                            outcomeSub.innerText = "The Gynecology service is classified as Sole Provider for patients at 4 to 14 years of age";        
-                        break;
-                    case "1":
-                            outcome.innerText = "Preferred Provider";
-                            outcomeSub.innerText = "The Gynecology service is classified as Preferred for patients at 15 to 17 Years years of age";        
-                        break;
-                    case "2":
-                            outcome.innerText = "Preferred Provider";
-                            outcomeSub.innerText = "The Gynecology service is classified as Preferred for patients aged 18 years and older";        
-                        break;
-                
-                    default:
-                        break;
-                }
+                default:
+                    outcome.innerText = "";
+                    outcomeSub.innerText = "";
+                    break;
             }
             break;
         

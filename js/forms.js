@@ -67,7 +67,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -79,7 +79,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -91,7 +91,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -103,7 +103,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -115,7 +115,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -127,7 +127,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -139,7 +139,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -151,7 +151,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -163,7 +163,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -175,7 +175,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -187,7 +187,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -199,7 +199,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -211,7 +211,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -223,7 +223,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -235,7 +235,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -247,7 +247,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -259,7 +259,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     break;
@@ -270,7 +270,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     break;
@@ -281,7 +281,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox'>
                         <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
                     selfRef();
@@ -295,46 +295,47 @@ function formQuestions() {
                     </div>
                     <div class='qpanel1-qbox' id="inoutpatientDiv">
                         <input class="checkbox" type="radio" onclick="camhsradio()" id="inoutpatientBox" name="camhs" value=1>
-                        <p class="qpanel-q">Child and Adolescent Psychiatry (CAMHS) Inpatient ≤ 14 Years</p></input>
+                        <p class="qpanel-q">Child and Adolescent Psychiatry (CAMHS) Inpatient ≤14 Years</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="inoutpatientDiv">
                         <input class="checkbox" type="radio" onclick="camhsradio()" id="inoutpatientBox" name="camhs" value=2>
-                        <p class="qpanel-q">Child and Adolescent Psychiatry (CAMHS) Inpatient > 14 Years</p></input>
+                        <p class="qpanel-q">Child and Adolescent Psychiatry (CAMHS) Inpatient >14 Years</p></input>
                     </div>
-                    <div class='qpanel1-qbox' id="internalRefDiv" style="display: none;">
-                        <input class="checkbox" type="checkbox" onclick="internalRef()" id="internalRefBox">
-                        <p class="qpanel-q">Is the patient internally referred from a Sole service?</p></input>
+                    <div class='qpanel1-qbox' id="inoutpatientDiv">
+                        <input class="checkbox" type="radio" onclick="camhsradio()" id="inoutpatientBox" name="camhs" value=3>
+                        <p class="qpanel-q">The patient is internally referred from a Sole service (>14 Years)</p></input>
                     </div>
                     `;
-                    internalRef();
                     sessionStorage.setItem('camhs', -1);
-    
                     break;
     
                 case "Genetics":
                     qpanel1.innerHTML += `
-                    <div class='qpanel1-qbox'>
-                        <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
-                    </div>
                     <div class='qpanel1-qbox' id="ageReqDiv">
-                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=0>
-                        <p class="qpanel-q">The patient age is 18 years old or older</p></input>
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=2>
+                        <p class="qpanel-q">The patient is a self referral</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="ageReqDiv">
                         <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=1>
-                        <p class="qpanel-q">The patient is below 18 years of age</p></input>
+                        <p class="qpanel-q">The patient's age is below 18 years</p></input>
+                    </div>
+                    <div class='qpanel1-qbox' id="ageReqDiv">
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=0>
+                        <p class="qpanel-q">The patient's age is 18 years or older</p></input>
+                    </div>
+                    <div class='qpanel1-qbox' id="ageReqDiv">
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=3>
+                        <p class="qpanel-q">The patient is internally referred from a Sole service (≤18 Years)</p></input>
                     </div>
                     `;
-                    selfRef();
                     sessionStorage.setItem('agereq', -1);
                     break;
     
                 case "ENT":
                     qpanel1.innerHTML += `
-                    <div class='qpanel1-qbox'>
-                        <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                    <div class='qpanel1-qbox' id="ageReqDiv">
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=2>
+                        <p class="qpanel-q">The patient is a self referral</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="ageReqDiv">
                         <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=0>
@@ -346,14 +347,13 @@ function formQuestions() {
                     </div>
                     `;
                     sessionStorage.setItem('agereq', -1);
-                    selfRef();
                     break;
     
                 case "Plastic Surgery":
                     qpanel1.innerHTML += `
-                    <div class='qpanel1-qbox'>
-                        <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                    <div class='qpanel1-qbox' id="ageReqDiv">
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=2>
+                        <p class="qpanel-q">The patient is a self referral</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="ageReqDiv">
                         <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=0>
@@ -365,27 +365,29 @@ function formQuestions() {
                     </div>
                     `;
                     sessionStorage.setItem('agereq', -1);
-                    selfRef();
                     break;
     
                 case "Dermatology":
                     qpanel1.innerHTML += `
-                    <div class='qpanel1-qbox'>
-                        <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
+                    <div class='qpanel1-qbox' id="ageReqDiv">
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=2>
+                        <p class="qpanel-q">The patient is a self referral</p></input>
+                    </div>
+                    <div class='qpanel1-qbox' id="ageReqDiv">
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=1>
+                        <p class="qpanel-q">The patient's age is below 3 months</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="ageReqDiv">
                         <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=0>
                         <p class="qpanel-q">The patient's age is 3 months or older</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="ageReqDiv">
-                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=1>
-                        <p class="qpanel-q">The patient is below 3 months of age</p></input>
+                        <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=3>
+                        <p class="qpanel-q">The patient is internally referred from a Sole service (>3 Months)</p></input>
                     </div>
                     `;
                     sessionStorage.setItem('agereq', -1);
                     ageReq();
-                    selfRef();
                     break;
     
                 case "NICU":
@@ -401,7 +403,7 @@ function formQuestions() {
                         <div style="height: 15px"></div>
                         <div class='qpanel1-qbox' id="updowngradedDiv">
                             <input class="checkbox" type="checkbox" onclick="updowngradedReq()" id="updowngradedBox" name="updowngraded">
-                            <p class="qpanel-q" id="updowngrade-q">Has the NICU Level been upgraded to level 3/4?</p></input>
+                            <p class="qpanel-q" id="updowngrade-q">The NICU Level been upgraded to level 3/4</p></input>
                         </div>
                         `;
                         nicuLvl();
@@ -410,16 +412,12 @@ function formQuestions() {
                 
                 case "Gynecology":
                     qpanel1.innerHTML += `
-                    <div class='qpanel1-qbox'>
-                        <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">Is the patient self-referred?</p></input>
-                    </div>
+                    <div class='qpanel1-qbox' id="ageReqDiv">
+                        <input class="checkbox" type="radio" onclick="ageGroup()" id="ageReqBox" name="agegroup" value=3>
+                        <p class="qpanel-q">The patient is a self referral</p></input>
+                    </div>    
                     <div class='qpanel1-qbox' id="">
-                        <h3>Choose Age Group:</h3>
-                    </div>
-    
-                    <div class='qpanel1-qbox' id="">
-                        <input class="checkbox" type="radio" onclick="ageGroup()" id="" name="agegroup" checked value="0">
+                        <input class="checkbox" type="radio" onclick="ageGroup()" id="" name="agegroup" value="0">
                         <p class="qpanel-q">Pediatrics (4 - 14 Years)</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="">
@@ -431,8 +429,8 @@ function formQuestions() {
                         <p class="qpanel-q">Adult (18 Years and Above)</p></input>
                     </div>
                     `;
+                    sessionStorage.setItem('agegroup', -1);
                     ageGroup();
-                    selfRef();
                     break;
                 
                 case "Emergency Services":
@@ -447,7 +445,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox' id="internalRefDiv">
                         <input class="checkbox" type="checkbox" onclick="internalRef()" id="internalRefBox">
-                        <p class="qpanel-q">Is the patient internally referred from a Sole service?</p></input>
+                        <p class="qpanel-q">The patient is internally referred from a Sole service.</p></input>
                     </div>
                     `;
                     internalRef();
@@ -467,11 +465,11 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox' id="">
                         <input class="checkbox" type="radio" onclick="obsRadio()" id="" name="obsRadio" checked value="0">
-                        <p class="qpanel-q">Is the patient referred from Sidra Adult Mental Health Services</p></input>
+                        <p class="qpanel-q">The patient is referred from Sidra Adult Mental Health Services</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="">
                         <input class="checkbox" type="radio" onclick="obsRadio()" id="" name="obsRadio" value="1">
-                        <p class="qpanel-q">Is the patient referred from Sidra Cardiology (Congenital Heart Disease)</p></input>
+                        <p class="qpanel-q">The patient is referred from Sidra Cardiology (Congenital Heart Disease)</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="">
                         <input class="checkbox" type="radio" onclick="obsRadio()" id="" name="obsRadio" value="2" checked>
@@ -500,7 +498,7 @@ function formQuestions() {
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox' id="internalRefDiv">
                         <input class="checkbox" type="checkbox" onclick="internalRef()" id="internalRefBox">
-                        <p class="qpanel-q">Is the patient internally referred from Obstetrics to any of the following services?</p></input>
+                        <p class="qpanel-q">The patient is internally referred from Obstetrics to any of the following services.</p></input>
                     </div>
                     <ul>
                         <li>Diabetic New</li>
