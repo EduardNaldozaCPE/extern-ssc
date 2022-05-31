@@ -11,6 +11,7 @@ function mobileUI() {
     logo.style.width = "18%";
 
     let content = document.getElementById('additrespanel')
+    content.style.display = 'block';
     content.innerHTML ='';
     content.style.overflowY = "scroll";
     content.innerHTML =`
@@ -29,12 +30,9 @@ function mobileUI() {
             <p style="margin-top: 0px;">Executive Director of Enterprise Application</p>
         </li>
         <hr>
-        <li>
-            <h4 style="margin-bottom: 8px;">Executive Commitee for Service Classification</h4>
-            <!-- <p style="margin-top: 0px;margin-bottom: 0px; opacity:0; height: 4px;">-</p> -->
-        </li>
-        <li>
-            <h4 style="margin-bottom: 8px;">Dr. Basma Harara</h4>
+        <li style="display: flex; flex-direction: column; align-items: flex-start;">
+            <h4 style="margin-bottom: 0px">Executive Director of Clinical Operations</h4>
+            <h4 style="margin-bottom: 8px; margin-top: 8px">Dr. Basma Harara</h4>
             <p style="margin-top: 0px;">Executive Director of Clinical Operations</p>
         </li>
     </ul>

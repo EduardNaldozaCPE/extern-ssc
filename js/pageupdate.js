@@ -3,7 +3,6 @@ function updateClassif() {
     let outcome = document.getElementById("outcome");
     let outcomeSub = document.getElementById("outcome-sub");
     let ss_selfref = sessionStorage.getItem('selfRef');
-    // let ss_agereq = sessionStorage.getItem('ageReq');
     let ss_agereq = sessionStorage.getItem('agereq');
     let ss_camhs = sessionStorage.getItem('camhs');
     let ss_internalRef = sessionStorage.getItem('internalRef');
@@ -460,10 +459,10 @@ function updateClassif() {
         }
 
     if (outcome.innerText != "") {
-        outcome.style.outline = "solid 1.5px";
+        outcome.style.outline = "solid 2px";
         outcome.style.padding = "15px"
         if (outcome.innerText == "Preferred Provider") {
-            outcome.style.outline = "solid 1.5px rgb(255 12 0)";
+            outcome.style.outline = "solid 2px rgb(255 12 0)";
         }
     } else {
         outcome.style.outline = "0px";
