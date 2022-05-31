@@ -187,28 +187,32 @@ function updateClassif() {
             break;
         
         case "CAMHS":
-            if (ss_internalRef == "false"){
-                switch (ss_camhs) {
-                    case "0":
-                        outcome.innerText = "Sole Provider";
-                        outcomeSub.innerText = "CAMHS Outpatient service is classified as Sole Provider";
-                        break;
-                    case "1":      
-                        outcome.innerText = "Sole Provider";
-                        outcomeSub.innerText = "CAMHS Inpatient service (for patients aged 14 and below) is classified as Sole Provider";
-                        break;
-                    case "2":
-                        outcome.innerText = "Preferred Provider";
-                        outcomeSub.innerText = "CAMHS Inpatient service (for patients aged 15 and above) is classified as Preferred";
-                        break;
-                    default:
-                        outcome.innerText = "";
-                        outcomeSub.innerText = "";
-                        break;
-                }
-            } else {
-                outcome.innerText = "Require Comorbidity Assessment";
-                outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+            let internalref_q = document.getElementById("internalRefDiv")
+            switch (ss_camhs) {
+                case "0":
+                    outcome.innerText = "Sole Provider";
+                    outcomeSub.innerText = "CAMHS Outpatient service is classified as Sole Provider";
+                    internalref_q.style.display = "none";
+                    break;
+                case "1":      
+                    outcome.innerText = "Sole Provider";
+                    outcomeSub.innerText = "CAMHS Inpatient service (for patients aged 14 and below) is classified as Sole Provider";
+                    internalref_q.style.display = "none";
+                    break;
+                case "2":
+                    outcome.innerText = "Preferred Provider";
+                    outcomeSub.innerText = "CAMHS Inpatient service (for patients aged 15 and above) is classified as Preferred";
+                    internalref_q.style.display = "flex";
+                    if (ss_internalRef == "true"){
+                        outcome.innerText = "Require Comorbidity Assessment";
+                        outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                    }
+                    break;
+                default:
+                    outcome.innerText = "";
+                    outcomeSub.innerText = "";
+                    internalref_q.style.display = "none";
+                    break;
             }
             break;
         

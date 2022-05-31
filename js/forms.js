@@ -301,7 +301,7 @@ function formQuestions() {
                         <input class="checkbox" type="radio" onclick="camhsradio()" id="inoutpatientBox" name="camhs" value=2>
                         <p class="qpanel-q">Child and Adolescent Psychiatry (CAMHS) Inpatient > 14 Years</p></input>
                     </div>
-                    <div class='qpanel1-qbox' id="internalRefDiv">
+                    <div class='qpanel1-qbox' id="internalRefDiv" style="display: none;">
                         <input class="checkbox" type="checkbox" onclick="internalRef()" id="internalRefBox">
                         <p class="qpanel-q">Is the patient internally referred from a Sole service?</p></input>
                     </div>
