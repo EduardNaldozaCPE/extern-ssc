@@ -11,7 +11,7 @@ body {
     color: rgba(255, 255, 255, 1);
     left: 50%;
     transform: translateX(-50%);
-    top: 15%;
+    top: 13%;
     width: 100%;
 }
 
@@ -266,8 +266,8 @@ a.hover {
     color: #298678;
     position: fixed;
     background: white;
-    top: 26%;
-    bottom: 8%;
+    top: 24%;
+    bottom: 10%;
     right: 10.5%;
     left: 10.5%;
     padding: 30px;
@@ -279,8 +279,8 @@ a.hover {
     color: #298678;
     position: fixed;
     background: white;
-    top: 26%;
-    bottom: 8%;
+    top: 24%;
+    bottom: 10%;
     right: 10.5%;
     left: 10.5%;
     border-radius: 15px;
@@ -326,7 +326,8 @@ a.hover {
 }
 
 .select-panel-btn {
-    height: 50px;
+    height: 60%;
+    max-height: 50px;
     width: 90%;
     background-color: transparent;
     color: #42a394;
