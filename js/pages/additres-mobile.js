@@ -31,7 +31,7 @@ function mobileUI() {
         </li>
         <hr>
         <li style="display: flex; flex-direction: column; align-items: flex-start;">
-            <h4 style="margin-bottom: 0px">Executive Director of Clinical Operations</h4>
+            <h4 style="margin-bottom: 0px">Chair of Executive Committee</h4>
             <h4 style="margin-bottom: 8px; margin-top: 8px">Dr. Basma Harara</h4>
             <p style="margin-top: 0px;">Executive Director of Clinical Operations</p>
         </li>
