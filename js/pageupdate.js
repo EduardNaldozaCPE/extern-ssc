@@ -468,7 +468,7 @@ function updateClassif() {
         outcome.style.outline = "0px";
         outcome.style.padding = "15px"
     }
-    if (canvas.width > canvas.height+(canvas.width/10) || canvas.width > 1000) {
+    if (canvas.width > canvas.height+(canvas.width/7)) {
         fade(outcome);
         fade(outcomeSub);
     }
