@@ -320,6 +320,7 @@ a.hover {
     height: 75%;
     display: grid;
     grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 25% 25% 25% 25%;
     justify-items: center;
     grid-area: auto;
     margin-top: 20px;

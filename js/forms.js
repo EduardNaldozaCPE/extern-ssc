@@ -46,7 +46,7 @@ function formQuestions() {
                     btnlist[btn].onclick = () => {
                         console.log(btnlist[btn].innerText);
                         sessionStorage.setItem('branch',btnlist[btn].innerText);
-                        location.reload()
+                        window.location = window.location.href;
                         // fadeout(document.getElementById("outcome"));
                         // fadeout(document.getElementById("outcome-sub"));
                         // fadeout(document.getElementById("q-panel"));
@@ -535,6 +535,12 @@ function formQuestions() {
                     qpanel1.innerHTML = `
                     <p>Maternal Fetal Medicine requires a Physician's clinical assessment by default to determine the service's classification.</p>    
                     `
+                    break;
+
+                case "Private Clinics":
+                    qpanel1.innerHTML = `
+                    <p>Note: Registration staff Must select 'Self-Referral' value from the 'Referral Source' field when creating the patient encounter, this action will automatically override any previous classification and classify the patient visit as 'Preferred'</p>
+                    `;
                     break;
     
                 default:

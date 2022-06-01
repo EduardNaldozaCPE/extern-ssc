@@ -8,7 +8,7 @@
     <title>Sidra Service Classification App</title>
 </head>
 <body>
-    <canvas class="cvs"></canvas>
+    <canvas class="cvs" id="cvs">Warning: This browser does not support HTML5</canvas>
     <div id="content">
         <img src="./images/logo-white.png" alt="" id="logo-white">
         <p id="contact" style="font-style: oblique">Disclaimer: Information is displayed as per Sidra's current approved classification rules</p>
@@ -52,20 +52,7 @@
                 <input type="button" value="CLEAR" id="clear-btn" onclick="selectPage(1)"></input>
             </div>
 
-            <div id="servicelist">
-                <button class="select-panel-btn" onclick="serviceBtn(this)">Adolescent Medicine</button>
-                <button class="select-panel-btn" onclick="serviceBtn(this)">Adult Mental Health</button>
-                <button class="select-panel-btn" onclick="serviceBtn(this)">Adult Services</button>
-                <button class="select-panel-btn" onclick="serviceBtn(this)">Aesthetics</button>
-                <button class="select-panel-btn" onclick="serviceBtn(this)">Allergy Immunology</button>
-                <button class="select-panel-btn" onclick="serviceBtn(this)">Ancillary Services</button>
-                <button class="select-panel-btn" onclick="serviceBtn(this)">CAMHS</button>
-                <button class="select-panel-btn" onclick="serviceBtn(this)">Cardiology</button>
-                <button class="select-panel-btn" onclick="serviceBtn(this)">Dental Surgery</button>
-                <button class="select-panel-btn" onclick="serviceBtn(this)">Dermatology</button>
-                <button class="select-panel-btn" onclick="serviceBtn(this)">Developmental Pediatrics</button>
-                <button class="select-panel-btn" onclick="serviceBtn(this)">Emergency Services</button>
-            </div>
+            <div id="servicelist"></div>
             <div id="pagenav">
                 <div id="counterdiv"></div>
                 <img src="./images/leftbutton.png" alt="" id="leftbutton" onclick="leftbutton()">
@@ -84,10 +71,20 @@
                 <p>For technical inquiries or clarification, Please contact: <i>ApplicationRevenueCycle@sidra.org</i></p>
             </div>
             <div id="popup-additres">
-                <p>Additional Resources</i></p>
+                <p>Additional Resources</p>
             </div>
         </div>
     </div>
-    
+    <script>
+        function initMenu() {
+            console.log("wa");
+            for (let index = 0; index < 12; index++) {
+                document.getElementById('servicelist').innerHTML += `
+                        <button class="select-panel-btn" onclick="serviceBtn(this)">${servicelist[index]}</button>
+                `;
+            }
+        }
+        document.onload = initMenu(); 
+    </script>
 </body>
 </html>

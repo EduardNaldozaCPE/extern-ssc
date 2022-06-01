@@ -15,6 +15,9 @@ class Page{
 
             outcomescrn.style.left = "50%";
             outcomescrn.style.transform = "translateX(-50%)";
+            outcomescrn.style.borderBottom = "2px rgba(255,255,255,0.4) solid";
+            outcomescrn.style.overflow = "auto";
+            outcomescrn.style.justifyContent = "flex-start";
             qbox.style.left = "50%";
             qbox.style.width = "85%";
             qbox.style.paddingLeft = "3.5%";

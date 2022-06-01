@@ -1,3 +1,7 @@
+if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )){
+    document.getElementsByTagName('body')[0].innerHTML = 'HTML5/ES6 IS NOT SUPPORTED IN THIS BROWSER';
+} 
+
 var canvas = document.querySelector('canvas');
 var pageState = 0;
 var pageloaded = false;
@@ -11,7 +15,7 @@ var servicelist = [
     "Genetics", "Gynecology", "Hematology/Oncology", "Infectious Disease",
     "Inpatient & Ambulatory Surgery Procedures", "Maternal Fetal Medicine", 
     "NICU", "Neonatal Surgery", "Nephrology", "Neurology", "Neurosurgery", "Obstetrics", 
-    "Ophthalmology", "Orthopedics", "Plastic Surgery", "Pulmonology", "Rehab Medicine", 
+    "Ophthalmology", "Orthopedics", "Plastic Surgery", "Private Clinics", "Pulmonology", "Rehab Medicine", 
     "Reproductive Medicine", "Rheumatology", "Transplant", "Urology"
 ];
 
@@ -54,5 +58,20 @@ if (location.pathname.endsWith("index.html")  || location.pathname.endsWith("/ex
         for (let index = 1; index <= Math.ceil(servicelist.length/12)-1; index++) {
             pageicons.innerHTML += `<img src="./images/pageicon.png" alt="" class="pageicon" id="pageicon-${index+1}" onclick="selectPage(${index+1})">`;
         }
+
+        let isSupported;
+        if (document.createElement('canvas').getContext) {
+            isSupported = true
+        } else {
+            isSupported = false;
+        }
+        if (!isSupported) {
+            console.log('not supported');
+        } else {
+            console.log('supported');
+        }
+
     }
 }
+
+addEventListener('beforeunload', event => {console.log('l');});

@@ -450,18 +450,24 @@ function updateClassif() {
             outcome.innerText = 'Require Clinical Assessment';
             outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
             break;
+        case "Private Clinics":
+            outcome.innerText = 'Preferred Provider';
+            outcomeSub.innerText = "All Patients referred as Private is by default classified as 'Preferred' (applicable to all Medical Services, Evenings & Morning Clinics)";
+            break;
         
         default:
-            outcome.innerText = 'Select a Service';
-            outcomeSub.innerText = "Choose a service from the menu.";
+            outcome.innerText = '';
+            outcomeSub.innerText = "";
             break;
         }
 
     if (outcome.innerText != "") {
         outcome.style.outline = "solid 2px";
         outcome.style.padding = "15px"
+        outcome.style.color = "#ffffff";
         if (outcome.innerText == "Preferred Provider") {
-            outcome.style.outline = "solid 2px rgb(255 12 0)";
+            outcome.style.outline = "solid 2px #d10e0e";
+            outcome.style.color = "#d10e0e";
         }
     } else {
         outcome.style.outline = "0px";
