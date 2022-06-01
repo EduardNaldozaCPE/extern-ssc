@@ -29,7 +29,6 @@ function formQuestions() {
     if (location.pathname == '/'+getRootDir()+"form.html"){
         window.onload = () => {
             let leftpanelscroll = document.getElementById("left-panel-scroll");
-            console.log(leftpanelscroll);
         
             if (sessionStorage.getItem("left-panel-scroll") != null) {
                 leftpanelscroll.scrollTop = sessionStorage.getItem("left-panel-scroll");
@@ -38,7 +37,6 @@ function formQuestions() {
             const branch = sessionStorage.getItem('branch');
             var outcome = document.getElementById("outcome");
             var outcomeSub = document.getElementById("outcome-sub");
-            var qpanel = document.getElementById("q-panel");
             var qpanelheader = document.getElementById('q-panel-header');
             var qpanel1 = document.getElementById('q-panel1');
             qpanelheader.innerText = branch;

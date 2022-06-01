@@ -186,7 +186,6 @@ function updateClassif() {
             break;
         
         case "CAMHS":
-            // let internalref_q = document.getElementById("internalRefDiv")
             switch (ss_camhs) {
                 case "0":
                     outcome.innerText = "Sole Provider";
