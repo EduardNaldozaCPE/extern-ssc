@@ -30,6 +30,10 @@ class Page{
             outcomesub.style.fontSize = "1em";
             qbody.style.width = "88%";
             qbody.style.fontSize = "1rem";
+            qbody.style.borderTop = "solid 1px #ddd";
+            qbody.style.borderBottom = "solid 1px #ddd";
+            qbody.style += "-webkit-overflow-scrolling: auto";
+            qbody.style.width = "92%";
 
             document.getElementById('content2').innerHTML += `
                 <a id="mobile-backbtn" onclick="goHome()"><</a>

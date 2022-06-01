@@ -13,7 +13,10 @@ function mobileUI() {
     let content = document.getElementById('additrespanel')
     content.style.display = 'block';
     content.innerHTML ='';
-    content.style.overflowY = "scroll";
+    content.style += "-webkit-overflow-scrolling: auto";
+    content.style.overflowY = "auto";
+    content.style.flexDirection = "column";
+    content.style.fontSize = 'font-size: 3.5vw';
     content.innerHTML =`
     <h3 style="margin-top:10px">Additional Resources</h3>
     <a class="additres-link" href="https://fa-epxn-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/faces/deeplink?objType=WLF_LEARN_LEARNING_ITEM&action=NONE&objKey=learningItemId%3D300000409065223" target="_blank">eLearning module</a><br>
