@@ -228,7 +228,7 @@ function rememberScroll(div) {
 
 function scrollForMore() {
     var qbody = document.getElementById("q-panel1");
-    if (qbody.scrollTop < 10) {
+    if (qbody.scrollTop >= 0 && qbody.scrollTop < 10) {
         document.getElementById('scrollindic').style.display = 'block';
     } else {
         document.getElementById('scrollindic').style.display = 'none';
