@@ -4,7 +4,8 @@ class Page{
     }
     initpage = () => {
         if (canvas.width <= canvas.height+(canvas.width/7)) {
-            document.getElementById("left-panel").style.display = "none";
+            leftpanel = document.getElementById("left-panel")
+            leftpanel.style.display = "none";
 
             var outcomescrn = document.getElementById("outcome-scrn");
             var outcome = document.getElementById("outcome");
@@ -39,10 +40,22 @@ class Page{
                 <a id="mobile-backbtn" onclick="goHome()"><</a>
             `
 
+            
+            
         } else {
             var qbody = document.getElementById("q-panel1");
             qbody.style.fontSize = "1.2vw";
-
+            
+            let leftpanelBtns = document.getElementsByClassName("panel-btn");
+            
+            for (let i = 0; i < leftpanelBtns.length; i++) {
+                const btn = leftpanelBtns[i];
+                
+                if (btn.innerText == sessionStorage.getItem('branch')){
+                    btn.style.backgroundColor = "#cdc";
+                    break;
+                }
+            }
         }
     }
     startInstanceList = () => {
