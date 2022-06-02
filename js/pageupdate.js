@@ -478,7 +478,7 @@ function updateClassif() {
         fade(outcomeSub);
     } else {
         console.log(document.getElementById("q-panel1").scrollHeight, document.getElementById("q-panel1").clientHeight);
-        if (document.getElementById("q-panel1").scrollHeight > document.getElementById("q-panel1").clientHeight + 50) {
+        if (document.getElementById("q-panel1").scrollHeight > document.getElementById("q-panel1").clientHeight + 70) {
             document.getElementById('scrollindic').style.display = 'block';
         } else {
             document.getElementById('scrollindic').style.display = 'none';
