@@ -226,6 +226,16 @@ function rememberScroll(div) {
     sessionStorage.setItem("left-panel-scroll", div.scrollTop);
 }
 
+function scrollForMore() {
+    var qbody = document.getElementById("q-panel1");
+    console.log(qbody.scrollTop);
+    if (qbody.scrollTop >= 0 && qbody.scrollTop < 10) {
+        document.getElementById('scrollindic').style.display = 'block';
+    } else {
+        document.getElementById('scrollindic').style.display = 'none';
+    }
+}
+
 // SELECT SCREEN
 function updatePageList() {
     fadegrid(document.getElementById("servicelist"));
