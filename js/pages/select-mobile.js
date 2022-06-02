@@ -39,7 +39,6 @@ function mobileUI() {
             <a onclick="filterBtn(this)" class="mobile-filter-btn">K</a>
             <a onclick="filterBtn(this)" class="mobile-filter-btn">L</a>
             <a onclick="filterBtn(this)" class="mobile-filter-btn">M</a>
-            <br>
             <a onclick="filterBtn(this)" class="mobile-filter-btn">N</a>
             <a onclick="filterBtn(this)" class="mobile-filter-btn">O</a>
             <a onclick="filterBtn(this)" class="mobile-filter-btn">P</a>
