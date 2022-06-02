@@ -24,7 +24,6 @@ class Page{
             qbox.style.paddingLeft = "3.5%";
             qbox.style.paddingTop = "3.5%";
             qbox.style.transform = "translateX(-50%)";
-            qbox.innerHTML += '<p style="position: absolute;bottom: 0px;font-family: Arial;color: #eee;font-weight: bold; transform:translate(-50%,25%); left: 50%; background:#333; border-radius:10px; padding: 5px; opacity:0.35" id="scrollindic">Scroll for more</p>';
 
             qheader.style.fontSize = "1.6em";
             outcome.style.fontSize = "1.6em";
@@ -42,7 +41,8 @@ class Page{
 
             document.getElementById('content2').innerHTML += `
                 <a id="mobile-backbtn" onclick="goHome()"><</a>
-            `
+            `;
+            scrollForMore();
 
             
         } else {

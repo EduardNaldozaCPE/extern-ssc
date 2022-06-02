@@ -476,9 +476,5 @@ function updateClassif() {
     if (canvas.width > canvas.height+(canvas.width/7)) {
         fade(outcome);
         fade(outcomeSub);
-    } else {            
-        console.log(document.getElementById("q-panel1").scrollHeight, document.getElementById("q-panel1").clientHeight);
-
-        
     }
 }
