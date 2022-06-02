@@ -60,6 +60,12 @@ class Page{
                 }
             }
         }
+
+        if (document.getElementById("q-panel1").scrollHeight > document.getElementById("q-panel1").clientHeight) {
+            document.getElementById('scrollindic').style.display = 'block';
+        } else {
+            document.getElementById('scrollindic').style.display = 'none';
+        }
     }
     startInstanceList = () => {
         var titleheight = undefined;
