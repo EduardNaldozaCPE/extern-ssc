@@ -25,7 +25,7 @@ function mobileUI() {
     <h3 style="margin-bottom: 12px;">Leadership Team</h3>
     <ul style='text-align: left;'>
         <li>
-            <h4 style="margin-bottom: 8px;">Dr. S. Bhasker</h4>
+            <h4 style="margin-bottom: 8px;">Dr. S Bhasker</h4>
             <p style="margin-top: 0px;">Executive Director of IMT</p>
         </li>
         <li>
@@ -35,7 +35,7 @@ function mobileUI() {
         <hr>
         <li>
             <h4 style="margin-bottom: 8px">Mr. Hassan Al Amri</h4>
-            <p style="margin-top: 0px;margin-bottom: 8px">Chief Financial Officer</p>
+            <p style="margin-top: 0px;margin-bottom: 8px">Chief Financial Officer (Acting)</p>
             <p style="margin-top: 0px;">Executive Director - Finance</p>
         </li>
         <li>
