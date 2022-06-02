@@ -4,7 +4,7 @@ class Page{
     }
     initpage = () => {
         if (canvas.width <= canvas.height+(canvas.width/7)) {
-            leftpanel = document.getElementById("left-panel")
+            let leftpanel = document.getElementById("left-panel")
             leftpanel.style.display = "none";
 
             var outcomescrn = document.getElementById("outcome-scrn");
