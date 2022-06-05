@@ -24,45 +24,6 @@
             <img src="./images/sidra_rcpt_logo.jpg" alt="" id="logo">
             <button id="home-btn" onclick="goHome()" style="font-size: 1.1vw;">Home</button>
             <div id="left-panel-scroll" onscroll="rememberScroll(this)">
-                <!-- SERVICES ARE IN ALPHABETICAL ORDER -->
-                <button class="panel-btn">Adolescent Medicine</button>
-                <button class="panel-btn">Adult Mental Health</button>
-                <button class="panel-btn">Adult Services</button>
-                <button class="panel-btn">Aesthetics</button>
-                <button class="panel-btn">Allergy Immunology</button>
-                <button class="panel-btn">Ancillary Services</button>
-                <button class="panel-btn">CAMHS</button>
-                <button class="panel-btn">Cardiology</button>
-                <button class="panel-btn">Dental Surgery</button>
-                <button class="panel-btn">Dermatology</button>
-                <button class="panel-btn">Developmental Pediatrics</button>
-                <button class="panel-btn">Emergency Services</button>
-                <button class="panel-btn">Endocrinology</button>
-                <button class="panel-btn">ENT</button>
-                <button class="panel-btn">Gastroenterology</button>
-                <button class="panel-btn">General Pediatrics</button>
-                <button class="panel-btn">General Surgery</button>
-                <button class="panel-btn">Genetics</button>
-                <button class="panel-btn">Gynecology</button>
-                <button class="panel-btn">Hematology/Oncology</button>
-                <button class="panel-btn">Infectious Disease</button>
-                <button class="panel-btn">Inpatient & Ambulatory Surgery Procedures</button>
-                <button class="panel-btn">Maternal Fetal Medicine</button>
-                <button class="panel-btn">NICU</button>
-                <button class="panel-btn">Neonatal Surgery</button>
-                <button class="panel-btn">Nephrology</button>
-                <button class="panel-btn">Neurology</button>
-                <button class="panel-btn">Neurosurgery</button>
-                <button class="panel-btn">Obstetrics</button>
-                <button class="panel-btn">Ophthalmology</button>
-                <button class="panel-btn">Plastic Surgery</button>
-                <button class="panel-btn">Private Clinics</button>
-                <button class="panel-btn">Rehab Medicine</button>
-                <button class="panel-btn">Reproductive Medicine</button>
-                <button class="panel-btn">Rheumatology</button>
-                <button class="panel-btn">Transplant</button>
-                <button class="panel-btn">Urology</button>
-                <div style="height: 5px;"></div>
             </div>
         </div>
         <div id="outcome-scrn">
@@ -80,5 +41,21 @@
         </div>
     </div>
     
+    <script>
+        function initMenu() {
+            for (let index = 0; index < servicelist.length; index++) {
+                console.log('added btn');
+                document.getElementById('left-panel-scroll').innerHTML += `
+                    <button class="panel-btn">${servicelist[index]}</button>
+                `;
+            }
+            document.getElementById('left-panel-scroll').innerHTML += `
+                <div style="height: 5px;"></div>
+            `;
+            
+        }
+        document.onload = initMenu(); 
+    </script>
+
 </body>
 </html>
