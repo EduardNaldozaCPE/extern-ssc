@@ -30,7 +30,7 @@ function mobileUI() {
         </li>
         <li>
             <h4 style="margin-bottom: 8px;">Mr. Abdulrahman Hasna</h4>
-            <p style="margin-top: 0px;">Executive Director of Enterprise Application</p>
+            <p style="margin-top: 0px;">Director of Enterprise Applications</p>
         </li>
         <hr>
         <li>
