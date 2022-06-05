@@ -515,7 +515,4 @@ function formQuestions() {
             }
             
             updateClassif();
-    }}
-    
-
-}
+    }}}
