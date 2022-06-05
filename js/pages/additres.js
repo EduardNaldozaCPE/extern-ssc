@@ -13,11 +13,4 @@ class Page{
         }
 
     }
-    startInstanceList = () => {
-
-        return this.list;
-    }
-    
-    action = () => {
-    }
 }

@@ -12,6 +12,7 @@ function updateClassif() {
     let ss_agegroup = sessionStorage.getItem('agegroup');
     //#endregion
     
+    // ADD CLASSIFICATION CONDITIONS LOGIC HERE
     switch (sessionStorage.getItem('branch')) {
         case "Adolescent Medicine":
             if (ss_selfref == 'true') {

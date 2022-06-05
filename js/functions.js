@@ -121,7 +121,6 @@ function ageGroup() {
     updateClassif();
 }
 
-
 function fade(element) {
     var op = 0.1;  // initial opacity
     element.style.display = 'block';
@@ -179,7 +178,7 @@ function goHome() {
     location.href = "index.html"
 }
 
-//      CANVAS FUNCTIONS
+// CANVAS FUNCTIONS
 
 function posneg() {
     let n = Math.round(Math.random());

@@ -1,7 +1,4 @@
 class Page{
-    constructor(){
-        this.list = [];
-    }
     initpage = () => {
         if (!(canvas.width <= canvas.height+(canvas.width/7))) {
             
@@ -10,12 +7,5 @@ class Page{
             mobileUI()
         }
 
-    }
-    startInstanceList = () => {
-
-        return this.list;
-    }
-    
-    action = () => {
     }
 }

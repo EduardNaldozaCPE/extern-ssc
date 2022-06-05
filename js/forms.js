@@ -20,16 +20,10 @@ function formQuestions() {
                         console.log(btnlist[btn].innerText);
                         sessionStorage.setItem('branch',btnlist[btn].innerText);
                         window.location = window.location.href;
-                        // fadeout(document.getElementById("outcome"));
-                        // fadeout(document.getElementById("outcome-sub"));
-                        // fadeout(document.getElementById("q-panel"));
                     } 
             }
-            
-            // fade(outcome);
-            // fade(outcomeSub);
-            // fade(qpanel);
     
+            // ADD CLASSIFICATION CONDITIONS HTML HERE
             switch (branch) {
                 case "Adolescent Medicine":
                     outcome.innerText = "Sole Provider";

@@ -1,12 +1,12 @@
 class Page{
-    constructor(){
-        this.list = [];
-    }
     initpage = () => {
+        // MOBILE VIEW FOR FORM.HTML
         if (canvas.width <= canvas.height+(canvas.width/7)) {
+
+            // REMOVE LEFT SCROLL PANEL
             let leftpanel = document.getElementById("left-panel")
             leftpanel.style.display = "none";
-
+            
             var outcomescrn = document.getElementById("outcome-scrn");
             var outcome = document.getElementById("outcome");
             var outcomesub = document.getElementById("outcome-sub");
@@ -14,6 +14,7 @@ class Page{
             var qheader = document.getElementById("q-panel-header");
             var qbody = document.getElementById("q-panel1");
 
+            // MOVE OUTCOME SCREEN AND FORM PANEL TO THE MIDDLE OF PAGE
             outcomescrn.style.left = "50%";
             outcomescrn.style.transform = "translateX(-50%)";
             outcomescrn.style.borderBottom = "2px rgba(255,255,255,0.4) solid";
@@ -25,6 +26,7 @@ class Page{
             qbox.style.paddingTop = "3.5%";
             qbox.style.transform = "translateX(-50%)";
 
+            // ADJUSTING FONT SIZING AND ALIGNMENT 
             qheader.style.fontSize = "1.6em";
             outcome.style.fontSize = "1.6em";
             outcome.style.width = "60%";
@@ -58,24 +60,6 @@ class Page{
                 }
             }
         }
-    }
-    startInstanceList = () => {
-        var titleheight = undefined;
-        if (canvas.width > 700) {
-            titleheight = canvas.width*0.23;
-        } else {
-            titleheight = canvas.width*0.25;
-        }
-        var startbuttonheight = undefined;
-        if (canvas.height > 746) {
-            startbuttonheight = canvas.height/2;
-        } else {
-            startbuttonheight = 4*canvas.height/6;
-        }
-        return this.list;
-    }
-
-    action = () => {
     }
 
 }

@@ -1,12 +1,10 @@
-lineArray = newLineArray();
-
 // Instantiating Objects in Animation
 var pageinit = true;
 let frame = 0;
-
+lineArray = newLineArray();
 
 // ANIMATE CANVAS
-setInterval(animation,8);  
+setInterval(animation,10);  
 function animation() {
     if (frame > 100){
         pageloaded = true;
@@ -23,27 +21,11 @@ function animation() {
     // Initialize additional conditional functions for the page
     if (pageinit){
         pagecontent.initpage();
+        pageinit = false;
     }
-    pageinit = false;
-
 
     //Animate canvas states
     if (pageState == 0) {
-        //Draw each instance in the list.
-        let transobjs = 0;
-        instanceList.forEach((instanceobj, i) => {
-
-            // Delete all objects that are both: At state=2 (to be deleted) and already invisible.
-            if (instanceobj.state == 2){
-                transobjs++;
-                if (instanceobj.opacity <= 0.001) {
-                        instanceList.splice(i,1);
-                } 
-            } 
-            
-            // Draw all objects
-            instanceobj.draw();
-        });
 
         // ADDITIONAL RESOURCES AND CONTACT ICON
         if (location.pathname.endsWith("index.html") || location.pathname.endsWith("/extern-ssc/")){
@@ -87,6 +69,7 @@ function animation() {
                 }
             }
         }
+
     } else {
         console.log("Loading next page");
     }
@@ -94,7 +77,6 @@ function animation() {
 
 //ONCLICK
 canvas.addEventListener('click', () => {
-    pagecontent.action();
 
     if (location.pathname.endsWith("index.html")  || location.pathname.endsWith("/extern-ssc/")){
 

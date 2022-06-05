@@ -63,4 +63,3 @@ function newLineArray() {
 
 //Gather Objects from page js
 pagecontent = new Page();
-var instanceList = pagecontent.startInstanceList();
