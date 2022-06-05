@@ -45,12 +45,13 @@ class Page{
             `;
 
             
-        } else {
+        } else { // DESKTOP VIEW
             var qbody = document.getElementById("q-panel1");
             qbody.style.fontSize = "1.2vw";
             
+            // LOOK FOR THE CURRENTLY SELECTED SERVICE IN THE LEFT NAV PANEL
+            // AND CHANGE THE BACKGROUND COLOUR OF THE BUTTON TO HIGHLIGHT IT
             let leftpanelBtns = document.getElementsByClassName("panel-btn");
-            
             for (let i = 0; i < leftpanelBtns.length; i++) {
                 const btn = leftpanelBtns[i];
                 

@@ -1,12 +1,3 @@
-if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )){
-    document.getElementsByTagName('body')[0].innerHTML = 'HTML5/ES6 IS NOT SUPPORTED IN THIS BROWSER';
-} 
-
-var canvas = document.querySelector('canvas');
-var pageState = 0;
-var pageloaded = false;
-var page = 1;
-
 var servicelist = [
     "Adolescent Medicine", "Adult Mental Health", "Adult Services", "Aesthetics", 
     "Allergy Immunology", "Ancillary Services", "CAMHS", "Cardiology", 
@@ -19,19 +10,18 @@ var servicelist = [
     "Reproductive Medicine", "Rheumatology", "Transplant", "Urology"
 ];
 
+if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )){
+    document.getElementsByTagName('body')[0].innerHTML = 'HTML5/ES6 IS NOT SUPPORTED IN THIS BROWSER';
+} 
+
+var canvas = document.querySelector('canvas');
+var pageState = 0;
+var pageloaded = false;
+var page = 1;
+
 canvas.width = innerWidth-15;
 canvas.height = innerHeight-15;
 var c = canvas.getContext('2d');
-
-// Mouse Coordinates
-var mpos = {
-    x:undefined,
-    y:undefined
-}
-canvas.addEventListener('mousemove', (event) => {
-    mpos.x = event.x - ((innerWidth-canvas.width)/2);
-    mpos.y = event.y;
-});
 
 window.onresize = () => {
     canvas.width = innerWidth-15;
