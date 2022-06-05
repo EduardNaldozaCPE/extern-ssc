@@ -1,30 +1,3 @@
-/* #region 
-
-    In the case that conditions must be changed, follow steps below:
-
-        1. Add button tag in form.html using "panel-btn" class name (if adding new service).
-        
-        2. In canvas.js, add service name in servicelist array (if adding new service).
-
-        3. In forms.js, add new case statement inside formQuestions function's switch statement (line 55). (if adding new service)
-            
-            3a. To create new conditions, use "qpanel1.innerHTML += [HTML CODE]"
-                - Every question div follows the same class name
-                - Every input has an "onclick" attribute based on the type of variable it will set. 
-                    (i.e. Checkbox that changes the "self referral" condition uses "selfRef()" function. Refer to functions.js)
-                - Certain inputs follow different id attributes based on the variables that will be used for the outcome decision.
-                    (i.e. Checkbox that changes the "self referral" condition uses "selfRefbox" id. Logic is seen in pageupdate.js)
-            
-            3b. To set initial outcome message, use "outcome.innerText" and "outcomeSub.innerText"
-        
-        4. In pageupdate.js add new case statement inside updateClassif function's switch statement (line 15). (if adding new service)
-        
-        5. Using the variables prefixed "ls_", apply decision logic in the case statement. 
-            
-            5a. use "outcome.innerText" and "outcomeSub.innerText" to change outcome.
-
-#endregion  */
-
 function formQuestions() {
     if (location.pathname == '/'+getRootDir()+"form.html"){
         window.onload = () => {

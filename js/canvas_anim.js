@@ -20,10 +20,13 @@ function animation() {
         lineArray[i].update();
     }
 
+    // Initialize additional conditional functions for the page
     if (pageinit){
         pagecontent.initpage();
     }
     pageinit = false;
+
+
     //Animate canvas states
     if (pageState == 0) {
         //Draw each instance in the list.
