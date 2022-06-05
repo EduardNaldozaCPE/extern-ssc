@@ -47,17 +47,5 @@ if (location.pathname.endsWith("index.html")  || location.pathname.endsWith("/ex
             pageicons.innerHTML += `<img src="./images/pageicon.png" alt="" class="pageicon" id="pageicon-${index+1}" onclick="selectPage(${index+1})">`;
         }
 
-        let isSupported;
-        if (document.createElement('canvas').getContext) {
-            isSupported = true
-        } else {
-            isSupported = false;
-        }
-        if (!isSupported) {
-            console.log('not supported');
-        } else {
-            console.log('supported');
-        }
-
     }
 }
