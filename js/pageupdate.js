@@ -321,12 +321,12 @@ function updateClassif() {
                     case "0":
                         outcome.innerText = "Preferred Provider";
                         outcomeSub.innerText = "The Newborn Intensive Care Unit service is classified as Preferred for NICU Levels 1 & 2";
-                        document.getElementById('updowngrade-q').innerText = "The NICU Level has been upgraded to level 3/4";
+                        document.getElementById('updowngrade-q').innerText = "The NICU Level is upgraded to level 3/4.";
                         break;
                     case "1":
                         outcome.innerText = "Sole Provider";
                         outcomeSub.innerText = "The Newborn Intensive Care Unit service is classified as Sole Provider for NICU Levels 3 & 4";
-                        document.getElementById('updowngrade-q').innerText = "The NICU Level has been downgraded to level 1/2";        
+                        document.getElementById('updowngrade-q').innerText = "The NICU Level is downgraded to level 1/2.";        
                         break;
                     default:
                         break;

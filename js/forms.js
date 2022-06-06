@@ -290,7 +290,7 @@ function formQuestions() {
                     </div>
                     <div class='qpanel1-qbox' id="ageReqDiv">
                         <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=3>
-                        <p class="qpanel-q">The patient is internally referred from a Sole service (≤18 Years)</p></input>
+                        <p class="qpanel-q">The patient is internally referred from a Sole service (≥18 Years)</p></input>
                     </div>
                     `;
                     sessionStorage.setItem('agereq', -1);
@@ -368,7 +368,7 @@ function formQuestions() {
                         <div style="height: 15px"></div>
                         <div class='qpanel1-qbox' id="updowngradedDiv">
                             <input class="checkbox" type="checkbox" onclick="updowngradedReq()" id="updowngradedBox" name="updowngraded">
-                            <p class="qpanel-q" id="updowngrade-q">The NICU Level been upgraded to level 3/4</p></input>
+                            <p class="qpanel-q" id="updowngrade-q">The NICU Level is upgraded to level 3/4.</p></input>
                         </div>
                         `;
                         nicuLvl();
