@@ -37,5 +37,7 @@ if (location.pathname.endsWith("index.html")  || location.pathname.endsWith("/ex
 
         document.getElementById("servicelist").style = 'transform: translateY(0px);opacity: 1;transition: 1s;';
 
+        document.getElementById("mobile-panel").style = 'opacity: 1;transform: translate(-50%,0px);';
+
     }
 }

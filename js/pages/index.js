@@ -24,7 +24,7 @@ function mobileUI() {
     }
 
     document.getElementById("content").innerHTML +=`
-    <div id="mobile-panel">
+    <div id="mobile-panel" style:'opacity: 0'>
         <div id="mobile-panel-filter">
             <a onclick="filterBtn(this)" class="mobile-filter-btn">A</a>
             <a onclick="filterBtn(this)" class="mobile-filter-btn">B</a>
