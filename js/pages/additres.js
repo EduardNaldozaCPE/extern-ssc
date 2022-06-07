@@ -10,13 +10,17 @@ function mobileUI() {
     logo.style.transform = "translateX(-50%)"
     logo.style.width = "18%";
 
-    let content = document.getElementById('additrespanel')
-    content.style.display = 'block';
+    var content = document.getElementById('additrespanel');
+    content.style.display = 'none';
     content.innerHTML ='';
     content.style += "-webkit-overflow-scrolling: auto";
     content.style.overflowY = "auto";
     content.style.flexDirection = "column";
     content.style.fontSize = 'font-size: 3.5vw';
+    content.style.top = "20%";
+    content.style.bottom = "5%";
+    content.style.right = "6.5%";
+    content.style.left = "6.5%";
     content.innerHTML =`
     <h3 style="margin-top:10px">Additional Resources</h3>
     <a class="additres-link" href="https://fa-epxn-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/faces/deeplink?objType=WLF_LEARN_LEARNING_ITEM&action=NONE&objKey=learningItemId%3D300000409065223" target="_blank">eLearning module</a><br>
