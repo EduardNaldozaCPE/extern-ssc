@@ -23,11 +23,6 @@ canvas.width = innerWidth-15;
 canvas.height = innerHeight-15;
 var c = canvas.getContext('2d');
 
-window.onresize = () => {
-    canvas.width = innerWidth-15;
-    canvas.height = innerHeight-15;
-}
-
 if (location.pathname.endsWith("index.html")  || location.pathname.endsWith("/extern-ssc/")){
     window.onload= () => {
         page = 1;

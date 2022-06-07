@@ -78,7 +78,8 @@ function animation() {
         pageloaded = true;
     }
     frame++;
-    c.clearRect(0,0,innerWidth,innerHeight);
+    canvas.width = innerWidth-15;
+    canvas.height = innerHeight-15;
 
     // Create Background Lines 
     for (let i=0; i<lineArray.length; i++){
