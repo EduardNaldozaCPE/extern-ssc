@@ -347,6 +347,10 @@ a.hover {
     margin-top: 20px;
     border-top: 1px solid rgb(221, 221, 221);
     border-bottom: 1px solid rgb(221, 221, 221);
+
+    transform: translateY(10px);
+    opacity: 0;
+
 }
 
 .select-panel-btn {
@@ -394,6 +398,9 @@ a.hover {
     width: 20%;
     display: flex;
     justify-content: end;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: 0.5s;
 }
 #counterdiv {
     width: 20%;
@@ -422,44 +429,43 @@ a.hover {
 
 #popup-mindmap{
     position: fixed;
-    top: 63.6%;
+    transform: translate(100vh, 100vw);
+    top: 63%;
     width: 150px;
     height: 100px;
     background: black;
     right: 21%;
-    opacity: 0.7;
+    opacity: 0; 
+    transition: opacity 0.5s;
     margin: 5px;
     border: rgba(50, 50, 50, 0.5) solid 2px;
-
-    display: none;
 }
 
 #popup-contact {
     position: fixed;
-    /* transform: translate(-100%, -100%); */
+    transform: translate(100vh, 100vw);
     width: 333px;
     right: 23%;
     top: 71.3%;
     color: white;
     background: #333;
-    opacity: 0.7;
+    opacity: 0;
+    transition: opacity 0.5s;
     font-family: Arial, Helvetica;
     font-size: 0.8em;
-
-    display: none;
 }
 #popup-additres {
     position: fixed;
+    transform: translate(100vh, 100vw);
     width: 165px;
     right: 18%;
     top: 73.5%;
     color: white;
     background: #333;
-    opacity: 0.7;
+    opacity: 0;
+    transition: opacity 0.5s;
     font-family: Arial, Helvetica;
     font-size: 0.8em;
-
-    display: none;
 }
 
 .additres-link {

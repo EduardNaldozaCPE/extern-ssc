@@ -32,5 +32,10 @@ if (location.pathname.endsWith("index.html")  || location.pathname.endsWith("/ex
             pageicons.innerHTML += `<img src="./images/pageicon.png" alt="" class="pageicon" id="pageicon-${index+1}" onclick="selectPage(${index+1})">`;
         }
 
+        let extrabtns = document.getElementById('extrabtns');
+        extrabtns.style = 'transform: translateY(0px);opacity: 1;';
+
+        document.getElementById("servicelist").style = 'transform: translateY(0px);opacity: 1;transition: 1s;';
+
     }
 }

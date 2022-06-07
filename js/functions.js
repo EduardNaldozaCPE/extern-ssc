@@ -193,6 +193,7 @@ function scrollForMore() {
 
 // SELECT SCREEN
 function updatePageList() {
+    document.getElementById("servicelist").style.transition = '0s';
     fadegrid(document.getElementById("servicelist"));
     for (let index = 0; index < 12; index++) {
         if ((index)+(12*(page-1)) >= servicelist.length){
@@ -222,8 +223,6 @@ function rightbutton() {
             page++;
         }
         updatePageList()
-    }  else {
-        console.log('waht');
     }
 }
 
@@ -276,12 +275,30 @@ function filterBtn_desktop(ltr) {
 
 }
 
-function showMindMap(){document.getElementById('popup-mindmap').style.display = "block"}
-function hideMindMap(){document.getElementById('popup-mindmap').style.display = "none"}
-function showContact(){document.getElementById('popup-contact').style.display = "block"}
-function hideContact(){document.getElementById('popup-contact').style.display = "none"}
-function showAdditRes(){document.getElementById('popup-additres').style.display = "block"}
-function hideAdditRes(){document.getElementById('popup-additres').style.display = "none"}
+function showMindMap(){
+    document.getElementById('popup-mindmap').style.transform = 'translate(0px, 0px)';
+    document.getElementById('popup-mindmap').style.opacity = 0.7;
+}
+function hideMindMap(){
+    document.getElementById('popup-mindmap').style.transform = ''; 
+    document.getElementById('popup-mindmap').style.opacity = 0
+}
+function showContact(){
+    document.getElementById('popup-contact').style.transform = 'translate(0px, 0px)';
+    document.getElementById('popup-contact').style.opacity = 0.7;
+}
+function hideContact(){
+    document.getElementById('popup-contact').style.transform = ''; 
+    document.getElementById('popup-contact').style.opacity = 0
+}
+function showAdditRes(){
+    document.getElementById('popup-additres').style.transform = 'translate(0px, 0px)';
+    document.getElementById('popup-additres').style.opacity = 0.7;
+}
+function hideAdditRes(){
+    document.getElementById('popup-additres').style.transform = '';
+    document.getElementById('popup-additres').style.opacity = 0;
+}
 
 // MOBILE FUNCTIONS
 function filterBtn(ltr) {
