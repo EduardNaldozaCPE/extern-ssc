@@ -135,10 +135,23 @@ function fadeoutgrid(element) {
     }, 5);
 }
 
+// TODO: CHANGE HOME BUTTON TO BACK BUTTON
 function goHome() {
     pageState = 1;
-    location.href = "index.html"
+    location.href = 'index.html';
 }
+
+function goBack() {
+    pageState = 1;
+    location.href = sessionStorage.getItem('lastpage');
+}
+
+function goAdditRes(page) {
+    pageState = 1;
+    sessionStorage.setItem('lastpage',page);
+    location.href = 'additionalresources.html';
+}
+
 
 // CANVAS FUNCTIONS
 
@@ -304,5 +317,6 @@ function clearBtn() {
 function serviceBtn(btn) {
     sessionStorage.setItem('branch',btn.innerText)
     pageState = 1;
+    sessionStorage.setItem('lastpage','index.html');
     location.href = "form.html";
 }

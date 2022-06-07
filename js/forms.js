@@ -15,7 +15,7 @@ function formQuestions() {
             qpanelheader.innerText = branch;
     
             const btnlist = document.getElementsByClassName('panel-btn');
-            for (let btn=0;btn<btnlist.length;btn++){
+            for (let btn=0;btn<btnlist.length-1;btn++){
                     btnlist[btn].onclick = () => {
                         console.log(btnlist[btn].innerText);
                         sessionStorage.setItem('branch',btnlist[btn].innerText);
