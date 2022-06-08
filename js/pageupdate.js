@@ -11,7 +11,6 @@ function updateClassif() {
     let ss_updowngraded = sessionStorage.getItem('up-down-graded');
     let ss_agegroup = sessionStorage.getItem('agegroup');
     //#endregion
-    
     // ADD CLASSIFICATION CONDITIONS LOGIC HERE
     switch (sessionStorage.getItem('branch')) {
         case "Adolescent Medicine":
@@ -460,7 +459,18 @@ function updateClassif() {
             outcome.innerText = '';
             outcomeSub.innerText = "";
             break;
+    }
+    
+    if (canvas.width > canvas.height+(canvas.width/7)) {
+        outcome.style = 'opacity: 1; transition: 0.6s; outline: solid 2px; padding: 15px;';
+    } else {
+        outcome.style = "opacity: 1; transition: 0.6s; outline: solid 2px; padding: 15px; font-size: 1.6em;width: 60%;margin-bottom: 0px;"
+        if (document.getElementById("q-panel1").scrollHeight > document.getElementById("q-panel1").clientHeight + 70) {
+            document.getElementById('scrollindic').style.display = 'block';
+        } else {
+            document.getElementById('scrollindic').style.display = 'none';
         }
+    }
 
     if (outcome.innerText != "") {
         outcome.style.outline = "solid 2px";
@@ -473,16 +483,5 @@ function updateClassif() {
     } else {
         outcome.style.outline = "0px";
         outcome.style.padding = "15px"
-    }
-    if (canvas.width > canvas.height+(canvas.width/7)) {
-        fade(outcome);
-        fade(outcomeSub);
-    } else {
-        console.log(document.getElementById("q-panel1").scrollHeight, document.getElementById("q-panel1").clientHeight);
-        if (document.getElementById("q-panel1").scrollHeight > document.getElementById("q-panel1").clientHeight + 70) {
-            document.getElementById('scrollindic').style.display = 'block';
-        } else {
-            document.getElementById('scrollindic').style.display = 'none';
-        }
     }
 }

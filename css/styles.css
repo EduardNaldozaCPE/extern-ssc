@@ -8,7 +8,7 @@ body {
     -webkit-appearance: none;
     width: 7px;
     height: 3px;
-  }
+}
   
 ::-webkit-scrollbar-track {
 height: 5px !important;
@@ -220,6 +220,7 @@ a.hover {
 #outcome {
     color: #eee;
     font-size: 2.5vw;
+    opacity: 0;
 }
 
 #outcome-sub {
