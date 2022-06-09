@@ -96,7 +96,7 @@ function animation() {
         try {
             document.getElementById("mobile-panel").style = 'opacity: 1;transform: translate(-50%,0px);';
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     }
 }
