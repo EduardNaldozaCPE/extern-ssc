@@ -279,12 +279,12 @@ function updateClassif() {
         case "Dermatology":
             switch (ss_agereq) {
                 case "0":
-                    outcome.innerText = "Sole Provider"
-                    outcomeSub.innerText = 'Dermatology service for patients aged 3 months and older is classified as Sole';
+                    outcome.innerText = "Preferred Provider"
+                    outcomeSub.innerText = 'Dermatology service for patients aged 3 months and older is classified as Preferred';
                     break;
                 case "1":
-                    outcome.innerText = "Preferred Provider";
-                    outcomeSub.innerText = 'Dermatology service for patients under 3 months of age is classified as Preferred';
+                    outcome.innerText = "Sole Provider";
+                    outcomeSub.innerText = 'Dermatology service for patients under 3 months of age is classified as Sole';
                     break;
                 case "2":
                     outcome.innerText = "Preferred Provider";
