@@ -26,7 +26,7 @@ function mobileUI() {
     <a class="additres-link" href="https://fa-epxn-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/faces/deeplink?objType=WLF_LEARN_LEARNING_ITEM&action=NONE&objKey=learningItemId%3D300000409065223" target="_blank">eLearning module</a><br>
     <a class="additres-link" href="http://sidramedicine.newsweaver.com/sidraflyer/oevoqjzq5xo17wwx8m6rye?email=true&a=5&p=7677373&t=1990805" target="_blank">Classification of Services</a><br>
     <div style="height: 20px;"></div>
-    <h3 style="margin-bottom: 12px;">Leadership Team</h3>
+    <h3 style="margin-bottom: 12px;">Service Classification Governing Team</h3>
     <ul style='text-align: left;'>
         <li>
             <h4 style="margin-bottom: 8px;">Dr. S Bhasker</h4>
@@ -45,11 +45,14 @@ function mobileUI() {
         <li>
             <h4 style="margin-bottom: 8px;">Dr. Basma Harara</h4>
             <p style="margin-top: 0px;margin-bottom: 8px">Executive Director of Clinical Operations</p>
-            <p style="margin-top: 0px;">Chair Person (Executive Committee for Service Classification)</p>
+        </li>
+        <li>
+            <h4 style="margin-bottom: 8px;">Dr. Ziyad Hijazi</h4>
+            <p style="margin-top: 0px;margin-bottom: 8px">Chief Medical Officer</p>
         </li>
     </ul>
     <br>
-    <p style="font-style:italic; opacity:0.8">*Recommendations and rules changes must be reviewed and approved by the C-suite Executive Committee</p>
+    <p style="font-style:italic; opacity:0.8">*Recommendations and rules changes must be reviewed and approved by the C-suite Governing Team</p>
 
     `;
 }
