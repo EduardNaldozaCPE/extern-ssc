@@ -227,6 +227,7 @@ function formQuestions() {
                         <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
+                    selfRef();
                     break;
                 case "Urology":
                     outcome.innerText = "Sole Provider";
@@ -238,6 +239,7 @@ function formQuestions() {
                         <p class="qpanel-q">The patient is a self referral.</p></input>
                     </div>
                     `;
+                    selfRef();
                     break;
                 case "Adult Mental Health":
                     outcome.innerText = "Sole Provider";
@@ -485,22 +487,18 @@ function formQuestions() {
     
                 case "Dental Surgery":
                     qpanel1.innerHTML = `
-                    <p>Dental Surgery requires a Physician's clinical assessment by default to determine the service's classification.</p>
                     `
                     break;
                 case "General Surgery":
                     qpanel1.innerHTML = `
-                    <p>General Surgery requires a Physician's clinical assessment by default to determine the service's classification.</p>
                     `
                     break;
                 case "General Pediatrics":
                     qpanel1.innerHTML = `
-                    <p>General Pediatrics requires a Physician's clinical assessment by default to determine the service's classification.</p>
                     `
                     break;
                 case "Maternal Fetal Medicine":
                     qpanel1.innerHTML = `
-                    <p>Maternal Fetal Medicine requires a Physician's clinical assessment by default to determine the service's classification.</p>    
                     `
                     break;
 
