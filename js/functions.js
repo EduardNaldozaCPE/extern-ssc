@@ -83,6 +83,45 @@ function ageGroup() {
     updateClassif();
 }
 
+
+function showGyneInfo(i) {
+    if (canvas.width <= canvas.height+(canvas.width/7)) {
+        document.getElementsByClassName('forms-additinfo')[0].style.top = "200px";
+    } else {
+        document.getElementsByClassName('forms-additinfo')[0].style.top = "";
+    }
+    switch (i.value) {
+        case '0':
+            document.getElementsByClassName('forms-additinfo')[0].style.display = 'block';
+            document.getElementById('gyneinfo-1').innerHTML = `
+            <li>Referral to Gynecology Pediatrics (4-14)</li>
+            <li>Follow-up to Gynecology Pediatrics (4-14)</li>
+            `;
+            break;
+        case '1':
+            document.getElementsByClassName('forms-additinfo')[0].style.display = 'block';
+            document.getElementById('gyneinfo-1').innerHTML = `
+            <li>Referral to Gynecology Adolescence (14-18)</li>
+            <li>Follow-up to Gynecology Adolescence (14-18)</li>
+            `;
+            break;
+        case '2':
+            document.getElementsByClassName('forms-additinfo')[0].style.display = 'block';
+            document.getElementById('gyneinfo-1').innerHTML = `
+            <li>Referral to Gynecology Adult (18 and above)</li>
+            <li>Follow-up to Gynecology Adult (18 and above)</li>
+            `;
+            break;
+        case '3':
+            document.getElementsByClassName('forms-additinfo')[0].style.display = 'none';
+            break;
+        default:
+            break;
+    }
+    ageGroup()
+}
+
+
 function fade(element) {
     var op = 0.1;  // initial opacity
     element.style.display = 'block';
@@ -150,6 +189,11 @@ function goAdditRes(page) {
     pageState = 1;
     sessionStorage.setItem('lastpage',page);
     location.href = 'additionalresources.html';
+}
+function goFAQ(page) {
+    pageState = 1;
+    sessionStorage.setItem('lastpage',page);
+    location.href = 'faq.html';
 }
 
 
@@ -298,6 +342,14 @@ function showAdditRes(){
 function hideAdditRes(){
     document.getElementById('popup-additres').style.transform = '';
     document.getElementById('popup-additres').style.opacity = 0;
+}
+function showFaq(){
+    document.getElementById('popup-faq').style.transform = 'translate(0px, 0px)';
+    document.getElementById('popup-faq').style.opacity = 0.7;
+}
+function hideFaq(){
+    document.getElementById('popup-faq').style.transform = '';
+    document.getElementById('popup-faq').style.opacity = 0;
 }
 
 // MOBILE FUNCTIONS

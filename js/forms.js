@@ -270,7 +270,7 @@ function formQuestions() {
                     </div>
                     <div class='qpanel1-qbox' id="inoutpatientDiv">
                         <input class="checkbox" type="radio" onclick="camhsradio()" id="inoutpatientBox" name="camhs" value=3>
-                        <p class="qpanel-q">The patient is internally referred from a Sole service (>14 Years)</p></input>
+                        <p class="qpanel-q">The patient is over 14 years old and internally referred from a Sole service.</p></input>
                     </div>
                     `;
                     sessionStorage.setItem('camhs', -1);
@@ -292,7 +292,7 @@ function formQuestions() {
                     </div>
                     <div class='qpanel1-qbox' id="ageReqDiv">
                         <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=3>
-                        <p class="qpanel-q">The patient is internally referred from a Sole service (≥18 Years)</p></input>
+                        <p class="qpanel-q">The patient is at least 18 years old and internally referred from a Sole service.</p></input>
                     </div>
                     `;
                     sessionStorage.setItem('agereq', -1);
@@ -324,11 +324,11 @@ function formQuestions() {
                     </div>
                     <div class='qpanel1-qbox' id="ageReqDiv">
                         <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=0>
-                        <p class="qpanel-q">The patient is 18 years old or older</p></input>
+                        <p class="qpanel-q">The patient's age is 18 years or older</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="ageReqDiv">
                         <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=1>
-                        <p class="qpanel-q">The patient is below 18 years of age</p></input>
+                        <p class="qpanel-q">The patient's age below 18 years</p></input>
                     </div>
                     `;
                     sessionStorage.setItem('agereq', -1);
@@ -350,7 +350,7 @@ function formQuestions() {
                     </div>
                     <div class='qpanel1-qbox' id="ageReqDiv">
                         <input class="checkbox" type="radio" onclick="ageradio()" id="ageReqBox" name="agereq" value=3>
-                        <p class="qpanel-q">The patient is internally referred from a Sole service (>3 Months)</p></input>
+                        <p class="qpanel-q">The patient is over 3 months old and internally referred from a Sole service</p></input>
                     </div>
                     `;
                     sessionStorage.setItem('agereq', -1);
@@ -380,20 +380,24 @@ function formQuestions() {
                 case "Gynecology":
                     qpanel1.innerHTML += `
                     <div class='qpanel1-qbox' id="ageReqDiv">
-                        <input class="checkbox" type="radio" onclick="ageGroup()" id="ageReqBox" name="agegroup" value=3>
+                        <input class="checkbox" type="radio" onclick="showGyneInfo(this)" id="ageReqBox" name="agegroup" value=3>
                         <p class="qpanel-q">The patient is a self referral</p></input>
                     </div>    
                     <div class='qpanel1-qbox' id="">
-                        <input class="checkbox" type="radio" onclick="ageGroup()" id="" name="agegroup" value="0">
+                        <input class="checkbox" type="radio" onclick="showGyneInfo(this)" id="" name="agegroup" value="0">
                         <p class="qpanel-q">Pediatrics (4 - 14 Years)</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="">
-                        <input class="checkbox" type="radio" onclick="ageGroup()" id="" name="agegroup" value="1">
-                        <p class="qpanel-q">Adolescence (15 - 17 Years)</p></input>
+                        <input class="checkbox" type="radio" onclick="showGyneInfo(this)" id="" name="agegroup" value="1">
+                        <p class="qpanel-q">Adolescence (14 - 18 Years)</p></input>
                     </div>
                     <div class='qpanel1-qbox' id="">
-                        <input class="checkbox" type="radio" onclick="ageGroup()" id="" name="agegroup" value="2">
+                        <input class="checkbox" type="radio" onclick="showGyneInfo(this)" id="" name="agegroup" value="2">
                         <p class="qpanel-q">Adult (18 Years and Above)</p></input>
+                    </div>
+                    <div class='forms-additinfo' style='display:none;'>
+                        <p style='margin-top: 5px;'>Physicians need to use the following orders:</p>
+                        <ul id='gyneinfo-1'></ul>
                     </div>
                     `;
                     sessionStorage.setItem('agegroup', -1);
@@ -424,7 +428,7 @@ function formQuestions() {
     
                 case "Reproductive Medicine":
                     qpanel1.innerHTML = `
-                    The Reproductive Medicine service has no conditions which affect its classification.
+                    The Reproductive Medicine service is a private medical service.
                     `;
                     break;
     
@@ -480,8 +484,10 @@ function formQuestions() {
                     internalRef();
                     break;
     
-                case "Inpatient & Ambulatory Surgery Procedures":
+                case "Surgery Procedures (Inpatient & Ambulatory)":
                     qpanel1.innerHTML = `
+                    <p>Prior to placing the surgical procedure orders, Physician need to open the relevant Outpatient encounter that holds the classification and then place the Orders.</p>
+                    <p>This will enable the classification to carry forward from the encounter onto the procedure Orders.</p>
                     `
                     break;
     
@@ -503,8 +509,48 @@ function formQuestions() {
                     break;
 
                 case "Private Clinics":
+                    let vert;
+                    let borderline;
+                    if (canvas.width > canvas.height+(canvas.width/7)) {
+                        vert = 'grid-column';
+                        borderline = 'right';
+                    } else {
+                        vert = 'grid-row';
+                        borderline = 'bottom';
+                    }
                     qpanel1.innerHTML = `
-                    <p>Note: Registration staff Must select 'Self-Referral' value from the 'Referral Source' field when creating the patient encounter, this action will automatically override any previous classification and classify the patient visit as 'Preferred'</p>
+                    <div style='
+                    margin: 0px;
+                    width: 95%;
+                    display: grid;
+                    ${vert}-start: 1;
+                    ${vert}-end: 2;
+                    '> 
+                        <div id="physiciannote" style="
+                        border-${borderline}: 1px solid #ccc;
+                        width: 100%;
+                        ${vert}: 1;
+                        text-align: center;
+                        padding: 5px;
+                        ">
+                            <h4>Phyisican</h4>
+                            <p>Note: When placing a referral order, please select a 'Private Clinic Consult' in the Consultation Type field in the order OEF.</p>
+                            <p style='font-style:oblique'>Example: Physician Order for Private Clinic</p>
+                            <img src='./images/privclinic-physician.png' width='70%' style='box-shadow: #aaa 0px 2px 9px 1px;'>
+                            <p>Physician selects 'Private Clinic Consult'.</p>
+                        </div>
+                        <div id="patientaccessnote" style="
+                        width: 100%;
+                        ${vert}: 2;
+                        text-align: center;
+                        padding: 5px;
+                        ">
+                            <h4>Patient Access</h4>
+                            <p style='font-style:oblique'>Example: Patient Access Registration Encounter.</p>
+                            <img src='./images/privclinic-patientaccess.png' width='85%' style='box-shadow: #aaa 0px 2px 9px 1px;'>
+                            <p>Patient Access selects referral source as 'Self Referral'.</p>
+                        </div>
+                    </div>
                     `;
                     break;
     

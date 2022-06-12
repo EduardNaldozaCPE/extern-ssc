@@ -3,11 +3,10 @@ var servicelist = [
     "Allergy Immunology", "Ancillary Services", "CAMHS", "Cardiology", 
     "Dental Surgery", "Dermatology", "Developmental Pediatrics", "Emergency Services", 
     "Endocrinology", "ENT","Gastroenterology", "General Pediatrics", "General Surgery", 
-    "Genetics", "Gynecology", "Hematology/Oncology", "Infectious Disease",
-    "Inpatient & Ambulatory Surgery Procedures", "Maternal Fetal Medicine", 
+    "Genetics", "Gynecology", "Hematology/Oncology", "Infectious Disease", "Maternal Fetal Medicine", 
     "NICU", "Neonatal Surgery", "Nephrology", "Neurology", "Neurosurgery", "Obstetrics", 
     "Ophthalmology", "Orthopedics", "Plastic Surgery", "Private Clinics", "Pulmonology", "Rehab Medicine", 
-    "Reproductive Medicine", "Rheumatology", "Transplant", "Urology"
+    "Reproductive Medicine", "Rheumatology", "Surgery Procedures (Inpatient & Ambulatory)", "Transplant", "Urology"
 ];
 
 if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )){

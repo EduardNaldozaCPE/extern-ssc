@@ -52,7 +52,7 @@ function mobileUI() {
         </li>
     </ul>
     <br>
-    <p style="font-style:italic; opacity:0.8">*Recommendations and rules changes must be reviewed and approved by the C-suite Governing Team</p>
+    <p style="font-style:italic; opacity:0.8">*Recommendations and rules changes must be reviewed and approved by the C-suite Service Classification Governing Team</p>
 
     `;
 }

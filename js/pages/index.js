@@ -60,6 +60,7 @@ function mobileUI() {
             <div style="height: 5px;"></div>
         </div>
         <div id="mobile-panel-extrabtn">
+        <input type="image" src="./images/faq-button.png" alt="" id="additresbtn" onclick='goFAQ("index.html")'  onmouseover="showFaq()" onmouseout="hideFaq()">
             <input type="image" src="./images/contact-button.png" id="contactbtn" onclick='location.href="mailto:ApplicationRevenueCycle@sidra.org"' onmouseover="showContact()" onmouseout="hideContact()">
             <input type="image" src="./images/mindmap-button.png" alt="" id="mindmapbtn" onclick="window.open('./mindmap.pdf','_blank');" onmouseover="showMindMap()" onmouseout="hideMindMap()">
             <input type="image" src="./images/additres-button.png" alt="" id="additresbtn" onclick='goAdditRes("index.html")'  onmouseover="showAdditRes()" onmouseout="hideAdditRes()">

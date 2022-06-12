@@ -368,6 +368,30 @@ a.hover {
     box-shadow: 2px 2px 5px 0px rgb(0 0 0 / 20%);
 }
 
+.forms-additinfo {
+    color: #888;
+    border: 2px solid #888;
+    position: absolute;
+    right: 5%;
+    padding: 10px;
+}
+
+.forms-additinfo-table {
+    margin: auto;
+    border-spacing: 0px;
+    border: solid 0.5px #888;
+}
+
+.forms-additinfo-table tr th {
+    border: solid 0.5px #888;
+    padding: 10px;
+}
+
+.forms-additinfo-table tr td {
+    border: solid 0.5px #888;
+    padding: 10px;
+}
+
 #pagenav {
     opacity: 1;
     margin-top: 18px;
@@ -468,6 +492,21 @@ a.hover {
     font-family: Arial, Helvetica;
     font-size: 0.8em;
 }
+#popup-faq {
+    position: fixed;
+    transform: translate(100vh, 100vw);
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 165px;
+    right: 26%;
+    top: 73.5%;
+    color: white;
+    background: #333;
+    opacity: 0;
+    transition: opacity 0.5s;
+    font-family: Arial, Helvetica;
+    font-size: 0.8em;
+}
 
 .additres-link {
     color: #298678;
@@ -549,4 +588,42 @@ a.hover {
     outline: white solid 2px;
     padding: 1.2% 2%;
     font-weight: 900;
+}
+
+.faq-box {
+    cursor: pointer;
+    border: 2px #aaa solid;
+    border-radius: 5px;
+    width: 90%;
+    background: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+.faq-question h4 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.faq-answer {
+    cursor:text;
+    width: 98%;
+    height: 0px;
+    transition: 0.5s;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    margin-top: 0px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    background: #fff;
 }

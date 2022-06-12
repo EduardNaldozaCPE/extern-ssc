@@ -200,7 +200,7 @@ function updateClassif() {
                     outcomeSub.innerText = "CAMHS Inpatient service (for patients aged 15 and above) is classified as Preferred";                    break;
                 case "3":
                     outcome.innerText = "Require Comorbidity Assessment";
-                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine the service classification";
                     break;
                 default:
                     outcome.innerText = "";
@@ -225,7 +225,7 @@ function updateClassif() {
                     break;
                 case "3":
                     outcome.innerText = 'Require Comorbidity Assessment';
-                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine the service classification";
                     break;
                 default:
                     outcome.innerText = "";
@@ -238,7 +238,7 @@ function updateClassif() {
             switch (ss_agereq) {
                 case "0":
                     outcome.innerText = 'Require Clinical Assessment';
-                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine the service classification";
                     break;
                 case "1":
                     outcome.innerText = "Sole Provider";
@@ -259,11 +259,11 @@ function updateClassif() {
             switch (ss_agereq) {
                 case "0":
                     outcome.innerText = 'Require Clinical Assessment';
-                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine the service classification";
                     break;
                 case "1":
                     outcome.innerText = "Sole Provider";
-                    outcomeSub.innerText = 'Plastic Surgery service for patients under 18 years of age is classified as Sole Provider';
+                    outcomeSub.innerText = 'Plastic Surgery service for patients below 18 years of age is classified as Sole Provider';
                     break;
                 case "2":
                     outcome.innerText = "Preferred Provider";
@@ -292,7 +292,7 @@ function updateClassif() {
                     break;
                 case "3":
                     outcome.innerText = 'Require Comorbidity Assessment';
-                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine the service classification";
                     break;
                 default:
                     outcome.innerText = "";
@@ -337,11 +337,11 @@ function updateClassif() {
             switch (ss_agegroup) {
                 case "0":
                     outcome.innerText = "Sole Provider";
-                    outcomeSub.innerText = "The Gynecology service is classified as Sole Provider for patients at 4 to 14 years of age";        
+                    outcomeSub.innerText = "The Gynecology service is classified as Sole Provider for patients aged 4 to 14 years old";        
                     break;
                 case "1":
-                    outcome.innerText = "Preferred Provider";
-                    outcomeSub.innerText = "The Gynecology service is classified as Preferred for patients at 15 to 17 Years years of age";        
+                    outcome.innerText = "Sole Provider";
+                    outcomeSub.innerText = "The Gynecology service is classified as Preferred for patients aged 14 to 18 years old";        
                     break;
                 case "2":
                     outcome.innerText = "Preferred Provider";
@@ -368,7 +368,7 @@ function updateClassif() {
             switch (ss_internalRef) {
                 case 'true':
                     outcome.innerText = 'Require Comorbidity Assessment';
-                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine the service classification";
                     break;
                 case 'false':
                     outcome.innerText = "Preferred Provider";
@@ -395,7 +395,7 @@ function updateClassif() {
                 case "0":
                 case "1":                    
                     outcome.innerText = 'Require Clinical Assessment';
-                    outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+                    outcomeSub.innerText = "A Physician Assessment is required in order to determine the service classification";
                     break;
                 case "2":
                     outcome.innerText = "Preferred Provider";
@@ -429,26 +429,26 @@ function updateClassif() {
             
             break;
 
-        case "Inpatient & Ambulatory Surgery Procedures":
+        case "Surgery Procedures (Inpatient & Ambulatory)":
             outcome.innerText = 'Sole or Preferred';
             outcomeSub.innerText = "The service inherits the service classification from originating encounter";
             break;
 
         case "Dental Surgery":
             outcome.innerText = 'Require Clinical Assessment';
-            outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+            outcomeSub.innerText = "A Physician Assessment is required in order to determine the service classification";
             break;
         case "General Surgery":
             outcome.innerText = 'Require Clinical Assessment';
-            outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+            outcomeSub.innerText = "A Physician Assessment is required in order to determine the service classification";
             break;
         case "General Pediatrics":
             outcome.innerText = 'Require Clinical Assessment';
-            outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+            outcomeSub.innerText = "A Physician Assessment is required in order to determine the service classification";
             break;
         case "Maternal Fetal Medicine":
             outcome.innerText = 'Require Clinical Assessment';
-            outcomeSub.innerText = "A Physician Assessment is required in order to determine service classification";
+            outcomeSub.innerText = "A Physician Assessment is required in order to determine the service classification";
             break;
         case "Private Clinics":
             outcome.innerText = 'Preferred Provider';
