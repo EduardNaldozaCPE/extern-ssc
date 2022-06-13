@@ -37,7 +37,7 @@
         <script src="./js/canvas_anim.js"></script>
     </div>
     <div id="content1">
-        <div id="additrespanel" style="padding: 15px;">
+        <div id="additrespanel" style="padding: 15px;color:#4C4A59">
             <div style="
             margin: 10px;
             overflow-y: auto;
@@ -48,92 +48,130 @@
             align-items: center;
             width: 100%;" id="faq-content">
                 <button id="home-btn" onclick="goBack()" style="top: 15px; width: 60px; left: 15px;">Back</button>
-                <h3 style="margin-top: 20px; margin-bottom: 30px;">Frequently Asked Questions</h3>
+                <h3 style="margin-top: 20px; margin-bottom: 20px;">Frequently Asked Questions</h3>
+
+                <div id="faq-filter" style="
+                margin-bottom: 20px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                background: #ffa98a;
+                border: 1px solid #d29782;
+                padding: 10px;
+                border-radius: 7px;
+                box-shadow: 0px 2px 4px 0px #5b5b5b;
+                ">
+                    <input type="text" name="faq-filter-text" id="faq-filter-textID" style="
+                    margin: 5px 0px;
+                    border-radius: 5px;
+                    border: 1px solid #d29782;">
+                    <span style="width:30px"></span>
+                    <input type="button" value="Search" onclick="faqFilter()" style="
+                    width: 100%;
+                    margin: 5px 0px;
+                    color: white;
+                    background: transparent;
+                    border: 1px solid #fff;
+                    padding: 2px 10px;
+                    border-radius: 5px;
+                    cursor:pointer">
+                    <span style="width:20px"></span>
+                    <input type="button" value="Clear" onclick="faqClear()" style="
+                    width: 100%;
+                    background: white;
+                    border: 1px solid white;
+                    color: #ffa98a;
+                    padding: 2px 5px;
+                    border-radius: 5px;
+                    cursor:pointer">
+                </div>
+
                 <div class="faq-box" onclick="toggleFAQBox(this)">
                     <div class="faq-question">
-                        <h4>What are preferred and sole provider services?</h4>
-                        <img src="./images/expand-icon.png" width="25px" style="opacity:0.5">
+                        <h4>What are Preferred and Sole Provider services?</h4>
+                        <img src="./images/expand-icon.png" width="15px" style="opacity:0.5; transition: 0.3s;">
                     </div>
                     <div class="faq-answer" style="height: 0px;">
                         <ul style="text-align:left;">
-                            <li style="margin-bottom:5px">Preferred services are those services which are available at other public and private healthcare centers in Qatar, yet the patient prefers to come to Sidra Medicine due to our expertise, outcomes or patient experience. The patient is required to pay for the service either from their own pocket, insurance or by other means.</li>
-                            <li style="margin-bottom:5px">Sole provider is where we are the only provider for certain services in Qatar. This includes tertiary pediatric services and some women’s services. Government approved co-payment or insurance co-payment is required. </li>
-                            <li style="margin-bottom:5px">Irrespective of the service required, all patients are required to present their insurance. </li>
-                            <li style="margin-bottom:5px">Services offered to pediatric patients with comorbidities will be considered as sole provider services. A clinical assessment will be required to confirm comorbidities.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">Preferred services are those services which are available at other public and private healthcare centers in Qatar, yet the patient prefers to come to Sidra Medicine due to our expertise, outcomes or patient experience. The patient is required to pay for the service either from their own pocket, insurance or by other means.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">Sole provider is where we are the only provider for certain services in Qatar. This includes tertiary pediatric services and some women’s services. Government approved co-payment or insurance co-payment is required. </li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">Irrespective of the service required, all patients are required to present their insurance. </li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">Services offered to pediatric patients with comorbidities will be considered as sole provider services. A clinical assessment will be required to confirm comorbidities.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="faq-box" onclick="toggleFAQBox(this)">
                     <div class="faq-question">
                         <h4>What are Default Classifications?</h4>
-                        <img src="./images/expand-icon.png" width="25px" style="opacity:0.5">
+                        <img src="./images/expand-icon.png" width="15px" style="opacity:0.5; transition: 0.3s;">
                     </div>
                     <div class="faq-answer" style="height: 0px;">
                         <ul style="text-align:left;">
-                            <li style="margin-bottom:5px">Predefined group of medical services that are classed as Sole Provider or Preferred which are hard coded into the EMR systems and is automatically defaulted onto patient visit encounter.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">Predefined group of medical services that are classed as Sole Provider or Preferred which are hard coded into the EMR systems and is automatically defaulted onto patient visit encounter.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="faq-box" onclick="toggleFAQBox(this)">
                     <div class="faq-question">
                         <h4>What are Age Conditional Classifications?</h4>
-                        <img src="./images/expand-icon.png" width="25px" style="opacity:0.5">
+                        <img src="./images/expand-icon.png" width="15px" style="opacity:0.5; transition: 0.3s;">
                     </div>
                     <div class="faq-answer" style="height: 0px;">
                         <ul style="text-align:left;">
-                            <li style="margin-bottom:5px">Selected medication Services of which classification is determined based on age criterion. The EMR system will automatically default the relevant Sole/Preferred flag based on the patient's age.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">Selected medication Services of which classification is determined based on age criterion. The EMR system will automatically default the relevant Sole/Preferred flag based on the patient's age.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="faq-box" onclick="toggleFAQBox(this)">
                     <div class="faq-question">
                         <h4>What is a Clinical Assessment?</h4>
-                        <img src="./images/expand-icon.png" width="25px" style="opacity:0.5">
+                        <img src="./images/expand-icon.png" width="15px" style="opacity:0.5; transition: 0.3s;">
                     </div>
                     <div class="faq-answer" style="height: 0px;">
                         <ul style="text-align:left;">
-                            <li style="margin-bottom:5px">A group of medical services that require physician's assessment in order to determine the classification. Physicians need to access the relevant Powerchart Mpages questionnaire and respond to a set of predefined questions, then the system will automatically assign a classification on the patient encounter based on the physician's assessment.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">A group of medical services that require physician's assessment in order to determine the classification. Physicians need to access the relevant Powerchart Mpages questionnaire and respond to a set of predefined questions, then the system will automatically assign a classification on the patient encounter based on the physician's assessment.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="faq-box" onclick="toggleFAQBox(this)">
                     <div class="faq-question">
                         <h4>What is Comorbidity Assessment and Reclassification?</h4>
-                        <img src="./images/expand-icon.png" width="25px" style="opacity:0.5">
+                        <img src="./images/expand-icon.png" width="15px" style="opacity:0.5; transition: 0.3s;">
                     </div>
                     <div class="faq-answer" style="height: 0px;">
                         <ul style="text-align:left;">
-                            <li style="margin-bottom:5px">This is applicable to internal Sidra physician's referrals only and for selected services.</li>
-                            <li style="margin-bottom:5px">The comorbidity assessment/Reclassification enable physicians to review and change a patient’s classification from Preferred to Sole Provider as necessary.</li>
-                            <li style="margin-bottom:5px">For example, If a patient is referred internally from a Sole Provider service onto another medical service that is classed as Preferred, then the receiving physicians at the Preferred services need to perform a comorbidity assessment to ascertain if the patient referral qualifies as a Sole Provider. The receiving physician will access the Powerchart Mpages Comorbidity questionnaire and respond to a predefined set of questions, then the system will automatically assign a classification on the patient encounter based on the physician’s comorbidity assessment.</li>
-                            <li style="margin-bottom:5px">The outcome of the comorbidity assessment could either be the patient remain as Preferred class or change to a Sole Provider.</li>
-                            <li style="margin-bottom:5px">The comorbidity assessment is currently available for a specific medical services that are classed as Preferred either by default or based on the conditional age criterion.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">This is applicable to internal Sidra physician's referrals only and for selected services.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">The comorbidity assessment/Reclassification enable physicians to review and change a patient’s classification from Preferred to Sole Provider as necessary.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">For example, If a patient is referred internally from a Sole Provider service onto another medical service that is classed as Preferred, then the receiving physicians at the Preferred services need to perform a comorbidity assessment to ascertain if the patient referral qualifies as a Sole Provider. The receiving physician will access the Powerchart Mpages Comorbidity questionnaire and respond to a predefined set of questions, then the system will automatically assign a classification on the patient encounter based on the physician’s comorbidity assessment.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">The outcome of the comorbidity assessment could either be the patient remain as Preferred class or change to a Sole Provider.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">The comorbidity assessment is currently available for a specific medical services that are classed as Preferred either by default or based on the conditional age criterion.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="faq-box" onclick="toggleFAQBox(this)">
                     <div class="faq-question">
                         <h4>What are Automatic Carry Over/Pulled Forward Classifications?</h4>
-                        <img src="./images/expand-icon.png" width="25px" style="opacity:0.5">
+                        <img src="./images/expand-icon.png" width="15px" style="opacity:0.5; transition: 0.3s;">
                     </div>
                     <div class="faq-answer" style="height: 0px;">
                         <ul style="text-align:left;">
-                            <li style="margin-bottom:5px">Patient’s ancillary services request follows the original consult visit classification for Internal referrals, this means all ancillary services will inherit the service classification of the requesting medical services.</li>
-                            <li style="margin-bottom:5px">Follow up future Orders for clinic visits will also carry forward original classification from the previous visit – applicable if the service classification was determined through physician clinical assessment. For hard coded default classification medical services, this rule is not applicable because the follow up orders for such services will automatically have a default flag.</li>
-                            <li style="margin-bottom:5px">For the system to automatically carry forward the service classification from one visit onto the applicable future visit or ancillary services, the Ordering physician must ensure that the relevant visit encounter is opened in the patients Chart prior to placing the future orders.</li>
-                            <li style="margin-bottom:5px">The opened visit encounter must have a classification flag for the system to automatically copy/carry over.</li>
-                            <li style="margin-bottom:5px">•	Note: If a physician places a future order/ancillary order using an encounter that has not been classified, the system will have nothing to carry forward.</li>                            
+                            <li class="faq-answer-li" style="margin-bottom:5px">Patient’s ancillary services request follows the original consult visit classification for Internal referrals, this means all ancillary services will inherit the service classification of the requesting medical services.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">Follow up future Orders for clinic visits will also carry forward original classification from the previous visit – applicable if the service classification was determined through physician clinical assessment. For hard coded default classification medical services, this rule is not applicable because the follow up orders for such services will automatically have a default flag.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">For the system to automatically carry forward the service classification from one visit onto the applicable future visit or ancillary services, the Ordering physician must ensure that the relevant visit encounter is opened in the patients Chart prior to placing the future orders.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">The opened visit encounter must have a classification flag for the system to automatically copy/carry over.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">•	Note: If a physician places a future order/ancillary order using an encounter that has not been classified, the system will have nothing to carry forward.</li>                            
                         </ul>
                     </div>
                 </div>
                 <div class="faq-box" onclick="toggleFAQBox(this)">
                     <div class="faq-question">
                         <h4>How do I transfer a patient from ‘Sole Provider’ to ‘Preferred Classification’?</h4>
-                        <img src="./images/expand-icon.png" width="25px" style="opacity:0.5">
+                        <img src="./images/expand-icon.png" width="15px" style="opacity:0.5; transition: 0.3s;">
                     </div>
                     <div class="faq-answer" style="height: 0px;">
                         <ul style="text-align:left;">
-                            <li style="margin-bottom:5px">Lorem Ipsum.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">Lorem Ipsum.</li>
                         </ul>
                     </div>
                 </div>

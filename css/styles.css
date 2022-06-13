@@ -187,12 +187,20 @@ a.hover {
     display: inline-block;
     border-radius: 5px;
     border: 2px solid #298678;
-    box-shadow: none;
+    box-shadow: 0px 3px 5px 0px #bbb;
 }
+
+#left-panel-scroll button:hover {
+    color: #298678;
+    background-color: rgb(233, 232, 224);
+    display: inline-block;
+    border-radius: 5px;
+    border: 2px solid #298678;
+}
+
 
 #left-panel-scroll button:active {
     color: #298678;
-    font-size: 14px;
     background-color: rgb(221, 221, 221);
     display: inline-block;
     border-radius: 5px;
@@ -285,7 +293,7 @@ a.hover {
     font-family: Arial, Helvetica, sans-serif;
     color: #298678;
     position: fixed;
-    background: white;
+    background: #efefef;
     top: 24%;
     bottom: 10%;
     right: 10.5%;
@@ -297,7 +305,7 @@ a.hover {
 
 #additrespanel {
     font-family: Arial, Helvetica, sans-serif;
-    color: #298678;
+    color: #4C4A59;
     position: fixed;
     background: white;
     top: 24%;
@@ -361,11 +369,21 @@ a.hover {
     background-color: transparent;
     color: #42a394;
     border-color: #42a394;
+    border-radius: 8px;
     border: 2.5px solid;
     margin: 10px;
     cursor: pointer;
     font-size: 1.1vw;
     box-shadow: 2px 2px 5px 0px rgb(0 0 0 / 20%);
+}
+
+.select-panel-btn:active{
+    box-shadow: none;
+    background-color: #dedede;
+}
+
+.select-panel-btn:hover{
+    background-color: #e6e6e6;
 }
 
 .forms-additinfo {
@@ -553,7 +571,7 @@ a.hover {
     border-color: #42a394;
     border: 2px solid;
     margin-bottom: 3%;
-    box-shadow: 2px 2px 5px 0px rgb(0 0 0 / 20%);
+    box-shadow: 0px 3px 5px 0px rgb(0 0 0 / 20%);
 }
 
 #mobile-panel-filter {
@@ -592,14 +610,15 @@ a.hover {
 
 .faq-box {
     cursor: pointer;
-    border: 2px #aaa solid;
+    border: 1px #aaa solid;
     border-radius: 5px;
     width: 90%;
-    background: #eee;
+    background: #eae1ed;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
+    box-shadow: 0px 1px 5px 0px #979797;
 }
 
 .faq-question {
@@ -627,3 +646,8 @@ a.hover {
     margin-bottom: 6px;
     background: #fff;
 }
+
+.highlight {
+    background-color: #ffef95;
+    border-radius: 5px;
+  }
