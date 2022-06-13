@@ -182,7 +182,11 @@ function goHome() {
 
 function goBack() {
     pageState = 1;
-    location.href = sessionStorage.getItem('lastpage');
+    if (sessionStorage.getItem('lastpage') != null) {
+        location.href = sessionStorage.getItem('lastpage');
+    } else {
+        location.href = 'index.html';
+    }
 }
 
 function goAdditRes(page) {

@@ -614,7 +614,7 @@ a.hover {
     border: 1px #aaa solid;
     border-radius: 5px;
     width: 90%;
-    background: #eae1ed;
+    background: #eef7f8;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -636,7 +636,8 @@ a.hover {
 
 .faq-answer {
     cursor:text;
-    width: 98%;
+    text-align:left;
+    width: 90%;
     height: 0px;
     transition: 0.5s;
     overflow-y: scroll;
@@ -646,6 +647,11 @@ a.hover {
     margin-right: 6px;
     margin-bottom: 6px;
     background: #fff;
+    padding-right: 15px;
+}
+
+.faq-answer p {
+    margin-left: 15px;
 }
 
 .highlight {

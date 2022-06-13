@@ -56,7 +56,7 @@
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
-                background: #ffa98a;
+                background: #3ca293;
                 border: 1px solid #d29782;
                 padding: 10px;
                 border-radius: 7px;
@@ -76,17 +76,20 @@
                     padding: 2px 10px;
                     border-radius: 5px;
                     cursor:pointer">
-                    <span style="width:20px"></span>
-                    <input type="button" value="Clear" onclick="faqClear()" style="
-                    width: 100%;
-                    background: white;
-                    border: 1px solid white;
-                    color: #ffa98a;
-                    padding: 2px 5px;
-                    border-radius: 5px;
-                    cursor:pointer">
                 </div>
-
+                <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                    <p style="display:none" id="faq-filter-indic">Showing FAQs with: ""</p>
+                    <span style="width:10px"></span>
+                    <input type="button" value="X" onclick="faqClear()" style="
+                    width: 20px;
+                    background: white;
+                    border: 1px solid rgb(60, 162, 147);
+                    color: rgb(60, 162, 147);
+                    padding: 2px 5px;
+                    cursor: pointer;
+                    height: 20px;
+                    display: none;" id="faq-filter-clear">
+                </div>
                 <div class="faq-box" onclick="toggleFAQBox(this)">
                     <div class="faq-question">
                         <h4>What are Preferred and Sole Provider services?</h4>
@@ -170,8 +173,45 @@
                         <img src="./images/expand-icon.png" width="15px" style="opacity:0.5; transition: 0.3s;">
                     </div>
                     <div class="faq-answer" style="height: 0px;">
+                        <p>There are two ways to do this.</p>
+                        <ol style="text-align:left;">
+                            <li class="faq-answer-li" style="margin-bottom:5px">If the Patient’s Sole Provider Classification was determined through a physician Clinical Assessment or Comorbidity Assessment, then the physician need to reassess the patient, using the mpages questionnaire to modify the responses which will then change the classification to ‘Preferred Service’. </li>
+                            <li class="faq-answer-li" style="magin-bottom:5px">If the Patients default classification is “Sole Provider”</li>
+
+                        </ol>
+                    </div>
+                </div>
+                <div class="faq-box" onclick="toggleFAQBox(this)">
+                    <div class="faq-question">
+                        <h4>Elective Surgical Admissions</h4>
+                        <img src="./images/expand-icon.png" width="15px" style="opacity:0.5; transition: 0.3s;">
+                    </div>
+                    <div class="faq-answer" style="height: 0px;">
                         <ul style="text-align:left;">
-                            <li class="faq-answer-li" style="margin-bottom:5px">Lorem Ipsum.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">Physician need to place the surgical procedure Order in an encounter that holds the patient classification. For example, following an Outpatient Consultation, a physician decides to Order a Surger procedure for a patient, the Outpatient Encounter must be used to place the Procedure Order, so that the system will automatically copy the Service Classification  from the Outpatient encounter onto the Procedure Order which will later flow onto the surgical Inpatient Encounter upon admission or confirmation of the surgery appointment.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="faq-box" onclick="toggleFAQBox(this)">
+                    <div class="faq-question">
+                        <h4>Elective Medical Admissions</h4>
+                        <img src="./images/expand-icon.png" width="15px" style="opacity:0.5; transition: 0.3s;">
+                    </div>
+                    <div class="faq-answer" style="height: 0px;">
+                        <ul style="text-align:left;">
+                            <li class="faq-answer-li" style="margin-bottom:5px">For medical services that has default classification, this will automatically flow onto the encounter as soon as an admission order is placed.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">For medical services that requires a clinical assessment to be performed, upon placing the admit to Inpatient Order, the Attending/admitting Physician will receive a notification in his/her message Center inbox with a link to perform the necessary clinical assessment using the Service Classification Mpages.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="faq-box" onclick="toggleFAQBox(this)">
+                    <div class="faq-question">
+                        <h4>Emergency Patient Transfer to Inpatient</h4>
+                        <img src="./images/expand-icon.png" width="15px" style="opacity:0.5; transition: 0.3s;">
+                    </div>
+                    <div class="faq-answer" style="height: 0px;">
+                        <ul style="text-align:left;">
+                            <li class="faq-answer-li" style="margin-bottom:5px"></li>
                         </ul>
                     </div>
                 </div>

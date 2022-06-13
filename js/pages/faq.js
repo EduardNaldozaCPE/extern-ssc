@@ -111,12 +111,17 @@ function faqFilter() {
                 
             }
         }
+        document.getElementById('faq-filter-clear').style.display = 'block';
+        document.getElementById('faq-filter-indic').style.display = 'block';
+        document.getElementById('faq-filter-indic').innerText = `Showing FAQs with: "${s}"`;
     }
 }
 
 function faqClear() {
     let qbox = document.getElementsByClassName('faq-box');
-
+    document.getElementById('faq-filter-textID').value == '';
+    document.getElementById('faq-filter-indic').style.display = 'none';
+    document.getElementById('faq-filter-clear').style.display = 'none';
     clearhighlight()
     for (let i_question = 0; i_question < qbox.length; i_question++) {
         const box = qbox[i_question];

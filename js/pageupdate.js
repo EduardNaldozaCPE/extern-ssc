@@ -341,7 +341,7 @@ function updateClassif() {
                     break;
                 case "1":
                     outcome.innerText = "Sole Provider";
-                    outcomeSub.innerText = "The Gynecology service is classified as Preferred for patients aged 14 to 18 years old";        
+                    outcomeSub.innerText = "The Gynecology service is classified as Sole for patients aged 14 to 18 years old";        
                     break;
                 case "2":
                     outcome.innerText = "Preferred Provider";
@@ -409,14 +409,14 @@ function updateClassif() {
         
         case 'Ancillary Services':
             outcome.innerText = "Sole or Preferred"
-            outcomeSub.innerText = "Inherits the service classification from originating encounter."
+            outcomeSub.innerText = "Inherits the service classification from the originating encounter."
             break;
         
         case 'Adult Services':
             switch (ss_internalRef) {
                 case 'true':
                     outcome.innerText = 'Sole or Preferred';
-                    outcomeSub.innerText = "The service inherits the service classification from originating encounter";
+                    outcomeSub.innerText = "The service inherits the service classification from the originating encounter";
                     break;
                 case 'false':
                     outcome.innerText = "Preferred Provider";
@@ -431,7 +431,7 @@ function updateClassif() {
 
         case "Surgery Procedures (Inpatient & Ambulatory)":
             outcome.innerText = 'Sole or Preferred';
-            outcomeSub.innerText = "The service inherits the service classification from originating encounter";
+            outcomeSub.innerText = "Surgical procedures inherits its service classification from the originating encounter";
             break;
 
         case "Dental Surgery":
