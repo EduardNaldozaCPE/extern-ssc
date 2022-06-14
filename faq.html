@@ -98,7 +98,7 @@
                     <div class="faq-answer" style="height: 0px;">
                         <ul style="text-align:left;">
                             <li class="faq-answer-li" style="margin-bottom:5px">Preferred services are those services which are available at other public and private healthcare centers in Qatar, yet the patient prefers to come to Sidra Medicine due to our expertise, outcomes or patient experience. The patient is required to pay for the service either from their own pocket, insurance or by other means.</li>
-                            <li class="faq-answer-li" style="margin-bottom:5px">Sole provider is where we are the only provider for certain services in Qatar. This includes tertiary pediatric services and some women’s services. Government approved co-payment or insurance co-payment is required. </li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">Sole provider is where we are the only provider for certain services in Qatar. This includes tertiary pediatric services and some women's services. Government approved co-payment or insurance co-payment is required. </li>
                             <li class="faq-answer-li" style="margin-bottom:5px">Irrespective of the service required, all patients are required to present their insurance. </li>
                             <li class="faq-answer-li" style="margin-bottom:5px">Services offered to pediatric patients with comorbidities will be considered as sole provider services. A clinical assessment will be required to confirm comorbidities.</li>
                         </ul>
@@ -145,8 +145,8 @@
                     <div class="faq-answer" style="height: 0px;">
                         <ul style="text-align:left;">
                             <li class="faq-answer-li" style="margin-bottom:5px">This is applicable to internal Sidra physician's referrals only and for selected services.</li>
-                            <li class="faq-answer-li" style="margin-bottom:5px">The comorbidity assessment/Reclassification enable physicians to review and change a patient’s classification from Preferred to Sole Provider as necessary.</li>
-                            <li class="faq-answer-li" style="margin-bottom:5px">For example, If a patient is referred internally from a Sole Provider service onto another medical service that is classed as Preferred, then the receiving physicians at the Preferred services need to perform a comorbidity assessment to ascertain if the patient referral qualifies as a Sole Provider. The receiving physician will access the Powerchart Mpages Comorbidity questionnaire and respond to a predefined set of questions, then the system will automatically assign a classification on the patient encounter based on the physician’s comorbidity assessment.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">The comorbidity assessment/Reclassification enable physicians to review and change a patient's classification from Preferred to Sole Provider as necessary.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">For example, If a patient is referred internally from a Sole Provider service onto another medical service that is classed as Preferred, then the receiving physicians at the Preferred services need to perform a comorbidity assessment to ascertain if the patient referral qualifies as a Sole Provider. The receiving physician will access the Powerchart Mpages Comorbidity questionnaire and respond to a predefined set of questions, then the system will automatically assign a classification on the patient encounter based on the physician's comorbidity assessment.</li>
                             <li class="faq-answer-li" style="margin-bottom:5px">The outcome of the comorbidity assessment could either be the patient remain as Preferred class or change to a Sole Provider.</li>
                             <li class="faq-answer-li" style="margin-bottom:5px">The comorbidity assessment is currently available for a specific medical services that are classed as Preferred either by default or based on the conditional age criterion.</li>
                         </ul>
@@ -159,7 +159,7 @@
                     </div>
                     <div class="faq-answer" style="height: 0px;">
                         <ul style="text-align:left;">
-                            <li class="faq-answer-li" style="margin-bottom:5px">Patient’s ancillary services request follows the original consult visit classification for Internal referrals, this means all ancillary services will inherit the service classification of the requesting medical services.</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">Patient's ancillary services request follows the original consult visit classification for Internal referrals, this means all ancillary services will inherit the service classification of the requesting medical services.</li>
                             <li class="faq-answer-li" style="margin-bottom:5px">Follow up future Orders for clinic visits will also carry forward original classification from the previous visit – applicable if the service classification was determined through physician clinical assessment. For hard coded default classification medical services, this rule is not applicable because the follow up orders for such services will automatically have a default flag.</li>
                             <li class="faq-answer-li" style="margin-bottom:5px">For the system to automatically carry forward the service classification from one visit onto the applicable future visit or ancillary services, the Ordering physician must ensure that the relevant visit encounter is opened in the patients Chart prior to placing the future orders.</li>
                             <li class="faq-answer-li" style="margin-bottom:5px">The opened visit encounter must have a classification flag for the system to automatically copy/carry over.</li>
@@ -169,14 +169,14 @@
                 </div>
                 <div class="faq-box" onclick="toggleFAQBox(this)">
                     <div class="faq-question">
-                        <h4>How do I transfer a patient from ‘Sole Provider’ to ‘Preferred Classification’?</h4>
+                        <h4>How do I transfer a patient from 'Sole Provider' to 'Preferred Classification'?</h4>
                         <img src="./images/expand-icon.png" width="15px" style="opacity:0.5; transition: 0.3s;">
                     </div>
                     <div class="faq-answer" style="height: 0px;">
                         <p>There are two ways to do this.</p>
                         <ol style="text-align:left;">
-                            <li class="faq-answer-li" style="margin-bottom:5px">If the Patient’s Sole Provider Classification was determined through a physician Clinical Assessment or Comorbidity Assessment, then the physician need to reassess the patient, using the mpages questionnaire to modify the responses which will then change the classification to ‘Preferred Service’. </li>
-                            <li class="faq-answer-li" style="magin-bottom:5px">If the Patients default classification is “Sole Provider”</li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">If the Patient's Sole Provider Classification was determined through a physician Clinical Assessment or Comorbidity Assessment, then the physician need to reassess the patient, using the mpages questionnaire to modify the responses which will then change the classification to 'Preferred Service'. </li>
+                            <li class="faq-answer-li" style="margin-bottom:5px">If the Patient's default classification is “Sole Provider”, then the patient access team need to reopen the encounter in pmoffice.exe application and modify the patient's 'Referral Source' field value to 'Self-Referral'. This will automatically change the patient classification to 'Preferred'</li>
 
                         </ol>
                     </div>
@@ -206,13 +206,20 @@
                 </div>
                 <div class="faq-box" onclick="toggleFAQBox(this)">
                     <div class="faq-question">
-                        <h4>Emergency Patient Transfer to Inpatient</h4>
+                        <h4>Emergency Patient Transfer to Inpatient Admission</h4>
                         <img src="./images/expand-icon.png" width="15px" style="opacity:0.5; transition: 0.3s;">
                     </div>
                     <div class="faq-answer" style="height: 0px;">
-                        <ul style="text-align:left;">
-                            <li class="faq-answer-li" style="margin-bottom:5px"></li>
-                        </ul>
+                        <ol>
+                            <li style="font-weight:bold">ED Patient Transfer to Medical Service with a Default Classification:</li>
+                            <ul style="text-align:left;">
+                                <li class="faq-answer-li" style="margin-bottom:5px">If the Patient is transferred from Emergency Department to an Inpatient Medical Service that has a default classification of Sole Provider, as soon as the inpatient admitting/attending physician places the 'Admit to Inpatient' Order, the system will automatically assign the predefined default classification onto the inpatient encounter.</li>
+                            </ul>
+                            <li style="font-weight:bold">ED Patient Transfer to Medical Service Requiring Clinical Assessment:</li>
+                            <ul style="text-align:left;">
+                                <li class="faq-answer-li" style="margin-bottom:5px">If the Patient is transferred from Emergency Department to an Inpatient Medical Service that does NOT have a predefined default classification, that means a clinical assessment is required. as soon as the inpatient admitting/attending physician places the 'Admit to Inpatient' Order, the system will automatically send a notification to the attending physician to perform the necessary clinical assessment using the mpages, this will then determine and assign the service classification to the Inpatient encounter.</li>
+                            </ul>
+                        </ol>
                     </div>
                 </div>
             </div>

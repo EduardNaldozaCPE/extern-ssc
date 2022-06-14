@@ -658,3 +658,13 @@ a.hover {
     background-color: #ffef95;
     border-radius: 5px;
   }
+
+
+ol li {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+ul li {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
