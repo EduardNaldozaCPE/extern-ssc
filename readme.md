@@ -1,5 +1,16 @@
 # Service Classification Project
 
+## Javascript Structure
+
+The structure in which javascript files are loaded in each page go as follows.
+
+    canvas.js  ->  functions.js  ->  [PAGE SPECIFIC JS FILES]  ->  canvas_anim.js
+
+**canvas.js** and **functions.js** is called first so that *all variables are declared and initialised*, and  *non-page-specific functions are called* before declaring page specific functions.
+
+Then once page all *variables, non-page-specific functions, and page-specific functions* are called, **canvas.js** will run the necessary functions when the page is loaded.
+
+
 ## Adding New Services
 
 1. Adding the Service to the service list: 
