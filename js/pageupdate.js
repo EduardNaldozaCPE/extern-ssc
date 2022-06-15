@@ -1,3 +1,13 @@
+//  PURPOSE
+// 
+//  - When updateClassif is called / when user changes the active condition, the function will:
+//      1. Read the session storage for relevant key-value pair
+//      2. Overwrite the outcome's innerHTML
+//      3. Changes the outcome text's colour when service is 'Preferred Provider' 
+//      4. Changes the outcome's styling when window is in portait/mobile & adds "Scroll For More" box.
+
+
+
 function updateClassif() {
     //#region
     let outcome = document.getElementById("outcome");
@@ -14,6 +24,15 @@ function updateClassif() {
     // ADD CLASSIFICATION CONDITIONS LOGIC HERE
     switch (sessionStorage.getItem('branch')) {
         case "Adolescent Medicine":
+            if (ss_selfref == 'true') {
+                outcome.innerText = "Preferred Provider"
+                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
+            } else {
+                outcome.innerText = "Sole Provider"
+                outcomeSub.innerText = "Adolescent Medicine's classification is Sole Provider by default"
+            }
+            break;
+        case "Test":
             if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"
                 outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
@@ -461,6 +480,7 @@ function updateClassif() {
             break;
     }
     
+    // Changes the outcome's styling when window is in portait/mobile & adds "Scroll For More" box when in mobile
     if (canvas.width > canvas.height+(canvas.width/7)) {
         outcome.style = 'opacity: 1; transition: 0.6s; outline: solid 2px; padding: 15px;';
     } else {
@@ -472,6 +492,7 @@ function updateClassif() {
         }
     }
 
+    // Changes the Outcome Colour when outcome is Preferred
     if (outcome.innerText != "") {
         outcome.style.outline = "solid 2px";
         outcome.style.padding = "15px"

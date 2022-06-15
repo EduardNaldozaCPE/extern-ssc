@@ -1,8 +1,19 @@
+//  PURPOSE
+// 
+//  - formQuestions() performs the following:
+//      1. Remembers left-panel's scroll position.
+//      2. Refreshes page, and updates to show the currently selected service.
+//      3. Sets the default outcome HTML for each service.
+//      4. Sets the conditions for each service.
+
+
+
 function formQuestions() {
     if (location.pathname == '/'+getRootDir()+"form.html"){
+
         window.onload = () => {
+            // Remember left-panel's scroll position.
             let leftpanelscroll = document.getElementById("left-panel-scroll");
-        
             if (sessionStorage.getItem("left-panel-scroll") != null) {
                 leftpanelscroll.scrollTop = sessionStorage.getItem("left-panel-scroll");
             }
@@ -14,6 +25,8 @@ function formQuestions() {
             var qpanel1 = document.getElementById('q-panel1');
             qpanelheader.innerText = branch;
     
+            //  For each service button in left-panel: 
+            //      When clicked, set the new 'branch' to text in button, then refresh the page.
             const btnlist = document.getElementsByClassName('panel-btn');
             for (let btn=0;btn<btnlist.length-1;btn++){
                     btnlist[btn].onclick = () => {
@@ -26,6 +39,18 @@ function formQuestions() {
             // ADD CLASSIFICATION CONDITIONS HTML HERE
             switch (branch) {
                 case "Adolescent Medicine":
+                    outcome.innerText = "Sole Provider";
+                    outcomeSub.innerText = "Adolescent Medicine's classification is Sole by default";
+    
+                    qpanel1.innerHTML += `
+                    <div class='qpanel1-qbox'>
+                        <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
+                        <p class="qpanel-q">The patient is a self referral.</p></input>
+                    </div>
+                    `;
+                    selfRef();
+                    break;
+                case "Test":
                     outcome.innerText = "Sole Provider";
                     outcomeSub.innerText = "Adolescent Medicine's classification is Sole by default";
     
@@ -557,6 +582,6 @@ function formQuestions() {
                 default:
                     break;
             }
-            
+            // Call updateClassif() to make sure that the correct classification shows.
             updateClassif();
     }}}

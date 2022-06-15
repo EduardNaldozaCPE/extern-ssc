@@ -1,3 +1,15 @@
+//  PURPOSE *additionalresources.html page-specific js file*
+// 
+//  - Page class:
+//      1. Runs mobileUI() if canvas width is smaller than canvas height.
+//      2. Adds mobile "Back" button.
+// 
+//  - mobileUI:
+//      - ** The Mobile UI of this page completely overwrites the "additrespanel" div in additionalresources.html **
+//        ** IF CHANGES ARE MADE IN ADDITIONALRESOURCES.HTML, THE SAME CHANGES MUST BE MADE IN THIS PAGE **
+//      - Override current styling and content to portrait / mobile-friendly UI 
+
+
 function mobileUI() {
     let title = document.getElementById("title");
     title.style.fontSize = "1.1rem";

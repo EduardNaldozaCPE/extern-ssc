@@ -1,3 +1,10 @@
+//  PURPOSE *form.html page-specific js file*
+// 
+//  - Page class:
+//      1. Adds mobile "Back" button.
+//      2. Override current styling and content to portrait / mobile-friendly UI if canvas width is smaller than canvas height
+
+
 class Page{
     initpage = () => {
         // MOBILE VIEW FOR FORM.HTML

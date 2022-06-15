@@ -1,3 +1,13 @@
+//  PURPOSE *index.html page-specific js file*
+// 
+//  - Page class:
+//      1. Hides Default Select Panel HTML; Select Panel UI is replaced with mobile friendly version.
+//      2. Runs mobileUI() if canvas width is smaller than canvas height.
+// 
+//  - mobileUI:
+//      - Override current styling and content to portrait / mobile-friendly UI 
+
+
 function mobileUI() {
     let title = document.getElementById("title");
     title.style.fontSize = "1.1rem";

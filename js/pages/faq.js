@@ -1,3 +1,15 @@
+//  PURPOSE *faq.html page-specific js file*
+// 
+//  - Page class:
+//      1. Runs mobileUI() if canvas width is smaller than canvas height.
+//      2. Adds mobile "Back" button.
+// 
+//  - mobileUI:
+//      - Override current styling and content to portrait / mobile-friendly UI 
+
+
+
+// Opens/Closes the FAQ box when clicked
 function toggleFAQBox(item) {
     if (item.getElementsByTagName('img')[0].style.transform == 'rotate(180deg)'){
         item.getElementsByTagName('img')[0].style.transform = '';
@@ -56,6 +68,7 @@ class Page{
     }
 }
 
+// Highlights FAQ text depending on input of the search field.
 function highlight(text,inputText) {
     // var inputText = document.getElementById("inputText");
     var innerHTML = inputText.innerHTML;
@@ -66,6 +79,7 @@ function highlight(text,inputText) {
     }
 }  
 
+// Clears the currently highlighted FAQ text.
 function clearhighlight() {
     let highlighteds = document.getElementsByClassName('highlight');
     for (let i = 0; i < highlighteds.length; i++) {
@@ -77,6 +91,11 @@ function clearhighlight() {
     }
 }  
 
+//  When search button is clicked:
+//      1. Search for input text in each FAQ box, run highlight function when one is found.
+//      2. Search for input text in each list in FAQ box, run highlight function when one is found.
+//      3. Hide FAQ boxes with no matching keyword. 
+//      4. Show "Showing FAQs with" text and "X" button.
 function faqFilter() {
     let s = document.getElementById('faq-filter-textID').value;
     if (!(s == "" || s == " ")){
@@ -94,7 +113,6 @@ function faqFilter() {
 
             if (box.getElementsByTagName('h4')[0].innerText.toLowerCase().includes(s)){
                 highlight(s,box.getElementsByTagName('h4')[0]);
-                continue;
             }
 
             let qbox_answerlist = box.getElementsByClassName('faq-answer-li')
@@ -116,6 +134,10 @@ function faqFilter() {
     }
 }
 
+//  When the "X" button is clicked after searching
+//      1. Hide "Showing FAQs with" text and "X" button.
+//      1. Clears the currently highlighted FAQ text.
+//      1. Shows all FAQ boxes; clears 'display:none' style.
 function faqClear() {
     let qbox = document.getElementsByClassName('faq-box');
     document.getElementById('faq-filter-textID').value == '';

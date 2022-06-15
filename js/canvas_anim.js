@@ -1,3 +1,10 @@
+// PURPOSE
+//  - Start Background Animations (using Canvas)
+//  - Initialise page-specific scripts in from Page class (each js file in ./pages directory has defined Page class)
+//  - Set default outcome (forms.js)
+
+
+
 //BACKGROUND LINE ANIMATION
 class Backline {
     constructor(x1, x2, y1, y2, dx1, dx2, dy1, dy2, colour) {
@@ -61,10 +68,8 @@ function newLineArray() {
     return lineArray;
 }
 
-//Gather Objects from page js
+// Initialise page-specific scripts 
 pagecontent = new Page();
-
-
 
 // Instantiating Objects in Animation
 var pageinit = true;
@@ -87,7 +92,7 @@ function animation() {
         lineArray[i].update();
     }
 
-    // Initialize additional conditional functions for the page
+    // Initialize page-specific functions once
     if (pageinit){
         pagecontent.initpage();
         pageinit = false;
@@ -95,12 +100,11 @@ function animation() {
         // After initialising the page, the next frame will add animations to elements added via JS
         try {
             document.getElementById("mobile-panel").style = 'opacity: 1;transform: translate(-50%,0px);';
-        } catch (err) {
-            // console.log(err);
-        }
+        } catch (err) {}
     }
 }
 
+// In form.html, call formQuestions() (in forms.js)
 if (location.pathname.endsWith("/extern-ssc/form.html")){
     formQuestions();
 }
