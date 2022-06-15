@@ -8,7 +8,7 @@ The structure in which javascript files are loaded in each page go as follows.
 
 *canvas.js* and *functions.js* are called first so that **all variables are declared and initialised, and non-page-specific functions are called before declaring page specific functions.**
 
-Then once page all **variables, non-page-specific functions, and page-specific functions** are called, *canvas.js* will run the necessary functions when the page is loaded.
+Then once page all **variables, non-page-specific functions, and page-specific functions are declared**, *canvas.js* will run the necessary functions when the page is loaded.
 
 
 ## Adding New Services
