@@ -100,7 +100,6 @@ function faqFilter() {
             let qbox_answerlist = box.getElementsByClassName('faq-answer-li')
             for (let i_answer = 0; i_answer < qbox_answerlist.length; i_answer++) {
                 const ans = qbox_answerlist[i_answer];
-
                 if (ans.innerText.toLowerCase().includes(s.toLowerCase())) {
                     box.style.display = '';
                     highlight(s,ans);
