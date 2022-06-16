@@ -14,7 +14,7 @@ var servicelist = [
     "Genetics", "Gynecology", "Hematology/Oncology", "Infectious Disease", "Maternal Fetal Medicine", 
     "NICU", "Neonatal Surgery", "Nephrology", "Neurology", "Neurosurgery", "Obstetrics", 
     "Ophthalmology", "Orthopedics", "Plastic Surgery", "Private Clinics", "Pulmonology", "Rehab Medicine", 
-    "Reproductive Medicine", "Rheumatology", "Surgery Procedures (Inpatient & Ambulatory)", "Transplant", "Urology","Test"
+    "Reproductive Medicine", "Rheumatology", "Surgery Procedures (Inpatient & Ambulatory)", "Transplant", "Urology"
 ];
 
 

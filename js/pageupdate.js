@@ -32,15 +32,6 @@ function updateClassif() {
                 outcomeSub.innerText = "Adolescent Medicine's classification is Sole Provider by default"
             }
             break;
-        case "Test":
-            if (ss_selfref == 'true') {
-                outcome.innerText = "Preferred Provider"
-                outcomeSub.innerText = 'All self-referrals are classified as Preferred (Excluding CAMHS)'
-            } else {
-                outcome.innerText = "Sole Provider"
-                outcomeSub.innerText = "Adolescent Medicine's classification is Sole Provider by default"
-            }
-            break;
         case "Allergy Immunology":
             if (ss_selfref == 'true') {
                 outcome.innerText = "Preferred Provider"

@@ -50,18 +50,6 @@ function formQuestions() {
                     `;
                     selfRef();
                     break;
-                case "Test":
-                    outcome.innerText = "Sole Provider";
-                    outcomeSub.innerText = "Adolescent Medicine's classification is Sole by default";
-    
-                    qpanel1.innerHTML += `
-                    <div class='qpanel1-qbox'>
-                        <input class="checkbox" type="checkbox" onclick="selfRef()" id="selfRefbox">
-                        <p class="qpanel-q">The patient is a self referral.</p></input>
-                    </div>
-                    `;
-                    selfRef();
-                    break;
                 case "Allergy Immunology":
                     outcome.innerText = "Sole Provider";
                     outcomeSub.innerText = "Allergy ImmunologyAllergy Immunology's classification is Sole by default";
